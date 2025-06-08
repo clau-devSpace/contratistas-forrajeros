@@ -12,7 +12,12 @@ body{
     background-color: white;
 }
 
+main {
+  width: 100%;
+}
+
 header{
+    width: 100%;
     min-height: 100vh;
     background-image: url('../assets/images/imagenes-de-fondo/favorita-11.jpg');
     background-size: cover;
@@ -46,7 +51,7 @@ h1{
     font-style: normal;
     font-size: 50px;
     color: #fff;
-    text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -103,66 +108,6 @@ h1{
     background-color: #e0e0e0;
 }
 
-/*Estilos Footer
-footer{
-    
-    background-color: #000000;
-    height: 150px;
-}
-
-.container-footer{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-}
-
-.icono-redes, h4{
-    color: white;
-}
-.logo-footer{
-    width: 140px;
-    height: auto;
-}
-
-footer p{
-    font-size: 20px;
-    color:#fff;
-    margin-left: 8px;
-    line-height: 1.2;
-}
-.redes-sociales{
-    align-items: center;
-    text-align: center;
-    gap: 10px;
-    padding-right: 7px;
-}
-.icono-redes{
-    padding: 3px 7px;
-    margin-right: 10px;
-    background-color: #fff;
-    color: black;
-    border-radius: 50%;
-}
-h4{
-    font-weight: 300;
-    padding-bottom: 10px;
-}
-.redes-sociales{
-    padding-top: 10px;
-}
-
-/*Opacidad del fondo cuando se activa el menu
-.titulo.opacidad{
-    opacity: 0.5;
-}
-main.opacidad{
-    opacity: 0.5;
-}
-
-footer.opacidad{
-    opacity: 0.3;
-}
 
 /*Estilos Footer */
 footer {
@@ -221,7 +166,6 @@ footer p {
     gap: 10px; 
 }
 
-
 .icono-redes {
     padding: 8px 12px;
     background-color: #fff;
@@ -256,7 +200,7 @@ h4 {
 
 .info-button {
     margin-top: 20px; 
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .somos{
@@ -332,8 +276,6 @@ h4 {
     height: auto; 
     object-fit: cover; 
     border-radius: 10px;
-    /*box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-    /*filter: drop-shadow(2px 2px 4px rgba(140, 178, 132, 0.5))*/
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
 }
 
@@ -341,7 +283,6 @@ h4 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
-            /*margin: 3rem 0;*/
         }
 
         .image-card-v1 {
@@ -429,8 +370,6 @@ h4 {
 .frames{
     display: flex;
     justify-content: space-between;
-    /*width: 1000px;
-    height: 1000px;*/
     margin-block-start: 15px;
     margin-block-end: 100px;
 }
@@ -473,6 +412,7 @@ h4 {
 /*Estilo nueva seccion3*/
 .agrinir-container{
    width: 100%;
+   box-sizing: border-box;
    background-color: #6CBF55;
 
 }
@@ -482,9 +422,6 @@ h4 {
     font-family: "Roboto", sans-serif;
     font-weight: 600;
     font-style: normal;
-    /*font-family: "Open Sans", sans-serif;
-    font-weight: 700;
-    font-style: normal;*/
     font-size: 43px;
     text-align: left;
     align-items: flex-start;
@@ -535,9 +472,6 @@ h4 {
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
     font-style: normal;
-   /* font-family: "Open Sans", sans-serif;
-    font-weight: 300;
-    font-style: normal;*/
     font-size: 18px;
     color: #ffffff;
     max-width: 700px;
@@ -566,7 +500,6 @@ h4 {
 .margenes{
     margin-left: 150px;
     margin-right: 150px;
-    /*margin-top: 50px;*/
 }
 
 .linea-horizontal{
@@ -582,20 +515,6 @@ canvas {
   display: block;
 }
 
-/* ==== CONTENEDOR DE PARTICULAS ==== */
-/*#particles-js {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  background-color: #4a8a3f;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50% 50%;
-  overflow: hidden;
-}*/
 
 /* ==== CONTENEDOR PRINCIPAL ==== */
 .promo-container {
@@ -604,25 +523,7 @@ canvas {
   background-color: #F2F2F2;
   overflow: hidden;
   margin-top: 50px;
-  padding-top: 50px;
 }
-
-/* ==== ANIMACIÓN DE FONDO (GRADIENTE) ==== 
-.gradient-1 {
-  background: linear-gradient(135deg, #529c46, #4a8a3f, #0c51a6, #529c46);
-  background-size: 400% 400%;
-  animation: gradientMove1 8s ease-in-out infinite;
-  padding: 15px;
-  display: inline-block;
-  border-radius: 12px;
-}
-
-@keyframes gradientMove1 {
-  0%, 100% { background-position: 0% 50%; }
-  25% { background-position: 100% 50%; }
-  50% { background-position: 100% 100%; }
-  75% { background-position: 0% 100%; }
-}*/
 
 /* ==== CONTENIDO ==== */
 .promo-items {
@@ -630,18 +531,13 @@ canvas {
   text-align: left;
   align-items: center;
   justify-content: space-between;
-  /*padding-top: 30px;*/
+  padding-top: 20px;
   padding-bottom: 40px;
   gap: 30px;
   position: relative;
   z-index: 0;
 }
 
-.margenes {
-  margin-left: 100px;
-  margin-right: 100px;
- /* margin-block-start: 50px;*/
-}
 
 .promo-texto {
   display: flex;
@@ -763,41 +659,6 @@ canvas {
 }
 
 
-.swiper {
-      width: 100%;
-      height: auto;
-      z-index: 0;
-      margin-bottom: 50px;
-    }
-
-    .swiper-img{
-        width: 120px;
-        height: auto;
-    }
-
-    .swiper-wrapper{
-        align-items: center;
-    }
-
-    .swiper-slide {
-      text-align: center;
-      font-size: 18px;
-      background: #ffffff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .swiper-slide img {
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
-
-    .h2-empresas{
-        margin-top: 50px;
-    }
-
   
   /* ==========================================================================
    Responsive Design Adjustments
@@ -810,10 +671,10 @@ body {
 }
 
 /* Base margenes adjustment for larger screens (already good, just ensuring consistency) */
-.margenes {
+/*.margenes {
     margin-left: 150px;
     margin-right: 150px;
-}
+}*/
 
 /* Header Section */
 header {
@@ -839,10 +700,7 @@ h1 {
 
 .titulo p {
     font-size: 22px; /* Base font size */
-    margin-left: 0; /* <<< ENSURE LEFT ALIGNMENT */
-    margin-right: auto;
-    max-width: 800px; /* Limit width for readability */
-    text-align: left; /* <<< ENSURE LEFT ALIGNMENT */
+    /*max-width: 800px;  Limit width for readability */
 }
 
 /* First Section (Somos) */
@@ -879,8 +737,7 @@ h1 {
 
 /* Promo Section (Congreso) */
 .promo-container {
-    margin-top: 50px;
-    padding-top: 50px;
+    padding-top: 20px;
     padding-bottom: 50px; /* Ensure good bottom spacing */
 }
 
@@ -888,8 +745,7 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: center; /* Vertically align */
-    gap: 30px;
-    padding-bottom: 40px;
+    gap: 35px;
 }
 
 .promo-texto {
@@ -933,7 +789,7 @@ h1 {
 }
 
 .promo-video-container {
-    max-width: 600px; /* Base max-width */
+    max-width: 500px; /* Base max-width */
     flex-shrink: 0;
     flex-grow: 1;
 }
@@ -974,12 +830,6 @@ h1 {
     margin-right: 10px;
 }
 
-.promo-boton-container {
-    display: flex; /* Use flex to align the button */
-    justify-content: flex-start; /* <<< ENSURE LEFT ALIGNMENT OF BUTTON */
-    margin-bottom: 40px;
-    padding: 0 20px; /* Add padding for smaller screens */
-}
 
 .promo-boton {
     width: 185px;
@@ -1007,20 +857,10 @@ h1 {
     margin: 7px 0 23px 0; /* <<< ENSURE LEFT ALIGNMENT (0 auto 0 0) */
 }
 
-.swiper {
-    margin-bottom: 50px;
-}
-
-.swiper-slide img {
-    max-width: 120px;
-    height: auto;
-    object-fit: contain;
-}
-
 /* Agrinir Section */
 .agrinir-container {
-    padding-top: 50px;
-    padding-bottom: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .agrinir-items {
@@ -1218,8 +1058,8 @@ h4 {
 /* Tablet Landscape and Smaller Desktops (max-width: 1200px) */
 @media (max-width: 1200px) {
     .margenes {
-        margin-left: 80px;
-        margin-right: 80px;
+        margin-left: 120px;
+        margin-right: 120px;
     }
 
     h1 {
@@ -1402,10 +1242,7 @@ h4 {
         width: 90px;
         margin: 7px 0 23px 0; /* <<< ENSURE LEFT ALIGNMENT */
     }
-    .swiper-slide img {
-        max-width: 100px;
-    }
-
+   
     .agrinir-items {
         flex-direction: column; /* Stack vertically */
         align-items: flex-start; /* <<< ENSURE LEFT ALIGNMENT WHEN STACKED */

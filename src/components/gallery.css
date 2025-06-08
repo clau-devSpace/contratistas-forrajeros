@@ -1,0 +1,34 @@
+ .mySwiper {
+          width: 100%;
+          height: 400px;
+          padding: 20px 0;
+        }
+
+        .swiper-slide {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 8px;
+          overflow: hidden;
+          box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+          background: #f8f9fa;
+        }
+
+        .imagen-galeria {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+          display: block;
+        }
+
+        .swiper-pagination-progressbar {
+          background: rgba(0, 0, 0, 0.1);
+          height: 4px;
+          border-radius: 2px;
+        }
+
+        .swiper-pagination-progressbar-fill {
+          background: #3b82f6;
+          border-radius: 2px;
+        }

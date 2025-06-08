@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import 'animate.css';
 import './Home.css';
-import contratista from '../assets/images/imagenes-secciones/contratista-imagen.jpg';
-import ganado from '../assets/images/imagenes-secciones/ganado-imagen.jpg';
-import maquinas from '../assets/images/imagenes-secciones/maquinas-imagen.jpg';
+import ImageGallery from '../components/gallery';
 import socios from '../assets/images/imagenes-secciones/socioss.jpg';
 import mapa from '../assets/images/imagenes-secciones/imagen-mapa.png';
 import forraje from '../assets/images/imagenes-secciones/analisis-forraje-4.jpg';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import Gallery from '../components/gallery';
+import logo from '../assets/images/logos/Group 5.svg'
 
 const Home = () => {
   useEffect(() => {
@@ -93,33 +93,14 @@ const Home = () => {
           </div>
         </section>
 
-        <div className="version-label"></div>
-        <div className="image-gallery-v1 margenes">
-          <div className="image-card-v1">
-            <img src={contratista} alt="Contratista Forrajero" />
-            <div className="image-overlay-v1">
-              <div className="image-title-v1">Ganadería Sustentable</div>
-              <div className="image-description-v1">Promovemos prácticas ganaderas responsables que garantizan la calidad del forraje y el bienestar animal</div>
-            </div>
+        <section>
+          <div>
+            <Gallery/>
           </div>
-          <div className="image-card-v1">
-            <img src={ganado} alt="Vacas comiendo" />
-            <div className="image-overlay-v1">
-              <div className="image-title-v1">Forrajes de Calidad</div>
-              <div className="image-description-v1">Tecnología avanzada para la producción de forrajes nutritivos y de alta calidad para el ganado</div>
-            </div>
-          </div>
-          <div className="image-card-v1">
-            <img src={maquinas} alt="Maquinaria agrícola" />
-            <div className="image-overlay-v1">
-              <div className="image-title-v1">Tecnología Moderna</div>
-              <div className="image-description-v1">Maquinaria especializada para la cosecha y procesamiento eficiente de forrajes</div>
-            </div>
-          </div>
-        </div>
+        </section>
 
         <section className="promo-container">
-          <div className="margenes promo-items">
+          <div className= "promo-items margenes">
             <div className="promo-texto">
               <h3 className="promo-titulo animate-item" data-animation="animate__fadeInDown">
                 Congreso Argentino de Forrajes
@@ -154,60 +135,6 @@ const Home = () => {
           </div>
         </section>
 
-        <section>
-          <div className="empresas-cacf margenes">
-            <h2 className="h2-empresas">Nos acompañan</h2>
-            <div className="linea-horizontal2"></div>
-            <div className="swiper mySwiper">
-              <div className="swiper-wrapper">
-                <div className="swiper-slide img-johndeere">
-                  <img src="imagenes/logos/johndeere.png" alt="John Deere" />
-                </div>
-                <div className="swiper-slide">
-                  <img src="imagenes/logos/claas.jpg" alt="Claas" />
-                </div>
-                <div className="swiper-slide">
-                  <img src="imagenes/logos/akron.png" alt="Akron" />
-                </div>
-                <div className="swiper-slide">
-                  <img className="img-newholland" src="imagenes/logos/new-holland - copia.png" alt="New Holland" />
-                </div>
-                <div className="swiper-slide">
-                  <img src="imagenes/logos/richiger.png" alt="Richiger" />
-                </div>
-                <div className="swiper-slide">
-                  <img src="imagenes/logos/canavesio.jpg" alt="Canavesio" />
-                </div>
-                <div className="swiper-slide">
-                  <img src="imagenes/logos/kuhn.jpg" alt="Kuhn" />
-                </div>
-                <div className="swiper-slide">
-                  <img src="imagenes/logos/greenpack.png" alt="Greenpack" />
-                </div>
-                <div className="swiper-slide">
-                  <img src="imagenes/logos/blade.png" alt="Blade" />
-                </div>
-                <div className="swiper-slide">
-                  <img src="imagenes/logos/shakerbox.png" alt="Shakerbox" />
-                </div>
-                <div className="swiper-slide">
-                  <img src="imagenes/logos/novonesis.png" alt="Novonesis" />
-                </div>
-                <div className="swiper-slide">
-                  <img src="imagenes/logos/cooperacion.png" alt="Cooperacion" />
-                </div>
-                <div className="swiper-slide">
-                  <img src="imagenes/logos/mouras.png" alt="Mouras" />
-                </div>
-                <div className="swiper-slide">
-                  <img src="imagenes/logos/toolking.png" alt="Toolking" />
-                </div>
-              </div>
-              <div className="swiper-button-next"></div>
-              <div className="swiper-button-prev"></div>
-            </div>
-          </div>
-        </section>
 
         <section className="agrinir-container">
           <div className="margenes agrinir-items">
@@ -273,7 +200,7 @@ const Home = () => {
         <div className="container-footer">
           <div logo-texto="">
             <a href="index.html">
-              <img src="imagenes/logos/Group 5.svg" className="logo-footer" alt="Logo CACF" />
+              <img src={logo} className="logo-footer" alt="Logo CACF" />
             </a>
             <p>Cámara Argentina de Contratistas Forrajeros</p>
           </div>
