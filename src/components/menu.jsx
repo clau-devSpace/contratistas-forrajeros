@@ -89,14 +89,37 @@ const Menu = () => {
       ]
     },
     {
-      id: 'areas',
-      title: 'Áreas',
+      id: 'socios',
+      title: 'Nuestros Socios',
+      hasSubmenu: false,
+    },
+     {
+      id: 'convenios',
+      title: 'Convenios',
+      hasSubmenu: false,
+    },
+    {
+      id: 'area-economica',
+      title: 'Área Económica',
       hasSubmenu: true,
       submenuItems: [
-        'Área Económica',
-        'Área Técnica'
+        'Precios de referencia',
+        'Costos Silaje',
+        'Costos MS',
+        'Costos Transportes MV'
       ]
     },
+    {
+      id: 'area-tecnica',
+      title: 'Área Técnica',
+      hasSubmenu: true,
+      submenuItems: [
+        'Protocolo de Extracción de muestras',
+        'Manuales técnicos',
+        'Notas Periodísticas'
+      ]
+    },
+   
     {
       id: 'mapa',
       title: 'Mapa',
@@ -117,7 +140,7 @@ const Menu = () => {
   return (
     <>
       <nav>
-        <div className='nav-wrapper'>
+        <div className="nav-wrapper">
           <a href="#">
             <img src={logo} className="logo-menu" alt="Logo" />
           </a>
@@ -149,7 +172,7 @@ const Menu = () => {
         </div>
       </nav>
 
-      <div className={`menu-container ${isMenuOpen ? "active" : ""}`}>
+      <div className={`menu-container  ${isMenuOpen ? "active" : ""}`}>
         <div className="menu-content">
           <div className="main-menu">
             <ul className="menu-items">
@@ -228,20 +251,44 @@ const Menu = () => {
 
             <ul
               className={`submenu ${
-                activeDesktopSubmenu === "areas" ? "active" : ""
+                activeDesktopSubmenu === "area-economica" ? "active" : ""
               }`}
             >
               <li>
-                <a href="#">Área Económica</a>
+                <a href="#">Precios de referencia</a>
               </li>
               <li>
-                <a href="#">Área Técnica</a>
+                <a href="#">Costos Silaje</a>
+              </li>
+              <li>
+                <a href="#">Costo MS</a>
+              </li>
+              <li>
+                <a href="#">Costos Transportes MV</a>
+              </li>
+            </ul>
+
+             <ul
+              className={`submenu ${
+                activeDesktopSubmenu === "area-tecnica" ? "active" : ""
+              }`}
+            >
+              <li>
+                <a href="#">Protocolo de extracción de muestras</a>
+              </li>
+              <li>
+                <a href="#">Manuales Técnicos</a>
+              </li>
+               <li>
+                <a href="#">Notas periodísticas</a>
               </li>
             </ul>
           </div>
-        </div>
 
-        <img className="menu-image" src={imagen_menu} alt="Menu Image" />
+          <div className="menu-image-container">
+            <img className="menu-image" src={imagen_menu} alt="Menu Image" />
+          </div>
+        </div>
       </div>
     </>
   );
