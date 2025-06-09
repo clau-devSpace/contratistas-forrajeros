@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import 'animate.css';
 import './Home.css';
+import Footer from '../components/Footer';
 import ImageGallery from '../components/gallery';
 import socios from '../assets/images/imagenes-secciones/socioss.jpg';
 import mapa from '../assets/images/imagenes-secciones/imagen-mapa.png';
 import forraje from '../assets/images/imagenes-secciones/analisis-forraje-4.jpg';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Gallery from '../components/gallery';
-import logo from '../assets/images/logos/Group 5.svg'
 
 const Home = () => {
   useEffect(() => {
@@ -196,30 +196,7 @@ const Home = () => {
         </section>
       </main>
 
-      <footer id="footer">
-        <div className="container-footer">
-          <div logo-texto="">
-            <a href="index.html">
-              <img src={logo} className="logo-footer" alt="Logo CACF" />
-            </a>
-            <p>Cámara Argentina de Contratistas Forrajeros</p>
-          </div>
-          <div className="redes-sociales">
-            <h4>Seguinos en nuestras Redes Sociales</h4>
-            <div>
-              <a href="https://www.instagram.com/ensiladores/?hl=es" target="_blank" rel="noopener noreferrer">
-                <i className="bi bi-instagram icono-redes"></i>
-              </a>
-              <a href="https://www.facebook.com/ensiladores?locale=es_LA" target="_blank" rel="noopener noreferrer">
-                <i className="bi bi-facebook icono-redes"></i>
-              </a>
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                <i className="bi bi-twitter-x icono-redes"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 };
