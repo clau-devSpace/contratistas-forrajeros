@@ -22,7 +22,7 @@ nav {
 
 nav .menu-toggle {
   align-self: center;
-  margin-top: 1px;
+  margin-bottom: 12px;
 }
 
 .nav-wrapper {
@@ -53,8 +53,8 @@ nav .menu-toggle {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: 120px;
-    min-height: 40px;
+    min-width: 110px;
+    min-height: 35px;
     font-family: "Montserrat", sans-serif;
     font-size: 1rem;
     border-radius: 25px;
@@ -100,7 +100,7 @@ nav .menu-toggle {
     top: 0;
 }
 
-/* Menú hamburguesa */
+/* Menú hamburguesa 
 .menu-toggle {
     cursor: pointer;
     width: 30px;
@@ -110,32 +110,30 @@ nav .menu-toggle {
     flex-direction: column;
     justify-content: space-between;
     transition: transform 0.3s ease;
+    transform-origin: center;
+}*/
+
+.menu-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-icon-close{
+    padding-top: 8px;
+}
+
+.menu-icon-open{
+    padding-top: 15px;
 }
 
 .menu-toggle:hover {
     transform: scale(1.1);
-}
-
-.bar {
-    background-color: white;
-    height: 3px;
-    width: 100%;
-    border-radius: 2px;
-    transition: all 0.3s ease;
-    transform-origin: center;
-}
-
-.menu-toggle.active .bar:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 6px);
-}
-
-.menu-toggle.active .bar:nth-child(2) {
-    opacity: 0;
-    transform: translateX(-20px);
-}
-
-.menu-toggle.active .bar:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
 }
 
 /* Contenedor del menú */
@@ -167,7 +165,7 @@ nav .menu-toggle {
     display: flex;
     align-items: stretch;
     gap: 30px;
-    max-width: 900px;
+    max-width: 1200px;
     width: 100%;
     max-height: 100%;
 }
@@ -218,7 +216,7 @@ nav .menu-toggle {
 }
 
 .menu-items li a.active {
-    font-weight: 600;
+    font-weight: 700;
     color: #ffffff;
 }
 
@@ -234,16 +232,65 @@ nav .menu-toggle {
     color: white;
 }
 
+/* ELEMENTOS PRINCIPALES DEL MENÚ (<li> y <a>) */
+.menu-items li {
+    margin-bottom: 10px;
+    opacity: 1; /* Siempre visible */
+    transform: translateX(0); /* Sin transformaciones */
+}
+
+/* Estilos base para los links del menú principal (todos los <a> y <Link>) */
+.menu-items li a {
+    color: white;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 300; /* Peso base para todos los links */
+    display: flex; /* Para alinear el ícono y el texto en una línea */
+    align-items: center;
+    transition: all 0.3s ease;
+    padding: 0.2rem 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    opacity: 1;
+    width: 100%; /* Asegura que el área clicable ocupe todo el ancho disponible */
+    white-space: nowrap; /* ¡Clave para que el texto NO SALTE DE LÍNEA! */
+    overflow: hidden; /* Oculta cualquier texto que se desborde */
+    text-overflow: ellipsis; /* Muestra "..." para el texto cortado */
+}
+
+/* Estilos al pasar el ratón por encima de los links del menú principal */
+.menu-items li a:hover {
+    font-size: 2.1rem;
+    color: #ffffff;
+    transform: translateX(10px);
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    /* Mantener propiedades de una línea en hover */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* ¡Clave! Aumenta el font-weight del TEXTO (dentro del span)
+   cuando el link principal (<a>) está ACTIVO. */
+.menu-items li a.active span {
+    font-weight: 600; /* O 500, según tu preferencia */
+}
+
+/* Mantener el font-weight para el texto del link activo al pasar el ratón */
+.menu-items li a.active:hover span {
+    font-weight: 600; /* Puedes poner un valor más alto si quieres que sea aún más grueso en hover */
+}
+
 /* Contenedor de imagen - MEJORADO PARA DESKTOP */
 .menu-image-container {
     display: flex;
     align-items: flex-start;
-    padding-top: 20px;
+    padding-top: 50px;
     margin: 0 1rem;
     justify-content: center;
     flex: 1;
-    max-width: 300px; /* Aumentado de 250px */
-    min-width: 300px; /* Mínimo para desktop */
+    max-width: 250px; /* Aumentado de 250px */
+    min-width: 250px; /* Mínimo para desktop */
 }
 
 .menu-image {
@@ -307,7 +354,7 @@ nav .menu-toggle {
     color: white;
     text-decoration: none;
     font-size: 1.25rem;
-    font-weight: 300;
+    font-weight: 200;
     transition: all 0.3s ease;
     display: block;
     padding: 0.5rem 0;
@@ -567,7 +614,7 @@ nav .menu-toggle {
     }
 
     .logo-menu {
-        width: 70px;
+        width: 115px;
     }
 
     .btn-asociate {
@@ -578,8 +625,16 @@ nav .menu-toggle {
     }
 
     .menu-toggle {
-        width: 22px;
-        height: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        margin-bottom: 0;
+    }
+
+    .menu-icon-open{
+        padding-bottom: 8px;
     }
 
     .bar {
@@ -591,11 +646,11 @@ nav .menu-toggle {
     }
 
     .menu-items li {
-        margin-bottom: 1.2rem;
+        margin-bottom: 0.8rem;
     }
 
     .menu-items li a {
-        font-size: 1.3rem;
+        font-size: 15px;
         justify-content: space-between;
     }
 
@@ -604,11 +659,11 @@ nav .menu-toggle {
     }
 
     .menu-items li a:hover {
-        font-size: 1.4rem;
+        font-size: 1rem;
     }
 
     .submenu li a {
-        font-size: 1rem;
+        font-size: 0.6rem;
     }
 
     .arrow-icon {
@@ -652,7 +707,7 @@ nav .menu-toggle {
     }
 
     .menu-items li a {
-        font-size: 1.2rem;
+        font-size: 0.8rem;
         justify-content: space-between;
     }
 
@@ -661,11 +716,11 @@ nav .menu-toggle {
     }
 
     .menu-items li a:hover {
-        font-size: 1.3rem;
+        font-size: 1rem;
     }
 
     .submenu li a {
-        font-size: 0.9rem;
+        font-size: 0.6rem;
     }
     
     .arrow-icon {

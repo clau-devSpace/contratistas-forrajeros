@@ -3,9 +3,9 @@ import 'animate.css';
 import './Home.css';
 import Footer from '../components/Footer';
 import ImageGallery from '../components/gallery';
-import socios from '../assets/images/imagenes-secciones/socioss.jpg';
+import socios from '../assets/images/imagenes-secciones/socios-2.jpg';
 import mapa from '../assets/images/imagenes-secciones/imagen-mapa.png';
-import forraje from '../assets/images/imagenes-secciones/analisis-forraje-4.jpg';
+import forraje from '../assets/images/imagenes-secciones/nuevo-forraje.jpg';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Gallery from '../components/gallery';
 
@@ -103,7 +103,7 @@ const Home = () => {
           <div className= "promo-items margenes">
             <div className="promo-texto">
               <h3 className="promo-titulo animate-item" data-animation="animate__fadeInDown">
-                Congreso Argentino de Forrajes
+               Congreso Argentino de Forrajes
               </h3>
               <p className="promo-descripcion promo-descripcion1 animate-item" data-animation="animate__fadeInDown">
                 13 al 15 de Agosto - Córdoba
@@ -112,7 +112,7 @@ const Home = () => {
               <div className="promo-linea"></div>
               
               <p className="promo-descripcion animate-item" data-animation="animate__fadeInDown">
-                Este evento marcará un hito: es el primer congreso en el país que reúne a toda la cadena forrajera, desde la producción hasta su utilización, integrando los distintos eslabones que conforman este sector clave para la producción de carne, leche y energía (biogás). Especialistas nacionales e internacionales, tecnología de punta y networking para el futuro del sector agropecuario argentino.
+                Este evento marcará un hito: es el primer congreso en el país que reúne a toda la cadena forrajera, desde la producción hasta su utilización. Especialistas nacionales e internacionales, tecnología de punta y networking para el futuro del sector agropecuario argentino.
               </p>
             </div>
             
@@ -123,15 +123,14 @@ const Home = () => {
                   Tu navegador no soporta el video.
                 </video>
               </div>
-            </div>
-          </div>
-
-          <div className="promo-boton-container">
+              <div className="promo-boton-container">
             <button className="promo-boton">
               <a href="https://congresoargentinodeforrajes.com.ar/" target="_blank" rel="noopener noreferrer" className="boton-congreso">
-                Más información
+                Más información<i class="bi bi-arrow-right"></i>
               </a>
             </button>
+          </div>
+            </div>
           </div>
         </section>
 
@@ -144,19 +143,19 @@ const Home = () => {
               <div className="linea-horizontal"></div>
 
               <p className="texto-agrinir animate-item" data-animation="animate__fadeInDown">
-                El análisis de forrajes implica evaluar la composición química y nutricional de los forrajes, incluyendo proteínas, fibra, carbohidratos y minerales.Este análisis es fundamental en la agricultura y la ganadería, ya que permite a los productores tomar decisiones informadas sobre la alimentación de sus animales.
+                El análisis de forrajes implica evaluar la composición química y nutricional de los forrajes, incluyendo proteínas, fibra, carbohidratos y minerales. Este análisis es fundamental en la agricultura y la ganadería, ya que permite a los productores tomar decisiones informadas sobre la alimentación de sus animales.
               </p>
 
               <ul className="texto-agrinir lista-agrinir animate-item" data-animation="animate__fadeInDown">
                 <li>
                   <i className="bi bi-card-list icono-agrinir"></i>
-                  <a className="descarga-pdf" href="pdfs/AgriNIR_Informe_de_Analisis_TIPO.pdf" target="_blank" rel="noopener noreferrer">
+                  <a className="descarga-pdf" href="pdf/AgriNIR_Informe_de_Analisis_TIPO.pdf" target="_blank">
                     Modelo de Informe Técnico
                   </a>
                 </li>
                 <li>
                   <i className="bi bi-flower3 icono-agrinir"></i>
-                  <a className="descarga-pdf" href="pdfs/CACF_AgriNIR_Protocolo_Extraccion_y_Conservacion_de_Muestras_de_ensilajes.pdf" target="_blank" rel="noopener noreferrer">
+                  <a className="descarga-pdf" href="pdf/CACF_AgriNIR_Protocolo_Extraccion_y_Conservacion_de_Muestras_de_ensilajes.pdf" target="_blank">
                     Protocolo de Extracción de Muestras
                   </a>
                 </li>
@@ -173,7 +172,7 @@ const Home = () => {
           <div className="informacion-util margenes">
             <div>
               <h3 className="titulo-informacion-util">Información Útil</h3>
-              <div className="linea-horizontal2"></div>
+              <div className="linea-horizontal-2"></div>
             </div>
             <div className="frames">
               <div className="frames1">
@@ -195,8 +194,6 @@ const Home = () => {
           </div>
         </section>
       </main>
-
-      <Footer />
     </>
   );
 };

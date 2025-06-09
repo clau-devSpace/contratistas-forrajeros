@@ -107,8 +107,8 @@ const Menu = () => {
             </Link>
 
             <div className="menu-toggle" onClick={toggleMenu}>
-              <i className="bi bi-list menu-icon-open" style={{ fontSize: "2.2rem", color: "white", display: isMenuOpen ? "none" : "inline" }}></i>
-              <i className="bi bi-x-lg menu-icon-close" style={{ fontSize: "1.8rem", color: "white", display: isMenuOpen ? "inline" : "none" }}></i>
+              <i className="bi bi-list menu-icon-open" style={{ fontSize: "2.3rem", color: "white", display: isMenuOpen ? "none" : "block" }}></i>
+              <i className="bi bi-x-lg menu-icon-close" style={{ fontSize: "1.5rem", color: "white", display: isMenuOpen ? "block" : "none" }}></i>
             </div>
           </div>
         </div>

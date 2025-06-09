@@ -1,7 +1,7 @@
  .mySwiper {
-          width: calc(100% - 100px);
+          width: calc(100% - 50px);
           height: 300px;
-          gap: 15px;
+          gap: 10px;
           margin-top: 50px;
         }
 
@@ -30,6 +30,31 @@
         }
 
         .swiper-pagination-progressbar-fill {
-          background: #3b82f6;
+          background:  rgba(0, 0, 0, 0.1);
           border-radius: 2px;
         }
+
+        @media (max-width: 768px) {
+  .mySwiper {
+    width: 95% !important;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .mySwiper {
+    width: 95% !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .mySwiper {
+    width: 95% !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .mySwiper {
+    width: 95% !important;
+  }
+}
