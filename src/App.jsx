@@ -1,15 +1,16 @@
+import { Routes, Route } from 'react-router-dom';
+import Layout from './layout/Layout';
+import Home from './pages/home';
+import Socios from './pages/socios';
 
-import './App.css'
-import CACF from './pages/home'
-import Menu from './components/menu';
-
-function App() {
+ export default function App() {
   return (
-    <>
-      <CACF />
-      <Menu />
-    </>
-  )
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="socios" element={<Socios />} />
+      </Route>
+    </Routes>
+  );
 }
 
-export default App
