@@ -19,7 +19,6 @@ main {
  width: 100%;
 }
 
-
 header {
   position: relative;
   min-height: 100vh;
@@ -232,7 +231,7 @@ h1{
 }
 
 .frames1{
-    width: 550px;
+    max-width: 550px;
 }
 
 .mapa, .imagen-socios{
@@ -268,10 +267,6 @@ h1{
     cursor: pointer;
 }
 
-
-
-
-/*
 
 /*Estilo nueva seccion3*/
 .agrinir-container{
@@ -367,8 +362,8 @@ h1{
 }
 
 .margenes{
-    margin-left: 150px;
-    margin-right: 150px;
+    margin-left: 130px;
+    margin-right: 130px;
 }
 
 .linea-horizontal{
@@ -379,13 +374,10 @@ h1{
     background-color: #ffffff;
 }
 
-/* ==== RESET GENERAL ==== */
 canvas {
   display: block;
 }
 
-
-/* ==== CONTENEDOR PRINCIPAL ==== */
 .promo-container {
   position: relative;
   width: 100%;
@@ -394,7 +386,6 @@ canvas {
   margin-top: 50px;
 }
 
-/* ==== CONTENIDO ==== */
 .promo-items {
   display: flex;
   text-align: left;
@@ -426,7 +417,6 @@ canvas {
   font-size: 43px;
   text-align: left;
   font-weight: 700;
-  text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.3);
 }
 
 .promo-linea {
@@ -464,6 +454,7 @@ canvas {
 .promo-video-container video {
   display: block;
   width: 100%;
+  max-width: 100%;
   height: auto;
   border-radius: 6px;
 }
@@ -472,15 +463,6 @@ canvas {
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   object-fit: cover;
-}
-
-.promo-logo {
-  margin-bottom: 15px;
-}
-
-.promo-logo-img {
-  width: 210px;
-  height: auto;
 }
 
 .promo-lista {
@@ -504,7 +486,7 @@ canvas {
 .promo-boton-container {
     display: flex;
     justify-content: center;
-    /*margin-bottom: 40px;*/
+    align-items: center;
 }
 
 .promo-boton {
@@ -539,10 +521,8 @@ canvas {
     margin-bottom: 100px;
 }
 
-
-/* Header Section */
 header {
-    min-height: 100vh; /* Base height for larger screens */
+    min-height: 100vh; 
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -550,10 +530,6 @@ header {
     z-index: 1;
 }
 
-
-
-
-/* Promo Section (Congreso) */
 .promo-container {
     padding-top: 20px
 }
@@ -566,15 +542,14 @@ header {
 }
 
 .promo-texto {
-    display: flex; /* Keep flex for its internal structure */
-    flex-direction: column; /* Stack children vertically */
-    font-size: 43px; /* Base font size, will be adjusted */
-    flex: 1; /* Allow text to take available space */
-    min-width: 300px; /* Prevent text from collapsing too much */
-    align-items: flex-start; /* <<< ENSURE LEFT ALIGNMENT OF TEXT BLOCK CONTENT */
-    text-align: left; /* <<< ENSURE LEFT ALIGNMENT */
+    display: flex; 
+    flex-direction: column; 
+    font-size: 43px; 
+    flex: 1; 
+    min-width: 300px; 
+    align-items: flex-start;
+    text-align: left; 
 }
-
 
 .promo-linea {
     margin-top: 15px;
@@ -582,17 +557,16 @@ header {
     width: 100px;
     height: 1px;
     background-color: #378a2c;
-    margin-left: 0; /* <<< ENSURE LEFT ALIGNMENT */
-    margin-right: auto; /* Push to left */
+    margin-left: 0; 
+    margin-right: auto; 
 }
 
 .linea-horizontal2 {
     width: 100px;
     height: 1px;
     background-color: #0c51a6;
-    margin: 7px 0 23px 0; /* <<< ENSURE LEFT ALIGNMENT (0 auto 0 0) */
+    margin: 7px 0 23px 0; 
 }
-
 
 .agrinir-items {
     display: flex;
@@ -604,13 +578,13 @@ header {
 .agrinir1 {
     flex: 1;
     min-width: 300px;
-    text-align: left; /* <<< ENSURE LEFT ALIGNMENT */
+    text-align: left; 
 }
 
 .agrinir {
-    font-size: 43px; /* Base font size */
+    font-size: 43px; 
     line-height: 1.1;
-    text-align: left; /* <<< ENSURE LEFT ALIGNMENT */
+    text-align: left; 
 }
 
 .linea-horizontal, .linea-horizontal-2 {
@@ -619,8 +593,8 @@ header {
     width: 120px;
     height: 1px;
     background-color: #ffffff;
-    margin-left: 0; /* <<< ENSURE LEFT ALIGNMENT */
-    margin-right: auto; /* Push to left */
+    margin-left: 0; 
+    margin-right: auto; 
 }
 
 .linea-horizontal-2 {
@@ -630,14 +604,14 @@ header {
 }
 
 .texto-agrinir {
-    font-size: 18px; /* Base font size */
+    font-size: 18px;
     max-width: 650px;
     line-height: 1.4;
-    text-align: left; /* <<< ENSURE LEFT ALIGNMENT */
+    text-align: left; 
 }
 
 .lista-agrinir {
-    padding-left: 0; /* Remove default padding for ul */
+    padding-left: 0; 
 }
 
 .lista-agrinir li {
@@ -646,8 +620,8 @@ header {
     align-items: center;
     font-size: 18px;
     margin-bottom: 5px;
-    text-align: left; /* Not strictly necessary for flex items, but good for clarity */
-    justify-content: flex-start; /* <<< ENSURE LEFT ALIGNMENT OF LIST ITEMS */
+    text-align: left; 
+    justify-content: flex-start; 
 }
 
 .icono-agrinir {
@@ -660,16 +634,14 @@ header {
     max-width: 380px;
 }
 
-/* Información Útil Section */
 .informacion-util {
     padding-top: 50px;
     padding-bottom: 50px;
-    /* text-align: center; <<< REMOVED: Titles will be left-aligned */
 }
 
 .titulo-informacion-util {
-    font-size: 43px; /* Base font size */
-    text-align: left; /* <<< ENSURE LEFT ALIGNMENT */
+    font-size: 43px; 
+    text-align: left; 
 }
 
 .frames {
@@ -686,8 +658,8 @@ header {
     max-width: 550px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* <<< ENSURE LEFT ALIGNMENT OF CARD CONTENT */
-    text-align: left; /* <<< ENSURE LEFT ALIGNMENT */
+    align-items: flex-start; 
+    text-align: left; 
 }
 
 .mapa,
@@ -702,11 +674,9 @@ header {
 .linea-horizontal3 {
     width: 100%;
     max-width: 550px;
-   /* margin-top: 6px;
-    margin-bottom: 6px;*/
     background-color: #0c51a6;
-    margin-left: 0; /* <<< ENSURE LEFT ALIGNMENT */
-    margin-right: auto; /* Push to left */
+    margin-left: 0; 
+    margin-right: auto; 
 }
 
 .informacion-util-h2 {
@@ -715,80 +685,17 @@ header {
     font-weight: 700;
     margin-block-start: 7px;
     cursor: pointer;
-    text-align: left; /* <<< ENSURE LEFT ALIGNMENT */
+    text-align: left; 
 }
 
 .informacion-util-p {
     font-size: 15px;
     line-height: 1.4;
     cursor: pointer;
-    text-align: left; /* <<< ENSURE LEFT ALIGNMENT */
-}
-
-/* Footer Section - This section was already mostly left-aligned or centrally aligned in a way that works */
-footer {
-    background-color: #000000;
-    padding: 30px 0;
-}
-
-.container-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 100px;
-    box-sizing: border-box;
-}
-
-[logo-texto] {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* <<< ENSURE LEFT ALIGNMENT */
-}
-
-.logo-footer {
-    width: 140px;
-    height: auto;
-}
-
-footer p {
-    font-size: 17px;
-    margin-top: 5px;
-    margin-bottom: 0;
-    text-indent: -5px;
-    text-align: left; /* <<< ENSURE LEFT ALIGNMENT */
-}
-
-.redes-sociales {
-    text-align: right; /* Keep social media on the right on larger screens */
-}
-
-.redes-sociales > div {
-    display: flex;
-    justify-content: flex-end; /* Keep icons to the right */
-    align-items: center;
-    gap: 10px;
-}
-
-.icono-redes {
-    padding: 8px 12px;
-    font-size: 1.5em;
-    width: 45px;
-    height: 45px;
-}
-
-h4 {
-    padding-bottom: 10px;
-    margin-top: 0;
-    text-align: right; /* Keep social media title right-aligned */
+    text-align: left; 
 }
 
 
-/* --- Breakpoints for Responsive Design --- */
-
-/* Tablet Landscape and Smaller Desktops (max-width: 1200px) */
 @media (max-width: 1200px) {
     .margenes {
         margin-left: 120px;
@@ -809,21 +716,6 @@ h4 {
         margin-top: -80px;
         padding-top: 130px;
     }
-
-    .image-gallery-v1 {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.5rem;
-    }
-    .image-card-v1 {
-        height: 320px;
-    }
-    .image-title-v1 {
-        font-size: 1.3rem;
-    }
-    .image-description-v1 {
-        font-size: 0.95rem;
-    }
-
     .promo-items {
         gap: 20px;
     }
@@ -874,23 +766,8 @@ h4 {
         font-size: 14px;
     }
 
-    .container-footer {
-        padding: 0 80px;
-    }
-    .logo-footer {
-        width: 130px;
-    }
-    footer p {
-        font-size: 16px;
-    }
-    .icono-redes {
-        font-size: 1.4em;
-        width: 42px;
-        height: 42px;
-    }
 }
 
-/* Tablet Portrait and Smaller (max-width: 992px) */
 @media (max-width: 992px) {
     .margenes {
         margin-left: 40px;
@@ -912,7 +789,6 @@ h4 {
         padding-top: 110px;
     }
 
-
     .image-gallery-v1 {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 1rem;
@@ -928,65 +804,65 @@ h4 {
     }
 
     .promo-items {
-        flex-direction: column; /* Stack vertically */
-        align-items: flex-start; /* <<< ENSURE LEFT ALIGNMENT WHEN STACKED */
-        text-align: left; /* <<< ENSURE LEFT ALIGNMENT WHEN STACKED */
+        flex-direction: column; 
+        align-items: flex-start; 
+        text-align: left; 
         padding-bottom: 30px;
     }
     .promo-texto {
-        align-items: flex-start; /* <<< ENSURE LEFT ALIGNMENT OF TEXT BLOCK CONTENT */
+        align-items: flex-start; 
         font-size: 38px;
         min-width: unset;
-        max-width: 100%; /* Allows it to take full width */
+        max-width: 100%; 
     }
     .promo-titulo {
         font-size: 36px;
     }
     .promo-descripcion {
         font-size: 16px;
-        max-width: 100%; /* Ensures text isn't too wide */
+        max-width: 100%;
     }
     .promo-linea {
-        margin-left: 0; /* <<< ENSURE LEFT ALIGNMENT */
+        margin-left: 0; 
         margin-right: auto;
     }
     .promo-video-container {
         max-width: 90%;
         width: 100%;
-        align-self: flex-start; /* <<< ENSURE VIDEO ALIGNMENT */
+        align-self: flex-start; 
     }
     .promo-video {
         width: 100%;
     }
     .promo-boton-container {
-        justify-content: flex-start; /* <<< ENSURE LEFT ALIGNMENT */
+        justify-content: flex-start; 
         margin-bottom: 30px;
     }
 
     .h2-empresas, .titulo-informacion-util, .agrinir {
         font-size: 36px;
-        text-align: left; /* <<< ENSURE LEFT ALIGNMENT */
+        text-align: left; 
     }
     .linea-horizontal2 {
         width: 90px;
-        margin: 7px 0 23px 0; /* <<< ENSURE LEFT ALIGNMENT */
+        margin: 7px 0 23px 0; 
     }
    
     .agrinir-items {
-        flex-direction: column; /* Stack vertically */
-        align-items: flex-start; /* <<< ENSURE LEFT ALIGNMENT WHEN STACKED */
-        text-align: left; /* <<< ENSURE LEFT ALIGNMENT WHEN STACKED */
+        flex-direction: column; 
+        align-items: flex-start; 
+        text-align: left; 
     }
     .agrinir1 {
-        align-items: flex-start; /* <<< ENSURE LEFT ALIGNMENT OF TEXT BLOCK CONTENT */
+        align-items: flex-start; 
         min-width: unset;
         max-width: 100%;
     }
     .agrinir {
-        text-align: left; /* <<< ENSURE LEFT ALIGNMENT */
+        text-align: left; 
     }
     .linea-horizontal {
-        margin-left: 0; /* <<< ENSURE LEFT ALIGNMENT */
+        margin-left: 0; 
         margin-right: auto;
     }
     .texto-agrinir {
@@ -994,18 +870,18 @@ h4 {
         max-width: 100%;
     }
     .lista-agrinir li {
-        justify-content: flex-start; /* <<< ENSURE LEFT ALIGNMENT */
+        justify-content: flex-start; 
         font-size: 16px;
     }
     .analisis-forraje {
         width: 80%;
         max-width: 400px;
-        align-self: flex-start; /* <<< ENSURE LEFT ALIGNMENT OF IMAGE */
+        align-self: flex-start; 
     }
 
     .frames {
-        flex-direction: column; /* Stack frames */
-        align-items: flex-start; /* <<< ENSURE LEFT ALIGNMENT WHEN STACKED */
+        flex-direction: column; 
+        align-items: flex-start; 
         gap: 25px;
     }
     .frames1 {
@@ -1025,11 +901,11 @@ h4 {
     .container-footer {
         flex-direction: column;
         padding: 20px 40px;
-        text-align: left; /* <<< ENSURE GENERAL LEFT ALIGNMENT FOR FOOTER CONTENT */
+        text-align: left; 
         gap: 15px;
     }
     [logo-texto] {
-        align-items: flex-start; /* <<< ENSURE LEFT ALIGNMENT */
+        align-items: flex-start; 
     }
     footer p {
         text-indent: 0;
@@ -1040,11 +916,11 @@ h4 {
         width: 110px;
     }
     .redes-sociales {
-        text-align: left; /* <<< ENSURE LEFT ALIGNMENT */
-        width: 100%; /* Allow it to take full width if needed */
+        text-align: left; 
+        width: 100%; 
     }
     .redes-sociales > div {
-        justify-content: flex-start; /* <<< ENSURE LEFT ALIGNMENT OF ICONS */
+        justify-content: flex-start;
     }
     .icono-redes {
         font-size: 1.3em;
@@ -1053,11 +929,10 @@ h4 {
     }
     h4 {
         padding-bottom: 8px;
-        text-align: left; /* <<< ENSURE LEFT ALIGNMENT */
+        text-align: left;
     }
 }
 
-/* Mobile Landscape and Smaller (max-width: 768px) */
 @media (max-width: 768px) {
     header {
         min-height: 70vh;
@@ -1089,14 +964,6 @@ h4 {
         font-size: 15px;
     }
 
-    .image-gallery-v1 {
-        grid-template-columns: 1fr;
-        gap: 1.2rem;
-    }
-    .image-card-v1 {
-        height: 280px;
-        max-width: 400px;
-    }
     .image-title-v1 {
         font-size: 1.1rem;
     }
@@ -1104,7 +971,7 @@ h4 {
         font-size: 0.85rem;
     }
     .image-overlay-v1 {
-        padding: 1.5rem; /* Adjust padding for readability */
+        padding: 1.5rem; 
     }
 
     .promo-titulo {
@@ -1155,136 +1022,26 @@ h4 {
         font-size: 12px;
     }
 
-    .container-footer {
-        padding: 15px 20px;
-        gap: 10px;
-    }
-    .logo-footer {
-        width: 100px;
-    }
-    footer p {
-        font-size: 13px;
-    }
-    .icono-redes {
-        font-size: 1.1em;
-        width: 35px;
-        height: 35px;
-    }
-    h4 {
-        padding-bottom: 5px;
-    }
 }
 
-/* Mobile Portrait (max-width: 576px) */
 @media (max-width: 576px) {
-    header {
-        min-height: 100vh; /* <<< HEADER BACKGROUND COVERS 100% VP HEIGHT ON MOBILE */
-    }
-    h1 {
-        font-size: 40px;
-        line-height: 1.2;
-    }
-    .titulo p {
-        font-size: 25px;
-        line-height: 1.4;
-    }
 
-    .margenes {
-        margin-left: 15px;
-        margin-right: 15px;
-    }
-
-    .somos {
-        font-size: 16px;
-        margin-top: -40px;
-        padding-top: 70px;
-        line-height: 1.4;
-    }
-    .mas-info {
-        width: 130px;
-        height: 40px;
-        font-size: 14px;
-    }
-
-    .image-card-v1 {
-        height: 250px;
-        max-width: 320px;
-    }
-    .image-title-v1 {
-        font-size: 1rem;
-    }
-    .image-description-v1 {
-        font-size: 0.8rem;
-    }
-    .image-overlay-v1 {
-        padding: 1rem;
-    }
-
-    .promo-titulo {
-        font-size: 26px;
-    }
-    .promo-descripcion {
-        font-size: 14px;
-    }
-    .promo-boton {
-        width: 150px;
-        height: 45px;
-        font-size: 14px;
-    }
-
-    .h2-empresas, .titulo-informacion-util, .agrinir {
-        font-size: 26px;
-    }
-    .linea-horizontal2 {
-        width: 70px;
-    }
-
-    .texto-agrinir {
-        font-size: 14px;
-        line-height: 1.3;
-    }
-    .lista-agrinir li {
-        font-size: 14px;
-    }
-    .icono-agrinir {
-        font-size: 20px;
-    }
-    .analisis-forraje {
-        max-width: 300px;
-        height: 180px;
-    }
-
-    .mapa, .imagen-socios {
-        height: 170px;
-    }
-    .informacion-util-h2 {
-        font-size: 14px;
-    }
-    .informacion-util-p {
-        font-size: 11px;
-    }
-
-    .container-footer {
-        padding: 10px 15px;
-    }
-    .logo-footer {
-        width: 90px;
-    }
-    footer p {
-        font-size: 12px;
-    }
-    .icono-redes {
-        font-size: 1em;
-        width: 32px;
-        height: 32px;
-    }
-}
-
-/* Very Small Mobile (max-width: 400px) */
-@media (max-width: 400px) {
     header {
         min-height: 100vh;
-        /* <<< HEADER BACKGROUND COVERS 100% VP HEIGHT ON MOBILE */
+    }
+
+    .analisis-forraje{
+        max-width: 400px;
+        width: 100%;
+    }
+
+    .informacion-util{
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .promo-items{
+        width: 100%;
     }
 
     h1 {
@@ -1324,7 +1081,7 @@ h4 {
         font-size: 0.75rem;
     }
 
-    .promo-titulo {
+    .congreso-titulo {
         font-size: 32px;
     }
 
@@ -1356,10 +1113,8 @@ h4 {
         margin-top: 15px;
     }
 
-    /* ==== CONTENIDO ==== */
     .promo-items {
         padding-top: 15px;
-        /*padding-bottom: 15px;*/
         gap: 15px;
     }
 
@@ -1410,27 +1165,40 @@ h4 {
     }
 
     .promo-items,
-    .agrinir-items {
+    .agrinir-items, .informacion-util {
         width: 95%;
         margin: 0 auto;
     }
+
+    
+.frames1 {
+    width: 100%;
+    max-width: 550px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
 
     .promo-linea {
         margin-top: 8px;
         margin-bottom: 8px;
     }
 
+    .promo-boton-container{
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
     .promo-descripcion1 {
         margin-top: 8px;
     }
 
-    .mapa,
-    .imagen-socios {
-        height: 150px;
-    }
-
     .informacion-util-h2 {
         font-size: 13px;
+    }
+
+    .info-util{
+        padding-left: 10px;
     }
 
     .informacion-util-p {
@@ -1453,5 +1221,295 @@ h4 {
         font-size: 0.9em;
         width: 30px;
         height: 30px;
+    }
+
+    informacion-util-h2 {
+        font-size: 15px;
+    }
+    .informacion-util-p {
+        font-size: 12px;
+    }
+ .texto-agrinir {
+        font-size: 15px;
+        
+    }
+    .lista-agrinir li {
+        font-size: 15px;
+    }
+    .icono-agrinir {
+        font-size: 22px;
+    }
+
+ .h2-empresas, .titulo-informacion-util, .agrinir {
+        font-size: 30px;
+    }
+
+  .promo-titulo {
+        font-size: 30px;
+    }
+    .promo-descripcion {
+        font-size: 15px;
+    }
+
+  h1 {
+        font-size: 30px;
+    }
+    .titulo p {
+        font-size: 16px;
+    }
+
+
+    .somos {
+        font-size: 17px;
+           }
+    .mas-info {
+        width: 150px;
+        height: 45px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 400px) {
+    header {
+        min-height: 100vh;
+    }
+
+    .analisis-forraje{
+        max-width: 400px;
+        width: 100%;
+    }
+
+    .informacion-util{
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .promo-items{
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 40px
+    }
+
+    .titulo p {
+        font-size: 25px;
+    }
+
+    .somos {
+        font-size: 15px;
+        margin-top: -30px;
+        padding-top: 50px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .mas-info {
+        width: 125px;
+        height: 35px;
+        font-size: 13px;
+        margin-bottom: 20px;
+    }
+
+    .image-card-v1 {
+        height: 220px;
+        max-width: 400px;
+        width: 100%;
+    }
+
+    .image-title-v1 {
+        font-size: 0.9rem;
+    }
+
+    .image-description-v1 {
+        font-size: 0.75rem;
+    }
+
+    .congreso-titulo {
+        font-size: 32px;
+    }
+
+    .promo-descripcion {
+        font-size: 13px;
+    }
+
+    .promo-boton {
+        width: 140px;
+        height: 42px;
+        font-size: 13px;
+    }
+
+    .promo-items {
+        align-items: center;
+        justify-content: center;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        gap: 15px;
+    }
+
+    .promo-video-container {
+        max-width: 100%;
+        width: 100%;
+        align-self: center;
+    }
+
+    .promo-container {
+        margin-top: 15px;
+    }
+
+    .promo-items {
+        padding-top: 15px;
+        gap: 15px;
+    }
+
+    .titulo-informacion-util {
+        font-size: 32px;
+    }
+
+    .linea-horizontal2 {
+        width: 60px;
+    }
+
+    .agrinir {
+        font-size: 32px;
+        text-align: left;
+        align-items: center;
+        justify-content: left;
+        line-height: 1;
+        color: #ffffff;
+    }
+
+    .icono-texto {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .agrinir-items {
+        align-items: center;
+        justify-content: center;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        width: 95%;
+        gap: 10;
+
+    }
+
+    .texto-agrinir {
+        font-size: 13px;
+    }
+
+    .lista-agrinir li {
+        font-size: 13px;
+    }
+
+    .icono-agrinir {
+        font-size: 18px;
+    }
+
+    .promo-items,
+    .agrinir-items, .informacion-util {
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    
+.frames1 {
+    width: 100%;
+    max-width: 550px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+    .promo-linea {
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+
+    .promo-boton-container{
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
+    .promo-descripcion1 {
+        margin-top: 8px;
+    }
+
+    .informacion-util-h2 {
+        font-size: 13px;
+    }
+
+    .info-util{
+        padding-left: 10px;
+    }
+
+    .informacion-util-p {
+        font-size: 10px;
+    }
+
+    .container-footer {
+        padding: 8px 10px;
+    }
+
+    .logo-footer {
+        width: 80px;
+    }
+
+    footer p {
+        font-size: 11px;
+    }
+
+    .icono-redes {
+        font-size: 0.9em;
+        width: 30px;
+        height: 30px;
+    }
+
+    .informacion-util-h2 {
+        font-size: 15px;
+    }
+    .informacion-util-p {
+        font-size: 12px;
+    }
+ .texto-agrinir {
+        font-size: 15px;
+        
+    }
+    .lista-agrinir li {
+        font-size: 15px;
+    }
+    .icono-agrinir {
+        font-size: 22px;
+    }
+
+ .h2-empresas, .titulo-informacion-util, .agrinir {
+        font-size: 30px;
+    }
+
+  .promo-titulo {
+        font-size: 30px;
+    }
+    .promo-descripcion {
+        font-size: 15px;
+    }
+
+  h1 {
+        font-size: 30px;
+        padding-top: 100px;
+    }
+    .titulo p {
+        font-size: 16px;
+    }
+
+
+    .somos {
+        font-size: 17px;
+           }
+    .mas-info {
+        width: 150px;
+        height: 45px;
+        font-size: 15px;
     }
 }

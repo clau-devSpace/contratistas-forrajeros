@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 import ImageGallery from '../components/gallery';
 import socios from '../assets/images/imagenes-secciones/socios-2.jpg';
 import mapa from '../assets/images/imagenes-secciones/imagen-mapa.png';
-import forraje from '../assets/images/imagenes-secciones/nuevo-forraje.jpg';
+import forraje from '../assets/images/imagenes-secciones/analisis-de-forraje.jpg';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Gallery from '../components/gallery';
 
@@ -172,7 +172,7 @@ const Home = () => {
 
         <section className="cuarta-seccion">
           <div className="informacion-util margenes">
-            <div>
+            <div className='info-util'>
               <h3 className="titulo-informacion-util">Información Útil</h3>
               <div className="linea-horizontal-2"></div>
             </div>

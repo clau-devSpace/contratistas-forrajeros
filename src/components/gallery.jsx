@@ -1,5 +1,4 @@
 import React, {useState, useEffect } from 'react';
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import contratista from '../assets/images/imagenes-secciones/contratista-imagen.jpg';
 import ganado from '../assets/images/imagenes-secciones/ganado-imagen.jpg';
@@ -9,12 +8,10 @@ import camioneta from '../assets/images/imagenes-secciones/camioneta.jpg';
 import socios from '../assets/images/imagenes-secciones/socioss.jpg';
 import './gallery.css';
 
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-// import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 export default function Gallery() {

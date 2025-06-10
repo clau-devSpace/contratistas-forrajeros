@@ -1,0 +1,75 @@
+{
+  "empresa": {
+    "nombre": "Duckas SRL",
+    "contacto": "Aguirre Saravia Patricio",
+    "direccion": "Lisandro de la Torre 125",
+    "ciudad": "Carlos Casares",
+    "provincia": "Buenos Aires",
+    "codigo_postal": "6530",
+    "telefono_movil": "+54 9 2395 62-2266",
+    "telefono_fijo": "(02395) 450060",
+    "email": "patricio@duckas.com.ar",
+    "pagina_web": "http://www.duckas.com.ar",
+    "equipamiento": {
+      "picadoras": {
+        "jaguar_980": {
+          "modelo": "Jaguar 980",
+          "plataforma": "CLAAS"
+        },
+        "jaguar_960": {
+          "modelo": "Jaguar 960", 
+          "plataforma": "CLAAS"
+        },
+        "jaguar_930": {
+          "modelo": "Jaguar 930",
+          "plataforma": "BRONE"
+        }
+      },
+      "cabezales": {
+        "orbis_900": {
+          "modelo": "ORBIS 900",
+          "plataforma": "Seaflex"
+        },
+        "orbis_750": {
+          "modelo": "ORBIS 750", 
+          "plataforma": "Seaflex"
+        },
+        "easycollect_900": {
+          "modelo": "Easycollect 900"
+        },
+        "easycollect_300": {
+          "modelo": "Easycollect 300"
+        }
+      },
+      "otros": {
+        "claas_pu_300": {
+          "modelo": "CLAAS - PU 300"
+        }
+      }
+    },
+    "embolsadoras": {
+      "agbag_8100": {
+        "modelo": "AGBAG - 8100"
+      }
+    },
+    "maquinaria_adicional": {
+      "green_pac": {
+        "modelo": "Green Pac - 9- 10-250",
+        "variantes": [
+          "Green Pac - 9- 180",
+          "Green pac - 9- 180",
+          "Green Pac - 9- 180"
+        ]
+      }
+    },
+    "inventario": {
+      "tractores": 6,
+      "balsas": 3,
+      "carros": 6,
+      "camiones": 25,
+      "casillas": 12,
+      "camionetas": 6,
+      "carretones": 6
+    }
+  }
+}

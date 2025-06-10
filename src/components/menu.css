@@ -1,8 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+/* SOLUCIÓN PRINCIPAL: Prevenir desbordamiento horizontal */
+html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
 body {
     font-family: "Montserrat", sans-serif;
-    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Aplicar box-sizing a todos los elementos */
+*, *::before, *::after {
+    box-sizing: border-box;
 }
 
 /* Navegación principal */
@@ -12,39 +25,44 @@ nav {
     left: 0;
     z-index: 1000;
     width: 100%;
+    max-width: 100vw; /* CORREGIDO: Evitar que exceda el viewport */
     height: 55px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #0c51a6;
     transition: all 0.3s ease;
+    overflow: hidden; /* AÑADIDO: Prevenir desbordamiento */
 }
 
 nav .menu-toggle {
-  align-self: center;
-  margin-bottom: 12px;
+    align-self: center;
+    margin-bottom: 12px;
 }
 
 .nav-wrapper {
-  width: 100%;
-  max-width: 1600px;
-  margin: 0 auto;
-  padding: 0 150px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    width: calc(100% - 130px);
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 min(150px, 5vw); /* CORREGIDO: Padding responsivo */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box; /* AÑADIDO */
 }
 
 .logo-menu {
     width: 125px;
     height: auto;
     transition: all 0.3s ease;
+    flex-shrink: 0; /* AÑADIDO: Evitar que se comprima */
 }
 
 .nav-items {
     display: flex;
     align-items: center;
     gap: 1.5rem;
+    flex-shrink: 0; /* AÑADIDO: Evitar que se comprima */
 }
 
 /* Botón Asóciate */
@@ -67,6 +85,7 @@ nav .menu-toggle {
     overflow: hidden;
     transition: all 0.3s ease;
     text-decoration: none;
+    flex-shrink: 0; /* AÑADIDO: Evitar que se comprima */
 }
 
 .btn-asociate::before,
@@ -100,35 +119,23 @@ nav .menu-toggle {
     top: 0;
 }
 
-/* Menú hamburguesa 
 .menu-toggle {
-    cursor: pointer;
-    width: 30px;
-    height: 30px;
-    position: relative;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.3s ease;
-    transform-origin: center;
-}*/
-
-.menu-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-  padding: 0;
-  margin: 0;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    flex-shrink: 0; /* AÑADIDO: Evitar que se comprima */
 }
 
-.menu-icon-close{
+.menu-icon-close {
     padding-top: 8px;
 }
 
-.menu-icon-open{
+.menu-icon-open {
     padding-top: 15px;
 }
 
@@ -141,7 +148,8 @@ nav .menu-toggle {
     position: fixed;
     top: 55px;
     left: 0;
-    width: 100%;
+    width: 100vw; /* CORREGIDO: Usar viewport width */
+    max-width: 100vw; /* AÑADIDO: Limitar ancho máximo */
     height: calc(100vh - 55px);
     background: linear-gradient(135deg, rgba(12, 81, 166, 0.90), rgba(19, 85, 176, 0.90));
     backdrop-filter: blur(10px);
@@ -152,8 +160,10 @@ nav .menu-toggle {
     transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
     z-index: 999;
     padding: 20px;
-    padding-left: 120px;
+    padding-left: min(120px, 5vw); /* CORREGIDO: Padding responsivo */
+    overflow-x: hidden; /* AÑADIDO: Prevenir desbordamiento horizontal */
     overflow-y: auto;
+    box-sizing: border-box; /* AÑADIDO */
 }
 
 .menu-container.active {
@@ -168,12 +178,14 @@ nav .menu-toggle {
     max-width: 1200px;
     width: 100%;
     max-height: 100%;
+    box-sizing: border-box; /* AÑADIDO */
 }
 
 /* Lista principal */
 .main-menu {
     padding: 30px;
     min-width: 300px;
+    box-sizing: border-box; /* AÑADIDO */
 }
 
 .menu-items {
@@ -185,10 +197,9 @@ nav .menu-toggle {
 /* ELEMENTOS SIEMPRE VISIBLES - SIN ANIMACIONES */
 .menu-items li {
     margin-bottom: 10px;
-    opacity: 1; /* Siempre visible */
-    transform: translateX(0); /* Sin transformaciones */
-     white-space: nowrap; /* ADDED: Prevents text from wrapping */
-   
+    opacity: 1;
+    transform: translateX(0);
+    white-space: nowrap;
 }
 
 .menu-items li a,
@@ -196,21 +207,26 @@ nav .menu-toggle {
 .menu-items li a span {
     color: white;
     text-decoration: none;
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 4vw, 2rem); /* CORREGIDO: Tamaño responsivo */
     font-weight: 300;
     display: flex;
     align-items: center;
     transition: all 0.3s ease;
     padding: 0.2rem 0;
-    opacity: 1; /* Siempre visible */
-    display: block;
-     white-space: nowrap; /* ADDED: Prevents text from wrapping */
+    opacity: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%; /* AÑADIDO: Limitar ancho máximo */
 }
 
 .menu-items li a:hover {
-    font-size: 2.1rem;
+    font-size: clamp(1.6rem, 4.2vw, 2.1rem); /* CORREGIDO: Hover responsivo */
     color: #ffffff;
     transform: translateX(10px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .menu-items li a.active {
@@ -223,6 +239,7 @@ nav .menu-toggle {
     margin-right: 0.8rem;
     color: rgba(255, 255, 255, 0.8);
     transition: all 0.3s ease;
+    flex-shrink: 0; /* AÑADIDO: Evitar que se comprima */
 }
 
 .menu-items li a:hover .arrow-icon {
@@ -230,53 +247,18 @@ nav .menu-toggle {
     color: white;
 }
 
-/* ELEMENTOS PRINCIPALES DEL MENÚ (<li> y <a>) */
-.menu-items li {
-    margin-bottom: 10px;
-    opacity: 1; /* Siempre visible */
-    transform: translateX(0); /* Sin transformaciones */
-}
-
-/* Estilos base para los links del menú principal (todos los <a> y <Link>) */
-.menu-items li a {
-    color: white;
-    text-decoration: none;
-    font-size: 2rem;
-    font-weight: 100; /* Peso base para todos los links */
-    display: flex; /* Para alinear el ícono y el texto en una línea */
-    align-items: center;
-    transition: all 0.3s ease;
-    padding: 0.2rem 0;
-    opacity: 1;
-    width: 100%; /* Asegura que el área clicable ocupe todo el ancho disponible */
-    white-space: nowrap; /* ¡Clave para que el texto NO SALTE DE LÍNEA! */
-    overflow: hidden; /* Oculta cualquier texto que se desborde */
-    text-overflow: ellipsis; /* Muestra "..." para el texto cortado */
-}
-
-/* Estilos al pasar el ratón por encima de los links del menú principal */
-.menu-items li a:hover {
-    font-size: 2.1rem;
-    color: #ffffff;
-    transform: translateX(10px);
-    /* Mantener propiedades de una línea en hover */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
 .menu-items li a span {
-    font-weight: 200; 
+    font-weight: 200;
+    overflow: hidden; /* AÑADIDO */
+    text-overflow: ellipsis; /* AÑADIDO */
 }
 
-/* ¡Clave! Aumenta el font-weight del TEXTO (dentro del span)
-   cuando el link principal (<a>) está ACTIVO. */
 .menu-items li a.active span {
-    font-weight: 600; /* O 500, según tu preferencia */
+    font-weight: 600;
 }
 
-/* Mantener el font-weight para el texto del link activo al pasar el ratón */
 .menu-items li a.active:hover span {
-    font-weight: 600; /* Puedes poner un valor más alto si quieres que sea aún más grueso en hover */
+    font-weight: 600;
 }
 
 /* Contenedor de imagen - MEJORADO PARA DESKTOP */
@@ -287,18 +269,19 @@ nav .menu-toggle {
     margin: 0 1rem;
     justify-content: center;
     flex: 1;
-    max-width: 250px; /* Aumentado de 250px */
-    min-width: 250px; /* Mínimo para desktop */
+    max-width: 250px;
+    min-width: 250px;
+    box-sizing: border-box; /* AÑADIDO */
 }
 
 .menu-image {
     max-width: 100%;
     height: auto;
-    max-height: 500px; /* Altura máxima más generosa */
+    max-height: 500px;
     opacity: 0.9;
     transition: transform 0.4s ease;
     border-radius: 10px;
-    object-fit: cover; /* Mejor proporción */
+    object-fit: cover;
 }
 
 .menu-image:hover {
@@ -321,13 +304,14 @@ nav .menu-toggle {
     align-self: stretch;
     border-radius: 1px;
     opacity: 1;
-    flex-shrink: 0; /* Evitar que se comprima */
+    flex-shrink: 0;
 }
 
 /* Submenús */
 .submenu-container {
     padding: 30px;
     min-width: 250px;
+    box-sizing: border-box; /* AÑADIDO */
 }
 
 .submenu {
@@ -341,26 +325,28 @@ nav .menu-toggle {
     display: block;
 }
 
-/* SUBMENU ITEMS SIEMPRE VISIBLES */
 .submenu li {
     margin-bottom: 1rem;
-    opacity: 1; /* Siempre visible */
-    transform: translateY(0); /* Sin transformaciones */
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .submenu li a {
     color: white;
     text-decoration: none;
-    font-size: 1.4rem;
+    font-size: clamp(1.1rem, 3vw, 1.4rem); /* CORREGIDO: Tamaño responsivo */
     font-weight: 200;
     transition: all 0.3s ease;
     display: block;
     padding: 0.5rem 0;
+    overflow: hidden; /* AÑADIDO */
+    text-overflow: ellipsis; /* AÑADIDO */
+    white-space: nowrap; /* AÑADIDO */
 }
 
 .submenu li a:hover {
     color: #ffffff;
-    font-size: 1.3rem;
+    font-size: clamp(1.2rem, 3.1vw, 1.3rem); /* CORREGIDO: Hover responsivo */
     transform: translateX(8px);
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
@@ -375,24 +361,24 @@ nav .menu-toggle {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s ease, padding 0.4s ease;
-    flex-direction: column; /* Forzar columna */
+    flex-direction: column;
+    box-sizing: border-box; /* AÑADIDO */
 }
 
 .mobile-submenu.active {
-    display: flex; /* Cambio a flex para mejor control */
-    flex-direction: column; /* Asegurar disposición en columna */
+    display: flex;
+    flex-direction: column;
     max-height: 500px;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
 }
 
-/* MOBILE SUBMENU ITEMS SIEMPRE VISIBLES */
 .mobile-submenu li {
     margin-bottom: 0.8rem;
-    opacity: 1; /* Siempre visible */
-    transform: translateY(0); /* Sin transformaciones */
-    width: 100%; /* Asegurar que ocupe todo el ancho */
-    display: block; /* Forzar display block */
+    opacity: 1;
+    transform: translateY(0);
+    width: 100%;
+    display: block;
 }
 
 .mobile-submenu li a {
@@ -407,6 +393,9 @@ nav .menu-toggle {
     border-left: 2px solid transparent;
     padding-left: 0.5rem;
     box-sizing: border-box;
+    overflow: hidden; /* AÑADIDO */
+    text-overflow: ellipsis; /* AÑADIDO */
+    white-space: nowrap; /* AÑADIDO */
 }
 
 .mobile-submenu li a:hover {
@@ -420,6 +409,7 @@ nav .menu-toggle {
     transition: transform 0.3s ease;
     margin-left: auto;
     font-size: 1.2rem;
+    flex-shrink: 0; /* AÑADIDO: Evitar que se comprima */
 }
 
 .expand-indicator.expanded {
@@ -435,42 +425,42 @@ nav .menu-toggle {
     filter: blur(3px);
 }
 
-/* Media Queries Responsive */
+/* Media Queries Responsive - CORREGIDAS */
 
 /* Tablets grandes y escritorio pequeño */
 @media (max-width: 1024px) {
     .nav-wrapper {
-        padding: 0 80px; /* Reducido para tablets */
+        padding: 0 min(80px, 4vw); /* CORREGIDO: Padding responsivo */
     }
     
     .logo-menu {
-        width: 110px; /* Reducido ligeramente */
+        width: min(110px, 15vw); /* CORREGIDO: Tamaño responsivo */
     }
     
     .btn-asociate {
-        min-width: 110px;
+        min-width: min(110px, 20vw); /* CORREGIDO: Ancho responsivo */
         min-height: 38px;
-        font-size: 0.95rem;
+        font-size: clamp(0.8rem, 2vw, 0.95rem); /* CORREGIDO */
+    }
+    
+    .menu-container {
+        padding-left: min(80px, 4vw); /* CORREGIDO */
     }
     
     .menu-content {
         gap: 20px;
-        max-width: 800px;
+        max-width: min(800px, 90vw); /* CORREGIDO */
     }
     
     .main-menu,
     .submenu-container {
-        min-width: 250px;
+        min-width: min(250px, 40vw); /* CORREGIDO */
         padding: 25px;
     }
     
-    .menu-items li a {
-        font-size: 1.8rem;
-    }
-    
     .menu-image-container {
-        max-width: 350px;
-        min-width: 250px;
+        max-width: min(350px, 30vw); /* CORREGIDO */
+        min-width: min(250px, 25vw); /* CORREGIDO */
     }
 }
 
@@ -481,42 +471,47 @@ nav .menu-toggle {
     }
     
     .vertical-separator {
-        display: block !important; /* Asegurar que se muestre en tablets */
+        display: block !important;
     }
     
     .menu-content {
-        max-width: 600px;
+        max-width: min(600px, 85vw); /* CORREGIDO */
     }
 }
 
-/* RESPONSIVE MÓVIL MEJORADO */
+/* RESPONSIVE MÓVIL CORREGIDO */
 @media (max-width: 768px) {
     nav {
         height: 55px;
         padding: 0 1rem;
+        max-width: 100vw; /* AÑADIDO */
+        overflow: hidden; /* AÑADIDO */
     }
     
     .nav-wrapper {
         padding: 0 1rem;
         max-width: 100%;
+        width: 100%; /* AÑADIDO */
     }
 
     .menu-container {
         top: 55px;
         height: calc(100vh - 55px);
         padding: 20px;
-        padding-left: 40px;
+        padding-left: min(40px, 5vw); /* CORREGIDO */
+        width: 100vw; /* AÑADIDO */
+        max-width: 100vw; /* AÑADIDO */
     }
 
     .logo-menu {
-        width: 90px; /* Reducido para móviles */
+        width: min(90px, 20vw); /* CORREGIDO */
         height: auto;
     }
 
     .btn-asociate {
-        min-width: 85px;
+        min-width: min(85px, 18vw); /* CORREGIDO */
         min-height: 32px;
-        font-size: 0.8rem;
+        font-size: clamp(0.7rem, 2vw, 0.8rem); /* CORREGIDO */
         padding: 0 0.6rem;
     }
 
@@ -529,12 +524,15 @@ nav .menu-toggle {
         flex-direction: column;
         gap: 0;
         align-items: stretch;
+        width: 100%; /* AÑADIDO */
+        max-width: 100%; /* AÑADIDO */
     }
 
     .main-menu,
     .submenu-container {
         max-width: 100%;
         min-width: unset;
+        width: 100%; /* AÑADIDO */
     }
 
     .vertical-separator,
@@ -548,8 +546,10 @@ nav .menu-toggle {
     }
 
     .menu-items li a {
-        font-size: 1.6rem;
+        font-size: clamp(1.2rem, 4vw, 1.6rem); /* CORREGIDO */
         justify-content: space-between;
+        width: 100%; /* AÑADIDO */
+        max-width: 100%; /* AÑADIDO */
     }
 
     .menu-items li a .expand-indicator {
@@ -557,7 +557,7 @@ nav .menu-toggle {
     }
 
     .mobile-submenu li a {
-        font-size: 1.1rem;
+        font-size: clamp(0.9rem, 3vw, 1.1rem); /* CORREGIDO */
     }
 }
 
@@ -572,31 +572,19 @@ nav .menu-toggle {
     }
 
     .logo-menu {
-        width: 80px;
+        width: min(80px, 18vw); /* CORREGIDO */
     }
 
     .btn-asociate {
-        min-width: 75px;
+        min-width: min(75px, 16vw); /* CORREGIDO */
         min-height: 30px;
-        font-size: 0.75rem;
+        font-size: clamp(0.65rem, 1.8vw, 0.75rem); /* CORREGIDO */
         padding: 0 0.5rem;
     }
 
     .menu-toggle {
         width: 24px;
         height: 24px;
-    }
-
-    .bar {
-        height: 2.5px;
-    }
-
-    .menu-items li a {
-        font-size: 1.4rem;
-    }
-
-    .menu-items li a:hover {
-        font-size: 1.5rem;
     }
 }
 
@@ -611,13 +599,13 @@ nav .menu-toggle {
     }
 
     .logo-menu {
-        width: 115px;
+        width: min(115px, 25vw); /* CORREGIDO */
     }
 
     .btn-asociate {
-        min-width: 70px;
+        min-width: min(70px, 15vw); /* CORREGIDO */
         min-height: 28px;
-        font-size: 0.7rem;
+        font-size: clamp(0.6rem, 1.5vw, 0.7rem); /* CORREGIDO */
         padding: 0 0.4rem;
     }
 
@@ -630,12 +618,8 @@ nav .menu-toggle {
         margin-bottom: 0;
     }
 
-    .menu-icon-open{
+    .menu-icon-open {
         padding-bottom: 8px;
-    }
-
-    .bar {
-        height: 2px;
     }
 
     .main-menu {
@@ -647,7 +631,7 @@ nav .menu-toggle {
     }
 
     .menu-items li a {
-        font-size: 15px;
+        font-size: clamp(0.9rem, 3.5vw, 1rem); /* CORREGIDO */
         justify-content: space-between;
     }
 
@@ -655,16 +639,8 @@ nav .menu-toggle {
         display: block;
     }
 
-    .menu-items li a:hover {
-        font-size: 1rem;
-    }
-
-    .submenu li a {
-        font-size: 0.6rem;
-    }
-
     .arrow-icon {
-        font-size: 1.1rem;
+        font-size: clamp(0.9rem, 2.5vw, 1.1rem); /* CORREGIDO */
         margin-right: 0.5rem;
     }
 }
@@ -680,13 +656,13 @@ nav .menu-toggle {
     }
 
     .logo-menu {
-        width: 60px;
+        width: min(60px, 20vw); /* CORREGIDO */
     }
 
     .btn-asociate {
-        min-width: 60px;
+        min-width: min(60px, 12vw); /* CORREGIDO */
         min-height: 26px;
-        font-size: 0.65rem;
+        font-size: clamp(0.5rem, 1.2vw, 0.65rem); /* CORREGIDO */
         padding: 0 0.3rem;
     }
 
@@ -695,65 +671,52 @@ nav .menu-toggle {
         height: 20px;
     }
 
-    .bar {
-        height: 2px;
-    }
-
     .main-menu {
         padding: 15px;
     }
 
     .menu-items li a {
-        font-size: 0.8rem;
+        font-size: clamp(0.7rem, 3vw, 0.8rem); /* CORREGIDO */
         justify-content: space-between;
-    }
-
-    .menu-items li a .expand-indicator {
-        display: block;
-    }
-
-    .menu-items li a:hover {
-        font-size: 1rem;
-    }
-
-    .submenu li a {
-        font-size: 0.6rem;
     }
     
     .arrow-icon {
-        font-size: 1rem;
+        font-size: clamp(0.8rem, 2vw, 1rem); /* CORREGIDO */
         margin-right: 0.4rem;
     }
 }
 
-/* Landscape móviles */
+/* Landscape móviles - CORREGIDO */
 @media (max-height: 500px) and (orientation: landscape) {
     .menu-container {
         align-items: flex-start;
         padding-top: 20px;
+        overflow-x: hidden; /* AÑADIDO */
+        overflow-y: auto; /* AÑADIDO */
     }
     
     .menu-content {
         flex-direction: row;
         overflow-y: auto;
-        max-width: 100%;
+        max-width: 95vw; /* CORREGIDO */
         align-items: flex-start;
+        width: 100%; /* AÑADIDO */
     }
 
     .main-menu {
         max-width: 40%;
-        min-width: 200px;
+        min-width: min(200px, 35vw); /* CORREGIDO */
     }
 
     .submenu-container {
         max-width: 35%;
-        min-width: 180px;
+        min-width: min(180px, 30vw); /* CORREGIDO */
         display: block !important;
     }
 
     .menu-image-container {
         display: flex !important;
-        max-width: 150px;
+        max-width: min(150px, 20vw); /* CORREGIDO */
     }
 
     .menu-items li {
@@ -761,20 +724,13 @@ nav .menu-toggle {
     }
 
     .menu-items li a {
-        font-size: 1.1rem;
+        font-size: clamp(0.9rem, 2.5vw, 1.1rem); /* CORREGIDO */
         padding: 0.3rem 0;
     }
 
     .submenu li a {
-        font-size: 0.9rem;
+        font-size: clamp(0.8rem, 2vw, 0.9rem); /* CORREGIDO */
         padding: 0.3rem 0;
-    }
-}
-
-/* Regla adicional del HTML original */
-@media (min-width: 380px) and (max-width: 480px) {
-    .menu-image-container {
-        display: none !important;
     }
 }
 
@@ -784,6 +740,9 @@ nav .menu-toggle {
     padding: 2rem;
     min-height: 100vh;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    max-width: 100vw; /* AÑADIDO: Prevenir desbordamiento */
+    overflow-x: hidden; /* AÑADIDO */
+    box-sizing: border-box; /* AÑADIDO */
 }
 
 .demo-card {
@@ -792,6 +751,8 @@ nav .menu-toggle {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 2rem;
+    max-width: 100%; /* AÑADIDO */
+    box-sizing: border-box; /* AÑADIDO */
 }
 
 @media (max-width: 768px) {
