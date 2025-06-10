@@ -102,17 +102,15 @@ const Home = () => {
         <section className="promo-container">
           <div className= "promo-items margenes">
             <div className="promo-texto">
-              <h3 className="promo-titulo animate-item" data-animation="animate__fadeInDown">
-               Congreso Argentino de Forrajes
-              </h3>
+              <h2 className='congreso-titulo'>Primer Congreso Argentino de Forrajes</h2>
               <p className="promo-descripcion promo-descripcion1 animate-item" data-animation="animate__fadeInDown">
-                13 al 15 de Agosto - Córdoba
+                2025 - AGOSTO 13, 14 Y 15 - CÓRDOBA
               </p>
               
               <div className="promo-linea"></div>
               
               <p className="promo-descripcion animate-item" data-animation="animate__fadeInDown">
-                Este evento marcará un hito: es el primer congreso en el país que reúne a toda la cadena forrajera, desde la producción hasta su utilización. Especialistas nacionales e internacionales, tecnología de punta y networking para el futuro del sector agropecuario argentino.
+                Este evento marcará un hito: <span className='primer-congreso'>es el primer congreso en el país que reúne a toda la cadena forrajera</span>, desde la producción hasta su utilización. Especialistas nacionales e internacionales, tecnología de punta y networking para el futuro del sector agropecuario argentino.
               </p>
             </div>
             
@@ -123,15 +121,19 @@ const Home = () => {
                   Tu navegador no soporta el video.
                 </video>
               </div>
-              <div className="promo-boton-container">
+            </div>
+          </div>
+          <div className="promo-boton-container">
             <button className="promo-boton">
               <a href="https://congresoargentinodeforrajes.com.ar/" target="_blank" rel="noopener noreferrer" className="boton-congreso">
-                Más información<i class="bi bi-arrow-right"></i>
+                Más información
               </a>
             </button>
           </div>
-            </div>
-          </div>
+        </section>
+
+        <section className='convenios'>
+          <p className='convenios-p'>Aca va el carrusel con los convenios</p>
         </section>
 
 
@@ -180,15 +182,16 @@ const Home = () => {
                 <div className="linea-horizontal3"></div>
                 <h2 className="informacion-util-h2">Beneficios de los Socios CACF</h2>
                 <p className="informacion-util-p">
-                  Ser socio de la Cámara Argentina de Contratistas Forrajeros te brinda acceso exclusivo a herramientas, información y ventajas económicas; clave para potenciar tu crecimiento. Te invitamos a conocer los beneficios.
+                  Ser socio de la Cámara Argentina de Contratistas Forrajeros te brinda acceso exclusivo a herramientas, información y ventajas económicas; clave para potenciar tu crecimiento.
                 </p>
+                <p className='beneficios-socios'>Te invitamos a conocer los beneficios.</p>
               </div>
 
               <div className="frames1">
                 <img className="mapa" src={mapa} alt="Mapa de socios" />
                 <div className="linea-horizontal3"></div>
                 <h2 className="informacion-util-h2">Localizá a nuestros socios</h2>
-                <p className="informacion-util-p">Ver mapa en pantalla completa</p>
+                <p className="informacion-util-p ver-mapa">Ver mapa en pantalla completa</p>
               </div>
             </div>
           </div>

@@ -4,6 +4,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import contratista from '../assets/images/imagenes-secciones/contratista-imagen.jpg';
 import ganado from '../assets/images/imagenes-secciones/ganado-imagen.jpg';
 import maquinas from '../assets/images/imagenes-secciones/maquinas-imagen.jpg';
+import capacitacion from '../assets/images/imagenes-secciones/capacitacion.jpg';
+import camioneta from '../assets/images/imagenes-secciones/camioneta.jpg';
+import socios from '../assets/images/imagenes-secciones/socioss.jpg';
 import './gallery.css';
 
 // Import Swiper styles
@@ -35,14 +38,10 @@ export default function Gallery() {
         slidesPerView={1}
         spaceBetween={10}
         centeredSlides={false}
-        autoplay={
-          isDesktop
-            ? false
-            : {
-                delay: 2500,
-                disableOnInteraction: false,
-              }
-        }
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
         pagination={{
           clickable: true,
           type: "progressbar",
@@ -59,7 +58,7 @@ export default function Gallery() {
             spaceBetween: 25,
           },
           1024: {
-            slidesPerView: 3,
+            slidesPerView: 4,
             spaceBetween: 30,
           },
         }}
@@ -75,10 +74,15 @@ export default function Gallery() {
           <img className="imagen-galeria" src={maquinas} alt="Máquinas" />
         </SwiperSlide>
         <SwiperSlide>
-          <img className="imagen-galeria" src={maquinas} alt="Máquinas" />
+          <img className="imagen-galeria" src={capacitacion} alt="Capacitacion CACF" />
+        </SwiperSlide>
+         <SwiperSlide>
+          <img className="imagen-galeria" src={camioneta} alt="Camioneta CACF" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img className="imagen-galeria" src={socios} alt="socios CACF" />
         </SwiperSlide>
       </Swiper>
-
     </>
   );
 }
