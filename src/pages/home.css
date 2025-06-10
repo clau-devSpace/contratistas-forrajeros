@@ -374,7 +374,7 @@ canvas {
 .promo-container {
   position: relative;
   width: 100%;
-  background-color: white;
+  background-color: #f2f0f0;
   overflow: hidden;
   margin-top: 50px;
 }
@@ -408,6 +408,7 @@ canvas {
 
 .promo-titulo {
   font-size: 43px;
+  font-weight: 700;
   text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.3);
 }
 

@@ -143,7 +143,7 @@ nav .menu-toggle {
     left: 0;
     width: 100%;
     height: calc(100vh - 55px);
-    background: linear-gradient(135deg, rgba(12, 81, 166, 0.95), rgba(19, 85, 176, 0.95));
+    background: linear-gradient(135deg, rgba(12, 81, 166, 0.90), rgba(19, 85, 176, 0.90));
     backdrop-filter: blur(10px);
     display: flex;
     justify-content: flex-start;
@@ -202,7 +202,6 @@ nav .menu-toggle {
     align-items: center;
     transition: all 0.3s ease;
     padding: 0.2rem 0;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     opacity: 1; /* Siempre visible */
     display: block;
      white-space: nowrap; /* ADDED: Prevents text from wrapping */
@@ -212,7 +211,6 @@ nav .menu-toggle {
     font-size: 2.1rem;
     color: #ffffff;
     transform: translateX(10px);
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 .menu-items li a.active {
@@ -244,12 +242,11 @@ nav .menu-toggle {
     color: white;
     text-decoration: none;
     font-size: 2rem;
-    font-weight: 300; /* Peso base para todos los links */
+    font-weight: 100; /* Peso base para todos los links */
     display: flex; /* Para alinear el ícono y el texto en una línea */
     align-items: center;
     transition: all 0.3s ease;
     padding: 0.2rem 0;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     opacity: 1;
     width: 100%; /* Asegura que el área clicable ocupe todo el ancho disponible */
     white-space: nowrap; /* ¡Clave para que el texto NO SALTE DE LÍNEA! */
@@ -262,13 +259,14 @@ nav .menu-toggle {
     font-size: 2.1rem;
     color: #ffffff;
     transform: translateX(10px);
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     /* Mantener propiedades de una línea en hover */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
+.menu-items li a span {
+    font-weight: 200; 
+}
 
 /* ¡Clave! Aumenta el font-weight del TEXTO (dentro del span)
    cuando el link principal (<a>) está ACTIVO. */
@@ -317,7 +315,7 @@ nav .menu-toggle {
         rgba(255, 255, 255, 0.9) 80%,
         rgba(255, 255, 255, 0.1) 100%
     );
-    margin: 0 1.5rem;
+    margin: 0 1.2rem;
     margin-top: 30px;
     margin-bottom: 30px;
     align-self: stretch;
@@ -353,12 +351,11 @@ nav .menu-toggle {
 .submenu li a {
     color: white;
     text-decoration: none;
-    font-size: 1.25rem;
+    font-size: 1.4rem;
     font-weight: 200;
     transition: all 0.3s ease;
     display: block;
     padding: 0.5rem 0;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .submenu li a:hover {

@@ -16,7 +16,7 @@ const Footer = () => {
         <div className="redes-sociales">
           <h4>Seguinos en nuestras Redes Sociales</h4>
           <div>
-            <a className="enlace-redes" href="https://www.instagram.com/ensiladores/?hl=es" target="_blank" rel="noopener noreferrer">
+            <a className="enlace-redes" href="https://www.instagram.com/ensiladores/?hl=es" target="_blank">
               <i className="bi bi-instagram icono-redes"></i>
             </a>
             <a className="enlace-redes" href="https://www.facebook.com/ensiladores?locale=es_LA" target="_blank" rel="noopener noreferrer">

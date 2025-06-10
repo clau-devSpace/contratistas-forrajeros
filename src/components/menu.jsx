@@ -71,9 +71,8 @@ const Menu = () => {
     { id: 'nosotros', title: 'Nosotros', hasSubmenu: true, submenuItems: [
       { label: 'Misión, Visión y Valores', to: '/mision' },
       { label: 'Junta Directiva', to: '/junta' },
-      { label: 'Nuestros Socios', to: '/socios' },
-      { label: 'Convenios', to: '/convenios' },
       { label: 'Quiero Asociarme', to: '/asociarme' },
+      { label: 'Contacto', to: '/contacto' }
     ] },
     { id: 'socios', title: 'Nuestros Socios', hasSubmenu: false, to: '/socios' },
     { id: 'convenios', title: 'Convenios', hasSubmenu: false, to: '/convenios' },
@@ -89,8 +88,7 @@ const Menu = () => {
       { label: 'Notas Periodísticas', to: '/notas' },
     ] },
     { id: 'mapa', title: 'Mapa', hasSubmenu: false, to: '/mapa' },
-    { id: 'exclusivo', title: 'Exclusivo Socios', hasSubmenu: false, to: '/exclusivo' },
-    { id: 'contacto', title: 'Contacto', hasSubmenu: false, to: '/contacto' },
+    { id: 'exclusivo', title: 'Exclusivo Socios', hasSubmenu: false, to: '/exclusivo' }
   ];
 
   return (
@@ -128,7 +126,7 @@ const Menu = () => {
                       onClick={(e) => handleSubmenuClick(e, item.id)}
                     >
                       <span>
-                        <i className="bi bi-arrow-right arrow-icon"></i>
+                  
                         {item.title}
                       </span>
                       {item.hasSubmenu && (
@@ -145,7 +143,6 @@ const Menu = () => {
                       }}
                     >
                       <span>
-                        <i className="bi bi-arrow-right arrow-icon"></i>
                         {item.title}
                       </span>
                     </Link>
@@ -180,8 +177,7 @@ const Menu = () => {
                 </ul>
               ))}
           </div>
-
-          <div className="menu-image-container">
+           <div className="menu-image-container">
             <img className="menu-image" src={imagen_menu} alt="Menu Image" />
           </div>
         </div>

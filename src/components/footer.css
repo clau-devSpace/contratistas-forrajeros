@@ -50,16 +50,16 @@ footer p {
 }
 
 .icono-redes {
-  padding: 6px 10px;
+  padding: 4px 8px;
   background-color: #fff;
   color: #000000;
   border-radius: 50%;
-  font-size: 1.3em;
+  font-size: 1.1em;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40px;
-  height: 40px;
+  width: 20px;
+  height: 20px;
 }
 
 .enlace-redes{

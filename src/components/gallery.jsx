@@ -33,7 +33,7 @@ export default function Gallery() {
       <Swiper
         key={isDesktop ? "desktop" : "mobile"}
         slidesPerView={1}
-        spaceBetween={30}
+        spaceBetween={10}
         centeredSlides={false}
         autoplay={
           isDesktop
@@ -70,6 +70,9 @@ export default function Gallery() {
         </SwiperSlide>
         <SwiperSlide>
           <img className="imagen-galeria" src={ganado} alt="Ganado" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img className="imagen-galeria" src={maquinas} alt="Máquinas" />
         </SwiperSlide>
         <SwiperSlide>
           <img className="imagen-galeria" src={maquinas} alt="Máquinas" />
