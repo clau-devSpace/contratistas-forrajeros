@@ -361,11 +361,8 @@
   
   /* Ocultar columnas en tablets pequeñas */
   .table-header th:nth-child(2), /* Contacto */
-  .table-header th:nth-child(4), /* Provincia */
-  .table-header th:nth-child(5), /* Servicio */
-  .table-row td:nth-child(2),    /* Contacto */
-  .table-row td:nth-child(4),    /* Provincia */
-  .table-row td:nth-child(5) {   /* Servicio */
+  .table-row td:nth-child(2)   /* Contacto */
+  {   /* Servicio */
     display: none;
   }
   
