@@ -422,9 +422,9 @@ canvas {
 .promo-linea {
   margin-top: 15px;
   margin-bottom: 15px;
-  width: 100px;
+  width: 120px;
   height: 1px;
-  background-color: #6CBF55;
+  background-color: #0c51a6;
 }
 
 .promo-descripcion {
@@ -440,6 +440,7 @@ canvas {
   font-size: 20;
   margin-top: 15px;
   font-weight: 700;
+  color:#0c51a6;
 }
 
 .primer-congreso{
@@ -554,9 +555,9 @@ header {
 .promo-linea {
     margin-top: 15px;
     margin-bottom: 15px;
-    width: 100px;
+    width: 120px;
     height: 1px;
-    background-color: #378a2c;
+    background-color: #0c51a6;
     margin-left: 0; 
     margin-right: auto; 
 }
@@ -704,7 +705,6 @@ header {
 
     h1 {
         font-size: 45px;
-        /*padding-top: 180px;*/
     }
     .titulo p {
         font-size: 20px;
@@ -727,9 +727,6 @@ header {
         max-width: 600px;
     }
 
-    .promo-descripcion1{
-        color:#378a2c;
-    }
 
     .promo-video-container {
         max-width: 350px;
@@ -1025,7 +1022,7 @@ header {
     .informacion-util-h2 {
         font-size: 15px;
     }
-    .informacion-util-p {
+    .informacion-util-p, .beneficios-socios{
         font-size: 12px;
     }
 
@@ -1208,7 +1205,7 @@ header {
         padding-left: 10px;
     }
 
-    .informacion-util-p {
+    .informacion-util-p, .beneficios-socios {
         font-size: 10px;
     }
 
@@ -1477,7 +1474,7 @@ header {
     .informacion-util-h2 {
         font-size: 15px;
     }
-    .informacion-util-p {
+    .informacion-util-p, .beneficios-socios {
         font-size: 12px;
     }
  .texto-agrinir {
