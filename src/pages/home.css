@@ -726,6 +726,11 @@ header {
         font-size: 17px;
         max-width: 600px;
     }
+
+    .promo-descripcion1{
+        color:#378a2c;
+    }
+    
     .promo-video-container {
         max-width: 350px;
     }
