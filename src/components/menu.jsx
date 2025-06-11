@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './Menu.css';
+import './menu.css';
 import logo from '../assets/images/logos/Group 5.svg';
 import imagen_menu from '../assets/images/imagenes-secciones/nueva-menu.png';
 
