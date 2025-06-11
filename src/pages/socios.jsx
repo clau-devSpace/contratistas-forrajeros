@@ -147,7 +147,6 @@ const EmpresaDetailModal = ({ empresaId, isOpen, onClose }) => {
                   <td className="modal-table-value">{empresa.codigo_postal || 'No especificado'}</td>
                 </tr>
 
-                {/* Sección de maquinaria consolidada - incluye todo el equipamiento */}
                 <tr key="header-maquinaria"><td className="section-header" colSpan="2">MAQUINARIA</td></tr>
                 <tr key="picadora-marca" className="modal-table-row">
                   <td className="modal-table-label">Picadora Marca</td>
