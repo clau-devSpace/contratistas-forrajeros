@@ -562,7 +562,7 @@ nav .menu-toggle {
 }
 
 /* Móviles medianos */
-@media (max-width: 600px) {
+@media (min-width: 479px) and (max-width: 600px) {
     nav {
         padding: 0 0.8rem;
     }
@@ -589,7 +589,7 @@ nav .menu-toggle {
 }
 
 /* Móviles pequeños */
-@media (max-width: 480px) {
+@media (min-width: 361px) and (max-width: 480px){
     nav {
         padding: 0 0.6rem;
     }
@@ -642,6 +642,11 @@ nav .menu-toggle {
     .arrow-icon {
         font-size: clamp(0.9rem, 2.5vw, 1.1rem); /* CORREGIDO */
         margin-right: 0.5rem;
+    }
+
+    
+   .menu-icon-open {
+    padding-top: 15px;
     }
 }
 
