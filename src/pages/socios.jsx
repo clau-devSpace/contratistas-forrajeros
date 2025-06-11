@@ -147,39 +147,8 @@ const EmpresaDetailModal = ({ empresaId, isOpen, onClose }) => {
                   <td className="modal-table-value">{empresa.codigo_postal || 'No especificado'}</td>
                 </tr>
 
-                {/* NUEVA SECCIÓN: Datos adicionales simulados/reales */}
-                {empresa.equipamiento && (
-                  <>
-                    <tr key="header-equipamiento"><td className="section-header" colSpan="2">EQUIPAMIENTO PRINCIPAL</td></tr>
-                    {empresa.equipamiento.maquinaria_principal && empresa.equipamiento.maquinaria_principal.map((maquina, index) => (
-                      <tr key={`maquina-${index}`} className="modal-table-row">
-                        <td className="modal-table-label">Maquinaria {index + 1}</td>
-                        <td className="modal-table-value">{maquina}</td>
-                      </tr>
-                    ))}
-                  </>
-                )}
-
-                {empresa.inventario && (
-                  <>
-                    <tr key="header-inventario"><td className="section-header" colSpan="2">INVENTARIO</td></tr>
-                    <tr key="tractores" className="modal-table-row">
-                      <td className="modal-table-label">Tractores</td>
-                      <td className="modal-table-value">{empresa.inventario.tractores || 'No especificado'}</td>
-                    </tr>
-                    <tr key="camiones" className="modal-table-row">
-                      <td className="modal-table-label">Camiones</td>
-                      <td className="modal-table-value">{empresa.inventario.camiones || empresa.camiones || 'No especificado'}</td>
-                    </tr>
-                    <tr key="implementos" className="modal-table-row">
-                      <td className="modal-table-label">Implementos</td>
-                      <td className="modal-table-value">{empresa.inventario.implementos || 'No especificado'}</td>
-                    </tr>
-                  </>
-                )}
-
-                {/* Sección de maquinaria específica (datos originales) */}
-                <tr key="header-maquinaria"><td className="section-header" colSpan="2">MAQUINARIA ESPECÍFICA</td></tr>
+                {/* Sección de maquinaria consolidada - incluye todo el equipamiento */}
+                <tr key="header-maquinaria"><td className="section-header" colSpan="2">MAQUINARIA</td></tr>
                 <tr key="picadora-marca" className="modal-table-row">
                   <td className="modal-table-label">Picadora Marca</td>
                   <td className="modal-table-value">{empresa.picadora_marca || 'No especificada'}</td>
@@ -200,8 +169,22 @@ const EmpresaDetailModal = ({ empresaId, isOpen, onClose }) => {
                   <td className="modal-table-label">Tractor</td>
                   <td className="modal-table-value">{empresa.tractor || 'No especificado'}</td>
                 </tr>
-
-                <tr key="header-vehiculos"><td className="section-header" colSpan="2">VEHÍCULOS Y TRANSPORTE</td></tr>
+                {empresa.inventario && (
+                  <>
+                    <tr key="tractores" className="modal-table-row">
+                      <td className="modal-table-label">Tractores</td>
+                      <td className="modal-table-value">{empresa.inventario.tractores || 'No especificado'}</td>
+                    </tr>
+                    <tr key="camiones" className="modal-table-row">
+                      <td className="modal-table-label">Camiones</td>
+                      <td className="modal-table-value">{empresa.inventario.camiones || empresa.camiones || 'No especificado'}</td>
+                    </tr>
+                    <tr key="implementos" className="modal-table-row">
+                      <td className="modal-table-label">Implementos</td>
+                      <td className="modal-table-value">{empresa.inventario.implementos || 'No especificado'}</td>
+                    </tr>
+                  </>
+                )}
                 <tr key="bateas" className="modal-table-row">
                   <td className="modal-table-label">Bateas</td>
                   <td className="modal-table-value">{empresa.bateas || 'No especificadas'}</td>
@@ -214,44 +197,17 @@ const EmpresaDetailModal = ({ empresaId, isOpen, onClose }) => {
                   <td className="modal-table-label">Carretones</td>
                   <td className="modal-table-value">{empresa.carretones || 'No especificados'}</td>
                 </tr>
-
-                <tr key="header-infraestructura"><td className="section-header" colSpan="2">INFRAESTRUCTURA</td></tr>
                 <tr key="casillas" className="modal-table-row">
                   <td className="modal-table-label">Casillas</td>
                   <td className="modal-table-value">{empresa.casillas || 'No especificadas'}</td>
                 </tr>
+
+                {/* Sección Varios como categoría principal independiente */}
+                <tr key="header-varios"><td className="section-header" colSpan="2">VARIOS</td></tr>
                 <tr key="varios" className="modal-table-row">
                   <td className="modal-table-label">Varios</td>
                   <td className="modal-table-value">{empresa.varios || 'No especificado'}</td>
                 </tr>
-
-                <tr key="header-servicios"><td className="section-header" colSpan="2">SERVICIOS</td></tr>
-                <tr key="descripcion" className="modal-table-row">
-                  <td className="modal-table-label">Descripción</td>
-                  <td className="modal-table-value">{empresa.servicio || empresa.descripcion}</td>
-                </tr>
-
-                {/* Información adicional si existe */}
-                {empresa.calificacion && (
-                  <tr key="calificacion" className="modal-table-row">
-                    <td className="modal-table-label">Calificación</td>
-                    <td className="modal-table-value">⭐ {empresa.calificacion}/5.0</td>
-                  </tr>
-                )}
-                
-                {empresa.años_experiencia && (
-                  <tr key="experiencia" className="modal-table-row">
-                    <td className="modal-table-label">Años de Experiencia</td>
-                    <td className="modal-table-value">{empresa.años_experiencia} años</td>
-                  </tr>
-                )}
-
-                {empresa.zona_cobertura && (
-                  <tr key="zona" className="modal-table-row">
-                    <td className="modal-table-label">Zona de Cobertura</td>
-                    <td className="modal-table-value">{empresa.zona_cobertura}</td>
-                  </tr>
-                )}
               </tbody>
             </table>
           )}
