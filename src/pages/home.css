@@ -730,7 +730,7 @@ header {
     .promo-descripcion1{
         color:#378a2c;
     }
-    
+
     .promo-video-container {
         max-width: 350px;
     }
@@ -781,7 +781,6 @@ header {
 
     h1 {
         font-size: 38px;
-        padding-top: 140px;
     }
     .titulo p {
         font-size: 18px;
@@ -903,6 +902,10 @@ header {
         font-size: 13px;
     }
 
+    .beneficios-socios{
+        font-size: 13px;
+    }
+
     .container-footer {
         flex-direction: column;
         padding: 20px 40px;
@@ -944,7 +947,6 @@ header {
     }
     h1 {
         font-size: 30px;
-        padding-top: 100px;
     }
     .titulo p {
         font-size: 16px;
