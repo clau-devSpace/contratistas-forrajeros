@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import 'animate.css';
-import './Home.css';
+import './home.css';
 import Footer from '../components/Footer';
 import ImageGallery from '../components/gallery';
 import socios from '../assets/images/imagenes-secciones/socios-2.jpg';
