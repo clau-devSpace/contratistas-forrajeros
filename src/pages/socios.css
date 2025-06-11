@@ -417,11 +417,9 @@
 
   .table-header th:nth-child(2), 
   .table-header th:nth-child(3),
-  .table-header th:nth-child(4), 
   .table-header th:nth-child(5),
   .table-row td:nth-child(2),    
-  .table-row td:nth-child(3),    
-  .table-row td:nth-child(4),   
+  .table-row td:nth-child(3),       
   .table-row td:nth-child(5) {  
     display: none;
   }
@@ -448,9 +446,13 @@
   }
   
   /* Modal responsive en móviles */
+  .modal-table{
+   max-height: 70vh;
+  }
+
   .modal-content {
-    margin: 0.25rem;
-    max-height: calc(100vh - 0.5rem);
+    margin: 1rem;
+    max-height: 70vh;
   }
   
   .modal-header {
@@ -510,11 +512,9 @@
   
   .table-header th:nth-child(2), 
   .table-header th:nth-child(3), 
-  .table-header th:nth-child(4), 
   .table-header th:nth-child(5), 
   .table-row td:nth-child(2),    
-  .table-row td:nth-child(3),   
-  .table-row td:nth-child(4),   
+  .table-row td:nth-child(3),     
   .table-row td:nth-child(5) {   
     display: none;
   }
