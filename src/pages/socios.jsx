@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import './socios.css';
 // Importar el servicio API
-import apiService from './apiService';
+import apiService from '../services/apiService';
+// Para obtener la lista general
 
 // Componente Modal optimizado - carga datos dinámicamente
 const EmpresaDetailModal = ({ empresaId, isOpen, onClose }) => {
@@ -30,12 +31,15 @@ const EmpresaDetailModal = ({ empresaId, isOpen, onClose }) => {
     try {
       setLoading(true);
       setError(null);
-      // Usar el servicio API importado
+      console.log('🔍 Cargando detalles para empresa ID:', empresaId);
+      
+      // CORREGIDO: Usar empresaId en lugar de 1 hardcodeado
       const detail = await apiService.fetchEmpresaDetail(empresaId);
+      console.log('✅ Detalles cargados:', detail);
       setEmpresa(detail);
     } catch (err) {
       setError('Error al cargar los detalles de la empresa');
-      console.error('Error loading empresa detail:', err);
+      console.error('❌ Error loading empresa detail:', err);
     } finally {
       setLoading(false);
     }
@@ -91,20 +95,20 @@ const EmpresaDetailModal = ({ empresaId, isOpen, onClose }) => {
           {empresa && !loading && !error && (
             <table className="modal-table">
               <tbody>
-                <tr><td className="section-header" colSpan="2">INFORMACIÓN BÁSICA</td></tr>
-                <tr className="modal-table-row">
+                <tr key="header-basica"><td className="section-header" colSpan="2">INFORMACIÓN BÁSICA</td></tr>
+                <tr key="empresa" className="modal-table-row">
                   <td className="modal-table-label">Empresa</td>
                   <td className="modal-table-value">{empresa.empresa}</td>
                 </tr>
-                <tr className="modal-table-row">
+                <tr key="contacto" className="modal-table-row">
                   <td className="modal-table-label">Contacto</td>
                   <td className="modal-table-value">{empresa.contacto}</td>
                 </tr>
-                <tr className="modal-table-row">
+                <tr key="email" className="modal-table-row">
                   <td className="modal-table-label">Email</td>
                   <td className="modal-table-value">{empresa.email}</td>
                 </tr>
-                <tr className="modal-table-row">
+                <tr key="web" className="modal-table-row">
                   <td className="modal-table-label">Página Web</td>
                   <td className="modal-table-value">
                     {empresa.pagina_web ? (
@@ -115,89 +119,139 @@ const EmpresaDetailModal = ({ empresaId, isOpen, onClose }) => {
                   </td>
                 </tr>
 
-                <tr><td className="section-header" colSpan="2">CONTACTO</td></tr>
-                <tr className="modal-table-row">
+                <tr key="header-contacto"><td className="section-header" colSpan="2">CONTACTO</td></tr>
+                <tr key="tel-movil" className="modal-table-row">
                   <td className="modal-table-label">Teléfono Móvil</td>
-                  <td className="modal-table-value">{empresa.telefono_movil}</td>
+                  <td className="modal-table-value">{empresa.telefono_movil || empresa.telefono}</td>
                 </tr>
-                <tr className="modal-table-row">
+                <tr key="tel-fijo" className="modal-table-row">
                   <td className="modal-table-label">Teléfono Fijo</td>
-                  <td className="modal-table-value">{empresa.telefono_fijo}</td>
+                  <td className="modal-table-value">{empresa.telefono_fijo || 'No especificado'}</td>
                 </tr>
 
-                <tr><td className="section-header" colSpan="2">UBICACIÓN</td></tr>
-                <tr className="modal-table-row">
+                <tr key="header-ubicacion"><td className="section-header" colSpan="2">UBICACIÓN</td></tr>
+                <tr key="direccion" className="modal-table-row">
                   <td className="modal-table-label">Dirección</td>
-                  <td className="modal-table-value">{empresa.direccion}</td>
+                  <td className="modal-table-value">{empresa.direccion || 'No especificada'}</td>
                 </tr>
-                <tr className="modal-table-row">
+                <tr key="ciudad" className="modal-table-row">
                   <td className="modal-table-label">Ciudad</td>
                   <td className="modal-table-value">{empresa.ciudad}</td>
                 </tr>
-                <tr className="modal-table-row">
+                <tr key="provincia" className="modal-table-row">
                   <td className="modal-table-label">Provincia</td>
                   <td className="modal-table-value">{empresa.provincia}</td>
                 </tr>
-                <tr className="modal-table-row">
+                <tr key="cp" className="modal-table-row">
                   <td className="modal-table-label">Código Postal</td>
-                  <td className="modal-table-value">{empresa.codigo_postal}</td>
+                  <td className="modal-table-value">{empresa.codigo_postal || 'No especificado'}</td>
                 </tr>
 
-                <tr><td className="section-header" colSpan="2">MAQUINARIA PRINCIPAL</td></tr>
-                <tr className="modal-table-row">
+                {/* NUEVA SECCIÓN: Datos adicionales simulados/reales */}
+                {empresa.equipamiento && (
+                  <>
+                    <tr key="header-equipamiento"><td className="section-header" colSpan="2">EQUIPAMIENTO PRINCIPAL</td></tr>
+                    {empresa.equipamiento.maquinaria_principal && empresa.equipamiento.maquinaria_principal.map((maquina, index) => (
+                      <tr key={`maquina-${index}`} className="modal-table-row">
+                        <td className="modal-table-label">Maquinaria {index + 1}</td>
+                        <td className="modal-table-value">{maquina}</td>
+                      </tr>
+                    ))}
+                  </>
+                )}
+
+                {empresa.inventario && (
+                  <>
+                    <tr key="header-inventario"><td className="section-header" colSpan="2">INVENTARIO</td></tr>
+                    <tr key="tractores" className="modal-table-row">
+                      <td className="modal-table-label">Tractores</td>
+                      <td className="modal-table-value">{empresa.inventario.tractores || 'No especificado'}</td>
+                    </tr>
+                    <tr key="camiones" className="modal-table-row">
+                      <td className="modal-table-label">Camiones</td>
+                      <td className="modal-table-value">{empresa.inventario.camiones || empresa.camiones || 'No especificado'}</td>
+                    </tr>
+                    <tr key="implementos" className="modal-table-row">
+                      <td className="modal-table-label">Implementos</td>
+                      <td className="modal-table-value">{empresa.inventario.implementos || 'No especificado'}</td>
+                    </tr>
+                  </>
+                )}
+
+                {/* Sección de maquinaria específica (datos originales) */}
+                <tr key="header-maquinaria"><td className="section-header" colSpan="2">MAQUINARIA ESPECÍFICA</td></tr>
+                <tr key="picadora-marca" className="modal-table-row">
                   <td className="modal-table-label">Picadora Marca</td>
                   <td className="modal-table-value">{empresa.picadora_marca || 'No especificada'}</td>
                 </tr>
-                <tr className="modal-table-row">
+                <tr key="picadora-modelo" className="modal-table-row">
                   <td className="modal-table-label">Picadora Modelo</td>
                   <td className="modal-table-value">{empresa.picadora_modelo || 'No especificado'}</td>
                 </tr>
-                <tr className="modal-table-row">
+                <tr key="cabezal" className="modal-table-row">
                   <td className="modal-table-label">Cabezal</td>
                   <td className="modal-table-value">{empresa.cabezal || 'No especificado'}</td>
                 </tr>
-                <tr className="modal-table-row">
+                <tr key="embolsadora" className="modal-table-row">
                   <td className="modal-table-label">Embolsadora</td>
                   <td className="modal-table-value">{empresa.embolsadora || 'No especificada'}</td>
                 </tr>
-                <tr className="modal-table-row">
+                <tr key="tractor" className="modal-table-row">
                   <td className="modal-table-label">Tractor</td>
                   <td className="modal-table-value">{empresa.tractor || 'No especificado'}</td>
                 </tr>
 
-                <tr><td className="section-header" colSpan="2">VEHÍCULOS Y TRANSPORTE</td></tr>
-                <tr className="modal-table-row">
+                <tr key="header-vehiculos"><td className="section-header" colSpan="2">VEHÍCULOS Y TRANSPORTE</td></tr>
+                <tr key="bateas" className="modal-table-row">
                   <td className="modal-table-label">Bateas</td>
                   <td className="modal-table-value">{empresa.bateas || 'No especificadas'}</td>
                 </tr>
-                <tr className="modal-table-row">
+                <tr key="carros" className="modal-table-row">
                   <td className="modal-table-label">Carros</td>
                   <td className="modal-table-value">{empresa.carros || 'No especificados'}</td>
                 </tr>
-                <tr className="modal-table-row">
-                  <td className="modal-table-label">Camiones</td>
-                  <td className="modal-table-value">{empresa.camiones || 'No especificados'}</td>
-                </tr>
-                <tr className="modal-table-row">
+                <tr key="carretones" className="modal-table-row">
                   <td className="modal-table-label">Carretones</td>
                   <td className="modal-table-value">{empresa.carretones || 'No especificados'}</td>
                 </tr>
 
-                <tr><td className="section-header" colSpan="2">INFRAESTRUCTURA</td></tr>
-                <tr className="modal-table-row">
+                <tr key="header-infraestructura"><td className="section-header" colSpan="2">INFRAESTRUCTURA</td></tr>
+                <tr key="casillas" className="modal-table-row">
                   <td className="modal-table-label">Casillas</td>
                   <td className="modal-table-value">{empresa.casillas || 'No especificadas'}</td>
                 </tr>
-                <tr className="modal-table-row">
+                <tr key="varios" className="modal-table-row">
                   <td className="modal-table-label">Varios</td>
                   <td className="modal-table-value">{empresa.varios || 'No especificado'}</td>
                 </tr>
 
-                <tr><td className="section-header" colSpan="2">SERVICIOS</td></tr>
-                <tr className="modal-table-row">
+                <tr key="header-servicios"><td className="section-header" colSpan="2">SERVICIOS</td></tr>
+                <tr key="descripcion" className="modal-table-row">
                   <td className="modal-table-label">Descripción</td>
-                  <td className="modal-table-value">{empresa.servicio}</td>
+                  <td className="modal-table-value">{empresa.servicio || empresa.descripcion}</td>
                 </tr>
+
+                {/* Información adicional si existe */}
+                {empresa.calificacion && (
+                  <tr key="calificacion" className="modal-table-row">
+                    <td className="modal-table-label">Calificación</td>
+                    <td className="modal-table-value">⭐ {empresa.calificacion}/5.0</td>
+                  </tr>
+                )}
+                
+                {empresa.años_experiencia && (
+                  <tr key="experiencia" className="modal-table-row">
+                    <td className="modal-table-label">Años de Experiencia</td>
+                    <td className="modal-table-value">{empresa.años_experiencia} años</td>
+                  </tr>
+                )}
+
+                {empresa.zona_cobertura && (
+                  <tr key="zona" className="modal-table-row">
+                    <td className="modal-table-label">Zona de Cobertura</td>
+                    <td className="modal-table-value">{empresa.zona_cobertura}</td>
+                  </tr>
+                )}
               </tbody>
             </table>
           )}
@@ -341,6 +395,8 @@ const EmpresasTable = () => {
       setLoading(true);
       setError(null);
       
+      console.log('📊 Cargando empresas - Página:', currentPage, 'Búsqueda:', debouncedSearchTerm);
+      
       // Usar el servicio API importado
       const response = await apiService.fetchEmpresas({
         page: currentPage,
@@ -348,22 +404,25 @@ const EmpresasTable = () => {
         search: debouncedSearchTerm
       });
       
+      console.log('✅ Empresas cargadas:', response);
       setEmpresas(response.data);
       setPagination(response.pagination);
     } catch (err) {
       setError('Error al cargar las empresas');
-      console.error('Error loading empresas:', err);
+      console.error('❌ Error loading empresas:', err);
     } finally {
       setLoading(false);
     }
   };
 
   const handleViewDetail = useCallback((empresaId) => {
+    console.log('👁️ Abriendo modal para empresa ID:', empresaId);
     setSelectedEmpresaId(empresaId);
     setIsModalOpen(true);
   }, []);
 
   const handleCloseModal = useCallback(() => {
+    console.log('❌ Cerrando modal');
     setIsModalOpen(false);
     setSelectedEmpresaId(null);
   }, []);
@@ -444,13 +503,13 @@ const EmpresasTable = () => {
                         </td>
                         <td className="table-cell">
                           <span>
-                            {empresa.servicio.length > 30 
+                            {empresa.servicio && empresa.servicio.length > 30 
                               ? empresa.servicio.substring(0, 30) + '...' 
                               : empresa.servicio}
                           </span>
                         </td>
                         <td className="table-cell">
-                          <span>{empresa.telefono_movil}</span>
+                          <span>{empresa.telefono_movil || empresa.telefono}</span>
                         </td>
                         <td className="table-cell">
                           <button
