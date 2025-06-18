@@ -945,7 +945,7 @@ header {
 }
 
 /* Móviles medianos (401px - 576px) */
-@media (max-width: 576px) {
+@media (min-width: 401px) and (max-width: 576px) {
   .margenes {
     margin-left: 20px;
     margin-right: 20px;
@@ -1418,87 +1418,236 @@ header {
 
 
 /* Tablets grandes (769px - 1200px) */
-@media (min-width: 769px) and (max-width: 1200px) {
-    .margenes {
-        margin-left: 40px;
-        margin-right: 40px;
-    }
+@media (min-width: 769px) and (max-width: 992px){
+  .margenes {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
 
-    /* Contenedores principales centrados (como Agrinir) */
-    .promo-container {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        padding: 0 40px;
-        box-sizing: border-box;
-    }
+  header {
+    padding: 0 40px;
+  }
 
-    .agrinir-container {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        padding: 0 40px;
-        box-sizing: border-box;
-    }
+  h1 {
+    font-size: 36px;
+    text-align: center;
+    padding-top: 70px;
+  }
 
-    /* Mantener layout horizontal y alineación izquierda */
-    .promo-items, .agrinir-items {
-        flex-direction: row;
-        align-items: center;
-        gap: 30px;
-        padding: 40px 0;
-        width: 100%;
-        max-width: calc(100% - 80px);
-        margin-left: auto;
-        margin-right: auto;
-        box-sizing: border-box;
-    }
+  .titulo {
+    padding: 0 40px;
+    text-align: center;
+  }
 
-    .promo-texto, .agrinir1 {
-        text-align: left;
-    }
+  .titulo p {
+    font-size: 19px;
+    text-align: center;
+  }
 
-    .informacion-util {
-        display: flex;
-        justify-content: center;
-        padding: 0 40px;
-        box-sizing: border-box;
-    }
+  .somos {
+    font-size: 18px;
+    padding: 70px 40px 0;
+    margin-top: -50px;
+    text-align: left;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
 
-    .informacion-util > * {
-        width: 100%;
-        max-width: calc(100% - 80px);
-        margin-left: auto;
-        margin-right: auto;
-    }
+  .info-button {
+    display: flex;
+    justify-content: center;
+    margin: 25px auto;
+    width: 100%;
+  }
 
-    .titulo-informacion-util {
-        text-align: left;
-        padding-top: 40px;
-        padding-bottom: 25px;
-    }
+  .mas-info {
+    width: 170px;
+    height: 50px;
+    font-size: 15px;
+  }
 
-    .frames {
-        flex-direction: row;
-        justify-content: space-around;
-        gap: 25px;
-        padding: 0 40px;
-        box-sizing: border-box;
-    }
+  /* CONGRESO */
+  .promo-container {
+    padding: 0 40px;
+    box-sizing: border-box;
+  }
 
-    .frames1 {
-        width: 48%;
-        max-width: 450px;
-        text-align: left;
-    }
+  .promo-items {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 50px 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+  }
 
-    .contenedor {
-        max-width: calc(100% - 80px);
-        margin-left: auto;
-        margin-right: auto;
-        padding: 0 40px;
-        box-sizing: border-box;
-    }
+  .promo-texto {
+    width: 50%;
+    text-align: left;
+  }
+
+  .congreso-titulo {
+    font-size: 32px;
+    text-align: left;
+  }
+
+  .promo-descripcion {
+    font-size: 16px;
+    text-align: left;
+  }
+
+  .promo-linea {
+    width: 100px;
+    margin: 12px 0;
+  }
+
+  .promo-video-container {
+    width: 50%;
+    max-width: 100%;
+    padding-top: 45px; /* alinear con el texto si es necesario */
+  }
+
+  .promo-boton-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+
+  .promo-boton {
+    width: 170px;
+    height: 50px;
+    font-size: 15px;
+  }
+
+  /* AGRINIR */
+  .agrinir-container {
+    padding: 0 40px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+  }
+
+  .agrinir-items {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 50px 0;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  .agrinir1,
+  .agrinir2 {
+    width: 50%;
+  }
+
+  .agrinir {
+    font-size: 32px;
+    text-align: left;
+  }
+
+  .texto-agrinir {
+    font-size: 16px;
+    text-align: left;
+  }
+
+  .lista-agrinir li {
+    font-size: 16px;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .analisis-forraje {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+  }
+
+  /* INFORMACIÓN ÚTIL */
+  .informacion-util {
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+  }
+
+  .info-util {
+    width: 100%;
+    text-align: left;
+    padding-top: 40px;
+    padding-bottom: 25px;
+  }
+
+  .titulo-informacion-util {
+    font-size: 32px;
+    text-align: left;
+  }
+
+  .linea-horizontal2 {
+    width: 100px;
+    margin: 12px 0;
+  }
+
+  .frames {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .frames1 {
+    width: 48%;
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .mapa, .imagen-socios {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+  }
+
+  .linea-horizontal3 {
+    width: 100%;
+    margin: 8px 0;
+  }
+
+  .informacion-util-h2 {
+    font-size: 16px;
+    text-align: left;
+  }
+
+  .informacion-util-p, .beneficios-socios {
+    font-size: 14px;
+    text-align: left;
+  }
+
+  /* GALERÍA U OTRAS */
+  .contenedor {
+    padding: 0 40px;
+    flex-direction: column;
+    gap: 25px;
+    box-sizing: border-box;
+  }
+
+  .contenedor img {
+    width: 100%;
+    max-width: 100%;
+    object-fit: cover;
+  }
 }
 
 /* Desktop (1201px+) - Sin cambios, mantiene diseño original */
