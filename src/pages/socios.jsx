@@ -1,217 +1,127 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './socios.css';
 // Importar el servicio API
 import apiService from '../services/apiService';
-// Para obtener la lista general
 
-// Componente Modal optimizado - carga datos dinámicamente
+//Componente Modal (los datos se cargan dinámicamente desde la API)
 const EmpresaDetailModal = ({ empresaId, isOpen, onClose }) => {
   const [empresa, setEmpresa] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const handleOverlayClick = (e) => {
-    if (e.target === e.currentTarget) {
-      onClose();
-    }
-  };
+  // LOG: Estado actual de la empresa y carga en cada render del modal
+  console.log('--- EmpresaDetailModal Render ---');
+  console.log('Estado actual de empresa:', empresa);
+  console.log('Estado de loading:', loading);
+  console.log('Estado de error:', error);
+  console.log('-------------------------------');
 
-  // Cargar detalles cuando se abre el modal
+
   useEffect(() => {
+    const loadEmpresa = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        console.log(`[Modal] Iniciando carga para empresaId: ${empresaId}`); // LOG NUEVO
+        const data = await apiService.fetchEmpresaDetail(empresaId);
+        console.log('✅ Datos recibidos por el modal desde apiService:', data); // LOG NUEVO
+        setEmpresa(data);
+        console.log('[Modal] setEmpresa llamado con data.'); // LOG NUEVO
+      } catch (err) {
+        setError('Error al cargar los detalles');
+        console.error('[Modal] Error loading empresa detail:', err); // LOG EXISTENTE, MEJORADO
+      } finally {
+        setLoading(false);
+        console.log('[Modal] Carga finalizada (loading: false).'); // LOG NUEVO
+      }
+    };
+
     if (isOpen && empresaId) {
-      loadEmpresaDetail();
+      console.log('[Modal] Modal está abierto y hay empresaId, iniciando loadEmpresa.'); // LOG NUEVO
+      loadEmpresa();
     } else if (!isOpen) {
-      // Limpiar datos cuando se cierra para liberar memoria
+      console.log('[Modal] Modal cerrado, reseteando estados.'); // LOG NUEVO
       setEmpresa(null);
       setError(null);
     }
   }, [isOpen, empresaId]);
 
-  const loadEmpresaDetail = async () => {
-    try {
-      setLoading(true);
-      setError(null);
-      console.log('🔍 Cargando detalles para empresa ID:', empresaId);
-      
-      // CORREGIDO: Usar empresaId en lugar de 1 hardcodeado
-      const detail = await apiService.fetchEmpresaDetail(empresaId);
-      console.log('✅ Detalles cargados:', detail);
-      setEmpresa(detail);
-    } catch (err) {
-      setError('Error al cargar los detalles de la empresa');
-      console.error('❌ Error loading empresa detail:', err);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    const handleEsc = (e) => {
-      if (e.key === 'Escape') {
-        onClose();
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener('keydown', handleEsc);
-      document.body.style.overflow = 'hidden';
-    }
-
-    return () => {
-      document.removeEventListener('keydown', handleEsc);
-      document.body.style.overflow = 'unset';
-    };
-  }, [isOpen, onClose]);
-
-  if (!isOpen) return null;
+  if (!isOpen) {
+    console.log('[Modal] Modal no está abierto, retornando null.'); // LOG NUEVO
+    return null;
+  }
 
   return (
-    <div className="modal-overlay" onClick={handleOverlayClick}>
+    <div className="modal-overlay" onClick={(e) => e.target === e.currentTarget && onClose()}>
       <div className="modal-content">
         <div className="modal-header">
-          <h2 className="modal-title">
-            {empresa ? `${empresa.empresa} - Detalle Completo` : 'Cargando...'}
-          </h2>
-          <button onClick={onClose} className="modal-close" aria-label="Cerrar modal">×</button>
+          <h2 className="modal-title">{empresa?.nombre || empresa?.empresa || 'Cargando...'}</h2>
+          <button onClick={onClose} className="modal-close">×</button>
         </div>
-
         <div className="modal-body">
-          {loading && (
-            <div className="loading-container">
-              <div className="spinner"></div>
-              <p>Cargando detalles...</p>
-            </div>
+          {loading && <p>Cargando datos...</p>}
+          {error && <p>{error}</p>}
+          {/* LOG: Verifica si empresa existe antes de renderizar el contenido */}
+          {!loading && !error && !empresa && (
+            <p>No se encontraron datos para mostrar o el formato recibido es incorrecto.</p>
           )}
+          {empresa && (
+            <div>
+              <h3>Información de Contacto</h3>
+              <p>Contacto: {empresa.contacto}</p>
+              <p>Email: {empresa.email}</p>
+              <p>Teléfono móvil: {empresa.telefono_movil}</p>
+              <p>Teléfono fijo: {empresa.telefono_fijo}</p>
+              <p>Dirección: {empresa.direccion}, {empresa.ciudad}, {empresa.provincia} ({empresa.codigo_postal})</p>
+              <p>Web: <a href={empresa.pagina_web} target="_blank" rel="noopener noreferrer">{empresa.pagina_web}</a></p>
 
-          {error && (
-            <div className="error-container">
-              <p>{error}</p>
-              <button onClick={loadEmpresaDetail} className="btn-detail">
-                Reintentar
-              </button>
+              <h3>Equipamiento</h3>
+              {empresa.equipamiento && (
+                <>
+                  <h4>Picadoras</h4>
+                  <ul>
+                    {Object.entries(empresa.equipamiento.picadoras || {}).map(([key, val]) => (
+                      <li key={key}>{val.modelo} - {val.plataforma}</li>
+                    ))}
+                  </ul>
+                  <h4>Cabezales</h4>
+                  <ul>
+                    {Object.entries(empresa.equipamiento.cabezales || {}).map(([key, val]) => (
+                      <li key={key}>{val.modelo} {val.plataforma ? `- ${val.plataforma}` : ''}</li>
+                    ))}
+                  </ul>
+                  <h4>Otros Equipos</h4>
+                  <ul>
+                    {Object.entries(empresa.equipamiento.otros || {}).map(([key, val]) => (
+                      <li key={key}>{val.modelo}</li>
+                    ))}
+                  </ul>
+                </>
+              )}
+
+              <h3>Embolsadoras</h3>
+              <ul>
+                {Object.entries(empresa.embolsadoras || {}).map(([key, val]) => (
+                  <li key={key}>{val.modelo}</li>
+                ))}
+              </ul>
+
+              <h3>Maquinaria Adicional</h3>
+              <ul>
+                {Object.entries(empresa.maquinaria_adicional || {}).map(([key, val]) => (
+                  <li key={key}>{val.modelo}{val.variantes && ` (Variantes: ${val.variantes.join(', ')})`}</li>
+                ))}
+              </ul>
+
+              <h3>Inventario</h3>
+              <ul>
+                {Object.entries(empresa.inventario || {}).map(([key, val]) => (
+                  <li key={key}>{key}: {val}</li>
+                ))}
+              </ul>
             </div>
-          )}
-
-          {empresa && !loading && !error && (
-            <table className="modal-table">
-              <tbody>
-                <tr key="header-basica"><td className="section-header" colSpan="2">INFORMACIÓN BÁSICA</td></tr>
-                <tr key="empresa" className="modal-table-row">
-                  <td className="modal-table-label">Empresa</td>
-                  <td className="modal-table-value">{empresa.empresa}</td>
-                </tr>
-                <tr key="contacto" className="modal-table-row">
-                  <td className="modal-table-label">Contacto</td>
-                  <td className="modal-table-value">{empresa.contacto}</td>
-                </tr>
-                <tr key="email" className="modal-table-row">
-                  <td className="modal-table-label">Email</td>
-                  <td className="modal-table-value">{empresa.email}</td>
-                </tr>
-                <tr key="web" className="modal-table-row">
-                  <td className="modal-table-label">Página Web</td>
-                  <td className="modal-table-value">
-                    {empresa.pagina_web ? (
-                      <a href={empresa.pagina_web} target="_blank" rel="noopener noreferrer">
-                        {empresa.pagina_web}
-                      </a>
-                    ) : 'No especificada'}
-                  </td>
-                </tr>
-
-                <tr key="header-contacto"><td className="section-header" colSpan="2">CONTACTO</td></tr>
-                <tr key="tel-movil" className="modal-table-row">
-                  <td className="modal-table-label">Teléfono Móvil</td>
-                  <td className="modal-table-value">{empresa.telefono_movil || empresa.telefono}</td>
-                </tr>
-                <tr key="tel-fijo" className="modal-table-row">
-                  <td className="modal-table-label">Teléfono Fijo</td>
-                  <td className="modal-table-value">{empresa.telefono_fijo || 'No especificado'}</td>
-                </tr>
-
-                <tr key="header-ubicacion"><td className="section-header" colSpan="2">UBICACIÓN</td></tr>
-                <tr key="direccion" className="modal-table-row">
-                  <td className="modal-table-label">Dirección</td>
-                  <td className="modal-table-value">{empresa.direccion || 'No especificada'}</td>
-                </tr>
-                <tr key="ciudad" className="modal-table-row">
-                  <td className="modal-table-label">Ciudad</td>
-                  <td className="modal-table-value">{empresa.ciudad}</td>
-                </tr>
-                <tr key="provincia" className="modal-table-row">
-                  <td className="modal-table-label">Provincia</td>
-                  <td className="modal-table-value">{empresa.provincia}</td>
-                </tr>
-                <tr key="cp" className="modal-table-row">
-                  <td className="modal-table-label">Código Postal</td>
-                  <td className="modal-table-value">{empresa.codigo_postal || 'No especificado'}</td>
-                </tr>
-
-                <tr key="header-maquinaria"><td className="section-header" colSpan="2">MAQUINARIA</td></tr>
-                <tr key="picadora-marca" className="modal-table-row">
-                  <td className="modal-table-label">Picadora Marca</td>
-                  <td className="modal-table-value">{empresa.picadora_marca || 'No especificada'}</td>
-                </tr>
-                <tr key="picadora-modelo" className="modal-table-row">
-                  <td className="modal-table-label">Picadora Modelo</td>
-                  <td className="modal-table-value">{empresa.picadora_modelo || 'No especificado'}</td>
-                </tr>
-                <tr key="cabezal" className="modal-table-row">
-                  <td className="modal-table-label">Cabezal</td>
-                  <td className="modal-table-value">{empresa.cabezal || 'No especificado'}</td>
-                </tr>
-                <tr key="embolsadora" className="modal-table-row">
-                  <td className="modal-table-label">Embolsadora</td>
-                  <td className="modal-table-value">{empresa.embolsadora || 'No especificada'}</td>
-                </tr>
-                <tr key="tractor" className="modal-table-row">
-                  <td className="modal-table-label">Tractor</td>
-                  <td className="modal-table-value">{empresa.tractor || 'No especificado'}</td>
-                </tr>
-                {empresa.inventario && (
-                  <>
-                    <tr key="tractores" className="modal-table-row">
-                      <td className="modal-table-label">Tractores</td>
-                      <td className="modal-table-value">{empresa.inventario.tractores || 'No especificado'}</td>
-                    </tr>
-                    <tr key="camiones" className="modal-table-row">
-                      <td className="modal-table-label">Camiones</td>
-                      <td className="modal-table-value">{empresa.inventario.camiones || empresa.camiones || 'No especificado'}</td>
-                    </tr>
-                    <tr key="implementos" className="modal-table-row">
-                      <td className="modal-table-label">Implementos</td>
-                      <td className="modal-table-value">{empresa.inventario.implementos || 'No especificado'}</td>
-                    </tr>
-                  </>
-                )}
-                <tr key="bateas" className="modal-table-row">
-                  <td className="modal-table-label">Bateas</td>
-                  <td className="modal-table-value">{empresa.bateas || 'No especificadas'}</td>
-                </tr>
-                <tr key="carros" className="modal-table-row">
-                  <td className="modal-table-label">Carros</td>
-                  <td className="modal-table-value">{empresa.carros || 'No especificados'}</td>
-                </tr>
-                <tr key="carretones" className="modal-table-row">
-                  <td className="modal-table-label">Carretones</td>
-                  <td className="modal-table-value">{empresa.carretones || 'No especificados'}</td>
-                </tr>
-                <tr key="casillas" className="modal-table-row">
-                  <td className="modal-table-label">Casillas</td>
-                  <td className="modal-table-value">{empresa.casillas || 'No especificadas'}</td>
-                </tr>
-
-                {/* Sección Varios como categoría principal independiente */}
-                <tr key="header-varios"><td className="section-header" colSpan="2">VARIOS</td></tr>
-                <tr key="varios" className="modal-table-row">
-                  <td className="modal-table-label">Varios</td>
-                  <td className="modal-table-value">{empresa.varios || 'No especificado'}</td>
-                </tr>
-              </tbody>
-            </table>
           )}
         </div>
-
         <div className="modal-footer">
           <button onClick={onClose} className="btn-close">Cerrar</button>
         </div>
@@ -220,148 +130,46 @@ const EmpresaDetailModal = ({ empresaId, isOpen, onClose }) => {
   );
 };
 
-// Componente de paginación (sin cambios)
-const Pagination = ({ pagination, onPageChange }) => {
-  if (pagination.totalPages <= 1) return null;
-
-  const getPageNumbers = () => {
-    const { currentPage, totalPages } = pagination;
-    const pages = [];
-    const maxVisible = 5;
-    
-    let startPage = Math.max(1, currentPage - Math.floor(maxVisible / 2));
-    let endPage = Math.min(totalPages, startPage + maxVisible - 1);
-    
-    if (endPage - startPage < maxVisible - 1) {
-      startPage = Math.max(1, endPage - maxVisible + 1);
-    }
-    
-    for (let i = startPage; i <= endPage; i++) {
-      pages.push(i);
-    }
-    
-    return pages;
-  };
-
-  return (
-    <div style={{ 
-      display: 'flex', 
-      justifyContent: 'center', 
-      alignItems: 'center', 
-      gap: '0.5rem', 
-      padding: '1rem',
-      flexWrap: 'wrap'
-    }}>
-      <button
-        onClick={() => onPageChange(1)}
-        disabled={!pagination.hasPrevPage}
-        className="btn-detail"
-        style={{ opacity: pagination.hasPrevPage ? 1 : 0.5 }}
-      >
-        ««
-      </button>
-      
-      <button
-        onClick={() => onPageChange(pagination.currentPage - 1)}
-        disabled={!pagination.hasPrevPage}
-        className="btn-detail"
-        style={{ opacity: pagination.hasPrevPage ? 1 : 0.5 }}
-      >
-        ‹
-      </button>
-
-      {getPageNumbers().map(page => (
-        <button
-          key={page}
-          onClick={() => onPageChange(page)}
-          className="btn-detail"
-          style={{
-            backgroundColor: page === pagination.currentPage ? '#1d4ed8' : '#dbeafe',
-            color: page === pagination.currentPage ? 'white' : '#1d4ed8'
-          }}
-        >
-          {page}
-        </button>
-      ))}
-
-      <button
-        onClick={() => onPageChange(pagination.currentPage + 1)}
-        disabled={!pagination.hasNextPage}
-        className="btn-detail"
-        style={{ opacity: pagination.hasNextPage ? 1 : 0.5 }}
-      >
-        ›
-      </button>
-      
-      <button
-        onClick={() => onPageChange(pagination.totalPages)}
-        disabled={!pagination.hasNextPage}
-        className="btn-detail"
-        style={{ opacity: pagination.hasNextPage ? 1 : 0.5 }}
-      >
-        »»
-      </button>
-
-      <span style={{ 
-        marginLeft: '1rem', 
-        fontSize: '0.875rem', 
-        color: '#6b7280',
-        whiteSpace: 'nowrap'
-      }}>
-        Página {pagination.currentPage} de {pagination.totalPages} ({pagination.totalItems} total)
-      </span>
-    </div>
-  );
-};
-
-// Componente principal optimizado
+// Componente principal
 const EmpresasTable = () => {
-  // Estado optimizado - solo datos de la página actual
+  // Estado para la tabla principal
   const [empresas, setEmpresas] = useState([]);
-  const [pagination, setPagination] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
-  const [currentPage, setCurrentPage] = useState(1);
-  
-  // Estado del modal - solo ID, no datos completos
+
+  // Estado del modal
   const [selectedEmpresaId, setSelectedEmpresaId] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Debounced search para evitar muchas llamadas a la API
+  // Debounced search
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setDebouncedSearchTerm(searchTerm);
-      setCurrentPage(1); // Reset a página 1 cuando se busca
     }, 300);
 
     return () => clearTimeout(timer);
   }, [searchTerm]);
 
-  // Cargar datos cuando cambia la página o el término de búsqueda
   useEffect(() => {
     loadEmpresas();
-  }, [currentPage, debouncedSearchTerm]);
+  }, [debouncedSearchTerm]);
 
   const loadEmpresas = async () => {
     try {
       setLoading(true);
       setError(null);
-      
-      console.log('📊 Cargando empresas - Página:', currentPage, 'Búsqueda:', debouncedSearchTerm);
-      
-      // Usar el servicio API importado
+
+      console.log('📊 Cargando empresas - Búsqueda:', debouncedSearchTerm);
+
       const response = await apiService.fetchEmpresas({
-        page: currentPage,
-        limit: 20,
         search: debouncedSearchTerm
       });
-      
+
       console.log('✅ Empresas cargadas:', response);
       setEmpresas(response.data);
-      setPagination(response.pagination);
     } catch (err) {
       setError('Error al cargar las empresas');
       console.error('❌ Error loading empresas:', err);
@@ -382,9 +190,37 @@ const EmpresasTable = () => {
     setSelectedEmpresaId(null);
   }, []);
 
-  const handlePageChange = useCallback((page) => {
-    setCurrentPage(page);
-  }, []);
+  // Función para probar directamente la URL específica
+  const testSpecificUrl = async () => {
+    console.log('🧪 Probando URL específica con ID 1...');
+    try {
+      const testUrl = '/api/socios/1';
+      console.log('🌐 URL de prueba:', testUrl);
+
+      const response = await fetch(testUrl, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        mode: 'cors'
+      });
+
+      console.log('📡 Respuesta:', response.status, response.statusText);
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log('✅ Datos recibidos:', data);
+        alert('✅ Prueba exitosa! Revisa la consola para ver los datos.');
+      } else {
+        console.log('❌ Error HTTP:', response.status);
+        alert(`❌ Error HTTP: ${response.status}`);
+      }
+    } catch (error) {
+      console.error('❌ Error:', error);
+      alert(`❌ Error: ${error.message}`);
+    }
+  };
 
   if (error) {
     return (
@@ -404,7 +240,42 @@ const EmpresasTable = () => {
       <div className="socios-container">
         <div className="socios-header">
           <h1 className="socios-title">Listado de socios</h1>
-          
+
+          {/* Panel de pruebas para la URL específica */}
+          <div style={{
+            padding: '15px',
+            margin: '10px 0',
+            backgroundColor: '#e6f7ff',
+            border: '2px solid #1890ff',
+            borderRadius: '8px'
+          }}>
+            <h3 style={{ color: '#1890ff', margin: '0 0 10px 0' }}>
+              🎯 Prueba de URL Específica
+            </h3>
+            <p style={{ fontSize: '14px', margin: '5px 0', color: '#333' }}>
+              URL objetivo: <code>https://ensiladores.com.ar/WebNEW/public/data/API_Socios.php/1</code>
+            </p>
+            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+              <button
+                onClick={testSpecificUrl}
+                className="btn-detail"
+                style={{ backgroundColor: '#1890ff', color: 'white' }}
+              >
+                🧪 Probar URL Específica
+              </button>
+              <button
+                onClick={() => handleViewDetail(1)}
+                className="btn-detail"
+                style={{ backgroundColor: '#52c41a', color: 'white' }}
+              >
+                🎭 Abrir Modal con ID 1
+              </button>
+            </div>
+            <p style={{ fontSize: '12px', color: '#666', margin: '8px 0 0 0' }}>
+              El modal usará la URL específica que configuraste. Revisa la consola para ver los detalles de la comunicación con la API.
+            </p>
+          </div>
+
           <div className="search-container">
             <span className="search-icon">🔍</span>
             <input
@@ -430,6 +301,7 @@ const EmpresasTable = () => {
                 <table className="socios-table">
                   <thead className="table-header">
                     <tr>
+                      <th>ID</th>
                       <th>Provincia</th>
                       <th>Ciudad</th>
                       <th>Empresa</th>
@@ -442,6 +314,9 @@ const EmpresasTable = () => {
                   <tbody>
                     {empresas.map((empresa) => (
                       <tr key={empresa.id} className="table-row">
+                        <td className="table-cell">
+                          <strong>{empresa.id}</strong>
+                        </td>
                         <td className="table-cell">
                           <div className="empresa-name">
                             {empresa.provincia}
@@ -458,8 +333,8 @@ const EmpresasTable = () => {
                         </td>
                         <td className="table-cell">
                           <span>
-                            {empresa.servicio && empresa.servicio.length > 30 
-                              ? empresa.servicio.substring(0, 30) + '...' 
+                            {empresa.servicio && empresa.servicio.length > 30
+                              ? empresa.servicio.substring(0, 30) + '...'
                               : empresa.servicio}
                           </span>
                         </td>
@@ -486,17 +361,19 @@ const EmpresasTable = () => {
                 </div>
               )}
 
-              {pagination && (
-                <Pagination 
-                  pagination={pagination} 
-                  onPageChange={handlePageChange} 
-                />
-              )}
+              <div style={{
+                padding: '1rem',
+                textAlign: 'center',
+                color: '#6b7280',
+                fontSize: '0.875rem'
+              }}>
+                Total de empresas: {empresas.length}
+              </div>
             </>
           )}
         </div>
 
-        <EmpresaDetailModal 
+        <EmpresaDetailModal
           empresaId={selectedEmpresaId}
           isOpen={isModalOpen}
           onClose={handleCloseModal}
