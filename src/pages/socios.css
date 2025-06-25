@@ -1,19 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&family=Londrina+Shadow&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&family=Tuffy:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-.listas{
-  display: flex;
-  list-style-type: none;
-  flex-wrap: wrap;
-}
-
-.item-listas{
-  padding: 10px;
-}
-
-.div-cabezales{
-  display: flex;
-}
-
 .socios-container {
   width: 100%;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -192,6 +178,7 @@
   font-size: 0.875rem;
 }
 
+/* ===== MEDIA QUERIES ===== */
 
 @media (max-width: 1024px) and (min-width: 768px) {
   .socios-header {
@@ -272,7 +259,6 @@
     min-width: auto;
   }
   
-
   .table-header th:nth-child(2), 
   .table-header th:nth-child(3),
   .table-header th:nth-child(5),
@@ -302,12 +288,9 @@
     font-size: 0.75rem;
     gap: 0.15rem;
   }
-  
-  
 }
 
 @media (max-width: 400px) {
-
   .socios-header {
     height: 250px;
     padding: 1rem;
@@ -370,8 +353,6 @@
     font-size: 0.75rem;
     gap: 0.15rem;
   }
-  
-  
 }
 
 @media (max-width: 768px) {
@@ -394,5 +375,4 @@
     margin: 0 auto;
     width: 100%;
   }
-  
 }

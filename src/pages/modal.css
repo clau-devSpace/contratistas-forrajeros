@@ -25,6 +25,7 @@
   max-height: 90vh;
   overflow: hidden;
   border: 1px solid #e2e8f0;
+  animation: modalSlideIn 0.3s ease-out;
 }
 
 /* Header del modal */
@@ -103,6 +104,8 @@
   border-bottom: 1px solid #f1f5f9;
   background-color: #ffffff;
   transition: background-color 0.2s ease;
+  font-size: 0.875rem;
+  color: #374151;
 }
 
 .modal-body p:hover {
@@ -132,6 +135,8 @@
   padding: 0;
   list-style: none;
   background-color: #ffffff;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .item-listas {
@@ -140,6 +145,12 @@
   background-color: #ffffff;
   transition: all 0.2s ease;
   position: relative;
+  font-size: 0.875rem;
+  color: #374151;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .item-listas:hover {
@@ -152,7 +163,7 @@
   color: #3b82f6;
   font-weight: bold;
   position: absolute;
-  left: 1.5rem;
+  left: 1rem;
 }
 
 .item-listas:last-child {
@@ -162,6 +173,7 @@
 /* Contenedor especial para cabezales */
 .div-cabezales {
   background-color: #ffffff;
+  display: flex;
 }
 
 .div-cabezales ul {
@@ -171,8 +183,94 @@
 }
 
 .div-cabezales .item-listas {
-  border-left: 3px solid #3b82f6;
   margin-left: 1rem;
+}
+
+/* Estilos para títulos principales del modal (secciones principales) */
+.modal-body h3:first-of-type, /* Información de Contacto */
+.modal-body h3:nth-of-type(2) /* Equipamiento */ {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  color: #374151;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 0.5rem;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Estilos para subtítulos dinámicos (Picadora - marca, Cabezal - marca y modelo, etc.) */
+.modal-body h3:not(:first-of-type):not(:nth-of-type(2)) {
+  font-weight: bold;
+  font-size: 0.875rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #374151;
+  border: none;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  background: none;
+  text-transform: none;
+  letter-spacing: normal;
+  text-shadow: none;
+  position: static;
+}
+
+/* Clase especial para campos dinámicos de la API */
+.campo-dinamico {
+  font-weight: bold;
+  font-size: 0.875rem;
+  color: #374151;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  background: none;
+  border: none;
+  padding: 0;
+  text-transform: none;
+  letter-spacing: normal;
+  text-shadow: none;
+  position: static;
+}
+
+/* Estilos para el título "Embolsadoras" que aparece solo */
+.modal-body h3:last-of-type {
+  font-weight: bold;
+  font-size: 0.875rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  color: #374151;
+  border: none;
+  padding: 0;
+  background: none;
+  text-transform: none;
+  letter-spacing: normal;
+  text-shadow: none;
+  position: static;
+}
+
+/* Margenes uniformes para todos los elementos del modal */
+.modal-body ul,
+.modal-body li,
+.modal-body div {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+
+/* Asegurar que los items de las listas tengan el mismo tamaño */
+.modal-body li {
+  font-size: 0.875rem;
+  color: #374151;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
 }
 
 /* Footer del modal */
@@ -228,6 +326,29 @@
   background: #94a3b8;
 }
 
+/* Animaciones de entrada */
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Mejoras visuales adicionales */
+.modal-body > div > h3:first-child {
+  margin-top: 0;
+}
+
+/* Separadores visuales entre secciones */
+.modal-body > div > h3:not(:first-child) {
+  margin-top: 0.5rem;
+  border-top: 1px solid #e2e8f0;
+}
+
 /* Responsividad */
 @media (max-width: 768px) {
   .modal-content {
@@ -249,6 +370,12 @@
     font-size: 1rem;
   }
   
+  .modal-body h3:first-of-type,
+  .modal-body h3:nth-of-type(2) {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+  
   .modal-body p,
   .item-listas {
     padding: 0.5rem 1.5rem;
@@ -257,31 +384,56 @@
   .modal-footer {
     padding: 1rem 1.5rem;
   }
-}
-
-/* Animaciones de entrada */
-@keyframes modalSlideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-50px) scale(0.95);
+  
+  /* Ajuste para listas en móviles */
+  .listas {
+    flex-direction: column;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
+  
+  .item-listas {
+    padding: 10px 1.5rem;
   }
 }
 
-.modal-content {
-  animation: modalSlideIn 0.3s ease-out;
+/* Unificar márgenes y paddings para títulos, subtítulos, campos dinámicos y contenido */
+
+.modal-body h3,
+.modal-body .campo-dinamico,
+.modal-body p,
+.modal-body .item-listas {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-left: 0;
+  margin-right: 0;
 }
 
-/* Mejoras visuales adicionales */
-.modal-body > div > h3:first-child {
-  margin-top: 0;
+.modal-body h3,
+.modal-body .campo-dinamico {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
-/* Separadores visuales entre secciones */
-.modal-body > div > h3:not(:first-child) {
-  margin-top: 0.5rem;
-  border-top: 1px solid #e2e8f0;
+.modal-body p,
+.modal-body .item-listas {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Reducir espacio entre items de listas */
+.item-listas {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  margin-top: 0.1rem;
+  margin-bottom: 0.1rem;
+}
+
+/* Reducir espacio entre campos dinámicos debajo de Equipamiento */
+.modal-body .campo-dinamico {
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Capitalizar la primera letra de claves dinámicas (camiones, tractores, etc.) */
+.campo-dinamico {
+  text-transform: capitalize;
 }

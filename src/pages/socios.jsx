@@ -118,11 +118,13 @@ const EmpresaDetailModal = ({ empresaId, isOpen, onClose }) => {
                 ))}
               </ul>
 
-              <ul>
-                {Object.entries(empresa.inventario || {}).map(([key, val]) => (
-                  <li className='item-listas' key={key}>{key}: {val}</li>
-                ))}
-              </ul>
+              {/* Títulos dinámicos del inventario con clase especial */}
+              {empresa.inventario && Object.entries(empresa.inventario).map(([key, val]) => (
+                <div key={key}>
+                  <div className="campo-dinamico">{key}</div>
+                  <p>{val}</p>
+                </div>
+              ))}
             </div>
           )}
         </div>
