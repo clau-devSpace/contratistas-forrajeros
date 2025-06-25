@@ -44,6 +44,28 @@ class ApiService {
     }
   }
 
+    async makeRequestDetail(url, options = {}) {
+    try {
+      this.log('Making request to:', url);
+      const response = await fetch(url, {
+        headers: { ...this.defaultHeaders, ...options.headers },
+        ...options,
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP Error: ${response.status} ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      this.log('Request successful:', url, data);
+      return data;
+
+    } catch (error) {
+      this.log('API Request failed:', error);
+      throw error;
+    }
+  }
+
   // Obtener lista completa de empresas
   async fetchEmpresas(params = {}) {
     this.log(`fetchEmpresas called with params:`, params);
@@ -89,11 +111,8 @@ class ApiService {
     this.log(`fetchEmpresaDetail called with ID: ${id}`);
 
     try {
-      // Para el detalle, usar la URL específica con el ID
-      const detailUrl = `${this.baseUrl}/${id}`;
-      const response = await this.makeRequest(detailUrl);
-
-      this.log('Detail API response (before adaptation):', response);
+      const detailUrl = `${this.proxyUrl}/${id}`;
+      const response = await this.makeRequestDetail(detailUrl);
 
       return this.adaptEmpresaDetailResponse(response);
 

@@ -25,7 +25,7 @@ const EmpresaDetailModal = ({ empresaId, isOpen, onClose }) => {
         console.log(`[Modal] Iniciando carga para empresaId: ${empresaId}`); // LOG NUEVO
         const data = await apiService.fetchEmpresaDetail(empresaId);
         console.log('✅ Datos recibidos por el modal desde apiService:', data); // LOG NUEVO
-        setEmpresa(data);
+        setEmpresa(data.empresa);
         console.log('[Modal] setEmpresa llamado con data.'); // LOG NUEVO
       } catch (err) {
         setError('Error al cargar los detalles');
@@ -78,42 +78,42 @@ const EmpresaDetailModal = ({ empresaId, isOpen, onClose }) => {
               <h3>Equipamiento</h3>
               {empresa.equipamiento && (
                 <>
-                  <h4>Picadoras</h4>
-                  <ul>
+                  <h3>Picadora - marca</h3>
+                  <ul className='listas'>
                     {Object.entries(empresa.equipamiento.picadoras || {}).map(([key, val]) => (
-                      <li key={key}>{val.modelo} - {val.plataforma}</li>
+                      <li className='item-listas' key={key}>{val.modelo}</li>
                     ))}
                   </ul>
-                  <h4>Cabezales</h4>
-                  <ul>
+                  
+                  <h3>Picadora - modelo</h3>
+                  <ul className='listas'>
+                     {Object.entries(empresa.equipamiento.picadoras || {}).map(([key, val]) => (
+                      <li className='item-listas' key={key}>{val.plataforma}</li>
+                    ))}
+                  </ul>
+                  
+                  <h3>Cabezal - marca y modelo</h3>
+                  <ul className='listas'>
                     {Object.entries(empresa.equipamiento.cabezales || {}).map(([key, val]) => (
-                      <li key={key}>{val.modelo} {val.plataforma ? `- ${val.plataforma}` : ''}</li>
+                      <li className='item-listas' key={key}>{val.modelo} {val.plataforma ? `- ${val.plataforma}` : ''}</li>
                     ))}
                   </ul>
                   <h4>Otros Equipos</h4>
                   <ul>
                     {Object.entries(empresa.equipamiento.otros || {}).map(([key, val]) => (
-                      <li key={key}>{val.modelo}</li>
+                      <li className='item-listas' key={key}>{val.modelo}</li>
                     ))}
                   </ul>
                 </>
               )}
 
               <h3>Embolsadoras</h3>
-              <ul>
+              <ul className='listas'>
                 {Object.entries(empresa.embolsadoras || {}).map(([key, val]) => (
-                  <li key={key}>{val.modelo}</li>
+                  <li className='item-listas' key={key}>{val.modelo}</li>
                 ))}
               </ul>
 
-              <h3>Maquinaria Adicional</h3>
-              <ul>
-                {Object.entries(empresa.maquinaria_adicional || {}).map(([key, val]) => (
-                  <li key={key}>{val.modelo}{val.variantes && ` (Variantes: ${val.variantes.join(', ')})`}</li>
-                ))}
-              </ul>
-
-              <h3>Inventario</h3>
               <ul>
                 {Object.entries(empresa.inventario || {}).map(([key, val]) => (
                   <li key={key}>{key}: {val}</li>
@@ -157,6 +157,14 @@ const EmpresasTable = () => {
     loadEmpresas();
   }, [debouncedSearchTerm]);
 
+  useEffect(() => {
+    if(selectedEmpresaId) {
+      setIsModalOpen(true);
+    } else{
+      setIsModalOpen(false)
+    }
+  }, [selectedEmpresaId]);
+
   const loadEmpresas = async () => {
     try {
       setLoading(true);
@@ -178,15 +186,8 @@ const EmpresasTable = () => {
     }
   };
 
-  const handleViewDetail = useCallback((empresaId) => {
-    console.log('👁️ Abriendo modal para empresa ID:', empresaId);
-    setSelectedEmpresaId(empresaId);
-    setIsModalOpen(true);
-  }, []);
-
   const handleCloseModal = useCallback(() => {
     console.log('❌ Cerrando modal');
-    setIsModalOpen(false);
     setSelectedEmpresaId(null);
   }, []);
 
@@ -240,41 +241,7 @@ const EmpresasTable = () => {
       <div className="socios-container">
         <div className="socios-header">
           <h1 className="socios-title">Listado de socios</h1>
-
-          {/* Panel de pruebas para la URL específica */}
-          <div style={{
-            padding: '15px',
-            margin: '10px 0',
-            backgroundColor: '#e6f7ff',
-            border: '2px solid #1890ff',
-            borderRadius: '8px'
-          }}>
-            <h3 style={{ color: '#1890ff', margin: '0 0 10px 0' }}>
-              🎯 Prueba de URL Específica
-            </h3>
-            <p style={{ fontSize: '14px', margin: '5px 0', color: '#333' }}>
-              URL objetivo: <code>https://ensiladores.com.ar/WebNEW/public/data/API_Socios.php/1</code>
-            </p>
-            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-              <button
-                onClick={testSpecificUrl}
-                className="btn-detail"
-                style={{ backgroundColor: '#1890ff', color: 'white' }}
-              >
-                🧪 Probar URL Específica
-              </button>
-              <button
-                onClick={() => handleViewDetail(1)}
-                className="btn-detail"
-                style={{ backgroundColor: '#52c41a', color: 'white' }}
-              >
-                🎭 Abrir Modal con ID 1
-              </button>
-            </div>
-            <p style={{ fontSize: '12px', color: '#666', margin: '8px 0 0 0' }}>
-              El modal usará la URL específica que configuraste. Revisa la consola para ver los detalles de la comunicación con la API.
-            </p>
-          </div>
+          
 
           <div className="search-container">
             <span className="search-icon">🔍</span>
@@ -343,7 +310,7 @@ const EmpresasTable = () => {
                         </td>
                         <td className="table-cell">
                           <button
-                            onClick={() => handleViewDetail(empresa.id)}
+                            onClick={() => setSelectedEmpresaId(empresa.id)}
                             className="btn-detail"
                           >
                             👁️ Ver Detalle
