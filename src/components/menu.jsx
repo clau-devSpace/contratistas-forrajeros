@@ -67,6 +67,12 @@ const Menu = () => {
     }
   };
 
+  // Función para manejar clicks en enlaces externos
+  const handleExternalLink = (url) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+    setIsMenuOpen(false);
+  };
+
   const menuItems = [
     { id: 'nosotros', title: 'Nosotros', hasSubmenu: true, submenuItems: [
       { label: 'Misión, Visión y Valores', to: '/mision' },
@@ -76,18 +82,29 @@ const Menu = () => {
     ] },
     { id: 'socios', title: 'Nuestros Socios', hasSubmenu: false, to: '/socios' },
     { id: 'convenios', title: 'Convenios', hasSubmenu: false, to: '/convenios' },
-    { id: 'area-economica', title: 'Área Económica', hasSubmenu: true, submenuItems: [
-      { label: 'Precios de referencia', to: '/precios' },
-      { label: 'Costos Silaje', to: '/costos-silaje' },
-      { label: 'Costos MS', to: '/costos-ms' },
-      { label: 'Costos Transportes MV', to: '/costos-transportes' },
-    ] },
+    { 
+      id: 'area-economica', 
+      title: 'Área Económica', 
+      hasSubmenu: false, 
+      externalUrl: 'https://ensiladores.com.ar/InfoSocios/SeccionEcoPrincipal.php',
+      // Comentamos las subcategorías para futuro uso
+      // submenuItems: [
+      //   { label: 'Precios de referencia', to: '/precios' },
+      //   { label: 'Costos Silaje', to: '/costos-silaje' },
+      //   { label: 'Costos MS', to: '/costos-ms' },
+      //   { label: 'Costos Transportes MV', to: '/costos-transportes' },
+      // ]
+    },
     { id: 'area-tecnica', title: 'Área Técnica', hasSubmenu: true, submenuItems: [
       { label: 'Protocolo de Extracción de muestras', to: '/protocolo' },
       { label: 'Manuales técnicos', to: '/manuales' },
       { label: 'Notas Periodísticas', to: '/notas' },
     ] },
-    { id: 'mapa', title: 'Mapa', hasSubmenu: false, to: '/mapa' },
+    { id: 'mapa',
+      title: 'Mapa',
+      hasSubmenu: false, 
+      externalUrl: 'https://ensiladores.com.ar/InfoSocios/Maps/MapaSociosAgrupado.php',
+     },
     { id: 'exclusivo', title: 'Exclusivo Socios', hasSubmenu: false, to: '/exclusivo' }
   ];
 
@@ -126,7 +143,6 @@ const Menu = () => {
                       onClick={(e) => handleSubmenuClick(e, item.id)}
                     >
                       <span>
-                  
                         {item.title}
                       </span>
                       {item.hasSubmenu && (
@@ -134,18 +150,35 @@ const Menu = () => {
                       )}
                     </a>
                   ) : (
-                    <Link
-                      to={item.to}
-                      className={activeLink === item.id ? "active" : ""}
-                      onClick={() => {
-                        setActiveLink(item.id);
-                        setIsMenuOpen(false);
-                      }}
-                    >
-                      <span>
-                        {item.title}
-                      </span>
-                    </Link>
+                    // Verificamos si es un enlace externo o interno
+                    item.externalUrl ? (
+                      <a
+                        href="#"
+                        className={activeLink === item.id ? "active" : ""}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setActiveLink(item.id);
+                          handleExternalLink(item.externalUrl);
+                        }}
+                      >
+                        <span>
+                          {item.title}
+                        </span>
+                      </a>
+                    ) : (
+                      <Link
+                        to={item.to}
+                        className={activeLink === item.id ? "active" : ""}
+                        onClick={() => {
+                          setActiveLink(item.id);
+                          setIsMenuOpen(false);
+                        }}
+                      >
+                        <span>
+                          {item.title}
+                        </span>
+                      </Link>
+                    )
                   )}
 
                   {item.hasSubmenu && (

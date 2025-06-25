@@ -1,12 +1,49 @@
 class ApiService {
   constructor() {
-    this.baseUrl = 'https://ensiladores.com.ar/WebNEW/public/data/API_Socios.php';
+    
+    this.baseUrl = this.getApiUrl();
     this.proxyUrl = '/api/socios';
     this.defaultHeaders = {
       'Content-Type': 'application/json',
     };
     this.debug = true;
-    this.isDevelopment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    this.isDevelopment = this.detectDevelopment();
+  }
+
+  detectDevelopment() {
+    const hostname = window.location.hostname;
+    const port = window.location.port;
+    
+    return hostname === 'localhost' || 
+           hostname === '127.0.0.1' || 
+           hostname === '0.0.0.0' ||
+           port === '3000' || 
+           port === '5173' || 
+           port === '8080' ||
+           hostname.includes('localhost');
+  }
+
+  getApiUrl() {
+    const currentUrl = window.location;
+    
+    if (this.detectDevelopment()) {
+      return 'https://ensiladores.com.ar/WebNEW/public/data/API_Socios.php';
+    }
+    
+    // En producción, construir URL relativa al dominio actual
+    const protocol = currentUrl.protocol;
+    const hostname = currentUrl.hostname;
+    
+    // Intentar diferentes posibles ubicaciones de la API
+    const possiblePaths = [
+      '/WebNEW/public/data/API_Socios.php',
+      '/public/data/API_Socios.php',
+      '/data/API_Socios.php',
+      '/api/API_Socios.php'
+    ];
+    
+    // Por defecto, usar la primera opción
+    return `${protocol}//${hostname}${possiblePaths[0]}`;
   }
 
   log(...args) {
@@ -18,8 +55,11 @@ class ApiService {
   async makeRequest(url, options = {}) {
     try {
       this.log('Making request to:', url);
+      this.log('Environment - isDevelopment:', this.isDevelopment);
+      this.log('Current location:', window.location.href);
 
       let finalUrl = url;
+      
       if (this.isDevelopment && url.includes('ensiladores.com.ar')) {
         finalUrl = this.proxyUrl;
         this.log('Using proxy URL in development:', finalUrl);
@@ -40,14 +80,39 @@ class ApiService {
 
     } catch (error) {
       this.log('API Request failed:', error);
+      
+      // Fallback: intentar con URL alternativa si es el primer intento
+      if (!options._isRetry && !this.isDevelopment) {
+        this.log('Attempting fallback URL...');
+        const fallbackUrl = '/WebNEW/public/data/API_Socios.php';
+        return this.makeRequest(fallbackUrl, { ...options, _isRetry: true });
+      }
+      
       throw error;
     }
   }
 
-    async makeRequestDetail(url, options = {}) {
+  async makeRequestDetail(url, options = {}) {
     try {
       this.log('Making request to:', url);
-      const response = await fetch(url, {
+      
+      let finalUrl = url;
+      
+      if (this.isDevelopment) {
+        finalUrl = url;
+      } else {
+        // Construir URL con ID para producción
+        const idMatch = url.match(/\/api\/socios\/(\d+)$/);
+        if (idMatch) {
+          const id = idMatch[1];
+          finalUrl = `${this.baseUrl}?id=${id}`;
+          this.log('Production URL for detail:', finalUrl);
+        } else {
+          finalUrl = this.baseUrl;
+        }
+      }
+      
+      const response = await fetch(finalUrl, {
         headers: { ...this.defaultHeaders, ...options.headers },
         ...options,
       });
@@ -57,7 +122,7 @@ class ApiService {
       }
 
       const data = await response.json();
-      this.log('Request successful:', url, data);
+      this.log('Request successful:', finalUrl, data);
       return data;
 
     } catch (error) {
@@ -66,20 +131,17 @@ class ApiService {
     }
   }
 
-  // Obtener lista completa de empresas
   async fetchEmpresas(params = {}) {
     this.log(`fetchEmpresas called with params:`, params);
 
     const { search = '' } = params;
 
     try {
-      // Obtener todos los datos de la API
-      const response = await this.makeRequest(`${this.baseUrl}`);
+      const response = await this.makeRequest(this.baseUrl);
       const empresas = Array.isArray(response) ? response : (response.empresas || response.data || []);
 
       this.log('Raw API response:', empresas);
 
-      // Filtrar por búsqueda si hay término de búsqueda
       let filteredEmpresas = empresas;
       if (search && search.trim()) {
         const searchTerm = search.toLowerCase().trim();
@@ -94,7 +156,6 @@ class ApiService {
 
       this.log('Filtered empresas:', filteredEmpresas);
 
-      // Devolver estructura simple sin paginación
       return {
         data: filteredEmpresas,
         total: filteredEmpresas.length
@@ -106,16 +167,13 @@ class ApiService {
     }
   }
 
-  // Obtener detalle de una empresa específica
   async fetchEmpresaDetail(id) {
     this.log(`fetchEmpresaDetail called with ID: ${id}`);
 
     try {
       const detailUrl = `${this.proxyUrl}/${id}`;
       const response = await this.makeRequestDetail(detailUrl);
-
       return this.adaptEmpresaDetailResponse(response);
-
     } catch (error) {
       this.log('Error fetching empresa detail:', error);
       throw error;
@@ -125,22 +183,16 @@ class ApiService {
   adaptEmpresaDetailResponse(apiResponse) {
     this.log('Adapting empresa detail response (input):', apiResponse);
 
-    // *** INICIO DE LA MODIFICACIÓN CLAVE ***
-    // Si la respuesta contiene una propiedad 'empresas' que es un array,
-    // intenta tomar el primer elemento de ese array como la empresa de detalle.
     if (apiResponse && Array.isArray(apiResponse.empresas) && apiResponse.empresas.length > 0) {
       this.log('Response contains an "empresas" array, taking the first item.');
-      return apiResponse.empresas[0]; // <--- ¡Esta es la línea crucial!
+      return apiResponse.empresas[0];
     }
-    // *** FIN DE LA MODIFICACIÓN CLAVE ***
 
-    // Lógica existente: Si la respuesta ya es la empresa directamente
     if (apiResponse && (apiResponse.id || apiResponse.empresa)) {
       this.log('Response seems to be direct empresa data or has "empresa" property.');
       return apiResponse;
     }
 
-    // Lógica existente: Si viene envuelta en una propiedad genérica (data, etc.)
     const empresaData = apiResponse.empresa || apiResponse.data || apiResponse;
 
     if (!empresaData) {
