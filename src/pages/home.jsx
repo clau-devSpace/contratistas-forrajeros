@@ -188,10 +188,20 @@ const Home = () => {
               </div>
 
               <div className="frames1">
-                <img className="mapa" src={mapa} alt="Mapa de socios" />
+                <a href="https://ensiladores.com.ar/InfoSocios/Maps/MapaSociosAgrupado.php" target="_blank" rel="noopener noreferrer">
+                  <img className="mapa" src={mapa} alt="Mapa de socios" />
+                </a>
                 <div className="linea-horizontal3"></div>
-                <h2 className="informacion-util-h2">Localizá a nuestros socios</h2>
-                <p className="informacion-util-p ver-mapa">Ver mapa en pantalla completa</p>
+                <h2 className="informacion-util-h2">
+                  <a href="https://ensiladores.com.ar/InfoSocios/Maps/MapaSociosAgrupado.php" target="_blank" rel="noopener noreferrer" style={{textDecoration: 'none', color: 'inherit'}}>
+                    Localizá a nuestros socios
+                  </a>
+                </h2>
+                <p className="informacion-util-p ver-mapa">
+                  <a href="https://ensiladores.com.ar/InfoSocios/Maps/MapaSociosAgrupado.php" target="_blank" rel="noopener noreferrer" style={{textDecoration: 'none', color: 'inherit'}}>
+                    Ver mapa en pantalla completa
+                  </a>
+                </p>
               </div>
             </div>
           </div>

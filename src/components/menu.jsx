@@ -73,6 +73,12 @@ const Menu = () => {
     setIsMenuOpen(false);
   };
 
+  // Función para manejar clicks en PDFs
+  const handlePdfLink = (pdfUrl) => {
+    window.open(pdfUrl, '_blank', 'noopener,noreferrer');
+    setIsMenuOpen(false);
+  };
+
   const menuItems = [
     { id: 'nosotros', title: 'Nosotros', hasSubmenu: true, submenuItems: [
       { label: 'Misión, Visión y Valores', to: '/mision' },
@@ -96,7 +102,10 @@ const Menu = () => {
       // ]
     },
     { id: 'area-tecnica', title: 'Área Técnica', hasSubmenu: true, submenuItems: [
-      { label: 'Protocolo de Extracción de muestras', to: '/protocolo' },
+      { 
+        label: 'Protocolo de Extracción de muestras', 
+        pdfUrl: 'pdf/CACF_AgriNIR_Protocolo_Extraccion_y_Conservacion_de_Muestras_de_ensilajes.pdf' 
+      },
       { label: 'Manuales técnicos', to: '/manuales' },
       { label: 'Notas Periodísticas', to: '/notas' },
     ] },
@@ -185,7 +194,21 @@ const Menu = () => {
                     <ul className={`mobile-submenu ${activeMobileSubmenu === item.id ? "active" : ""}`}>
                       {item.submenuItems.map((subItem, subIndex) => (
                         <li key={subIndex} style={{ animationDelay: `${subIndex * 0.1}s` }}>
-                          <Link to={subItem.to} onClick={() => setIsMenuOpen(false)}>{subItem.label}</Link>
+                          {subItem.pdfUrl ? (
+                            <a
+                              href="#"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                handlePdfLink(subItem.pdfUrl);
+                              }}
+                            >
+                              {subItem.label}
+                            </a>
+                          ) : (
+                            <Link to={subItem.to} onClick={() => setIsMenuOpen(false)}>
+                              {subItem.label}
+                            </Link>
+                          )}
                         </li>
                       ))}
                     </ul>
@@ -204,7 +227,21 @@ const Menu = () => {
                 <ul className="submenu active" key={item.id}>
                   {item.submenuItems.map((subItem, i) => (
                     <li key={i}>
-                      <Link to={subItem.to} onClick={() => setIsMenuOpen(false)}>{subItem.label}</Link>
+                      {subItem.pdfUrl ? (
+                        <a
+                          href="#"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            handlePdfLink(subItem.pdfUrl);
+                          }}
+                        >
+                          {subItem.label}
+                        </a>
+                      ) : (
+                        <Link to={subItem.to} onClick={() => setIsMenuOpen(false)}>
+                          {subItem.label}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>
