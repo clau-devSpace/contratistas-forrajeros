@@ -178,6 +178,12 @@
   font-size: 0.875rem;
 }
 
+/* Ocultar columna ID en todas las pantallas */
+.table-header th:first-child, 
+.table-row td:first-child {
+  display: none;
+}
+
 /* ===== MEDIA QUERIES ===== */
 
 @media (max-width: 1024px) and (min-width: 768px) {
