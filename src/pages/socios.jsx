@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import './socios.css';
+import './modal.css';
 // Importar el servicio API
 import apiService from '../services/apiService';
 
@@ -93,17 +94,20 @@ const EmpresaDetailModal = ({ empresaId, isOpen, onClose }) => {
                   </ul>
                   
                   <h3>Cabezal - marca y modelo</h3>
+                  <div className='div-cabezales'>
                   <ul className='listas'>
                     {Object.entries(empresa.equipamiento.cabezales || {}).map(([key, val]) => (
                       <li className='item-listas' key={key}>{val.modelo} {val.plataforma ? `- ${val.plataforma}` : ''}</li>
                     ))}
                   </ul>
-                  <h4>Otros Equipos</h4>
                   <ul>
                     {Object.entries(empresa.equipamiento.otros || {}).map(([key, val]) => (
                       <li className='item-listas' key={key}>{val.modelo}</li>
                     ))}
                   </ul>
+
+                  </div>
+                 
                 </>
               )}
 
@@ -116,7 +120,7 @@ const EmpresaDetailModal = ({ empresaId, isOpen, onClose }) => {
 
               <ul>
                 {Object.entries(empresa.inventario || {}).map(([key, val]) => (
-                  <li key={key}>{key}: {val}</li>
+                  <li className='item-listas' key={key}>{key}: {val}</li>
                 ))}
               </ul>
             </div>
