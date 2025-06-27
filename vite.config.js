@@ -6,9 +6,20 @@ export default defineConfig({
   server: {
     proxy: {
       '/api/socios': {
-        target: 'https://ensiladores.com.ar/WebNEW/public/data/API_Socios.php',
+        target: 'https://ensiladores.com.ar/InfoSocios/API_Socios.php/',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api\/socios/, ''),
+      },
+      // ✅ CORREGIDO: El proxy de detalle estaba mal configurado
+      '/api/socios-detalle': {
+        target: 'https://ensiladores.com.ar/InfoSocios',
+        changeOrigin: true,
+        rewrite: (path) => {
+          // Transformar /api/socios-detalle/57 → /API_Socios_Detalle.php/57
+          const newPath = path.replace(/^\/api\/socios-detalle/, '/API_Socios_Detalle.php');
+          console.log('🔄 Proxy detalle - Transformando:', path, '→', newPath);
+          return newPath;
+        },
       },
     },
   },
