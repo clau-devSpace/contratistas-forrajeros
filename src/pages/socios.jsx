@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './socios.css';
 // Importar el servicio API
 import apiService from '../services/apiService';
+// Importar el modal de detalle
+import SociosModal from '../components/modal'; // Ajusta la ruta según tu estructura de carpetas
 
 // Componente principal
 const EmpresasTable = () => {
@@ -10,6 +12,10 @@ const EmpresasTable = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
+
+  // Estado para el modal
+  const [selectedSocioId, setSelectedSocioId] = useState(null);
+  const [modalOpen, setModalOpen] = useState(false);
 
   // Debounced search
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
@@ -49,8 +55,19 @@ const EmpresasTable = () => {
 
   const handleOpenModal = (socioId) => {
     console.log('🔍 Solicitud de detalle para socio ID:', socioId);
-    // Aquí podrías redirigir a otra página o mostrar una notificación
-    alert(`Funcionalidad de detalle para socio ${socioId} no implementada`);
+    
+    // Solo permitir el modal para el socio 57 (por ahora)
+    if (parseInt(socioId) === 57) {
+      setSelectedSocioId(socioId);
+      setModalOpen(true);
+    } else {
+      alert(`El detalle solo está disponible para el socio 57. ID seleccionado: ${socioId}`);
+    }
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+    setSelectedSocioId(null);
   };
 
   if (error) {
@@ -154,6 +171,10 @@ const EmpresasTable = () => {
                           onClick={() => handleOpenModal(empresa.id)}
                           className="btn-detail"
                           disabled={!empresa.id}
+                          style={{
+                            opacity: empresa.id === 57 ? 1 : 0.6,
+                            cursor: empresa.id === 57 ? 'pointer' : 'not-allowed'
+                          }}
                         >
                           👁️ Ver Detalle
                         </button>
@@ -191,6 +212,15 @@ const EmpresasTable = () => {
           </>
         )}
       </div>
+
+      {/* Modal de detalle - se renderiza condicionalmente */}
+      {modalOpen && selectedSocioId && (
+        <SociosModal 
+          socioId={selectedSocioId}
+          isOpen={modalOpen}
+          onClose={handleCloseModal}
+        />
+      )}
     </div>
   );
 };

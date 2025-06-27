@@ -63,6 +63,8 @@ class ApiService {
 
     try {
       const response = await this.makeRequest(`${this.baseUrl}`);
+      console.log('🔍 Raw API response:', response);
+
       const empresas = Array.isArray(response) ? response : (response.empresas || response.data || []);
 
       this.log('Raw API response count:', empresas.length);
@@ -187,30 +189,55 @@ class ApiService {
     };
   }
 
-  // Función utilitaria para formatear datos de equipamiento
+  // FUNCIÓN CORREGIDA - Función utilitaria para formatear datos de equipamiento
   formatEquipmentData(equipmentArray, type = 'equipment') {
-    if (!equipmentArray || !Array.isArray(equipmentArray)) return [];
+    console.log('🔧 formatEquipmentData ejecutándose:', { equipmentArray, type });
     
-    return equipmentArray
-      .map(item => {
+    if (!equipmentArray || !Array.isArray(equipmentArray)) {
+      console.log('❌ equipmentArray no es válido:', equipmentArray);
+      return [];
+    }
+    
+    const formattedData = equipmentArray
+      .map((item, index) => {
+        console.log(`🔍 Procesando item ${index}:`, item);
+        
         const keys = Object.keys(item);
+        console.log(`🔑 Keys encontradas:`, keys);
+        
         const marcaKey = keys.find(k => k.startsWith('marca'));
         const modeloKey = keys.find(k => k.startsWith('modelo')) || keys.find(k => k.startsWith('nombre'));
         const cantKey = keys.find(k => k.startsWith('cant'));
         
+        console.log(`🎯 Keys seleccionadas:`, { marcaKey, modeloKey, cantKey });
+        
         if (type === 'inventario') {
-          return {
-            nombre: item[modeloKey],
-            cantidad: item[cantKey]
+          const result = {
+            nombre: item[modeloKey] || '',
+            cantidad: item[cantKey] || ''
           };
+          console.log(`📦 Resultado inventario:`, result);
+          return result;
         } else {
-          return {
-            marca: item[marcaKey],
-            modelo: item[modeloKey]
+          const result = {
+            marca: item[marcaKey] || '',
+            modelo: item[modeloKey] || ''
           };
+          console.log(`⚙️ Resultado equipment:`, result);
+          return result;
         }
       })
-      .filter(item => type === 'inventario' ? item.nombre : (item.marca && item.modelo));
+      .filter(item => {
+        const isValid = type === 'inventario' 
+          ? (item.nombre && item.nombre.trim() !== '') 
+          : (item.marca && item.marca.trim() !== '' && item.modelo && item.modelo.trim() !== '');
+        
+        console.log(`✅ Item válido:`, { item, isValid });
+        return isValid;
+      });
+
+    console.log(`🎉 Datos formateados finales (${type}):`, formattedData);
+    return formattedData;
   }
 }
 
