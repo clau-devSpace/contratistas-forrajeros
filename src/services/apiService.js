@@ -3,7 +3,7 @@ class ApiService {
     this.baseUrl = 'https://ensiladores.com.ar/InfoSocios/API_Socios.php/';
     this.detailUrl = 'https://ensiladores.com.ar/InfoSocios/API_Socios_Detalle.php/';
     this.proxyUrl = '/api/socios';
-    this.proxyDetailUrl = '/api/socios/detalle';
+    this.proxyDetailUrl = '/api/socios-detalle';
     this.defaultHeaders = {
       'Content-Type': 'application/json',
     };
@@ -118,15 +118,15 @@ class ApiService {
     } catch (error) {
       this.log('Error fetching socio detail:', error);
       
-      // En caso de error, retornar datos de fallback para desarrollo/testing
-      if (this.isDevelopment) {
-        this.log('Using fallback data for development...');
-        return {
-          data: this.getFallbackSocioData(socioId),
-          success: true,
-          fromFallback: true
-        };
-      }
+      // // En caso de error, retornar datos de fallback para desarrollo/testing
+      // if (this.isDevelopment) {
+      //   this.log('Using fallback data for development...');
+      //   return {
+      //     data: this.getFallbackSocioData(socioId),
+      //     success: true,
+      //     fromFallback: true
+      //   };
+      // }
       
       throw error;
     }

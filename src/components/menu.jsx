@@ -89,10 +89,7 @@ const Menu = () => {
     { id: 'socios', title: 'Nuestros Socios', hasSubmenu: false, to: '/socios' },
     { id: 'convenios', title: 'Convenios', hasSubmenu: false, to: '/convenios' },
     { 
-      id: 'area-economica', 
-      title: 'Área Económica', 
-      hasSubmenu: false, 
-      externalUrl: 'https://ensiladores.com.ar/InfoSocios/SeccionEcoPrincipal.php',
+      id: 'area-economica', title: 'Área Económica', hasSubmenu: false, to: '/areaEconomica'
       // Comentamos las subcategorías para futuro uso
       // submenuItems: [
       //   { label: 'Precios de referencia', to: '/precios' },

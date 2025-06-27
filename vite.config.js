@@ -5,12 +5,6 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api/socios': {
-        target: 'https://ensiladores.com.ar/InfoSocios/API_Socios.php/',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api\/socios/, ''),
-      },
-      // ✅ CORREGIDO: El proxy de detalle estaba mal configurado
       '/api/socios-detalle': {
         target: 'https://ensiladores.com.ar/InfoSocios',
         changeOrigin: true,
@@ -20,6 +14,11 @@ export default defineConfig({
           console.log('🔄 Proxy detalle - Transformando:', path, '→', newPath);
           return newPath;
         },
+      },
+      '/api/socios': {
+        target: 'https://ensiladores.com.ar/InfoSocios/API_Socios.php/',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/socios/, ''),
       },
     },
   },

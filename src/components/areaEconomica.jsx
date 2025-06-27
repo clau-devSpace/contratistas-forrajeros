@@ -1,15 +1,21 @@
 import React from "react";
 
-export default function areaEconomica(){
+export default function AreaEconomica({url, tittle}){
     return(
         <div className="externalContent">
+            <h2>{tittle}</h2>
             <iframe
-            src= "https://ensiladores.com.ar/InfoSocios/SeccionEcoPrincipal.php"
+            src= {url}
             width= "100%"
-            className="external-content"
+            height="100%"
+            tittle={tittle}
+            style={
+                {
+                    marginTop:"30px"
+            
+                }
+            }
             />
-
         </div>
-
     );
 }

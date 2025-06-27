@@ -1,62 +1,30 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useCallback, useState } from 'react';
 import { X, Phone, Mail, Globe, MapPin, Calendar, Building, Truck, Settings, Package, Loader2, RefreshCw } from 'lucide-react';
-import { useSocioData } from '../services/use-socio-data'; // Ajusta la ruta según tu estructura
 import './modal.css';
+import apiService from '../services/apiService';
 
 const SociosModal = ({ socioId, isOpen = false, onClose }) => {
-  const { 
-    socioData, 
-    loading, 
-    error, 
-    loadSocioData, 
-    reloadSocioData,
-    clearSocioData,
-    // Usar los valores memoizados directamente en lugar de las funciones
-    contactInfo,
-    equipmentSummary,
-    metadata,
-    hasData
-  } = useSocioData();
+  const [socioData, setSocioData] = useState(null);
 
-  console.log('🔄 ESTADO DEL HOOK EN RENDER:', {
-    socioData: !!socioData, // Solo log del boolean para reducir ruido
-    hasData,
-    loading,
-    error: !!error
-  });
-
-  // Cargar datos cuando se abre el modal
   useEffect(() => {
-    console.log('🔍 Modal useEffect Debug:', {
-      isOpen,
-      socioId,
-      typeof_socioId: typeof socioId
-    });
-    
-    if (isOpen && socioId) {
-      console.log('📞 Llamando loadSocioData con:', socioId);
-      loadSocioData(socioId);
-    }
-    
-    // Limpiar datos cuando se cierra el modal
-    if (!isOpen) {
-      clearSocioData();
-    }
-  }, [isOpen, socioId, loadSocioData, clearSocioData]);
+    const loadSocioData = async () => {
+        const response = await apiService.fetchSocioDetail(socioId);
+        
+        if (response.success && response.data) {
+          setSocioData(response.data);
+        }
+    };
 
-  // Función para cerrar el modal - usar useCallback para estabilizar la función
+    if (isOpen && socioId) {
+      loadSocioData();
+    } 
+  }, [isOpen, socioId]);
+
   const handleCloseModal = useCallback(() => {
     if (onClose) {
       onClose();
     }
   }, [onClose]);
-
-  // Función para recargar datos - usar useCallback para estabilizar la función
-  const handleReload = useCallback(() => {
-    if (socioId) {
-      reloadSocioData(socioId);
-    }
-  }, [socioId, reloadSocioData]);
 
   // Manejar click en el overlay para cerrar
   const handleOverlayClick = useCallback((e) => {
@@ -79,25 +47,15 @@ const SociosModal = ({ socioId, isOpen = false, onClose }) => {
       document.body.style.overflow = 'hidden';
     }
 
-    // Log reducido para evitar spam en consola
-    console.log('🔍 Modal Debug (Estado):', {
-      hasData,
-      loading,
-      hasError: !!error,
-      hasContactInfo: !!contactInfo,
-      hasEquipmentSummary: !!equipmentSummary,
-      hasMetadata: !!metadata
-    });
-
     return () => {
       document.removeEventListener('keydown', handleEscape);
       // Restaurar scroll del body
       document.body.style.overflow = 'unset';
     };
-  }, [isOpen, handleCloseModal, hasData, loading, error, contactInfo, equipmentSummary, metadata]);
+  }, [handleCloseModal, isOpen, socioData]);
 
   // Componente para mostrar equipamiento
-  const EquipmentCard = ({ title, data, icon: Icon, type }) => {
+const EquipmentCard = ({ title, data, icon: Icon, type }) => {
     if (!data || data.length === 0) return null;
 
     return (
@@ -108,21 +66,21 @@ const SociosModal = ({ socioId, isOpen = false, onClose }) => {
           <span className="equipment-count">({data.length})</span>
         </div>
         <div className="equipment-list">
-          {data.map((item, index) => (
-            <div key={index} className="equipment-item">
-              {type === 'inventario' ? (
-                <>
-                  <span className="equipment-name">{item.nombre}</span>
-                  <span className="equipment-quantity">{item.cantidad}</span>
-                </>
-              ) : (
-                <>
-                  <span className="equipment-brand">{item.marca}</span>
-                  <span className="equipment-model">{item.modelo}</span>
-                </>
-              )}
-            </div>
-          ))}
+          {data.map((item, index) => {
+            const keyIndex = index + 1;
+            const marca = item[`marca${keyIndex}`];
+            const modelo = item[`modelo${keyIndex}`];
+            
+            // Skip empty items
+            if (!marca && !modelo) return null;
+            
+            return (
+              <div key={index} className="equipment-item">
+                <span className="equipment-brand">{marca}</span>
+                <span className="equipment-model">{modelo}</span>
+              </div>
+            );
+          })}
         </div>
       </div>
     );
@@ -133,25 +91,6 @@ const SociosModal = ({ socioId, isOpen = false, onClose }) => {
     <div className="loading-container">
       <Loader2 className="loading-spinner animate-spin" />
       <span className="loading-text">Cargando información del socio...</span>
-    </div>
-  );
-
-  // Componente de error
-  const ErrorMessage = () => (
-    <div className="error-container">
-      <div className="error-content">
-        <X className="error-icon" />
-        <p className="error-title">Error al cargar los datos</p>
-        <p className="error-message">{error}</p>
-      </div>
-      <button
-        onClick={handleReload}
-        className="error-retry-button"
-        disabled={loading}
-      >
-        <RefreshCw className={`error-retry-icon ${loading ? 'animate-spin' : ''}`} />
-        {loading ? 'Cargando...' : 'Reintentar'}
-      </button>
     </div>
   );
 
@@ -167,23 +106,13 @@ const SociosModal = ({ socioId, isOpen = false, onClose }) => {
         <div className="modal-header">
           <div>
             <h2 className="modal-title">
-              {contactInfo?.nombre || `Socio ID: ${socioId}`}
+              {socioData?.datosBase.nombre || `Socio ID: ${socioId}`}
             </h2>
-            {contactInfo?.contacto && (
-              <p className="modal-subtitle">Contacto: {contactInfo.contacto}</p>
+            {socioData?.datosBase.contacto && (
+              <p className="modal-subtitle">Contacto: {socioData.datosBase.contacto}</p>
             )}
           </div>
           <div className="modal-header-actions">
-            {hasData && (
-              <button
-                onClick={handleReload}
-                className="modal-refresh-button"
-                disabled={loading}
-                title="Recargar datos"
-              >
-                <RefreshCw className={`refresh-icon ${loading ? 'animate-spin' : ''}`} />
-              </button>
-            )}
             <button
               onClick={handleCloseModal}
               className="modal-close-button"
@@ -194,11 +123,11 @@ const SociosModal = ({ socioId, isOpen = false, onClose }) => {
         </div>
 
         <div className="modal-content">
-          {loading && <LoadingSpinner />}
+          {/* {loading && <LoadingSpinner />}
           
-          {error && <ErrorMessage />}
+          { && <ErrorMessage />} */}
           
-          {hasData && !loading && !error && (
+          {socioData && (
             <>
               {/* Datos Base */}
               <div className="info-grid">
@@ -208,96 +137,96 @@ const SociosModal = ({ socioId, isOpen = false, onClose }) => {
                     Información de Contacto
                   </h3>
                   <div className="info-card-content">
-                    {contactInfo?.direccion && (
+                    {socioData?.datosBase.direccion && (
                       <div className="contact-item">
                         <MapPin className="contact-icon" />
                         <div className="contact-info">
-                          <p className="contact-address">{contactInfo.direccion}</p>
+                          <p className="contact-address">{socioData.datosBase.direccion}</p>
                           <p className="contact-city">
-                            {contactInfo.ciudad}{contactInfo.provincia && `, ${contactInfo.provincia}`}
+                            {socioData.datosBase.ciudad}{socioData.datosBase.provincia && `, ${socioData.datosBase.provincia}`}
                           </p>
-                          {contactInfo.codigoPostal && (
-                            <p className="contact-postal">CP: {contactInfo.codigoPostal}</p>
+                          {socioData.datosBase.codigoPostal && (
+                            <p className="contact-postal">CP: {socioData.datosBase.codigoPostal}</p>
                           )}
                         </div>
                       </div>
                     )}
                     
-                    {contactInfo?.telefonoMovil && (
+                    {socioData?.datosBase.telefono_movil && (
                       <div className="contact-item">
                         <Phone className="contact-icon" />
                         <a 
-                          href={`tel:${contactInfo.telefonoMovil}`}
+                          href={`tel:${socioData.datosBase.telefono_movil}`}
                           className="contact-phone"
                         >
-                          {contactInfo.telefonoMovil}
+                          {socioData.datosBase.telefono_movil}
                         </a>
                       </div>
                     )}
                     
-                    {contactInfo?.telefonoFijo && (
+                    {socioData?.datosBase.telefono_fijo && (
                       <div className="contact-item">
                         <Phone className="contact-icon" />
                         <a 
-                          href={`tel:${contactInfo.telefonoFijo}`}
+                          href={`tel:${socioData.datosBase.telefono_fijo}`}
                           className="contact-phone"
                         >
-                          {contactInfo.telefonoFijo}
+                          {socioData.datosBase.telefono_fijo}
                         </a>
                       </div>
                     )}
                     
-                    {contactInfo?.email && (
+                    {socioData?.datosBase.email && (
                       <div className="contact-item">
                         <Mail className="contact-icon" />
                         <a 
-                          href={`mailto:${contactInfo.email}`} 
+                          href={`mailto:${socioData.datosBase.email}`} 
                           className="contact-email"
                         >
-                          {contactInfo.email}
+                          {socioData.datosBase.email}
                         </a>
                       </div>
                     )}
                     
-                    {contactInfo?.paginaWeb && (
+                    {socioData?.datosBase.pagina_web && (
                       <div className="contact-item">
                         <Globe className="contact-icon" />
                         <a 
-                          href={contactInfo.paginaWeb} 
+                          href={socioData.datosBase.pagina_web} 
                           target="_blank" 
                           rel="noopener noreferrer" 
                           className="contact-website"
                         >
-                          {contactInfo.paginaWeb}
+                          {socioData.datosBase.pagina_web}
                         </a>
                       </div>
                     )}
                   </div>
                 </div>
 
-                {metadata && (
+                {socioData.metadata && (
                   <div className="info-card">
                     <h3 className="info-card-title">
                       <Calendar className="info-card-icon" />
                       Información del Sistema
                     </h3>
                     <div className="system-info">
-                      {metadata.total_empresas && (
+                      {socioData.metadata.total_empresas && (
                         <div className="system-info-item">
                           <span className="system-info-label">Total de empresas:</span>
-                          <span className="system-info-value">{metadata.total_empresas}</span>
+                          <span className="system-info-value">{socioData.metadata.total_empresas}</span>
                         </div>
                       )}
-                      {metadata.fecha_extraccion && (
+                      {socioData.metadata.fecha_extraccion && (
                         <div className="system-info-item">
                           <span className="system-info-label">Fecha de extracción:</span>
-                          <span className="system-info-value">{metadata.fecha_extraccion}</span>
+                          <span className="system-info-value">{socioData.metadata.fecha_extraccion}</span>
                         </div>
                       )}
-                      {metadata.descripcion && (
+                      {socioData.metadata.descripcion && (
                         <div className="system-info-item">
                           <span className="system-info-label">Descripción:</span>
-                          <span className="system-info-value">{metadata.descripcion}</span>
+                          <span className="system-info-value">{socioData.metadata.descripcion}</span>
                         </div>
                       )}
                     </div>
@@ -306,29 +235,29 @@ const SociosModal = ({ socioId, isOpen = false, onClose }) => {
               </div>
 
               {/* Equipamiento */}
-              {equipmentSummary && (
+              {socioData && (
                 <div className="equipment-grid">
                   <EquipmentCard
                     title="Picadoras"
-                    data={equipmentSummary.picadoras}
+                    data={socioData.picadoras}
                     icon={Settings}
                     type="equipment"
                   />
                   <EquipmentCard
                     title="Cabezales"
-                    data={equipmentSummary.cabezales}
+                    data={socioData.cabezales}
                     icon={Package}
                     type="equipment"
                   />
                   <EquipmentCard
                     title="Embolsadoras"
-                    data={equipmentSummary.embolsadoras}
+                    data={socioData.embolsadoras}
                     icon={Package}
                     type="equipment"
                   />
                   <EquipmentCard
                     title="Inventario"
-                    data={equipmentSummary.inventario}
+                    data={socioData.inventario}
                     icon={Truck}
                     type="inventario"
                   />
@@ -336,29 +265,15 @@ const SociosModal = ({ socioId, isOpen = false, onClose }) => {
               )}
 
               {/* Información Adicional */}
-              {contactInfo?.otros && (
+              {socioData?.datosBase.otros && (
                 <div className="additional-info">
                   <h3 className="additional-info-title">Información Adicional</h3>
                   <div className="additional-info-content">
-                    {contactInfo.otros}
+                    {socioData.datosBase.otros}
                   </div>
                 </div>
               )}
             </>
-          )}
-
-          {/* Estado vacío */}
-          {!hasData && !loading && !error && (
-            <div className="empty-state">
-              <Building className="empty-state-icon" />
-              <p className="empty-state-text">No hay datos para mostrar</p>
-              <button
-                onClick={() => loadSocioData(socioId)}
-                className="empty-state-button"
-              >
-                Cargar Datos
-              </button>
-            </div>
           )}
         </div>
       </div>
