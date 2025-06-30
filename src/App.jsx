@@ -3,6 +3,7 @@ import Layout from './TheNew/Layout.jsx';
 import Home from './pages/home';
 import Socios from './pages/socios';
 import AreaEconomica from './components/areaEconomica.jsx';
+import Convenios from './pages/convenios';
 
  export default function App() {
   return (
@@ -14,6 +15,7 @@ import AreaEconomica from './components/areaEconomica.jsx';
         url="https://ensiladores.com.ar/InfoSocios/SeccionEcoPrincipal.php"
         tittle="Área Económica"/>} 
         />
+         <Route path="convenios" element={<Convenios />} />
       </Route>
     </Routes>
   );

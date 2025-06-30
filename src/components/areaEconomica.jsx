@@ -7,7 +7,7 @@ export default function AreaEconomica({url, tittle}){
             <iframe
             src= {url}
             width= "100%"
-            height="100%"
+            height="900px"
             tittle={tittle}
             style={
                 {
