@@ -4,6 +4,7 @@ import Home from './pages/home';
 import Socios from './pages/socios';
 import AreaEconomica from './components/areaEconomica.jsx';
 import Convenios from './pages/convenios';
+import Contacto from './pages/contacto.jsx';
 
  export default function App() {
   return (
@@ -16,6 +17,7 @@ import Convenios from './pages/convenios';
         tittle="Área Económica"/>} 
         />
          <Route path="convenios" element={<Convenios />} />
+         <Route path="contacto" element={<Contacto />} />
       </Route>
     </Routes>
   );
