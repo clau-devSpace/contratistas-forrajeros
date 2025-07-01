@@ -7,6 +7,7 @@ import ImageGallery from '../components/gallery';
 import socios from '../assets/images/imagenes-secciones/socios-2.jpg';
 import mapa from '../assets/images/imagenes-secciones/imagen-mapa.png';
 import forraje from '../assets/images/imagenes-secciones/analisis-de-forraje.jpeg';
+import tractoresFondo from '../assets/images/imagenes-de-fondo/edicion2.jpg';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Gallery from '../components/gallery';
 
@@ -65,7 +66,10 @@ const Home = () => {
 
   return (
     <>
-      <header id="header">
+      <header id="header"
+      style={{
+        backgroundImage: `url(${tractoresFondo})`
+      }}>
         <div id="nav"></div>
         <div className="titulo" id="titulo">
           <h1 className="animate-item" data-animation="animate__fadeIn">

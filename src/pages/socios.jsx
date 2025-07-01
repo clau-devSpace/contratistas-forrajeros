@@ -1,19 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import './socios.css';
-// Importar el servicio API
 import apiService from '../services/apiService';
-// Importar el modal de detalle
 import SociosModal from '../components/modal'; // Ajusta la ruta según tu estructura de carpetas
 
-// Componente principal
 const EmpresasTable = () => {
-  // Estado para la tabla principal
+  
   const [empresas, setEmpresas] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
 
-  // Estado para el modal
+  
   const [selectedSocioId, setSelectedSocioId] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -213,7 +210,6 @@ const EmpresasTable = () => {
         )}
       </div>
 
-      {/* Modal de detalle - se renderiza condicionalmente */}
       {modalOpen && selectedSocioId && (
         <SociosModal 
           socioId={selectedSocioId}
