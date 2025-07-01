@@ -4,7 +4,7 @@
   min-height: 100vh;
 }
 
-.staff-container h1 {
+.staff-container h2 {
   font-size: 32px;
   font-weight: bold;
   color: #333333;
@@ -12,6 +12,9 @@
   margin-bottom: 20px;
   text-transform: uppercase;
   letter-spacing: 2px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Para mostrar las cards en grid (opcional) */

@@ -7,6 +7,7 @@ import Convenios from './pages/convenios';
 import Contacto from './pages/contacto.jsx';
 import Mapa from './pages/mapa.jsx';
 import JuntaDirectiva from './pages/JuntaDirectiva.jsx';
+import CACFInfo from './pages/mision-vision-valores.jsx';
 
  export default function App() {
   return (
@@ -24,6 +25,7 @@ import JuntaDirectiva from './pages/JuntaDirectiva.jsx';
          <Route path="convenios" element={<Convenios />} />
          <Route path="contacto" element={<Contacto />} />
          <Route path="JuntaDirectiva" element={<JuntaDirectiva />} />
+         <Route path="mision-vision-valores" element={<CACFInfo />} />
       </Route>
     </Routes>
   );
