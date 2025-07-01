@@ -1,5 +1,5 @@
 import React, { useEffect, useCallback, useState } from 'react';
-import { X, Phone, Mail, Globe, MapPin, Calendar, Building, Truck, Settings, Package, Loader2, RefreshCw } from 'lucide-react';
+import { X, Phone, Mail, Globe, MapPin } from 'lucide-react';
 import './modal.css';
 import apiService from '../services/apiService';
 
@@ -55,61 +55,48 @@ const SociosModal = ({ socioId, isOpen = false, onClose }) => {
   }, [handleCloseModal, isOpen, socioData]);
 
   // Componente para mostrar equipamiento
-// Componente para mostrar equipamiento - ACTUALIZADO
-const EquipmentCard = ({ title, data, icon: Icon, type }) => {
-  if (!data || data.length === 0) return null;
+  const EquipmentCard = ({ title, data, type }) => {
+    if (!data || data.length === 0) return null;
 
-  return (
-    <div className="equipment-card">
-      <div className="equipment-card-header">
-        <Icon className="equipment-icon" />
-        <h3 className="equipment-title">{title}</h3>
-        <span className="equipment-count">({data.length})</span>
+    return (
+      <div className="equipment-card">
+        <div className="equipment-card-header">
+          <h3 className="equipment-title">{title}</h3>
+        </div>
+        <div className="equipment-list">
+          {data.map((item, index) => {
+            if (type === 'inventario') {
+              const keyIndex = index + 1;
+              const nombre = item[`nombre${keyIndex}`];
+              const cantidad = item[`cant${keyIndex}`];
+              
+              if (!nombre && !cantidad) return null;
+              
+              return (
+                <div key={index} className="equipment-item">
+                  <span className="equipment-brand">{nombre}</span>
+                  <span className="equipment-model">{cantidad}</span>
+                </div>
+              );
+            } else {
+              const keyIndex = index + 1;
+              const marca = item[`marca${keyIndex}`];
+              const modelo = item[`modelo${keyIndex}`];
+              
+              if (!marca && !modelo) return null;
+              
+              return (
+                <div key={index} className="equipment-item">
+                  <span className="equipment-brand">{marca}</span>
+                  <span className="equipment-model">{modelo}</span>
+                </div>
+              );
+            }
+          })}
+        </div>
       </div>
-      <div className="equipment-list">
-        {data.map((item, index) => {
-          if (type === 'inventario') {
-            const keyIndex = index + 1;
-            const nombre = item[`nombre${keyIndex}`];
-            const cantidad = item[`cant${keyIndex}`];
-            // Para inventario (ya formateado por formatInventoryData)
-            if (!nombre && !cantidad) return null;
-            
-            return (
-              <div key={index} className="equipment-item">
-                <span className="equipment-brand">{nombre}</span>
-                <span className="equipment-model">{cantidad}</span>
-              </div>
-            );
-          } else {
-            // Para equipamiento (código original)
-            const keyIndex = index + 1;
-            const marca = item[`marca${keyIndex}`];
-            const modelo = item[`modelo${keyIndex}`];
-            
-            // Skip empty items
-            if (!marca && !modelo) return null;
-            
-            return (
-              <div key={index} className="equipment-item">
-                <span className="equipment-brand">{marca}</span>
-                <span className="equipment-model">{modelo}</span>
-              </div>
-            );
-          }
-        })}
-      </div>
-    </div>
-  );
-};
-
-  // Componente de loading
-  const LoadingSpinner = () => (
-    <div className="loading-container">
-      <Loader2 className="loading-spinner animate-spin" />
-      <span className="loading-text">Cargando información del socio...</span>
-    </div>
-  );
+    );
+  };
 
   // No renderizar nada si no está abierto
   if (!isOpen) {
@@ -140,23 +127,25 @@ const EquipmentCard = ({ title, data, icon: Icon, type }) => {
         </div>
 
         <div className="modal-content">
-          {/* {loading && <LoadingSpinner />}
-          
-          { && <ErrorMessage />} */}
-          
           {socioData && (
-            <>
-              {/* Datos Base */}
-              <div className="info-grid">
+            <div className="modal-layout">
+              {/* Información de Contacto - Ocupa toda la línea */}
+              <div className="contact-section">
                 <div className="info-card">
-                  <h3 className="info-card-title">
-                    <Building className="info-card-icon" />
-                    Información de Contacto
-                  </h3>
+                  <h3 className="info-card-title">Información de Contacto</h3>
                   <div className="info-card-content">
+                    {socioData?.datosBase.nombre && (
+                      <div className="contact-item">
+                        <span className="contact-label">Nombre:</span>
+                        <div className="contact-info">
+                          <span className="contact-address">{socioData.datosBase.nombre}</span>
+                        </div>
+                      </div>
+                    )}
+
                     {socioData?.datosBase.direccion && (
                       <div className="contact-item">
-                        <MapPin className="contact-icon" />
+                        <span className="contact-label">Dirección:</span>
                         <div className="contact-info">
                           <p className="contact-address">{socioData.datosBase.direccion}</p>
                           <p className="contact-city">
@@ -171,7 +160,7 @@ const EquipmentCard = ({ title, data, icon: Icon, type }) => {
                     
                     {socioData?.datosBase.telefono_movil && (
                       <div className="contact-item">
-                        <Phone className="contact-icon" />
+                        <span className="contact-label">Teléfono:</span>
                         <a 
                           href={`tel:${socioData.datosBase.telefono_movil}`}
                           className="contact-phone"
@@ -183,7 +172,7 @@ const EquipmentCard = ({ title, data, icon: Icon, type }) => {
                     
                     {socioData?.datosBase.telefono_fijo && (
                       <div className="contact-item">
-                        <Phone className="contact-icon" />
+                        <span className="contact-label">Teléfono fijo:</span>
                         <a 
                           href={`tel:${socioData.datosBase.telefono_fijo}`}
                           className="contact-phone"
@@ -195,7 +184,7 @@ const EquipmentCard = ({ title, data, icon: Icon, type }) => {
                     
                     {socioData?.datosBase.email && (
                       <div className="contact-item">
-                        <Mail className="contact-icon" />
+                        <span className="contact-label">Email:</span>
                         <a 
                           href={`mailto:${socioData.datosBase.email}`} 
                           className="contact-email"
@@ -207,7 +196,7 @@ const EquipmentCard = ({ title, data, icon: Icon, type }) => {
                     
                     {socioData?.datosBase.pagina_web && (
                       <div className="contact-item">
-                        <Globe className="contact-icon" />
+                        <span className="contact-label">Página web:</span>
                         <a 
                           href={socioData.datosBase.pagina_web} 
                           target="_blank" 
@@ -220,77 +209,49 @@ const EquipmentCard = ({ title, data, icon: Icon, type }) => {
                     )}
                   </div>
                 </div>
-
-                {socioData.metadata && (
-                  <div className="info-card">
-                    <h3 className="info-card-title">
-                      <Calendar className="info-card-icon" />
-                      Información del Sistema
-                    </h3>
-                    <div className="system-info">
-                      {socioData.metadata.total_empresas && (
-                        <div className="system-info-item">
-                          <span className="system-info-label">Total de empresas:</span>
-                          <span className="system-info-value">{socioData.metadata.total_empresas}</span>
-                        </div>
-                      )}
-                      {socioData.metadata.fecha_extraccion && (
-                        <div className="system-info-item">
-                          <span className="system-info-label">Fecha de extracción:</span>
-                          <span className="system-info-value">{socioData.metadata.fecha_extraccion}</span>
-                        </div>
-                      )}
-                      {socioData.metadata.descripcion && (
-                        <div className="system-info-item">
-                          <span className="system-info-label">Descripción:</span>
-                          <span className="system-info-value">{socioData.metadata.descripcion}</span>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                )}
               </div>
 
-              {/* Equipamiento */}
-              {socioData && (
-                <div className="equipment-grid">
-                  <EquipmentCard
-                    title="Picadoras"
-                    data={socioData.picadoras}
-                    icon={Settings}
-                    type="equipment"
-                  />
-                  <EquipmentCard
-                    title="Cabezales"
-                    data={socioData.cabezales}
-                    icon={Package}
-                    type="equipment"
-                  />
-                  <EquipmentCard
-                    title="Embolsadoras"
-                    data={socioData.embolsadoras}
-                    icon={Package}
-                    type="equipment"
-                  />
-                  <EquipmentCard
-                    title="Inventario"
-                    data={socioData.inventario}
-                    icon={Truck}
-                    type="inventario"
-                  />
-                </div>
+              {/* Título de Equipamiento */}
+              {(socioData.picadoras?.length > 0 || socioData.cabezales?.length > 0 || socioData.embolsadoras?.length > 0 || socioData.inventario?.length > 0) && (
+                <h2 className="section-title">Equipamiento</h2>
               )}
 
-              {/* Información Adicional */}
+              {/* Equipamiento - Grid de 2 columnas en desktop */}
+              <div className="equipment-grid">
+                <EquipmentCard
+                  title="Picadoras"
+                  data={socioData.picadoras}
+                  type="equipment"
+                />
+                <EquipmentCard
+                  title="Cabezales"
+                  data={socioData.cabezales}
+                  type="equipment"
+                />
+                <EquipmentCard
+                  title="Embolsadoras"
+                  data={socioData.embolsadoras}
+                  type="equipment"
+                />
+                <EquipmentCard
+                  title="Inventario"
+                  data={socioData.inventario}
+                  type="inventario"
+                />
+              </div>
+
+              {/* Información Adicional - Ocupa toda la línea */}
               {socioData?.datosBase.otros && (
-                <div className="additional-info">
-                  <h3 className="additional-info-title">Información Adicional</h3>
-                  <div className="additional-info-content">
-                    {socioData.datosBase.otros}
+                <div className="additional-section">
+                  <div className="additional-info">
+                    <h3 className="additional-info-title">Información Adicional</h3>
+                    <div className="additional-info-content">
+                      {socioData.datosBase.otros}
+                    </div>
                   </div>
                 </div>
               )}
-            </>
+            </div>
           )}
         </div>
       </div>

@@ -6,6 +6,7 @@ import AreaEconomica from './components/areaEconomica.jsx';
 import Convenios from './pages/convenios';
 import Contacto from './pages/contacto.jsx';
 import Mapa from './pages/mapa.jsx';
+import JuntaDirectiva from './pages/JuntaDirectiva.jsx';
 
  export default function App() {
   return (
@@ -22,6 +23,7 @@ import Mapa from './pages/mapa.jsx';
         />
          <Route path="convenios" element={<Convenios />} />
          <Route path="contacto" element={<Contacto />} />
+         <Route path="JuntaDirectiva" element={<JuntaDirectiva />} />
       </Route>
     </Routes>
   );

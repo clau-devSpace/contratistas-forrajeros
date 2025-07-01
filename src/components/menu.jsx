@@ -82,7 +82,7 @@ const Menu = () => {
   const menuItems = [
     { id: 'nosotros', title: 'Nosotros', hasSubmenu: true, submenuItems: [
       { label: 'Misión, Visión y Valores', to: '/mision' },
-      { label: 'Junta Directiva', to: '/junta' },
+      { label: 'Junta Directiva', to: '/JuntaDirectiva' },
       { label: 'Quiero Asociarme', to: '/asociarme' },
       { label: 'Contacto', to: '/contacto' }
     ] },
