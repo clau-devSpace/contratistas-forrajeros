@@ -19,24 +19,31 @@ const CACFInfo = () => {
         }
 
         .section-header {
-          background: linear-gradient(135deg, #4a6fa5 0%, #5a7fb5 100%);
           color: white;
           padding: 20px 30px;
           border-radius: 12px;
           margin-bottom: 30px;
           margin-top: 100px;
           text-align: center;
-          box-shadow: 0 4px 15px rgba(74, 111, 165, 0.2);
+          align-items: center;
+          justify-content: center;
+          max-width: 800px;
+          width: 100vw;
+          margin: 0 auto;
+          margin-bottom: 30px;
+          margin-top: 100px;
         }
 
         .section-title {
-          font-size: 24px;
+          font-size: 30px;
           font-weight: 600;
           margin: 0;
           display: flex;
           align-items: center;
           justify-content: center;
           gap: 10px;
+          text-transform: uppercase;
+
         }
 
         .section-content {
@@ -164,7 +171,6 @@ const CACFInfo = () => {
       <section className="section">
         <div className="section-header">
           <h2 className="section-title">
-            <Building size={28} />
             ¿Qué es la Cámara Argentina de Contratistas Forrajeros (CACF)?
           </h2>
         </div>

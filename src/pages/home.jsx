@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import 'animate.css';
 import './home.css';
 import Footer from '../components/Footer';
@@ -178,7 +179,7 @@ const Home = () => {
                 <p className="informacion-util-p">
                   Ser socio de la Cámara Argentina de Contratistas Forrajeros te brinda acceso exclusivo a herramientas, información y ventajas económicas; clave para potenciar tu crecimiento.
                 </p>
-                <p className='beneficios-socios'>Te invitamos a conocer los beneficios.</p>
+                <Link className='beneficios-socios' style={{ textDecoration: 'none' }} to="/convenios">Te invitamos a conocer los beneficios.</Link>
               </div>
 
               <div className="frames1">
