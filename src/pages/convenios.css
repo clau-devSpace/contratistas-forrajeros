@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&family=Londrina+Shadow&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&family=Tuffy:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-body {
+/*body {
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     min-height: 100vh;
-}
+}*/
 
 /* Contenedor principal */
 .convenios-container {

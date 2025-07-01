@@ -1,11 +1,17 @@
 import React, {useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import contratista from '../assets/images/imagenes-secciones/contratista-imagen.jpg';
-import ganado from '../assets/images/imagenes-secciones/ganado-imagen.jpg';
-import maquinas from '../assets/images/imagenes-secciones/maquinas-imagen.jpg';
-import capacitacion from '../assets/images/imagenes-secciones/capacitacion.jpg';
-import camioneta from '../assets/images/imagenes-secciones/camioneta.jpg';
-import socios from '../assets/images/imagenes-secciones/socioss.jpg';
+import carrusel from '../assets/images/imagenes-secciones/carrusel.jpg';
+import carrusel2 from '../assets/images/imagenes-secciones/carrusel2.jpg';
+import carrusel3 from '../assets/images/imagenes-secciones/carrusel3.JPG';
+import carrusel4 from '../assets/images/imagenes-secciones/carrusel4.JPG';
+import carrusel5 from '../assets/images/imagenes-secciones/carrusel5.JPG';
+import carrusel6 from '../assets/images/imagenes-secciones/carrusel6.JPG';
+import carrusel7 from '../assets/images/imagenes-secciones/carrusel7.JPG';
+import carrusel8 from '../assets/images/imagenes-secciones/carrusel8.jpeg';
+import carrusel9 from '../assets/images/imagenes-secciones/carrusel9.JPG';
+import carrusel10 from '../assets/images/imagenes-secciones/carrusel10.JPG';
+import carrusel11 from '../assets/images/imagenes-secciones/carrusel11.JPG';
+
 import './gallery.css';
 
 import 'swiper/css';
@@ -62,22 +68,37 @@ export default function Gallery() {
         className="mySwiper"
       >
         <SwiperSlide>
-          <img className="imagen-galeria" src={contratista} alt="Contratista" />
+          <img className="imagen-galeria" src={carrusel} alt="Contratista" />
         </SwiperSlide>
         <SwiperSlide>
-          <img className="imagen-galeria" src={ganado} alt="Ganado" />
+          <img className="imagen-galeria" src={carrusel2} alt="Ganado" />
         </SwiperSlide>
         <SwiperSlide>
-          <img className="imagen-galeria" src={maquinas} alt="Máquinas" />
+          <img className="imagen-galeria" src={carrusel3} alt="Máquinas" />
         </SwiperSlide>
         <SwiperSlide>
-          <img className="imagen-galeria" src={capacitacion} alt="Capacitacion CACF" />
+          <img className="imagen-galeria" src={carrusel4} alt="Capacitacion CACF" />
         </SwiperSlide>
          <SwiperSlide>
-          <img className="imagen-galeria" src={camioneta} alt="Camioneta CACF" />
+          <img className="imagen-galeria" src={carrusel5} alt="Camioneta CACF" />
         </SwiperSlide>
         <SwiperSlide>
-          <img className="imagen-galeria" src={socios} alt="socios CACF" />
+          <img className="imagen-galeria" src={carrusel6} alt="socios CACF" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img className="imagen-galeria" src={carrusel7} alt="socios CACF" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img className="imagen-galeria" src={carrusel8} alt="socios CACF" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img className="imagen-galeria" src={carrusel9} alt="socios CACF" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img className="imagen-galeria" src={carrusel10} alt="socios CACF" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img className="imagen-galeria" src={carrusel11} alt="socios CACF" />
         </SwiperSlide>
       </Swiper>
     </>

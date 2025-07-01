@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 import ImageGallery from '../components/gallery';
 import socios from '../assets/images/imagenes-secciones/socios-2.jpg';
 import mapa from '../assets/images/imagenes-secciones/imagen-mapa.png';
-import forraje from '../assets/images/imagenes-secciones/analisis-de-forraje.jpg';
+import forraje from '../assets/images/imagenes-secciones/analisis-de-forraje.jpeg';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Gallery from '../components/gallery';
 
@@ -132,11 +132,6 @@ const Home = () => {
           </div>
         </section>
 
-        <section className='convenios'>
-          <p className='convenios-p'>Aca va el carrusel con los convenios</p>
-        </section>
-
-
         <section className="agrinir-container">
           <div className="margenes agrinir-items">
             <div className="agrinir1">
@@ -179,7 +174,6 @@ const Home = () => {
             <div className="frames">
               <div className="frames1">
                 <img className="imagen-socios" src={socios} alt="Socios CACF" />
-                <div className="linea-horizontal3"></div>
                 <h2 className="informacion-util-h2">Beneficios de los Socios CACF</h2>
                 <p className="informacion-util-p">
                   Ser socio de la Cámara Argentina de Contratistas Forrajeros te brinda acceso exclusivo a herramientas, información y ventajas económicas; clave para potenciar tu crecimiento.
@@ -191,7 +185,6 @@ const Home = () => {
                 <a href="https://ensiladores.com.ar/InfoSocios/Maps/MapaSociosAgrupado.php" target="_blank" rel="noopener noreferrer">
                   <img className="mapa" src={mapa} alt="Mapa de socios" />
                 </a>
-                <div className="linea-horizontal3"></div>
                 <h2 className="informacion-util-h2">
                   <a href="https://ensiladores.com.ar/InfoSocios/Maps/MapaSociosAgrupado.php" target="_blank" rel="noopener noreferrer" style={{textDecoration: 'none', color: 'inherit'}}>
                     Localizá a nuestros socios
