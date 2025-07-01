@@ -96,11 +96,12 @@ const EmpresasTable = () => {
   }
 
   return (
-    <div className="socios-container">
+    <>
+       <div className="socios-container">
       <div className="socios-header">
-        <h1 className="socios-title">Listado de socios</h1>
-        
-        <div className="search-container">
+        <div className='titulo-socios'>
+          <h1 className="socios-title">Listado de socios</h1>
+          <div className="search-container">
           <span className="search-icon">🔍</span>
           <input
             type="text"
@@ -110,6 +111,9 @@ const EmpresasTable = () => {
             className="search-input"
           />
         </div>
+
+        </div>
+        
       </div>
 
       <div className="table-container">
@@ -170,11 +174,7 @@ const EmpresasTable = () => {
                         <button
                           onClick={() => handleOpenModal(empresa.id)}
                           className="btn-detail"
-                          disabled={!empresa.id}
-                          style={{
-                            opacity: empresa.id === 57 ? 1 : 0.6,
-                            cursor: empresa.id === 57 ? 'pointer' : 'not-allowed'
-                          }}
+
                         >
                           👁️ Ver Detalle
                         </button>
@@ -222,6 +222,8 @@ const EmpresasTable = () => {
         />
       )}
     </div>
+    </>
+ 
   );
 };
 

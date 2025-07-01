@@ -33,7 +33,7 @@ const SociosModal = ({ socioId, isOpen = false, onClose }) => {
     }
   }, [handleCloseModal]);
 
-  // Manejar tecla Escape para cerrar - OPTIMIZADO
+  // Manejar tecla Escape para cerrar 
   useEffect(() => {
     const handleEscape = (e) => {
       if (e.key === 'Escape' && isOpen) {

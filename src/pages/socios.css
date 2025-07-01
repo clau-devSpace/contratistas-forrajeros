@@ -17,7 +17,18 @@
   gap: 1rem;
   background-image: url('../assets/images/imagenes-de-fondo/favorita-11.jpg');
   background-position: center;
-  padding: 1rem;
+  padding: 2rem 1rem; /* Agregado padding para mejor espaciado */
+}
+
+.titulo-socios{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  gap: 1rem; /* Espacio entre título y buscador */
+  margin-top: 35px;
 }
 
 .socios-title {
@@ -26,11 +37,12 @@
   font-weight: 700;
   text-transform: uppercase;
   font-size: 43px;
-  font-weight: bold;
   color: #ffffff;
-  margin: 0;
+  margin: 0 auto; /* Centrado horizontal */
   text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  width: 100%; /* Asegurar que ocupe el ancho completo */
+  max-width: 800px; /* Límite máximo para pantallas grandes */
 }
 
 .search-container {
@@ -80,6 +92,7 @@
   width: 100%;
   border-collapse: collapse;
   min-width: 700px;
+  table-layout: fixed; /* Esto ayuda a mantener el espaciado uniforme */
 }
 
 .table-header {
@@ -87,14 +100,16 @@
 }
 
 .table-header th {
-  padding: 0.75rem 1.5rem;
-  text-align: left;
+  padding: 0.75rem 1rem; /* Reducido el padding horizontal para mejor consistencia */
+  text-align: center; /* Centrar los títulos del header */
   font-size: 0.75rem;
   font-weight: 500;
   color: #6b7280;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   border-bottom: 1px solid #e5e7eb;
+  vertical-align: middle; /* Asegurar alineación vertical */
+  white-space: nowrap; /* Evitar que el texto se rompa */
 }
 
 .table-row {
@@ -107,9 +122,15 @@
 }
 
 .table-cell {
-  padding: 1rem 1.5rem;
+  padding: 1rem; /* Padding uniforme para todas las celdas */
   font-size: 0.875rem;
   vertical-align: middle;
+  text-align: center; /* Centrar el contenido de las celdas */
+  border-right: 1px solid #f3f4f6; /* Línea sutil entre columnas para mejor separación visual */
+}
+
+.table-cell:last-child {
+  border-right: none; /* Quitar borde en la última columna */
 }
 
 .empresa-name {
@@ -197,10 +218,21 @@
     text-align: center;
   }
   
+  .titulo-socios {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    gap: 1rem;
+  }
+  
   .socios-title {
     font-size: 36px;
     text-align: center;
     margin: 0 auto;
+    width: 100%;
   }
   
   .search-container {
@@ -221,7 +253,7 @@
   }
   
   .table-cell {
-    padding: 0.75rem 1rem;
+    padding: 0.75rem 0.8rem; /* Padding más uniforme */
   }
   
   .btn-detail {
@@ -240,6 +272,16 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    gap: 1rem;
+  }
+  
+  .titulo-socios {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
     gap: 1rem;
   }
   
@@ -275,12 +317,12 @@
   }
   
   .table-header th {
-    padding: 0.5rem 0.75rem;
+    padding: 0.5rem 0.6rem; /* Padding uniforme */
     font-size: 0.7rem;
   }
   
   .table-cell {
-    padding: 0.75rem;
+    padding: 0.75rem 0.6rem; /* Padding uniforme */
     font-size: 0.8rem;
   }
   
@@ -308,8 +350,18 @@
     gap: 1rem;
   }
   
+  .titulo-socios {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    gap: 1rem;
+  }
+  
   .socios-title {
-    font-size: 32px;
+    font-size: 28px; /* Reducido un poco más para pantallas muy pequeñas */
     text-align: center;
     margin: 0 auto;
     width: 100%;
@@ -340,12 +392,12 @@
   }
   
   .table-header th {
-    padding: 0.5rem 0.75rem;
+    padding: 0.5rem 0.6rem; /* Padding uniforme */
     font-size: 0.7rem;
   }
   
   .table-cell {
-    padding: 0.75rem;
+    padding: 0.75rem 0.6rem; /* Padding uniforme */
     font-size: 0.8rem;
   }
   
@@ -368,6 +420,16 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+  }
+  
+  .titulo-socios {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    gap: 1rem;
   }
   
   .socios-title {

@@ -2,12 +2,14 @@
 .socio-modal-container {
   padding: 1.5rem;
   background-color: #f3f4f6;
-  min-height: 100vh;
+  min-height: 80vh;
+  margin-top: 150px;
 }
 
 .socio-modal-wrapper {
   max-width: 64rem;
   margin: 0 auto;
+  margin-top: 55px;
 }
 
 /* Botón principal */
@@ -47,9 +49,10 @@
 .modal-container {
   background-color: white;
   border-radius: 0.5rem;
-  max-width: 72rem;
+  max-width: 50rem;
   width: 100%;
-  margin: 2rem 0;
+  margin-top: 6rem;
+  margin-bottom: 4rem;
   display: flex;
   flex-direction: column;
   max-height: calc(100vh - 4rem);
