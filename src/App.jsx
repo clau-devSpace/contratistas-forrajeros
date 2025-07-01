@@ -5,6 +5,7 @@ import Socios from './pages/socios';
 import AreaEconomica from './components/areaEconomica.jsx';
 import Convenios from './pages/convenios';
 import Contacto from './pages/contacto.jsx';
+import Mapa from './pages/mapa.jsx';
 
  export default function App() {
   return (
@@ -15,6 +16,9 @@ import Contacto from './pages/contacto.jsx';
         <Route path="areaEconomica"  element={<AreaEconomica 
         url="https://ensiladores.com.ar/InfoSocios/SeccionEcoPrincipal.php"
         tittle="Área Económica"/>} 
+        />
+        <Route path='mapa' element={<Mapa 
+        url="https://ensiladores.com.ar/InfoSocios/Maps/MapaSociosAgrupado.php"/>}
         />
          <Route path="convenios" element={<Convenios />} />
          <Route path="contacto" element={<Contacto />} />

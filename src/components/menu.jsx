@@ -109,7 +109,7 @@ const Menu = () => {
     { id: 'mapa',
       title: 'Mapa',
       hasSubmenu: false, 
-      externalUrl: 'https://ensiladores.com.ar/InfoSocios/Maps/MapaSociosAgrupado.php',
+      to: '/mapa',
      },
     { id: 'exclusivo', title: 'Exclusivo Socios', hasSubmenu: false, to: '/exclusivo' }
   ];
