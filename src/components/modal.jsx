@@ -55,18 +55,34 @@ const SociosModal = ({ socioId, isOpen = false, onClose }) => {
   }, [handleCloseModal, isOpen, socioData]);
 
   // Componente para mostrar equipamiento
+// Componente para mostrar equipamiento - ACTUALIZADO
 const EquipmentCard = ({ title, data, icon: Icon, type }) => {
-    if (!data || data.length === 0) return null;
+  if (!data || data.length === 0) return null;
 
-    return (
-      <div className="equipment-card">
-        <div className="equipment-card-header">
-          <Icon className="equipment-icon" />
-          <h3 className="equipment-title">{title}</h3>
-          <span className="equipment-count">({data.length})</span>
-        </div>
-        <div className="equipment-list">
-          {data.map((item, index) => {
+  return (
+    <div className="equipment-card">
+      <div className="equipment-card-header">
+        <Icon className="equipment-icon" />
+        <h3 className="equipment-title">{title}</h3>
+        <span className="equipment-count">({data.length})</span>
+      </div>
+      <div className="equipment-list">
+        {data.map((item, index) => {
+          if (type === 'inventario') {
+            const keyIndex = index + 1;
+            const nombre = item[`nombre${keyIndex}`];
+            const cantidad = item[`cant${keyIndex}`];
+            // Para inventario (ya formateado por formatInventoryData)
+            if (!nombre && !cantidad) return null;
+            
+            return (
+              <div key={index} className="equipment-item">
+                <span className="equipment-brand">{nombre}</span>
+                <span className="equipment-model">{cantidad}</span>
+              </div>
+            );
+          } else {
+            // Para equipamiento (código original)
             const keyIndex = index + 1;
             const marca = item[`marca${keyIndex}`];
             const modelo = item[`modelo${keyIndex}`];
@@ -80,11 +96,12 @@ const EquipmentCard = ({ title, data, icon: Icon, type }) => {
                 <span className="equipment-model">{modelo}</span>
               </div>
             );
-          })}
-        </div>
+          }
+        })}
       </div>
-    );
-  };
+    </div>
+  );
+};
 
   // Componente de loading
   const LoadingSpinner = () => (

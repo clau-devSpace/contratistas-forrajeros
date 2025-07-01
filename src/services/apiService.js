@@ -133,7 +133,7 @@ class ApiService {
   }
 
   // Datos de fallback para desarrollo/testing
-  getFallbackSocioData(socioId) {
+  /*getFallbackSocioData(socioId) {
     return {
       "datosBase": {
         "nombre": "Duckas SRL",
@@ -187,59 +187,69 @@ class ApiService {
         "descripcion": `Detalle de la empresa ID: ${socioId}`
       }
     };
-  }
+  }*/
 
   // FUNCIÓN CORREGIDA - Función utilitaria para formatear datos de equipamiento
-  formatEquipmentData(equipmentArray, type = 'equipment') {
-    console.log('🔧 formatEquipmentData ejecutándose:', { equipmentArray, type });
-    
-    if (!equipmentArray || !Array.isArray(equipmentArray)) {
-      console.log('❌ equipmentArray no es válido:', equipmentArray);
-      return [];
-    }
-    
-    const formattedData = equipmentArray
-      .map((item, index) => {
-        console.log(`🔍 Procesando item ${index}:`, item);
-        
-        const keys = Object.keys(item);
-        console.log(`🔑 Keys encontradas:`, keys);
-        
-        const marcaKey = keys.find(k => k.startsWith('marca'));
-        const modeloKey = keys.find(k => k.startsWith('modelo')) || keys.find(k => k.startsWith('nombre'));
-        const cantKey = keys.find(k => k.startsWith('cant'));
-        
-        console.log(`🎯 Keys seleccionadas:`, { marcaKey, modeloKey, cantKey });
-        
-        if (type === 'inventario') {
-          const result = {
-            nombre: item[modeloKey] || '',
-            cantidad: item[cantKey] || ''
-          };
-          console.log(`📦 Resultado inventario:`, result);
-          return result;
-        } else {
-          const result = {
-            marca: item[marcaKey] || '',
-            modelo: item[modeloKey] || ''
-          };
-          console.log(`⚙️ Resultado equipment:`, result);
-          return result;
-        }
-      })
-      .filter(item => {
-        const isValid = type === 'inventario' 
-          ? (item.nombre && item.nombre.trim() !== '') 
-          : (item.marca && item.marca.trim() !== '' && item.modelo && item.modelo.trim() !== '');
-        
-        console.log(`✅ Item válido:`, { item, isValid });
-        return isValid;
-      });
-
-    console.log(`🎉 Datos formateados finales (${type}):`, formattedData);
-    return formattedData;
+  // FUNCIÓN CORREGIDA
+formatEquipmentData(equipmentArray, type = 'equipment') {
+  console.log('🔧 formatEquipmentData ejecutándose:', { equipmentArray, type });
+  
+  if (!equipmentArray || !Array.isArray(equipmentArray)) {
+    console.log('❌ equipmentArray no es válido:', equipmentArray);
+    return [];
   }
+  
+  const formattedData = equipmentArray
+    .map((item, index) => {
+      console.log(`🔍 Procesando item ${index}:`, item);
+      
+      const keys = Object.keys(item);
+      console.log(`🔑 Keys encontradas:`, keys);
+      
+      const marcaKey = keys.find(k => k.startsWith('marca'));
+      const modeloKey = type === 'inventario' 
+        ? keys.find(k => k.startsWith('nombre'))
+        : keys.find(k => k.startsWith('modelo'));
+      const cantKey = keys.find(k => k.startsWith('cant'));
+      
+      console.log(`🎯 Keys seleccionadas:`, { marcaKey, modeloKey, cantKey });
+      console.log(`🔍 Valores extraídos:`, { 
+        marca: item[marcaKey], 
+        modelo: item[modeloKey], 
+        cantidad: item[cantKey] 
+      });
+      
+      if (type === 'inventario') {
+        const result = {
+          nombre: item[modeloKey] || '',
+          cantidad: item[cantKey] || ''
+        };
+        console.log(`📦 Resultado inventario:`, result);
+        return result;
+      } else {
+        const result = {
+          marca: item[marcaKey] || '',
+          modelo: item[modeloKey] || ''
+        };
+        console.log(`⚙️ Resultado equipment:`, result);
+        return result;
+      }
+    })
+    .filter(item => {
+      // AQUÍ ESTÁ LA CORRECCIÓN: Validar ambos campos para inventario
+      const isValid = type === 'inventario' 
+        ? (item.nombre && item.nombre.trim() !== '' && item.cantidad && item.cantidad.trim() !== '') 
+        : (item.marca && item.marca.trim() !== '' && item.modelo && item.modelo.trim() !== '');
+      
+      console.log(`✅ Item válido:`, { item, isValid });
+      return isValid;
+    });
+
+  console.log(`🎉 Datos formateados finales (${type}):`, formattedData);
+  return formattedData;
 }
+}
+
 
 const apiService = new ApiService();
 export default apiService;
