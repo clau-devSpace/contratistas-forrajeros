@@ -24,13 +24,28 @@ const Contacto = () => {
 
           <div className="social-icons">
             <div className="social-icon">
-              <i className="bi bi-whatsapp"></i>
+              <a 
+              href="https://wa.me/543532431111" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            > <i className="bi bi-whatsapp icono-contacto"></i></a>
             </div>
             <div className="social-icon">
-              <i className="bi bi-envelope-fill"></i>
+              <a
+              href="mailto:info@ensiladores.com.ar"
+              aria-labell="Email"
+              target='_blank'
+              >
+              <i className="bi bi-envelope-fill icono-contacto"></i>
+              </a>
             </div>
             <div className="social-icon">
-              <i className="bi bi-geo-alt"></i>
+              <a
+              href='https://maps.app.goo.gl/3CdCyQrptb8Wq59j8'
+              target='_blank'
+              >
+              <i className="bi bi-geo-alt icono-contacto"></i>
+              </a>
             </div>
           </div>
 
@@ -76,7 +91,7 @@ const Contacto = () => {
             </a>
 
             <a 
-              href="https://wa.me/5491234567890" 
+              href="https://wa.me/543532431111" 
               className="action-button" 
               target="_blank" 
               rel="noopener noreferrer"

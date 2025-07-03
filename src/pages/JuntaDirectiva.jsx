@@ -131,7 +131,7 @@ const JuntaDirectiva = () => {
 
   return (
     <div className="staff-container">
-      <h2>STAFF</h2>
+      <h2>Staff</h2>
       <div className='staff-grid'>
         {staff.map((member) => (
           <StaffCard
@@ -145,7 +145,7 @@ const JuntaDirectiva = () => {
         ))}
       </div>
 
-      <h2>JUNTA DIRECTIVA</h2>
+      <h2>Junta Directiva</h2>
       <div className='staff-grid'>
         {directiva.map((member) => (
           <StaffCard

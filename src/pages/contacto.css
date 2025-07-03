@@ -66,10 +66,16 @@
 }
 
 .social-icon {
-  width: 50px;
-  height: 50px;
   color: #4a6fa5;
   border: 2px solid #4a6fa5;
+}
+
+.social-icon a{
+  color:#4a6fa5;
+}
+
+.icono-contacto{
+  font-size: 25px;
 }
 
 .action-buttons {
@@ -121,7 +127,7 @@
   }
 
   .title {
-    font-size: 24px;
+    font-size: 30px;
   }
 
   .social-icons {
@@ -149,6 +155,10 @@
   }
 
   .title {
+    font-size: 30px;
+  }
+
+  .icono-contacto{
     font-size: 20px;
   }
 
