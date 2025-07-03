@@ -124,7 +124,7 @@ const Menu = () => {
 
           <div className="nav-items">
             <Link to="/asociarme" className="btn-asociate">
-              Asóciate
+              Asociate
             </Link>
 
             <div className="menu-toggle" onClick={toggleMenu}>
