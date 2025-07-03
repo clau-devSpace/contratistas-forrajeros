@@ -51,16 +51,10 @@ const EmpresasTable = () => {
   };
 
   const handleOpenModal = (socioId) => {
-    console.log('🔍 Solicitud de detalle para socio ID:', socioId);
-    
-    // Solo permitir el modal para el socio 57 (por ahora)
-    if (parseInt(socioId) === 57) {
-      setSelectedSocioId(socioId);
-      setModalOpen(true);
-    } else {
-      alert(`El detalle solo está disponible para el socio 57. ID seleccionado: ${socioId}`);
-    }
-  };
+  console.log('🔍 Solicitud de detalle para socio ID:', socioId);
+  setSelectedSocioId(socioId);
+  setModalOpen(true);
+};
 
   const handleCloseModal = () => {
     setModalOpen(false);
