@@ -9,6 +9,7 @@ export default function StaffCard({
 }) {
   const cardStyle = {
     display: 'flex',
+    flexDirection: 'column',
     alignItems: 'center',
     gap: '15px',
     padding: '20px',
@@ -21,8 +22,8 @@ export default function StaffCard({
   };
 
   const imageStyle = {
-    width: '70px',
-    height: '70px',
+    width: '120px',
+    height: '120px',
     borderRadius: '50%',
     objectFit: 'cover',
     flexShrink: 0
@@ -36,7 +37,7 @@ export default function StaffCard({
   };
 
   const nameStyle = {
-    fontSize: '16px',
+    fontSize: '18px',
     fontWeight: 'bold',
     color: '#333333',
     margin: '0 0 2px 0'
@@ -63,17 +64,13 @@ export default function StaffCard({
     margin: '2px 0'
   };
 
-  const whatsappIconStyle = {
+  const IconStyle = {
     width: '16px',
     height: '16px',
-    backgroundColor: '#25D366',
-    borderRadius: '3px',
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
-    color: 'white',
     fontSize: '10px',
-    fontWeight: 'bold'
   };
 
   return (
@@ -89,8 +86,8 @@ export default function StaffCard({
         
         {phone && (
           <div style={contactStyle}>
-            <div style={whatsappIconStyle}>
-              W
+            <div style={IconStyle}>
+               <i class="bi bi-whatsapp"></i>
             </div>
             <span>{phone}</span>
           </div>
@@ -98,6 +95,9 @@ export default function StaffCard({
         
         {email && (
           <div style={emailStyle}>
+            <div style={IconStyle}>
+              <i class="bi bi-envelope-at"></i>
+            </div>
             {email}
           </div>
         )}

@@ -1,5 +1,8 @@
+
+import { useEffect } from 'react';
 import StaffCard from '../components/staffCard'; 
 import './juntaDirectiva.css';
+
 import Staff1 from '../assets/images/imagenes-secciones/staff1.jpg';
 import Staff2 from '../assets/images/imagenes-secciones/staff2.jpg';
 import Staff3 from '../assets/images/imagenes-secciones/staff3.gif';
@@ -17,146 +20,112 @@ import Staff14 from '../assets/images/imagenes-secciones/staff14.jpg';
 import Staff15 from '../assets/images/imagenes-secciones/staff15.jpg';
 import Staff16 from '../assets/images/imagenes-secciones/staff16.jpg';
 
+import Patron5 from '../assets/images/imagenes-de-fondo/tractor-2.jpg';
+import TractorField1 from '../assets/images/imagenes-de-fondo/fondo-cultivos.jpg';
+import TractorField2 from '../assets/images/imagenes-de-fondo/tractor-3.jpg';
 
 const JuntaDirectiva = () => {
-
   const staffMembers = [
-   {
-      id: 1,
-      name: "Ing. P. A. Fernando Opacak",
-      title : "Coordinador General",
-      phone: "+54 9 11 5637 2785",
-      email: "fopacak@ensiladores.com.ar",
-      imageUrl: Staff1
-    },
-    {
-      id: 2,
-      name: "Ing. Agr. Mauro Rabozzi",
-      title: "Coordinador Zonal",
-      phone: "+54 9 3534 212921",
-      email: "mauro.rabozzi@ensiladores.com.ar",
-      imageUrl: Staff2
-    },
-    {
-      id: 3,
-      name: "Lic. Cristina Simunic",
-      title: "Coordinación de eventos & Promoción de marca",
-      phone: "+54 9 11 6245 2785",
-      email: "cristina.simunic@ensiladores.com.ar",
-      imageUrl: Staff3
-    },
-    {
-      id: 4,
-      name: "Luciano Toldo",
-      title: "Presidente",
-      imageUrl: Staff4
-    },
-    {
-      id: 5,
-      name: "Pablo Destefanis",
-      title: "Vice Presidente",
-      imageUrl: Staff5
-    },
-    {
-      id: 6,
-      name: "Ignacio López Seco",
-      title: "Secretario",
-      imageUrl: Staff6
-    },
-    {
-      id: 7,
-      name: "Emilio Gahan",
-      title: "Tesorero",
-      imageUrl: Staff7
-    },
-    {
-      id: 8,
-      name: "Mario Aisemberg",
-      title: "Vocal Titular",
-      imageUrl: Staff8
-    },
-    {
-      id: 9,
-      name: "Norbert Brenner",
-      title: "Vocal Titular",
-      imageUrl: Staff9
-    },
-    {
-      id: 10,
-      name: "Federico Sonego",
-      title: "Vocal Titular",
-      imageUrl: Staff10
-    },
-    {
-      id: 11,
-      name: "Facundo Sauton",
-      title: "Vocal Suplente",
-      imageUrl: Staff11
-    },
-    {
-      id: 12,
-      name: "Juan Martin Barneix",
-      title: "Vocal Suplente",
-      imageUrl: Staff12
-    },
-    {
-      id: 13,
-      name: "Mario Nioi",
-      title: "Vocal Suplente",
-      imageUrl: Staff13
-    },
-    {
-      id: 14,
-      name: "Patricio Aguirre Saravia",
-      title: "Junta Fizcalizadora (Titular)",
-      imageUrl: Staff14
-    },
-    {
-      id: 15,
-      name: "Carlos Malaspina",
-      title: "Junta Fiscalizadora (Titular)",
-      imageUrl: Staff15
-    },
-    {
-      id: 16,
-      name: "Cesar Hubeli",
-      title: "Junta Fiscalizadora (Suplente)",
-      imageUrl: Staff16
-    },
+    { id: 1, name: "Ing. P. A. Fernando Opacak", title: "Coordinador General", phone: "+54 9 11 5637 2785", email: "fopacak@ensiladores.com.ar", imageUrl: Staff1 },
+    { id: 2, name: "Ing. Agr. Mauro Rabozzi", title: "Coordinador Zonal", phone: "+54 9 3534 212921", email: "mauro.rabozzi@ensiladores.com.ar", imageUrl: Staff2 },
+    { id: 3, name: "Lic. Cristina Simunic", title: "Coordinación de eventos & Promoción de marca", phone: "+54 9 11 6245 2785", email: "cristina.simunic@ensiladores.com.ar", imageUrl: Staff3 },
+    { id: 4, name: "Luciano Toldo", title: "Presidente", imageUrl: Staff4 },
+    { id: 5, name: "Pablo Destefanis", title: "Vice Presidente", imageUrl: Staff5 },
+    { id: 6, name: "Ignacio López Seco", title: "Secretario", imageUrl: Staff6 },
+    { id: 7, name: "Emilio Gahan", title: "Tesorero", imageUrl: Staff7 },
+    { id: 8, name: "Mario Aisemberg", title: "Vocal Titular", imageUrl: Staff8 },
+    { id: 9, name: "Norbert Brenner", title: "Vocal Titular", imageUrl: Staff9 },
+    { id: 10, name: "Federico Sonego", title: "Vocal Titular", imageUrl: Staff10 },
+    { id: 11, name: "Facundo Sauton", title: "Vocal Suplente", imageUrl: Staff11 },
+    { id: 12, name: "Juan Martin Barneix", title: "Vocal Suplente", imageUrl: Staff12 },
+    { id: 13, name: "Mario Nioi", title: "Vocal Suplente", imageUrl: Staff13 },
+    { id: 14, name: "Patricio Aguirre Saravia", title: "Junta Fizcalizadora (Titular)", imageUrl: Staff14 },
+    { id: 15, name: "Carlos Malaspina", title: "Junta Fiscalizadora (Titular)", imageUrl: Staff15 },
+    { id: 16, name: "Cesar Hubeli", title: "Junta Fiscalizadora (Suplente)", imageUrl: Staff16 },
   ];
 
-  // Separar los miembros
   const staff = staffMembers.slice(0, 3);
   const directiva = staffMembers.slice(3);
 
+  useEffect(() => {
+    let ticking = false;
+
+    const updateParallax = () => {
+      const scrolled = window.pageYOffset;
+      const backgrounds = document.querySelectorAll('.parallax-background');
+
+      backgrounds.forEach((bg) => {
+        const section = bg.closest('.parallax-section');
+        if (!section) return;
+
+        const rect = section.getBoundingClientRect();
+        const offsetTop = section.offsetTop;
+        const height = section.offsetHeight;
+
+        const speed = 0.3;
+
+        if (scrolled + window.innerHeight >= offsetTop && scrolled <= offsetTop + height) {
+          const yPos = (scrolled - offsetTop) * speed;
+          bg.style.transform = `translate3d(0, ${yPos}px, 0)`;
+        }
+      });
+
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll);
+
+    updateParallax();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="staff-container">
-      <h2>Staff</h2>
-      <div className='staff-grid'>
-        {staff.map((member) => (
-          <StaffCard
-            key={member.id}
-            name={member.name}
-            title={member.title}
-            phone={member.phone}
-            email={member.email}
-            imageUrl={member.imageUrl}
-          />
-        ))}
+    <div className="staff-main-container">
+      <div className="parallax-section staff-hero-section">
+        <div className="parallax-background" style={{ backgroundImage: `url(${Patron5})` }}></div>
+        <div className="section-content">
+          <div className="hero-content">
+            <h1 className='equipoCACF'>Conocé al Equipo <span className='cacf'>CACF</span></h1>
+            <p className="hero-description">Nuestro compromiso y experiencia al servicio del Campo Argentino</p>
+          </div>
+          <div className="staff-section">
+            <h2 className="section-title">Staff</h2>
+            <div className='staff-grid'>
+              {staff.map((member) => (
+                <StaffCard key={member.id} {...member} />
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
 
-      <h2>Junta Directiva</h2>
-      <div className='staff-grid'>
-        {directiva.map((member) => (
-          <StaffCard
-            key={member.id}
-            name={member.name}
-            title={member.title}
-            phone={member.phone}
-            email={member.email}
-            imageUrl={member.imageUrl}
-          />
-        ))}
+      {/*<div className="parallax-section">
+        <div className="parallax-background" style={{ backgroundImage: `url(${TractorField1})` }}></div>
+        <div className="section-content"></div>
+      </div>*/}
+
+      <div className="parallax-section directiva-section">
+        <div className="parallax-background" style={{ backgroundImage: `url(${TractorField2})` }}></div>
+        <div className="section-content">
+          <h2 className="section-title">Junta Directiva</h2>
+          <div className='staff-grid'>
+            {directiva.map((member) => (
+              <StaffCard key={member.id} {...member} />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

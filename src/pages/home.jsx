@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import 'animate.css';
 import './home.css';
-import Footer from '../components/Footer';
-import ImageGallery from '../components/gallery';
+import { handleAnimations } from '../hooks/animations';
 import socios from '../assets/images/imagenes-secciones/socios-2.jpg';
 import mapa from '../assets/images/imagenes-secciones/imagen-mapa.png';
 import forraje from '../assets/images/imagenes-secciones/analisis-de-forraje.jpeg';
@@ -13,57 +12,15 @@ import Gallery from '../components/gallery';
 
 const Home = () => {
   useEffect(() => {
-    // Función para manejar animaciones (convertida de tu JavaScript original)
-    const handleAnimations = () => {
-      const animateItems = document.querySelectorAll('.animate-item');
+    
+    handleAnimations();
 
-      const options = {
-        root: null, 
-        rootMargin: '0px',
-        threshold: 0.1 
-      };
-
-      const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const animationClass = entry.target.getAttribute('data-animation');
-            
-            if (entry.target.classList.contains('sequential-animate')) {
-              const index = Array.prototype.indexOf.call(animateItems, entry.target);
-              setTimeout(() => {
-                entry.target.style.opacity = 1; 
-                entry.target.classList.add('animate__animated', animationClass); 
-              }, index * 300); 
-            } else {
-              entry.target.style.opacity = 1; 
-              entry.target.classList.add('animate__animated', animationClass); 
-            }
-
-            observer.unobserve(entry.target); 
-          }
-        });
-      }, options);
-
-      animateItems.forEach(item => {
-        observer.observe(item); 
-      });
-    };
-
-    // Setup del video (tu código original)
     const video = document.querySelector(".promo-video");
     if (video) {
       video.currentTime = 1;
     }
 
-    // Inicializar animaciones
-    handleAnimations();
-
-    // Cleanup function (opcional pero buena práctica)
-    return () => {
-      // Observer cleanup se maneja automáticamente por React
-    };
-  }, []); // Array vacío = solo se ejecuta una vez al montar
-
+  }, []); 
   return (
     <>
       <header id="header"
