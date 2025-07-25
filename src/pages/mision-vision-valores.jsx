@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { handleAnimations } from '../hooks/animations';
-import { CheckCircle, Users, Target, Shield, TrendingUp, Award, ArrowDownFromLine, ChevronDown, ChevronRight} from 'lucide-react';
+import { CheckCircle, Users, Target, Shield, TrendingUp, Award, ArrowDownFromLine, ChevronDown, ChevronRight, ListCollapse,  CircleDollarSign, FolderSearch, Building2, Handshake, Shrink, Globe, BriefcaseBusiness, Tractor, RefreshCcwDot } from 'lucide-react';
 import './mision-vision-valores.css';
 import Campo from '../assets/images/imagenes-de-fondo/campo.jpg';
 import Prueba1 from '../assets/images/imagenes-de-fondo/prueba-1.jpg';
@@ -15,6 +15,7 @@ import Prueba7 from '../assets/images/imagenes-de-fondo/6forraje.jpg';
 import Prueba8 from '../assets/images/imagenes-secciones/carrusel4.JPG';
 import Prueba9 from '../assets/images/imagenes-de-fondo/expo-agro.jpg';
 import Prueba10 from '../assets/images/imagenes-secciones/carrusel.jpg';
+
 
 const CACFInfo = () => {
 
@@ -145,52 +146,52 @@ const CACFInfo = () => {
             </h2>
           </div>
           <div className="section-content">
-            <div className="activities-list">
-              <div className="activity-item">
-                <span className="activity-bullet">•</span>
+            <div className="activities-list ">
+              <div className="activity-item benefit-item-enhanced">
+                <span className="activity-bullet"> <Users /></span>
                 <span className="activity-text">Generamos un clima creciente de amistad y confianza entre los socios.</span>
               </div>
-              <div className="activity-item">
-                <span className="activity-bullet">•</span>
+              <div className="activity-item benefit-item-enhanced">
+                <span className="activity-bullet"><ListCollapse /></span>
                 <span className="activity-text">Creamos el ámbito para tratar temas y resolver problemas.</span>
               </div>
-              <div className="activity-item">
-                <span className="activity-bullet">•</span>
+              <div className="activity-item benefit-item-enhanced">
+                <span className="activity-bullet"><CircleDollarSign /></span>
                 <span className="activity-text">Logramos una importante mejora en los precios y obtención de la mayor utilización sílaje, etc.</span>
               </div>
-              <div className="activity-item">
-                <span className="activity-bullet">•</span>
+              <div className="activity-item benefit-item-enhanced">
+                <span className="activity-bullet"><FolderSearch /></span>
                 <span className="activity-text">Trabajamos con diferentes organismos para tareas de investigación (INTA, CREA, etc).</span>
               </div>
-              <div className="activity-item">
-                <span className="activity-bullet">•</span>
+              <div className="activity-item benefit-item-enhanced">
+                <span className="activity-bullet"><LibraryBig /></span>
                 <span className="activity-text">Somos nexo entre Universidades, Estaciones Experimentales y Empresas y difundimos sus resultados.</span>
               </div>
-              <div className="activity-item">
+              <div className="activity-item benefit-item-enhanced">
                 <span className="activity-bullet">•</span>
                 <span className="activity-text">Logramos respaldo y trabajo solidario entre los miembros de la Cámara.</span>
               </div>
-               <div className="activity-item">
+               <div className="activity-item benefit-item-enhanced">
                 <span className="activity-bullet">•</span>
                 <span className="activity-text">Hacemos negocios en común (convenios por combustibles, seguros, neumáticos, bolsas, etc)</span>
               </div>
-              <div className="activity-item">
+              <div className="activity-item benefit-item-enhanced">
                 <span className="activity-bullet">•</span>
                 <span className="activity-text">Realizamos encuentros anuales.</span>
               </div>
-              <div className="activity-item">
+              <div className="activity-item benefit-item-enhanced">
                 <span className="activity-bullet">•</span>
                 <span className="activity-text">Nos consolidamos como una institución formal y legal.</span>
               </div>
-              <div className="activity-item">
+              <div className="activity-item benefit-item-enhanced">
                 <span className="activity-bullet">•</span>
                 <span className="activity-text">Una página web anual de internet a disposición de todos los miembros de la CACF, material técnico-económico y la posibilidad de contactarse 24hs con la cámara.</span>
               </div>
-              <div className="activity-item">
+              <div className="activity-item benefit-item-enhanced">
                 <span className="activity-bullet">•</span>
                 <span className="activity-text">Una bolsa de trabajo (trabajos que no pueden ser tomados por los contratistas son derivados a otros miembros de la CACF), con lo cual los clientes están de algún modo "amparados" ante situaciones adversas.</span>
               </div>
-              <div className="activity-item">
+              <div className="activity-item benefit-item-enhanced">
                 <span className="activity-bullet">•</span>
                 <span className="activity-text">Préstamo y alquiler de equipos entre contratistas.</span>
               </div>

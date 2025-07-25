@@ -200,7 +200,7 @@
            margin-right: 20px;
        }
 
-       .benefit-item.benefit-item-enhanced {
+       .benefit-item.benefit-item-enhanced, .activity-item.benefit-item-enhanced {
            background-color: #f1f1f1;
            border-radius: 8px;
            box-shadow: 0 4px 8px rgba(31, 41, 55, 0.3), 0 2px 4px rgba(31, 41, 55, 0.2);

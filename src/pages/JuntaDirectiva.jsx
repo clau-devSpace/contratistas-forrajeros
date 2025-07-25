@@ -19,10 +19,8 @@ import Staff13 from '../assets/images/imagenes-secciones/staff13.jpg';
 import Staff14 from '../assets/images/imagenes-secciones/staff14.jpg';
 import Staff15 from '../assets/images/imagenes-secciones/staff15.jpg';
 import Staff16 from '../assets/images/imagenes-secciones/staff16.jpg';
-
-import Patron5 from '../assets/images/imagenes-de-fondo/tractor-2.jpg';
-import TractorField1 from '../assets/images/imagenes-de-fondo/fondo-cultivos.jpg';
-import TractorField2 from '../assets/images/imagenes-de-fondo/tractor-3.jpg';
+import Prueba11 from '../assets/images/imagenes-de-fondo/fondo-cultivos.jpg';
+import Prueba12 from '../assets/images/imagenes-de-fondo/25072.jpg';
 
 const JuntaDirectiva = () => {
   const staffMembers = [
@@ -94,7 +92,7 @@ const JuntaDirectiva = () => {
   return (
     <div className="staff-main-container">
       <div className="parallax-section staff-hero-section">
-        <div className="parallax-background" style={{ backgroundImage: `url(${Patron5})` }}></div>
+        <div className="parallax-background" style={{ backgroundImage: `url(${Prueba11})` }}></div>
         <div className="section-content">
           <div className="hero-content">
             <h1 className='equipoCACF'>Conocé al Equipo <span className='cacf'>CACF</span></h1>
@@ -117,9 +115,9 @@ const JuntaDirectiva = () => {
       </div>*/}
 
       <div className="parallax-section directiva-section">
-        <div className="parallax-background" style={{ backgroundImage: `url(${TractorField2})` }}></div>
+        <div className="parallax-background" style={{ backgroundImage: `url(${Prueba12})` }}></div>
         <div className="section-content">
-          <h2 className="section-title">Junta Directiva</h2>
+          <h2 className="section-title extra-padding">Junta Directiva</h2>
           <div className='staff-grid'>
             {directiva.map((member) => (
               <StaffCard key={member.id} {...member} />

@@ -33,7 +33,10 @@ export default function StaffCard({
     flex: 1,
     display: 'flex',
     flexDirection: 'column',
-    gap: '4px'
+    gap: '4px',
+    alignItems: 'center',
+    textAlign: 'center',
+    justifyContent: 'center'
   };
 
   const nameStyle = {
@@ -46,7 +49,8 @@ export default function StaffCard({
   const titleStyle = {
     fontSize: '14px',
     color: '#666666',
-    margin: '0 0 8px 0'
+    margin: '0 0 8px 0',
+    fontWeight: 'bold'
   };
 
   const contactStyle = {
