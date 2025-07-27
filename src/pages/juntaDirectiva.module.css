@@ -1,22 +1,20 @@
-/* Contenedor principal */
-.staff-main-container {
+
+.staffMaiCnontainer {
   position: relative;
   width: 100%;
   background: #f5f5f5;
-  overflow-x: hidden; /* Solo prevenir scroll horizontal */
+  overflow-x: hidden; 
 }
 
-/* Secciones con parallax */
-.parallax-section {
+.parallaxSection {
   position: relative;
-  min-height: auto; /* SOLUCION: Altura automática basada en contenido */
-  padding: 0; /* SOLUCION: Sin padding fijo */
-  display: block; /* SOLUCION: Cambiar a block para mejor control */
+  min-height: auto; 
+  padding: 0; 
+  display: block; 
   margin: 0;
 }
 
-/* Fondos parallax - CONTENIDOS dentro de sus secciones */
-.parallax-background {
+.parallaxBackground {
   position: absolute;
   top: 0;
   left: 0;
@@ -29,7 +27,7 @@
   z-index: 1;
 }
 
-.parallax-background::before {
+.parallaxBackground::before {
   content: '';
            position: absolute;
            top: 0;
@@ -37,12 +35,10 @@
            right: 0;
            bottom: 0;
            background: rgba(0, 0, 0, 0.3);
-           /* Ajusta la opacidad como necesites */
            z-index: 1;
 }
 
-/* Fondo superior de la segunda sección */
-.parallax-background-top {
+.parallaxBackgroundTop {
   top: 0;
   bottom: 50%;
   background-position: center center;
@@ -50,8 +46,7 @@
   background-repeat: no-repeat;
 }
 
-/* Fondo inferior de la segunda sección */
-.parallax-background-bottom {
+.parallaxBackgroundBottom {
   top: 50%;
   bottom: 0;
   background-position: center center;
@@ -69,9 +64,8 @@
   z-index: 1;
 }
 
-/* Overlay opcional para mejor legibilidad del texto */
-.directiva-section .parallax-background-top::after,
-.directiva-section .parallax-background-bottom::after {
+.directivaSection .parallaxBackgroundTop::after,
+.directivaSection .parallaxBackgroundBottom::after {
   content: '';
   position: absolute;
   top: 0;
@@ -82,47 +76,42 @@
   z-index: 1;
 }
 
-/* Contenido de las secciones - ESTE ES EL CLAVE */
-.section-content {
+.sectionContent {
   position: relative;
-  z-index: 10; /* SOLUCION: Z-index alto para estar siempre encima */
+  z-index: 10; 
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto; /* SOLUCION: Centrar automáticamente */
-  padding: 100px 20px; /* SOLUCION: Padding generoso pero controlado */
+  margin: 0 auto; 
+  padding: 100px 20px; 
 }
 
-/* Asegurar que el contenido esté por encima del overlay en la sección directiva */
-.directiva-section .section-content {
-  z-index: 20; /* SOLUCION: Z-index aún más alto */
+.directivaSection .sectionContent {
+  z-index: 20; 
 }
 
-/* Sección hero (primera) - SIN PADDING EXTRA */
-.staff-hero-section {
+.staffHeroSection {
   position: relative;
   z-index: 2;
 }
 
-.hero-content {
+.heroContent {
   text-align: center;
   margin-bottom: 60px;
 }
 
-.hero-description {
+.heroDescription {
   font-size: 18px;
   color: #ffffff;
   margin-top: 20px;
   font-style: italic;
 }
 
-/* Sección directiva (segunda) - SIN PADDING EXTRA */
-.directiva-section {
+.directivaSection {
   position: relative;
   z-index: 3;
 }
 
-/* Títulos de sección */
-.section-title {
+.sectionTitle {
   font-size: 35px;
   font-weight: bold;
   color: #ffffff;
@@ -133,11 +122,11 @@
   position: relative;
 }
 
-.extra-padding{
+.extraPadding{
   padding-top: 50px;
 }
 
-.section-title::after {
+.sectionTitle::after {
   content: '';
   position: absolute;
   bottom: -10px;
@@ -149,7 +138,6 @@
   border-radius: 2px;
 }
 
-/* Título principal */
 .equipoCACF {
   font-size: 43px;
   font-weight: 800;
@@ -164,23 +152,20 @@
   color: #0c51a6;
 }
 
-/* Grid del staff - SIMPLIFICADO */
-.staff-grid {
+.staffGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 30px;
-  margin: 30px 0 60px 0; /* SOLUCION: Márgenes simples */
+  margin: 30px 0 60px 0; 
   position: relative;
-  z-index: 15; /* SOLUCION: Z-index para estar encima del parallax */
+  z-index: 15;
 }
 
-/* Sección staff dentro de hero */
-.staff-section {
+.staffSection {
   margin-top: 80px;
 }
 
-/* Efectos de entrada suaves */
-.section-content {
+.sectionContent {
   animation: fadeInUp 0.8s ease-out;
 }
 
@@ -195,31 +180,30 @@
   }
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
-  .section-content {
-    padding: 80px 15px; /* SOLUCION: Padding más controlado */
+  .sectionContent {
+    padding: 80px 15px; 
   }
   
   .equipoCACF {
     font-size: 32px;
   }
   
-  .section-title {
+  .sectionTitle {
     font-size: 28px;
   }
   
-  .staff-grid {
+  .staffGrid {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
     margin: 20px 0 40px 0;
   }
   
-  .hero-description {
+  .heroDescription {
     font-size: 16px;
   }
   
-  /* Ajustar fondos múltiples en móvil */
+
   .parallax-background-top,
   .parallax-background-bottom {
     background-attachment: scroll;
@@ -231,47 +215,42 @@
     font-size: 26px;
   }
   
-  .section-title {
+  .sectionTitle {
     font-size: 24px;
   }
   
-  .staff-grid {
+  .staffGrid {
     grid-template-columns: 1fr;
     margin: 20px 0 30px 0;
   }
   
-  .section-content {
+  .sectionContent {
     padding: 60px 15px;
   }
 }
 
-/* Optimización de rendimiento */
 .parallax-background,
-.parallax-background-top,
-.parallax-background-bottom,
 .section-content {
   transform: translateZ(0);
   backface-visibility: hidden;
 }
 
-/* Efecto hover en las cards del staff */
-.staff-grid > * {
+.staffGrid > * {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.staff-grid > *:hover {
+.staffGrid > *:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
-/* === PARALLAX FIXED === */
-.parallax-section {
+.parallaxSection {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
 }
 
-.parallax-background {
+.parallaxBackground {
   position: absolute;
   top: 0;
   left: 0;
@@ -285,8 +264,3 @@
   transform: translateZ(0);
 }
 
-.parallax-background-top,
-.parallax-background-bottom,
-.parallax-background-bottom2 {
-  display: none;
-}

@@ -1,5 +1,5 @@
 import React from 'react';
-import './convenios.css';
+import styles from './convenios.module.css';
 import Akron from '../assets/images/convenios/Akron.png';
 import Canavesio from '../assets/images/convenios/Canavesio.png';
 import Claas from '../assets/images/convenios/CLAAS.png';
@@ -23,32 +23,32 @@ import Bernardin from '../assets/images/convenios/Bernardin.png';
 
 export default function Convenios() {
     return (
-        <div className='convenios-container'>
-            <h1 className='conveniossCACF'>Convenios CACF</h1>
-            <p className='convenios-subtitle'>
+        <div className={styles.conveniosContainer}>
+            <h1 className={styles.conveniossCACF}>Convenios CACF</h1>
+            <p className={styles.conveniosSubtitle}>
                 Conocé todas las empresas con las que tenemos convenios especiales para nuestros socios
             </p>
-            <div className='convenios-imagenes'>
-                <img src={Akron} className='img-convenios' alt="Convenio Akron" />
-                <img src={Canavesio} className='img-convenios' alt="Convenio Canavesio" />
-                <img src={Claas} className='img-convenios' alt="Convenio CLAAS" />
-                <img src={CooperacionSeguros} className='img-convenios' alt="Convenio Cooperación Seguros" />
-                <img src={Fliegl} className='img-convenios' alt="Convenio Fliegl" />
-                <img src={Genofeed} className='img-convenios' alt="Convenio Genofeed" />
-                <img src={JohnDeere} className='img-convenios' alt="Convenio John Deere" />
-                <img src={Kuhn} className='img-convenios' alt="Convenio Kuhn" />
-                <img src={NCH} className='img-convenios' alt="Convenio NCH" />
-                <img src={NewHolland} className='img-convenios' alt="Convenio New Holland" />
-                <img src={Richiger} className='img-convenios' alt="Convenio Richiger" />
-                <img src={shakerBOX} className='img-convenios' alt="Convenio shakerBOX" />
-                <img src={Tecnidra} className='img-convenios' alt="Convenio Tecnidra" />
-                <img src={Vesta} className='img-convenios' alt="Convenio Vesta" />
-                <img src={GEA} className='img-convenios' alt="Convenio GEA" />
-                <img src={Ducart} className='img-convenios' alt="Convenio Ducart" />
-                <img src={Blade} className='img-convenios' alt="Convenio Blade" />
-                <img src={Greenpac} className='img-convenios' alt="Convenio Greenpac" />
-                <img src={Taraborelli} className='img-convenios' alt="Convenio Taraborelli" />
-                <img src={Bernardin} className='img-convenios' alt="Convenio Bernardin" />
+            <div className={styles.conveniosImagenes}>
+                <img src={Akron} className={styles.imgConvenios} alt="Convenio Akron" />
+                <img src={Canavesio} className={styles.imgConvenios}  alt="Convenio Canavesio" />
+                <img src={Claas} className={styles.imgConvenios} alt="Convenio CLAAS" />
+                <img src={CooperacionSeguros}  className={styles.imgConvenios} alt="Convenio Cooperación Seguros" />
+                <img src={Fliegl}  className={styles.imgConvenios} alt="Convenio Fliegl" />
+                <img src={Genofeed} className={styles.imgConvenios} alt="Convenio Genofeed" />
+                <img src={JohnDeere} className={styles.imgConvenios} alt="Convenio John Deere" />
+                <img src={Kuhn} className={styles.imgConvenios} alt="Convenio Kuhn" />
+                <img src={NCH} className={styles.imgConvenios} alt="Convenio NCH" />
+                <img src={NewHolland} className={styles.imgConvenios}  alt="Convenio New Holland" />
+                <img src={Richiger} className={styles.imgConvenios}  alt="Convenio Richiger" />
+                <img src={shakerBOX} className={styles.imgConvenios} alt="Convenio shakerBOX" />
+                <img src={Tecnidra} className={styles.imgConvenios} alt="Convenio Tecnidra" />
+                <img src={Vesta} className={styles.imgConvenios} alt="Convenio Vesta" />
+                <img src={GEA}  className={styles.imgConvenios} alt="Convenio GEA" />
+                <img src={Ducart} className={styles.imgConvenios}  alt="Convenio Ducart" />
+                <img src={Blade} className={styles.imgConvenios} alt="Convenio Blade" />
+                <img src={Greenpac}  className={styles.imgConvenios} alt="Convenio Greenpac" />
+                <img src={Taraborelli} className={styles.imgConvenios} alt="Convenio Taraborelli" />
+                <img src={Bernardin} className={styles.imgConvenios}  alt="Convenio Bernardin" />
             </div>
         </div>
     );

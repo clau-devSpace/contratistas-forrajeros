@@ -1,8 +1,7 @@
 
 import { useEffect } from 'react';
 import StaffCard from '../components/staffCard'; 
-import './juntaDirectiva.css';
-
+import styles from './juntaDirectiva.module.css';
 import Staff1 from '../assets/images/imagenes-secciones/staff1.jpg';
 import Staff2 from '../assets/images/imagenes-secciones/staff2.jpg';
 import Staff3 from '../assets/images/imagenes-secciones/staff3.gif';
@@ -90,17 +89,17 @@ const JuntaDirectiva = () => {
   }, []);
 
   return (
-    <div className="staff-main-container">
-      <div className="parallax-section staff-hero-section">
-        <div className="parallax-background" style={{ backgroundImage: `url(${Prueba11})` }}></div>
-        <div className="section-content">
-          <div className="hero-content">
-            <h1 className='equipoCACF'>Conocé al Equipo <span className='cacf'>CACF</span></h1>
-            <p className="hero-description">Nuestro compromiso y experiencia al servicio del Campo Argentino</p>
+    <div className={styles.staffMainContainer}>
+      <div className={`${styles.parallaxSection} ${styles.staffHeroSection}`}>
+        <div className={styles.parallaxBackground} style={{ backgroundImage: `url(${Prueba11})` }}></div>
+        <div className={styles.sectionContent}>
+          <div className={styles.heroContent}>
+            <h1 className={styles.equipoCACF}>Conocé al Equipo <span className={styles.cacf}>CACF</span></h1>
+            <p className={styles.heroDescription}>Nuestro compromiso y experiencia al servicio del Campo Argentino</p>
           </div>
-          <div className="staff-section">
-            <h2 className="section-title">Staff</h2>
-            <div className='staff-grid'>
+          <div className={styles.staffSection}>
+            <h2 className={styles.sectionTitle}>Staff</h2>
+            <div className={styles.staffGrid}>
               {staff.map((member) => (
                 <StaffCard key={member.id} {...member} />
               ))}
@@ -114,11 +113,11 @@ const JuntaDirectiva = () => {
         <div className="section-content"></div>
       </div>*/}
 
-      <div className="parallax-section directiva-section">
-        <div className="parallax-background" style={{ backgroundImage: `url(${Prueba12})` }}></div>
-        <div className="section-content">
-          <h2 className="section-title extra-padding">Junta Directiva</h2>
-          <div className='staff-grid'>
+      <div className={`${styles.parallaxSection} ${styles.directivaSection}`}>
+        <div className={styles.parallaxBackground} style={{ backgroundImage: `url(${Prueba12})` }}></div>
+        <div className={styles.sectionContent}>
+          <h2 className={`${styles.sectionTitle} ${styles.extraPadding}`}>Junta Directiva</h2>
+          <div className={styles.staffGrid}>
             {directiva.map((member) => (
               <StaffCard key={member.id} {...member} />
             ))}
