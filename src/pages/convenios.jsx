@@ -20,14 +20,19 @@ import Blade from '../assets/images/convenios/Blade.png';
 import Greenpac from '../assets/images/convenios/Greenpac.png';
 import Taraborelli from '../assets/images/convenios/Taraborelli.png';
 import Bernardin from '../assets/images/convenios/Bernardin.png';
+import Fondo from '../assets/images/imagenes-de-fondo/prueba-2.jpg';
 
 export default function Convenios() {
     return (
-        <div className={styles.conveniosContainer}>
+        <>
+         <header className={styles.headerConvenios} style={{backgroundImage: `url(${Fondo})`}}>
             <h1 className={styles.conveniossCACF}>Convenios CACF</h1>
-            <p className={styles.conveniosSubtitle}>
+             <h2 className={styles.conveniosSubtitle}>
                 Conocé todas las empresas con las que tenemos convenios especiales para nuestros socios
-            </p>
+              </h2>
+        </header>
+        <div className={styles.conveniosContainer}>
+            
             <div className={styles.conveniosImagenes}>
                 <img src={Akron} className={styles.imgConvenios} alt="Convenio Akron" />
                 <img src={Canavesio} className={styles.imgConvenios}  alt="Convenio Canavesio" />
@@ -51,5 +56,8 @@ export default function Convenios() {
                 <img src={Bernardin} className={styles.imgConvenios}  alt="Convenio Bernardin" />
             </div>
         </div>
+        
+        </>
+       
     );
 }
