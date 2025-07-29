@@ -273,6 +273,7 @@ body {
     width: 100%;
     box-sizing: border-box;
     background-color: #5a8a68;
+    margin-top: 70px;
 }
 
 .agrinir {
@@ -382,7 +383,7 @@ body {
     width: 100%;
     background-color: #f1f1f1;
     overflow: hidden;
-    margin-top: 50px;
+    margin-top: 80px;
 }
 
 .promoItems {

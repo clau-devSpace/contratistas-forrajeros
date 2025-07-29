@@ -7,6 +7,7 @@ import Prueba8 from '../assets/images/imagenes-secciones/carrusel4.JPG';
 import Prueba9 from '../assets/images/imagenes-secciones/carrusel5.JPG';
 import Prueba10 from '../assets/images/imagenes-de-fondo/favorita-11.jpg';
 import Prueba11 from '../assets/images/imagenes-secciones/socios-newholland.jpg';
+import Prueba12 from '../assets/images/imagenes-secciones/reunion-plenaria.jpg';
 
 const CACFInfo = () => {
 
@@ -24,119 +25,141 @@ const CACFInfo = () => {
       }}>
         <div className={styles.tituloCacf}>
           <h1 className={styles.cacfTitle}> ¿Qué es la Cámara Argentina de Contratistas Forrajeros (CACF)?</h1>
-          <p className={styles.conocerMas}>Conocer más</p>
-          <ChevronDown color='white' />
         </div>
       </div>
 
       {/* Contenido principal */}
       <div className={styles.contentWrapper}>
         {/* ¿Qué es la CACF? */}
-        <section className={styles.section}>
-          <div className={styles.sectionContent}>
-            <div className={styles.introTextContainer}>
-              <p className={`${styles.introText} animate-item`} data-animation="animate__fadeIn">
-                Nuestros Principales Propósitos
-            </p>
-            </div>
-            <div className={`${styles.benefitsGrid} animate-item`} data-animation="animate__fadeIn">
-              <div className={`${styles.benefitItem} ${styles.benefitItemEnhanced} ${styles.margin}`}>
-                <Users className={styles.benefitIcon} size={35} />
-                <span className={`${styles.benefitText} ${styles.benefitTextEnhanced}`}>Agrupar a personas físicas y jurídicas que dedican parcial o totalmente su actividad al ensilado de forrajes y confección de forrajes conservados.</span>
-              </div>
-              <div className={`${styles.benefitItem} ${styles.benefitItemEnhanced} ${styles.margin}`}>
-                <Shield className={styles.benefitIcon} size={35} />
-                <span className={`${styles.benefitText} ${styles.benefitTextEnhanced}`}>Protección de los intereses de los miembros legítimos; siendo sectores de aplicación en propósitos defensas; dentro del marco de las normas de calidad que determine la presente Cámara.</span>
-              </div>
-              <div className={`${styles.benefitItem} ${styles.benefitItemEnhanced} ${styles.margin}`}>
-                <Award className={styles.benefitIcon} size={35} />
-                <span className={`${styles.benefitText} ${styles.benefitTextEnhanced}`}>Ejercer la defensa y representación de sus asociados en asuntos de tipo judicial, comercial, genial, profesional y laboral, ante las autoridades nacionales, provinciales y municipales, seguros, etc.</span>
-              </div>
-              <div className={`${styles.benefitItem} ${styles.benefitItemEnhanced} ${styles.margin}`}>
-                <TrendingUp className={styles.benefitIcon} size={35} />
-                <span className={`${styles.benefitText} ${styles.benefitTextEnhanced}`}>Promocionar el beneficio de los ensilados, divulgando los proyectos que de ellos se obtienen.</span>
-              </div>
-              <div className={`${styles.benefitItem} ${styles.benefitItemEnhanced} ${styles.margin}`}>
-                <Target className={styles.benefitIcon} size={35} />
-                <span className={`${styles.benefitText} ${styles.benefitTextEnhanced}`}>Estimular y cooperar en toda clase de investigaciones, ensayos, desarrollos de programas específicos que contemplen el uso del silo forrajero.</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
+       <section className={styles.section}>
+  <div className={styles.sectionContent}>
+    <div className={styles.introTextContainer}>
+      <h2 className={`${styles.introText} animate-item`} data-animation="animate__fadeIn">
+        Nuestros Principales Propósitos
+      </h2>
+    </div>
+    <div className={`${styles.cardsGrid} animate-item`} data-animation="animate__fadeIn">
+      <div className={styles.propositionCard}>
+        <div className={styles.cardIcon}>
+          <Users size={24} color="#0c51a6" />
+        </div>
+        <p className={styles.cardText}>
+          Agrupar a personas físicas y jurídicas que dedican parcial o totalmente su 
+          actividad al ensilado de forrajes y confección de forrajes conservados.
+        </p>
+      </div>
+      
+      <div className={styles.propositionCard}>
+        <div className={styles.cardIcon}>
+          <Shield size={24} color="#0c51a6" />
+        </div>
+        <p className={styles.cardText}>
+        Propender a que los ensilados de forrajes lleguen a todos los sectores de la producción agropecuaria de la república Argentina, dentro del marco de las normas de calidad que determine la presente Cámara.
+        </p>
+      </div>
+      
+      <div className={styles.propositionCard}>
+        <div className={styles.cardIcon}>
+          <Scale size={24} color="#0c51a6" />
+        </div>
+        <p className={styles.cardText}>
+          Ejercer la defensa y representación de sus asociados en asuntos de tipo 
+          judicial, comercial, genial, profesional y laboral, ante las autoridades 
+          nacionales, provinciales y municipales, seguros, etc.
+        </p>
+      </div>
+      
+      <div className={styles.propositionCard}>
+        <div className={styles.cardIcon}>
+          <TrendingUp size={24} color="#0c51a6" />
+        </div>
+        <p className={styles.cardText}>
+          Promocionar el beneficio de los ensilados, divulgando los proyectos que de 
+          ellos se obtienen.
+        </p>
+      </div>
+      
+      <div className={styles.propositionCard}>
+        <div className={styles.cardIcon}>
+          <Target size={24} color="#0c51a6" />
+        </div>
+        <p className={styles.cardText}>
+          Estimular y cooperar en toda clase de investigaciones, ensayos, desarrollos 
+          de programas específicos que contemplen el uso del silo forrajero.
+        </p>
+      </div>
+    </div>
+  </div>   
+</section>
         {/* ¿Qué beneficios obtienen sus asociados? */}
-        <section className={`${styles.section} ${styles.sociosBeneficios}`} style={{
-        backgroundImage: `url(${Prueba11})`
-      }}>
-          <div className={styles.sectionHeader}>
-            <h2 className={`${styles.sectionTitle} ${styles.sectionTitleBeneficios}`}>
-              <CheckCircle className={styles.benefitIcon2} size={45} />
-              Beneficios que tienen Nuestros Socios
-            </h2>
-          </div>
+
+        <section className={`${styles.section} ${styles.sociosBeneficios}`}>
           <div className={styles.sectionContent}>
+            <div className={styles.sectionHeader}>
+            {/*<p className={styles.slogan}>Beneficios CACF</p> */} 
+            <h2 className={`${styles.sectionTitle} ${styles.sectionTitleBeneficios}`}>
+              Beneficios de  
+              Nuestros Socios
+            </h2>
+            <img src={Prueba11} className={styles.imageSocios} alt='Socios con la bandera de New Holland, en el Campo' />
+          </div>
             <div className={`${styles.benefitsGrid} ${styles.benefitsGrid2}`}>
               <div className={`${styles.benefitItem} ${styles.noBackground}`}>
-                <span className={styles.activityBullet}><ChevronRight/></span>
+                <span className={styles.activityBullet}><i class="bi bi-caret-right-fill"></i></span>
                 <span className={`${styles.benefitText} ${styles.benefitText2}`}>Acceso a la bolsa laboral en campaña.</span>
               </div>
               <div className={`${styles.benefitItem} ${styles.noBackground}`}>
-                <span className={styles.activityBullet}><ChevronRight /></span>
+                <span className={styles.activityBullet}><i class="bi bi-caret-right-fill"></i></span>
                 <span className={`${styles.benefitText} ${styles.benefitText2}`}>Viajes de capacitación en el país y al exterior.</span>
               </div>
               <div className={`${styles.benefitItem} ${styles.noBackground}`}>
-                <span className={styles.activityBullet}><ChevronRight /></span>
+                <span className={styles.activityBullet}><i class="bi bi-caret-right-fill"></i></span>
                 <span className={`${styles.benefitText} ${styles.benefitText2}`}>Publicación de maquinaria en venta o en alquiler.</span>
               </div>
               <div className={`${styles.benefitItem} ${styles.noBackground}`}>
-                <span className={styles.activityBullet}><ChevronRight /></span>
+                <span className={styles.activityBullet}><i class="bi bi-caret-right-fill"></i></span>
                 <span className={`${styles.benefitText} ${styles.benefitText2}`}>Permanente asesoramiento en temas generales vinculados a la actividad.</span>
               </div>
               <div className={`${styles.benefitItem} ${styles.noBackground}`}>
-                <span className={styles.activityBullet}><ChevronRight /></span>
+                <span className={styles.activityBullet}><i class="bi bi-caret-right-fill"></i></span>
                 <span className={`${styles.benefitText} ${styles.benefitText2}`}>Contacto directo con empresas proveedoras de insumos.</span>
               </div>
               <div className={`${styles.benefitItem} ${styles.noBackground}`}>
-                <span className={styles.activityBullet}><ChevronRight /></span>
+                <span className={styles.activityBullet}><i class="bi bi-caret-right-fill"></i></span>
                 <span className={`${styles.benefitText} ${styles.benefitText2}`}>Planillas para calcular los costos reales de un equipo.</span>
               </div>
               <div className={`${styles.benefitItem} ${styles.noBackground}`}>
-                <span className={styles.activityBullet}><ChevronRight /></span>
-                <span className={`${styles.benefitText} ${styles.benefitText2}`}>Asesoramiento permanente para la confección de presupuestos.</span>
+                <span className={styles.activityBullet}><i class="bi bi-caret-right-fill"></i></span>
+                <span className={`${styles.benefitText} ${styles.benefitText2}`}>Alquiler de equipos entre contratistas con precios prefijados.</span>
               </div>
               <div className={`${styles.benefitItem} ${styles.noBackground}`}>
-                <span className={styles.activityBullet}><ChevronRight /></span>
-                <span className={`${styles.benefitText} ${styles.benefitText2}`}>Ampliación de página web de forma gratuita.</span>
+                <span className={styles.activityBullet}><i class="bi bi-caret-right-fill"></i></span>
+                <span className={`${styles.benefitText} ${styles.benefitText2}`}>Alojamiento de página web de forma gratuita.</span>
               </div>
               <div className={`${styles.benefitItem} ${styles.noBackground}`}>
-                <span className={styles.activityBullet}><ChevronRight /></span>
-                <span className={`${styles.benefitText} ${styles.benefitText2}`}>Análisis de ensilajes (calidad y micotoxinas) mediante equipos propios y auditorías de trabajos.</span>
+                <span className={styles.activityBullet}><i class="bi bi-caret-right-fill"></i></span>
+                <span className={`${styles.benefitText} ${styles.benefitText2}`}>Análisis de ensilajes (calidad y micotoxinas) mediante equipos propios y auditorías de trabajos; arancelados, pero muy por debajo de los precios del mercado.</span>
               </div>
               <div className={`${styles.benefitItem} ${styles.noBackground}`}>
-                <span className={styles.activityBullet}><ChevronRight /></span>
-                <span className={`${styles.benefitText} ${styles.benefitText2}`}>Capacitación en comercialización y posicionamiento de mercado.</span>
-              </div>
-              <div className={`${styles.benefitItem} ${styles.noBackground}`}>
-                <span className={styles.activityBullet}><ChevronRight /></span>
+                <span className={styles.activityBullet}><i class="bi bi-caret-right-fill"></i></span>
                 <span className={`${styles.benefitText} ${styles.benefitText2}`}>Acceso al grupo de socios vía WhatsApp.</span>
               </div>
               <div className={`${styles.benefitItem} ${styles.noBackground}`}>
-                <span className={styles.activityBullet}><ChevronRight /></span>
-                <span className={`${styles.benefitText} ${styles.benefitText2}`}>Convenios de descuentos o beneficios haciendo uso AQUÍ.</span>
+                <span className={styles.activityBullet}><i class="bi bi-caret-right-fill"></i></span>
+                <span className={`${styles.benefitText} ${styles.benefitText2}`}>Convenios de descuentos o beneficios haciendo click AQUÍ.</span>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ¿Qué hicimos y qué hacemos en la CACF? */}
+        {/* ¿Qué hicimos y qué hacemos en la CACF? 
         <section className={`${styles.section} ${styles.sectionBackground}`}>
-          <div className={styles.sectionHeader}>
+          <div className={styles.sectionContent}>
+             <div className={styles.sectionHeader}>
             <h2 className={`${styles.sectionTitle} ${styles.sectionTitleActivities}`}>
-              <TrendingUp className={styles.benefitIcon2} size={45} />
               ¿Qué hicimos y qué hacemos en la CACF?
             </h2>
           </div>
-          <div className={styles.sectionContent}>
             <div className={styles.activitiesList}>
               <div className={`${styles.activityItem} ${styles.benefitItemEnhanced}`}>
                 <span className={styles.activityBullet}> <Users size={35}/></span>
@@ -192,9 +215,8 @@ const CACFInfo = () => {
               </div>
             </div>
           </div>
-        </section>
+        </section> 
 
-        {/* Código de ÉTICA */}
         <section className={styles.section}>
           <div className={styles.sectionHeader}>
             <h2 className={styles.sectionTitle}>
@@ -274,7 +296,7 @@ const CACFInfo = () => {
               </div>
             </div>
           </div>
-        </section>
+        </section> */} 
       </div>
     </div>
   );

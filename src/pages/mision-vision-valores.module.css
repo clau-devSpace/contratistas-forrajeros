@@ -4,6 +4,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+
 .cacfContainer {
     width: 100%;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -68,159 +69,208 @@
     letter-spacing: 2;
 }
 
-.conocerMas {
-    color: #ffffff;
-    font-family: "Roboto Condensed", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 200;
-    font-size: 25px;
-}
-
 .contentWrapper {
-    max-width: 1600px;
-    margin: 0 auto;
-    padding: 40px 20px;
+    width: calc(100% - 260px); /* 130px + 130px = 260px */
+    margin: 0 130px;
+    padding: 40px 0;
 }
 
 .section {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .sectionHeader {
     color: white;
-    padding: 20px 30px;
     border-radius: 12px;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    max-width: 800px;
-    width: 100vw;
-    margin: 0 auto;
-    margin-bottom: 20px;
-    margin-top: 40px;
+    text-align: left;
+    align-items: flex-start;
+    justify-content: flex-start;
+    max-width: 1000px;
+    margin: 0 auto 20px auto;
 }
 
 .sectionTitle {
     font-family: "Roboto Condensed", sans-serif;
     font-optical-sizing: auto;
     letter-spacing: 3;
-    font-size: 40px;
+    font-size: 45px;
     font-weight: 800;
     margin: 0;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+    align-items: flex-start;
+    text-align: left;
+    justify-content: flex-start;
     border-bottom: none !important;
+    line-height: 1.2;
 }
 
 .sectionTitleBeneficios {
-    color: #ffffff;
-    margin-top: 40px;
-    margin-bottom: 10px;
+    color: #212529;
     font-weight: 600;
+}
+
+.line{
+    background-color: #0c51a6;
+    display: inline-block;
+    height: 1px;
+    width: 150px;
 }
 
 .sectionContent {
-    padding: 0 20px;
-    padding-bottom: 40px;
+    /*padding: 0 20px;*/
+    padding-bottom: 60px;
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
+    display: block;
+    text-align: left;
 }
 
 .introTextContainer {
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    max-width: 800px;
+    align-items: flex-start;
+    text-align: left;
+    justify-content: flex-start;
+    /*max-width: 1000px;*/
     width: 100%;
+    margin: 0 auto 60px auto;
+}
+
+.introText, .sectionTitle {
+    font-family: "Roboto Condensed", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 45px;
+    font-weight: 700;
+    color: #212529;
+    line-height: 1.2;
+}
+
+.introText{
+    padding-top: 30px;
+}
+
+/* LAYOUT ESPECIAL PARA LA SECCIÓN DE BENEFICIOS */
+.sociosBeneficios .sectionContent {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 40px;
+    align-items: start;
+    /*max-width: 1000px;*/
     margin: 0 auto;
 }
 
-.introText {
-    font-family: "Roboto Condensed", sans-serif;
-    font-optical-sizing: auto;
-    font-size: 40px;
-    font-weight: 600;
-    margin-top: 45px;
-    margin-bottom: 30px;
-    color: #212529;
+.sociosBeneficios .sectionHeader {
+    grid-column: 1;
+    margin-bottom: 0;
+    position: sticky;
+    top: 20px;
+    max-width: none;
 }
 
-.sociosBeneficios {
-    width: 100vw !important;
-    margin: 0 !important;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    box-sizing: border-box;
+.benefitsGrid {
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 5px;
+    margin-left: 30px;
+}
+
+/* NUEVOS ESTILOS PARA LAS CARDS */
+.cardsGrid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); 
+    gap: 25px;
+    margin: 0 auto;
+}
+
+/* Primera fila: cada card ocupa 2 columnas */
+.cardsGrid .propositionCard:nth-child(1) { grid-column: 1 / 3; }
+.cardsGrid .propositionCard:nth-child(2) { grid-column: 3 / 5; }
+.cardsGrid .propositionCard:nth-child(3) { grid-column: 5 / 7; }
+
+/* Segunda fila: centradas */
+.cardsGrid .propositionCard:nth-child(4) { 
+    grid-column: 2 / 4; 
+    grid-row: 2; 
+}
+.cardsGrid .propositionCard:nth-child(5) { 
+    grid-column: 4 / 6; 
+    grid-row: 2; 
+}
+
+.propositionCard {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-top: 4px solid #0c51a6;
+    transition: all 0.3s ease;
     position: relative;
-    margin-left: calc(-50vw + 50%) !important;
+    overflow: hidden;
 }
 
-.sociosBeneficios::before {
+.propositionCard::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 1;
+    height: 4px;
+    background: linear-gradient(45deg, #0c51a6, #4facfe);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.sociosBeneficios .sectionHeader,
-.sociosBeneficios .sectionContent {
-    position: relative;
-    z-index: 2;
+.propositionCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(12, 81, 166, 0.15);
 }
 
-.benefitsGrid {
-    gap: 30px;
-    margin-top: 20px;
+.propositionCard:hover::before {
+    opacity: 1;
 }
 
-.benefitsGrid2 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-    gap: 8px;
-}
-
-.benefitItem {
+.cardIcon {
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: rgba(12, 81, 166, 0.1);
+    border-radius: 50%;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.propositionCard:hover .cardIcon {
+    background: rgba(12, 81, 166, 0.2);
+    transform: scale(1.1);
+}
+
+.cardText {
+    font-size: 16px;
+    font-weight: 500;
+    color: #4a5568;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ESTILOS PARA LOS BENEFICIOS */
+.benefitItem {
+    display: flex;
+    align-items: flex-start;
     gap: 5px;
     padding: 6px 0;
     transition: all 0.3s ease;
     margin-right: 20px;
 }
 
-.benefitItemEnhanced {
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(31, 41, 55, 0.3), 0 2px 4px rgba(31, 41, 55, 0.2);
-    /*margin-top: 10px;*/
-}
-
 .margin{
     margin-top: 10px;
 }
 
-.benefitText2 {
-    color: #ffffff;
-    font-weight: 300;
-    font-size: 20px;
-}
-
 .benefitItem:hover {
     transform: translateX(5px);
-}
-
-.benefitIcon, .activityBullet{
-    color: #0c51a6;
-    flex-shrink: 0;
-    margin-left: 10px;
 }
 
 .sectionTitleActivities{
@@ -228,29 +278,28 @@
 }
 
 .activityBullet {
-    margin-top: 8px;
+    color:#0c51a6;
 }
 
 .benefitIcon2 {
     color: #0c51a6;
 }
 
-.benefitText.benefitTextEnhanced {
+.benefitText.benefitTextEnhanced, .benefitText2{
     font-size: 17px;
-    color: #212529;
+    font-weight: 600;
+    color: #6c757d;
     display: inline;
-    padding: 8px;
+}
+
+.miIconoPersonalizado{
+    font-size: 8px;
+    color:#6c757d;
+    margin-top: 10px;
 }
 
 .noBackground {
     background-color: transparent !important;
-}
-
-.activitiesList {
-    margin-top: 10px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 20px;
 }
 
 .activityItem {
@@ -293,66 +342,268 @@
     font-weight: 500;
 }
 
-@media (max-width: 1024px) and (min-width: 768px) {
-    .cacfHeader {
-        height: 280px;
-        padding: 1.5rem;
+.imageSocios{
+    margin-top: 50px;
+    max-width: 500px;
+    border-radius: 8px;
+}
+/* MEDIA QUERIES RESPONSIVE */
+
+/* Contenido centrado hasta 1100px */
+@media (max-width: 1100px) {
+    .sectionHeader {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
     }
 
-    .tituloCacf {
-        gap: 1rem;
+    .sectionTitle, .introText {
+        text-align: center;
+        justify-content: center;
+    }
+
+    .introTextContainer {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Layout especial de beneficios centrado */
+    .sociosBeneficios .sectionContent {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .sociosBeneficios .sectionHeader {
+        position: static;
+        grid-column: 1;
+    }
+    
+    .benefitsGrid {
+        grid-column: 1;
+        margin-left: 0;
+        text-align: left;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+/* Cards de 2 en 2 hasta 1000px */
+@media (max-width: 1000px) {
+    .cardsGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    
+    .cardsGrid .propositionCard:nth-child(1) { grid-column: 1; grid-row: 1; }
+    .cardsGrid .propositionCard:nth-child(2) { grid-column: 2; grid-row: 1; }
+    .cardsGrid .propositionCard:nth-child(3) { grid-column: 1; grid-row: 2; }
+    .cardsGrid .propositionCard:nth-child(4) { grid-column: 2; grid-row: 2; }
+    .cardsGrid .propositionCard:nth-child(5) { 
+        grid-column: 1 / 3; 
+        grid-row: 3;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+}
+
+/* Tablets grandes y laptops pequeñas (hasta 768px) */
+@media (max-width: 768px) {
+    .cacfHeader {
+        height: 100vh;
+        padding: 1.5rem;
     }
 
     .cacfTitle {
         font-size: 36px;
     }
-}
 
-@media (max-width: 768px) {
-    .cacfHeader {
-        height: 250px;
-        padding: 1rem;
+    .contentWrapper {
+        width: calc(100% - 40px);
+        margin: 0 20px;
+        padding: 30px 0;
     }
 
-    .tituloCacf {
-        gap: 1rem;
+    .sectionTitle, .introText {
+        font-size: 38px;
+    }
+
+    .introTextContainer {
+        margin-bottom: 40px;
+    }
+
+    .sectionContent {
+        padding-bottom: 40px;
+        text-align: center;
+    }
+
+    /* Cards en columna única */
+    .cardsGrid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .cardsGrid .propositionCard:nth-child(1),
+    .cardsGrid .propositionCard:nth-child(2),
+    .cardsGrid .propositionCard:nth-child(3),
+    .cardsGrid .propositionCard:nth-child(4),
+    .cardsGrid .propositionCard:nth-child(5) {
+        grid-column: 1;
+        grid-row: auto;
+        max-width: none;
+        margin: 0;
+    }
+    
+    .propositionCard {
+        padding: 22px;
+    }
+    
+    .cardIcon {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .cardText {
+        font-size: 15px;
+    }
+}
+
+/* Móviles grandes (hasta 580px) */
+@media (max-width: 580px) {
+    .cacfHeader {
+        height: 100vh;
+        padding: 1rem;
     }
 
     .cacfTitle {
         font-size: 32px;
+        letter-spacing: 1px;
     }
 
     .contentWrapper {
-        padding: 20px 15px;
+        width: calc(100% - 30px);
+        margin: 0 25px;
+        padding: 25px 0;
     }
 
-    .sectionHeader {
-        padding: 15px 20px;
+    .sectionTitle, .introText {
+        font-size: 32px;
+        text-align: center;
     }
 
-    .sectionTitle {
-        font-size: 20px;
+    .introTextContainer {
+        margin-bottom: 35px;
     }
 
     .sectionContent {
-        padding: 0 10px;
+        padding-bottom: 35px;
     }
 
-    .benefitsGrid,
-    .activitiesList,
-    .ethicsGrid {
-        grid-template-columns: 1fr;
-        gap: 15px;
+    /* Layout especial de beneficios en móvil */
+    .sociosBeneficios .sectionContent {
+        gap: 25px;
     }
 
-    .benefitItem,
-    .ethicsItem {
-        padding: 12px;
+    /* Cards más compactas */
+    .cardsGrid {
+        gap: 18px;
+        max-width: 450px;
+    }
+    
+    .propositionCard {
+        padding: 20px;
+    }
+    
+    .cardIcon {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .cardText {
+        font-size: 14px;
+    }
+
+    .benefitText.benefitTextEnhanced, .benefitText2 {
+        font-size: 16px;
+    }
+
+    .imageSocios{
+        max-width: 350px;
+        margin-top: 20px;
     }
 }
 
+/* Móviles pequeños (hasta 400px) */
 @media (max-width: 400px) {
+    .cacfHeader {
+        height: 100vh;
+        padding: 0.8rem;
+    }
+
     .cacfTitle {
         font-size: 28px;
+        letter-spacing: 1px;
+    }
+
+    .contentWrapper {
+        width: calc(100% - 20px);
+        margin: 0 25px;
+        padding: 20px 0;
+    }
+
+    .sectionTitle, .introText {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .introTextContainer {
+        margin-bottom: 30px;
+    }
+
+    .sectionContent {
+        padding-bottom: 30px;
+    }
+
+    /* Layout especial de beneficios */
+    .sociosBeneficios .sectionContent {
+        gap: 20px;
+    }
+
+    /* Cards más pequeñas */
+    .cardsGrid {
+        gap: 20px;
+        max-width: 300px;
+    }
+    
+    .propositionCard {
+        padding: 18px;
+    }
+    
+    .cardIcon {
+        width: 42px;
+        height: 42px;
+    }
+    
+    .cardText {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .benefitText.benefitTextEnhanced, .benefitText2 {
+        font-size: 15px;
+    }
+
+    .benefitItem {
+        padding: 8px 0;
+    }
+
+    .imageSocios{
+        max-width: 300px;
+        margin-top: 20px;
     }
 }

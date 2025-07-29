@@ -98,14 +98,6 @@ const Menu = () => {
       //   { label: 'Costos Transportes MV', to: '/costos-transportes' },
       // ]
     },
-    { id: 'area-tecnica', title: 'Área Técnica', hasSubmenu: true, submenuItems: [
-      { 
-        label: 'Protocolo de Extracción de muestras', 
-        pdfUrl: 'pdf/CACF_AgriNIR_Protocolo_Extraccion_y_Conservacion_de_Muestras_de_ensilajes.pdf' 
-      },
-      { label: 'Manuales técnicos', to: '/manuales' },
-      { label: 'Notas Periodísticas', to: '/notas' },
-    ] },
     { id: 'mapa',
       title: 'Mapa',
       hasSubmenu: false, 
@@ -156,7 +148,7 @@ const Menu = () => {
                       )}
                     </a>
                   ) : (
-                    // Verificamos si es un enlace externo o interno
+                    
                     item.externalUrl ? (
                       <a
                         href="#"

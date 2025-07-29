@@ -14,6 +14,7 @@ export default function StaffCard({
     gap: '15px',
     padding: '20px',
     backgroundColor: '#ffffff',
+    borderTop: ' 4px solid #0c51a6',
     borderRadius: '10px',
     boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
     margin: '10px 0',
@@ -42,7 +43,7 @@ export default function StaffCard({
   const nameStyle = {
     fontSize: '18px',
     fontWeight: 'bold',
-    color: '#333333',
+    color: '#212529',
     margin: '0 0 2px 0'
   };
 
@@ -77,6 +78,14 @@ export default function StaffCard({
     fontSize: '10px',
   };
 
+  const lineStyle = {
+    height: '2px',
+    backgroundColor: '#666666',
+    width: '130px',
+    marginTop: '10px',
+    marginBottom: '10px'
+  }
+
   return (
     <div style={cardStyle}>
       <img 
@@ -86,6 +95,7 @@ export default function StaffCard({
       />
       <div style={contentStyle}>
         <h3 style={nameStyle}>{name}</h3>
+        <span style={lineStyle}></span>
         <p style={titleStyle}>{title}</p>
         
         {phone && (

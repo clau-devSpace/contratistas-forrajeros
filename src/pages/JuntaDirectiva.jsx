@@ -20,6 +20,7 @@ import Staff15 from '../assets/images/imagenes-secciones/staff15.jpg';
 import Staff16 from '../assets/images/imagenes-secciones/staff16.jpg';
 import Prueba11 from '../assets/images/imagenes-de-fondo/fondo-cultivos.jpg';
 import Prueba12 from '../assets/images/imagenes-de-fondo/25072.jpg';
+import Prueba13 from '../assets/images/imagenes-secciones/reunion-plenaria-copia.jpg';
 
 const JuntaDirectiva = () => {
   const staffMembers = [
@@ -89,16 +90,24 @@ const JuntaDirectiva = () => {
   }, []);
 
   return (
+    <>
+    <header className={styles.header} style={{
+    backgroundImage: `url(${Prueba13})`, 
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat'
+  }}>
+       <div className={styles.heroContent}>
+          <h1 className={styles.equipoCACF}>Conocé al Equipo <span className={styles.cacf}>CACF</span></h1>
+          <p className={styles.heroDescription}>Donde la Experiencia se encuentra con la Innovación</p>
+        </div>
+    </header>
+    
     <div className={styles.staffMainContainer}>
-      <div className={`${styles.parallaxSection} ${styles.staffHeroSection}`}>
-        <div className={styles.parallaxBackground} style={{ backgroundImage: `url(${Prueba11})` }}></div>
+      <div className={styles.staffHeroSection}>
         <div className={styles.sectionContent}>
-          <div className={styles.heroContent}>
-            <h1 className={styles.equipoCACF}>Conocé al Equipo <span className={styles.cacf}>CACF</span></h1>
-            <p className={styles.heroDescription}>Nuestro compromiso y experiencia al servicio del Campo Argentino</p>
-          </div>
           <div className={styles.staffSection}>
-            <h2 className={styles.sectionTitle}>Staff</h2>
+            <h2 className={styles.sectionTitle}>Nuestro Staff</h2>
             <div className={styles.staffGrid}>
               {staff.map((member) => (
                 <StaffCard key={member.id} {...member} />
@@ -108,13 +117,7 @@ const JuntaDirectiva = () => {
         </div>
       </div>
 
-      {/*<div className="parallax-section">
-        <div className="parallax-background" style={{ backgroundImage: `url(${TractorField1})` }}></div>
-        <div className="section-content"></div>
-      </div>*/}
-
-      <div className={`${styles.parallaxSection} ${styles.directivaSection}`}>
-        <div className={styles.parallaxBackground} style={{ backgroundImage: `url(${Prueba12})` }}></div>
+      <div className= {styles.directivaSection}>
         <div className={styles.sectionContent}>
           <h2 className={`${styles.sectionTitle} ${styles.extraPadding}`}>Junta Directiva</h2>
           <div className={styles.staffGrid}>
@@ -125,6 +128,7 @@ const JuntaDirectiva = () => {
         </div>
       </div>
     </div>
+    </> 
   );
 };
 

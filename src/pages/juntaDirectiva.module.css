@@ -1,79 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&family=Londrina+Shadow&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&family=Tuffy:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-.staffMaiCnontainer {
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+.header{
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 60vh;
+}
+
+.header::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7));
+
+}
+
+.equipoCACF {
+  font-family: "Roboto Condensed", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 43px;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  color: #ffffff;
+  margin-top: 100px;
+}
+
+.staffMainContainer {
   position: relative;
   width: 100%;
   background: #f5f5f5;
   overflow-x: hidden; 
-}
-
-.parallaxSection {
-  position: relative;
-  min-height: auto; 
-  padding: 0; 
-  display: block; 
-  margin: 0;
-}
-
-.parallaxBackground {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  will-change: transform;
-  z-index: 1;
-}
-
-.parallaxBackground::before {
-  content: '';
-           position: absolute;
-           top: 0;
-           left: 0;
-           right: 0;
-           bottom: 0;
-           background: rgba(0, 0, 0, 0.3);
-           z-index: 1;
-}
-
-.parallaxBackgroundTop {
-  top: 0;
-  bottom: 50%;
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.parallaxBackgroundBottom {
-  top: 50%;
-  bottom: 0;
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  z-index: 1;
-}
-
-.parallax-background-bottom2 {
-  top: 50%;
-  bottom: 0;
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  z-index: 1;
-}
-
-.directivaSection .parallaxBackgroundTop::after,
-.directivaSection .parallaxBackgroundBottom::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 1;
 }
 
 .sectionContent {
@@ -82,28 +50,29 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto; 
-  padding: 100px 20px; 
+  padding: 25px 20px; 
 }
 
-.directivaSection .sectionContent {
+/*.directivaSection .sectionContent {
   z-index: 20; 
-}
+}*/
 
 .staffHeroSection {
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 .heroContent {
   text-align: center;
   margin-bottom: 60px;
+  position: relative;
+  z-index: 3;
 }
 
 .heroDescription {
   font-size: 18px;
   color: #ffffff;
   margin-top: 20px;
-  font-style: italic;
 }
 
 .directivaSection {
@@ -112,44 +81,15 @@
 }
 
 .sectionTitle {
-  font-size: 35px;
-  font-weight: bold;
-  color: #ffffff;
+  font-family: "Roboto Condensed", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 45px;
+  font-weight: 900;
+  color: #212529;
   margin-bottom: 40px;
   letter-spacing: 2px;
-  text-transform: uppercase;
   text-align: center;
   position: relative;
-}
-
-.extraPadding{
-  padding-top: 50px;
-}
-
-.sectionTitle::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 3px;
-  background: linear-gradient(45deg, #0c51a6, #4facfe);
-  border-radius: 2px;
-}
-
-.equipoCACF {
-  font-size: 43px;
-  font-weight: 800;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  text-transform: uppercase;
-  margin-bottom: 20px;
-  color: #ffffff;
-  margin-top: 100px;
-}
-
-.cacf {
-  color: #0c51a6;
 }
 
 .staffGrid {
@@ -191,6 +131,7 @@
   
   .sectionTitle {
     font-size: 28px;
+    margin-bottom: 20px;
   }
   
   .staffGrid {
@@ -203,33 +144,28 @@
     font-size: 16px;
   }
   
-
-  .parallax-background-top,
-  .parallax-background-bottom {
-    background-attachment: scroll;
-  }
 }
 
 @media (max-width: 480px) {
   .equipoCACF {
-    font-size: 26px;
+    font-size: 30px;
   }
   
   .sectionTitle {
-    font-size: 24px;
+    font-size: 28px;
+    margin-bottom: 20px;
   }
   
   .staffGrid {
     grid-template-columns: 1fr;
-    margin: 20px 0 30px 0;
+    margin: 0px 0 30px 0;
   }
   
   .sectionContent {
-    padding: 60px 15px;
+    padding: 0px 15px;
   }
 }
 
-.parallax-background,
 .section-content {
   transform: translateZ(0);
   backface-visibility: hidden;
@@ -244,23 +180,4 @@
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
-.parallaxSection {
-  position: relative;
-  min-height: 100vh;
-  overflow: hidden;
-}
-
-.parallaxBackground {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 120%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  will-change: transform;
-  z-index: 1;
-  transform: translateZ(0);
-}
 
