@@ -1,16 +1,18 @@
 import React, {useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import carrusel from '../assets/images/imagenes-secciones/carrusel.jpg';
-import carrusel2 from '../assets/images/imagenes-secciones/carrusel2.jpg';
-import carrusel3 from '../assets/images/imagenes-secciones/carrusel3.JPG';
-import carrusel4 from '../assets/images/imagenes-secciones/carrusel4.JPG';
+import carrusel from '../assets/images/imagenes-secciones/edicion-1.jpg';
+import carrusel2 from '../assets/images/imagenes-secciones/edicion-3.jpg';
+import carrusel3 from '../assets/images/imagenes-secciones/edicion-6.jpg';
+import carrusel4 from '../assets/images/imagenes-secciones/edicion-4.jpg';
 import carrusel5 from '../assets/images/imagenes-secciones/carrusel5.JPG';
 import carrusel6 from '../assets/images/imagenes-secciones/carrusel6.JPG';
 import carrusel7 from '../assets/images/imagenes-secciones/carrusel7.JPG';
-import carrusel8 from '../assets/images/imagenes-secciones/carrusel8.jpeg';
+import carrusel8 from '../assets/images/imagenes-secciones/edicion-5.jpg';
 import carrusel9 from '../assets/images/imagenes-secciones/carrusel9.JPG';
 import carrusel10 from '../assets/images/imagenes-secciones/carrusel10.JPG';
 import carrusel11 from '../assets/images/imagenes-secciones/carrusel11.JPG';
+import carrusel12 from '../assets/images/imagenes-secciones/banner-carro-2019.gif';
+import carrusel13 from '../assets/images/imagenes-secciones/GreenPac_Banner_192x100.gif';
 
 import './gallery.css';
 
@@ -77,6 +79,10 @@ export default function Gallery() {
           <img className="imagen-galeria" src={carrusel3} alt="Máquinas" />
         </SwiperSlide>
         <SwiperSlide>
+          <img className="imagen-banner" src={carrusel12} alt="socios CACF" />
+           <img className="imagen-banner" src={carrusel13} alt="socios CACF" />
+        </SwiperSlide>
+        <SwiperSlide>
           <img className="imagen-galeria" src={carrusel4} alt="Capacitacion CACF" />
         </SwiperSlide>
          <SwiperSlide>
@@ -89,10 +95,10 @@ export default function Gallery() {
           <img className="imagen-galeria" src={carrusel7} alt="socios CACF" />
         </SwiperSlide>
         <SwiperSlide>
-          <img className="imagen-galeria" src={carrusel8} alt="socios CACF" />
+          <img className="imagen-galeria" src={carrusel9} alt="socios CACF" />
         </SwiperSlide>
         <SwiperSlide>
-          <img className="imagen-galeria" src={carrusel9} alt="socios CACF" />
+          <img className="imagen-galeria" src={carrusel8} alt="socios CACF" />
         </SwiperSlide>
         <SwiperSlide>
           <img className="imagen-galeria" src={carrusel10} alt="socios CACF" />

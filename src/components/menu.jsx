@@ -67,13 +67,11 @@ const Menu = () => {
     }
   };
 
-  // Función para manejar clicks en enlaces externos
   const handleExternalLink = (url) => {
     window.open(url, '_blank', 'noopener,noreferrer');
     setIsMenuOpen(false);
   };
 
-  // Función para manejar clicks en PDFs
   const handlePdfLink = (pdfUrl) => {
     window.open(pdfUrl, '_blank', 'noopener,noreferrer');
     setIsMenuOpen(false);
@@ -103,8 +101,16 @@ const Menu = () => {
       hasSubmenu: false, 
       to: '/mapa',
      },
-    { id: 'exclusivo', title: 'Exclusivo Socios', hasSubmenu: false, to: '/exclusivo' }
+    { id: 'exclusivo', title: 'Exclusivo Socios', hasSubmenu: false, externalUrl: 'https://ensiladores.sistemacacf.com.ar/login.php' }
   ];
+
+  const handleMailtoLink = () => {
+  const email = 'info@ensiladores.com.ar'; // Cambia por tu email
+  const subject = 'Quiero Asociarme - Consulta desde la web';
+  const body = 'Hola,\n\nMe interesa obtener información sobre cómo asociarme.\n\nGracias.';
+  
+  window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+};
 
   return (
     <>
@@ -115,13 +121,30 @@ const Menu = () => {
           </Link>
 
           <div className="nav-items">
-            <Link to="/asociarme" className="btn-asociate">
+            <button
+              onClick={handleMailtoLink}
+              className="btn-asociate"
+            >
               Asociate
-            </Link>
+            </button>
 
             <div className="menu-toggle" onClick={toggleMenu}>
-              <i className="bi bi-list menu-icon-open" style={{ fontSize: "2.3rem", color: "white", display: isMenuOpen ? "none" : "block" }}></i>
-              <i className="bi bi-x-lg menu-icon-close" style={{ fontSize: "1.5rem", color: "white", display: isMenuOpen ? "block" : "none" }}></i>
+              <i
+                className="bi bi-list menu-icon-open"
+                style={{
+                  fontSize: "2.3rem",
+                  color: "white",
+                  display: isMenuOpen ? "none" : "block",
+                }}
+              ></i>
+              <i
+                className="bi bi-x-lg menu-icon-close"
+                style={{
+                  fontSize: "1.5rem",
+                  color: "white",
+                  display: isMenuOpen ? "block" : "none",
+                }}
+              ></i>
             </div>
           </div>
         </div>
@@ -137,52 +160,57 @@ const Menu = () => {
                     <a
                       href="#"
                       data-submenu={item.id}
-                      className={`${item.hasSubmenu ? "has-submenu" : ""} ${activeLink === item.id ? "active" : ""}`}
+                      className={`${item.hasSubmenu ? "has-submenu" : ""} ${
+                        activeLink === item.id ? "active" : ""
+                      }`}
                       onClick={(e) => handleSubmenuClick(e, item.id)}
                     >
-                      <span>
-                        {item.title}
-                      </span>
+                      <span>{item.title}</span>
                       {item.hasSubmenu && (
-                        <i className={`bi bi-chevron-right expand-indicator ${activeMobileSubmenu === item.id ? "expanded" : ""}`} style={{ display: isMobile ? "block" : "none" }}></i>
+                        <i
+                          className={`bi bi-chevron-right expand-indicator ${
+                            activeMobileSubmenu === item.id ? "expanded" : ""
+                          }`}
+                          style={{ display: isMobile ? "block" : "none" }}
+                        ></i>
                       )}
                     </a>
+                  ) : item.externalUrl ? (
+                    <a
+                      href="#"
+                      className={activeLink === item.id ? "active" : ""}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setActiveLink(item.id);
+                        handleExternalLink(item.externalUrl);
+                      }}
+                    >
+                      <span>{item.title}</span>
+                    </a>
                   ) : (
-                    
-                    item.externalUrl ? (
-                      <a
-                        href="#"
-                        className={activeLink === item.id ? "active" : ""}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          setActiveLink(item.id);
-                          handleExternalLink(item.externalUrl);
-                        }}
-                      >
-                        <span>
-                          {item.title}
-                        </span>
-                      </a>
-                    ) : (
-                      <Link
-                        to={item.to}
-                        className={activeLink === item.id ? "active" : ""}
-                        onClick={() => {
-                          setActiveLink(item.id);
-                          setIsMenuOpen(false);
-                        }}
-                      >
-                        <span>
-                          {item.title}
-                        </span>
-                      </Link>
-                    )
+                    <Link
+                      to={item.to}
+                      className={activeLink === item.id ? "active" : ""}
+                      onClick={() => {
+                        setActiveLink(item.id);
+                        setIsMenuOpen(false);
+                      }}
+                    >
+                      <span>{item.title}</span>
+                    </Link>
                   )}
 
                   {item.hasSubmenu && (
-                    <ul className={`mobile-submenu ${activeMobileSubmenu === item.id ? "active" : ""}`}>
+                    <ul
+                      className={`mobile-submenu ${
+                        activeMobileSubmenu === item.id ? "active" : ""
+                      }`}
+                    >
                       {item.submenuItems.map((subItem, subIndex) => (
-                        <li key={subIndex} style={{ animationDelay: `${subIndex * 0.1}s` }}>
+                        <li
+                          key={subIndex}
+                          style={{ animationDelay: `${subIndex * 0.1}s` }}
+                        >
                           {subItem.pdfUrl ? (
                             <a
                               href="#"
@@ -194,7 +222,10 @@ const Menu = () => {
                               {subItem.label}
                             </a>
                           ) : (
-                            <Link to={subItem.to} onClick={() => setIsMenuOpen(false)}>
+                            <Link
+                              to={subItem.to}
+                              onClick={() => setIsMenuOpen(false)}
+                            >
                               {subItem.label}
                             </Link>
                           )}
@@ -211,7 +242,9 @@ const Menu = () => {
 
           <div className="submenu-container">
             {menuItems
-              .filter((item) => item.hasSubmenu && item.id === activeDesktopSubmenu)
+              .filter(
+                (item) => item.hasSubmenu && item.id === activeDesktopSubmenu
+              )
               .map((item) => (
                 <ul className="submenu active" key={item.id}>
                   {item.submenuItems.map((subItem, i) => (
@@ -227,7 +260,10 @@ const Menu = () => {
                           {subItem.label}
                         </a>
                       ) : (
-                        <Link to={subItem.to} onClick={() => setIsMenuOpen(false)}>
+                        <Link
+                          to={subItem.to}
+                          onClick={() => setIsMenuOpen(false)}
+                        >
                           {subItem.label}
                         </Link>
                       )}
@@ -236,7 +272,7 @@ const Menu = () => {
                 </ul>
               ))}
           </div>
-           <div className="menu-image-container">
+          <div className="menu-image-container">
             <img className="menu-image" src={imagen_menu} alt="Menu Image" />
           </div>
         </div>

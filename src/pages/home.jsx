@@ -9,6 +9,7 @@ import forraje from '../assets/images/imagenes-secciones/analisis-de-forraje.jpe
 import tractoresFondo from '../assets/images/imagenes-de-fondo/edicion2.jpg';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Gallery from '../components/gallery';
+import Banner from '../assets/images/imagenes-secciones/banner_BLADE_791x80.gif';
 
 const Home = () => {
   useEffect(() => {
@@ -68,7 +69,7 @@ const Home = () => {
             <div className={styles.promoTexto}>
               <h2 className={styles.congresoTitulo}>Primer Congreso Argentino de Forrajes</h2>
               <p className={`${styles.promoDescripcion} ${styles.promoDescripcion1} animate-item`} data-animation="animate__fadeInDown">
-                2025 - AGOSTO 13, 14 Y 15 - CÓRDOBA
+                2025 - Agosto 13, 14 y 15 - Córdoba
               </p>
               
               <div className={styles.promoLinea}></div>
@@ -94,6 +95,10 @@ const Home = () => {
               </a>
             </button>
           </div>
+        </section>
+
+        <section className= {styles.bannerSection}>
+          <img src={Banner} className={styles.bannerBlade} alt='Banner publicitario Blade' />
         </section>
 
         <section className={styles.agrinirContainer}>

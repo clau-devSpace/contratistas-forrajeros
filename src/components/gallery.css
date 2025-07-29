@@ -3,7 +3,7 @@
   height: 300px;
   gap: 10px;
   margin-top: 50px;
-  padding-bottom: 25px; /* Espacio para la nueva barra de progreso */
+  padding-bottom: 25px; 
 }
 
 .swiper-slide {
@@ -12,8 +12,8 @@
   align-items: center;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
-  background: #f8f9fa;
+  /*box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+  background: #f1f1f1;*/
 }
 
 .imagen-galeria {
@@ -24,16 +24,22 @@
   display: block;
 }
 
-/* Nueva barra de progreso moderna y minimalista */
+.imagen-banner{
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  padding: 5px;
+}
+
 .swiper-pagination-progressbar {
-  background: rgba(0, 0, 0, 0.08) !important;
+  background-color: #0c51a6 !important;
   height: 2px !important;
   border-radius: 1px !important;
-  bottom: 8px !important; /* Posición debajo del contenedor */
+  bottom: 8px !important; 
   top: auto !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
-  width: 60% !important; /* Más pequeña y centrada */
+  width: 60% !important; 
   max-width: 200px !important;
 }
 
@@ -43,7 +49,6 @@
   transition: all 0.3s ease !important;
 }
 
-/* Hover effect para la barra */
 .mySwiper:hover .swiper-pagination-progressbar {
   background: rgba(0, 0, 0, 0.12) !important;
 }
@@ -58,7 +63,6 @@
     margin: 0 auto;
   }
   
-  /* Barra un poco más visible en móviles */
   .swiper-pagination-progressbar {
     width: 80% !important;
     height: 3px !important;
