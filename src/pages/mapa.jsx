@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './mapa.module.css';
-import Fondo from '../assets/images/imagenes-de-fondo/tractor-2.jpg';
-import Fondo2 from '../assets/images/imagenes-de-fondo/fondo-mapa-2.jpg';
+import Fondo from '../assets/images/imagenes-de-fondo/tractor-2.webp';
 
 export default function Mapa({ url, tittle }) {
     return (

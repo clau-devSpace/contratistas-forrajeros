@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './socios.css';
 import apiService from '../services/apiService';
-import SociosModal from '../components/modal'; // Ajusta la ruta según tu estructura de carpetas
+import SociosModal from '../components/modal'; 
+import Fondo from '../assets/images/imagenes-de-fondo/favorita-11.webp';
 
 const EmpresasTable = () => {
   
@@ -14,7 +15,6 @@ const EmpresasTable = () => {
   const [selectedSocioId, setSelectedSocioId] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
 
-  // Debounced search
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
 
   useEffect(() => {
@@ -89,7 +89,7 @@ const EmpresasTable = () => {
   return (
     <>
        <div className="socios-container">
-      <div className="socios-header">
+      <div className="socios-header" style={{backgroundImage:`url(${Fondo})`}}>
         <div className='titulo-socios'>
           <h1 className="socios-title">Listado de socios</h1>
           <div className="search-container">

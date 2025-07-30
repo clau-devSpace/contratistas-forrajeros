@@ -15,7 +15,6 @@
   text-align: center;
   flex-wrap: wrap;
   gap: 1rem;
-  background-image: url('../assets/images/imagenes-de-fondo/favorita-11.jpg');
   background-position: center;
   padding: 2rem 1rem; /* Agregado padding para mejor espaciado */
 }

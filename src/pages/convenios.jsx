@@ -20,7 +20,7 @@ import Blade from '../assets/images/convenios/Blade.webp';
 import Greenpac from '../assets/images/convenios/Greenpac.webp';
 import Taraborelli from '../assets/images/convenios/Taraborelli.webp';
 import Bernardin from '../assets/images/convenios/Bernardin.webp';
-import Fondo from '../assets/images/imagenes-de-fondo/prueba-2.jpg';
+import Fondo from '../assets/images/imagenes-de-fondo/prueba-2.webp';
 
 export default function Convenios() {
     return (
