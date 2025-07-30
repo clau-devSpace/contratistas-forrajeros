@@ -727,9 +727,9 @@ body {
   }
 
   .h1 {
-    font-size: 30px;
+    font-size: 33px;
     text-align: center;
-    padding-top: 50px;
+    padding-top: 40px;
   }
 
   .titulo {
@@ -738,12 +738,12 @@ body {
   }
 
   .titulo p {
-    font-size: 16px;
+    font-size: 20px;
     text-align: center;
   }
 
   .somos {
-    font-size: 15px;
+    font-size: 18px;
     padding: 50px 20px 0;
     margin-top: -30px;
     text-align: left;
@@ -791,7 +791,7 @@ body {
   }
 
   .promoDescripcion {
-    font-size: 14px;
+    font-size: 18px;
     text-align: left;
   }
 
@@ -848,12 +848,12 @@ body {
   }
 
   .textoAgrinir {
-    font-size: 14px;
+    font-size: 18px;
     text-align: left;
   }
 
   .listaAgrinir li {
-    font-size: 14px;
+    font-size: 18px;
     text-align: left;
     justify-content: flex-start;
   }
@@ -919,13 +919,13 @@ body {
   }
 
   .informacionUtilH2 {
-    font-size: 14px;
+    font-size: 26px;
     text-align: left;
   }
 
   .informacionUtilP,
   .beneficiosSocios {
-    font-size: 12px;
+    font-size: 18px;
     text-align: left;
   }
   .contenedor {
@@ -959,9 +959,9 @@ body {
   }
 
   .h1 {
-    font-size: 30px;
+    font-size: 35px;
     text-align: center;
-    padding-top: 50px;
+    padding-top: 40px;
   }
 
   .titulo {
@@ -970,12 +970,12 @@ body {
   }
 
   .titulo p {
-    font-size: 16px;
+    font-size: 20px;
     text-align: center;
   }
 
   .somos {
-    font-size: 15px;
+    font-size: 18px;
     padding: 50px 20px 0;
     margin-top: -30px;
     text-align: left;
@@ -1023,7 +1023,7 @@ body {
   }
 
   .promoDescripcion {
-    font-size: 14px;
+    font-size: 18px;
     text-align: left;
   }
 
@@ -1047,7 +1047,7 @@ body {
   .promoBoton {
     width: 150px;
     height: 45px;
-    font-size: 14px;
+    font-size: 18px;
   }
 
   .agrinirContainer {
@@ -1080,12 +1080,12 @@ body {
   }
 
   .textoAgrinir {
-    font-size: 14px;
+    font-size: 18px;
     text-align: left;
   }
 
   .listaAgrinir li {
-    font-size: 14px;
+    font-size: 18px;
     text-align: left;
     justify-content: flex-start;
   }
@@ -1152,13 +1152,13 @@ body {
   }
 
   .informacionUtilH2 {
-    font-size: 14px;
+    font-size: 26px;
     text-align: left;
   }
 
   .informacionUtilP,
   .beneficiosSocios {
-    font-size: 12px;
+    font-size: 18px;
     text-align: left;
   }
 
@@ -1196,7 +1196,7 @@ body {
   }
 
   .h1 {
-    font-size: 34px;
+    font-size: 35px;
     text-align: center;
     padding-top: 60px;
   }
@@ -1212,7 +1212,7 @@ body {
   }
 
   .somos {
-    font-size: 16px;
+    font-size: 20px;
     padding: 60px 25px 0;
     margin-top: -40px;
     text-align: left;
@@ -1230,7 +1230,7 @@ body {
   .masInfo {
     width: 160px;
     height: 45px;
-    font-size: 14px;
+    font-size: 20px;
   }
 
   .promoContainer {
@@ -1260,7 +1260,7 @@ body {
   }
 
   .promoDescripcion {
-    font-size: 15px;
+    font-size: 20px;
     text-align: left;
   }
 
@@ -1283,7 +1283,7 @@ body {
   .promoBoton {
     width: 160px;
     height: 48px;
-    font-size: 15px;
+    font-size: 20px;
   }
 
   .agrinirContainer {
@@ -1316,12 +1316,12 @@ body {
   }
 
   .textoAgrinir {
-    font-size: 15px;
+    font-size: 20px;
     text-align: left;
   }
 
   .listaAgrinir li {
-    font-size: 15px;
+    font-size: 20px;
     justify-content: flex-start;
     text-align: left;
   }
@@ -1383,12 +1383,12 @@ body {
   }
 
   .informacionUtilH2 {
-    font-size: 15px;
+    font-size: 30px;
     text-align: left;
   }
 
   .informacionUtilP, .beneficiosSocios {
-    font-size: 13px;
+    font-size: 20px;
     text-align: left;
   }
 
