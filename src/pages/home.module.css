@@ -843,7 +843,7 @@ body {
   }
 
   .agrinir {
-    font-size: 26px;
+    font-size: 28px;
     text-align: left;
   }
 
@@ -885,7 +885,7 @@ body {
   }
 
   .tituloInformacionUtil {
-    font-size: 26px;
+    font-size: 28px;
     text-align: left;
   }
 
@@ -919,7 +919,7 @@ body {
   }
 
   .informacionUtilH2 {
-    font-size: 26px;
+    font-size: 20px;
     text-align: left;
   }
 
@@ -928,6 +928,7 @@ body {
     font-size: 18px;
     text-align: left;
   }
+
   .contenedor {
     padding: 0 20px;
     flex-direction: column;
@@ -1118,7 +1119,7 @@ body {
   }
 
   .tituloInformacionUtil {
-    font-size: 26px;
+    font-size: 20px;
     text-align: left;
   }
 
@@ -1152,13 +1153,13 @@ body {
   }
 
   .informacionUtilH2 {
-    font-size: 26px;
+    font-size: 20px;
     text-align: left;
   }
 
   .informacionUtilP,
   .beneficiosSocios {
-    font-size: 18px;
+    font-size: 20px;
     text-align: left;
   }
 
