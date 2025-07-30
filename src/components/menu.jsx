@@ -77,24 +77,26 @@ const Menu = () => {
     setIsMenuOpen(false);
   };
 
+  const handleMailtoLink = () => {
+    const email = 'info@ensiladores.com.ar';
+    const subject = 'Quiero Asociarme - Consulta desde la web';
+    const body = 'Hola,\n\nMe interesa obtener información sobre cómo asociarme.\n\nGracias.';
+    
+    window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setIsMenuOpen(false); // Cerrar el menú después del mailto
+  };
+
   const menuItems = [
     { id: 'nosotros', title: 'Nosotros', hasSubmenu: true, submenuItems: [
       { label: 'Misión, Visión y Valores', to: '/mision-vision-valores' },
       { label: 'Junta Directiva', to: '/JuntaDirectiva' },
-      { label: 'Quiero Asociarme', to: '/asociarme' },
+      { label: 'Quiero Asociarme', isMailto: true }, // Agregamos la propiedad isMailto
       { label: 'Contacto', to: '/contacto' }
     ] },
     { id: 'socios', title: 'Nuestros Socios', hasSubmenu: false, to: '/socios' },
     { id: 'convenios', title: 'Convenios', hasSubmenu: false, to: '/convenios' },
     { 
       id: 'area-economica', title: 'Área Económica', hasSubmenu: false, to: '/areaEconomica'
-      // Comentamos las subcategorías para futuro uso
-      // submenuItems: [
-      //   { label: 'Precios de referencia', to: '/precios' },
-      //   { label: 'Costos Silaje', to: '/costos-silaje' },
-      //   { label: 'Costos MS', to: '/costos-ms' },
-      //   { label: 'Costos Transportes MV', to: '/costos-transportes' },
-      // ]
     },
     { id: 'mapa',
       title: 'Mapa',
@@ -103,14 +105,6 @@ const Menu = () => {
      },
     { id: 'exclusivo', title: 'Exclusivo Socios', hasSubmenu: false, externalUrl: 'https://ensiladores.sistemacacf.com.ar/login.php' }
   ];
-
-  const handleMailtoLink = () => {
-  const email = 'info@ensiladores.com.ar'; // Cambia por tu email
-  const subject = 'Quiero Asociarme - Consulta desde la web';
-  const body = 'Hola,\n\nMe interesa obtener información sobre cómo asociarme.\n\nGracias.';
-  
-  window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-};
 
   return (
     <>
@@ -221,6 +215,16 @@ const Menu = () => {
                             >
                               {subItem.label}
                             </a>
+                          ) : subItem.isMailto ? (
+                            <a
+                              href="#"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                handleMailtoLink();
+                              }}
+                            >
+                              {subItem.label}
+                            </a>
                           ) : (
                             <Link
                               to={subItem.to}
@@ -255,6 +259,16 @@ const Menu = () => {
                           onClick={(e) => {
                             e.preventDefault();
                             handlePdfLink(subItem.pdfUrl);
+                          }}
+                        >
+                          {subItem.label}
+                        </a>
+                      ) : subItem.isMailto ? (
+                        <a
+                          href="#"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            handleMailtoLink();
                           }}
                         >
                           {subItem.label}

@@ -4,6 +4,7 @@ import { CheckCircle, Users, Target, Shield, TrendingUp, Award, ChevronDown, Che
 import styles from './mision-vision-valores.module.css';
 import Prueba10 from '../assets/images/imagenes-de-fondo/favorita-11.webp';
 import Prueba11 from '../assets/images/imagenes-secciones/socios-newholland.webp';
+import { Link } from 'react-router-dom';
 
 const CACFInfo = () => {
 
@@ -141,8 +142,13 @@ const CACFInfo = () => {
                 <span className={`${styles.benefitText} ${styles.benefitText2}`}>Acceso al grupo de socios vía WhatsApp.</span>
               </div>
               <div className={`${styles.benefitItem} ${styles.noBackground}`}>
-                <span className={styles.activityBullet}><i class="bi bi-caret-right-fill"></i></span>
-                <span className={`${styles.benefitText} ${styles.benefitText2}`}>Convenios de descuentos o beneficios haciendo click AQUÍ.</span>
+                <span className={styles.activityBullet}><i className="bi bi-caret-right-fill"></i></span>
+                <Link 
+                  className={`${styles.benefitText} ${styles.benefitText2}`} 
+                  to="/convenios"
+                > 
+                  Convenios de descuentos o beneficios haciendo click AQUÍ
+                </Link>
               </div>
             </div>
           </div>

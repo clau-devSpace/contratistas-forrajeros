@@ -686,6 +686,11 @@ body {
     box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1);
 }
 
+.link{
+  text-decoration: none;
+  color: #0c51a6;
+}
+
 .lineaHorizontal3 {
     width: 100%;
     max-width: 550px;
@@ -1174,6 +1179,7 @@ body {
    height: auto;
    padding-top: 20px;
    }
+
 
   
 }

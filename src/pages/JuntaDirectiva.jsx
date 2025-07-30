@@ -18,8 +18,6 @@ import Staff13 from '../assets/images/imagenes-secciones/staff13.jpg';
 import Staff14 from '../assets/images/imagenes-secciones/staff14.jpg';
 import Staff15 from '../assets/images/imagenes-secciones/staff15.jpg';
 import Staff16 from '../assets/images/imagenes-secciones/staff16.jpg';
-import Prueba11 from '../assets/images/imagenes-de-fondo/fondo-cultivos.jpg';
-import Prueba12 from '../assets/images/imagenes-de-fondo/25072.jpg';
 import Prueba13 from '../assets/images/imagenes-secciones/reunion-plenaria-copia.jpg';
 
 const JuntaDirectiva = () => {
