@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { handleAnimations } from '../hooks/animations';
-import { CheckCircle, Users, Target, Shield, TrendingUp, Award, ChevronDown, ChevronRight, ListCollapse,  CircleDollarSign, FolderSearch, Building2, Handshake, Shrink, Globe, BriefcaseBusiness, Tractor, RefreshCcwDot, Scale } from 'lucide-react';
+import { Users, Target, Shield, TrendingUp, Scale } from 'lucide-react';
 import styles from './mision-vision-valores.module.css';
 import Prueba10 from '../assets/images/imagenes-de-fondo/favorita-11.webp';
 import Prueba11 from '../assets/images/imagenes-secciones/socios-newholland.webp';
