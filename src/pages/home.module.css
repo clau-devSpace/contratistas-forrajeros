@@ -815,7 +815,7 @@ body {
   .promoBoton {
     width: 150px;
     height: 45px;
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .agrinirContainer {
@@ -1019,7 +1019,7 @@ body {
   }
 
   .congresoTitulo {
-    font-size: 26px;
+    font-size: 28px;
     text-align: left;
   }
 
@@ -1048,7 +1048,7 @@ body {
   .promoBoton {
     width: 150px;
     height: 45px;
-    font-size: 18px;
+    font-size: 14px;
   }
 
   .agrinirContainer {
@@ -1076,7 +1076,7 @@ body {
   }
 
   .agrinir {
-    font-size: 26px;
+    font-size: 28px;
     text-align: left;
   }
 
@@ -1119,7 +1119,7 @@ body {
   }
 
   .tituloInformacionUtil {
-    font-size: 20px;
+    font-size: 28px;
     text-align: left;
   }
 
@@ -1159,7 +1159,7 @@ body {
 
   .informacionUtilP,
   .beneficiosSocios {
-    font-size: 20px;
+    font-size: 18px;
     text-align: left;
   }
 
