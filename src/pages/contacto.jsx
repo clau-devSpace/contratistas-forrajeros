@@ -1,7 +1,7 @@
 import React from 'react';
 import './contacto.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import Fondo from '../assets/images/imagenes-de-fondo/edicion3.webp';
+import Fondo from '../assets/images/imagenes-de-fondo/edicion3.jpg';
 
 const Contacto = () => {
   return (

@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { handleAnimations } from '../hooks/animations';
 import { Users, Target, Shield, TrendingUp, Scale } from 'lucide-react';
 import styles from './mision-vision-valores.module.css';
-import Prueba10 from '../assets/images/imagenes-de-fondo/favorita-11.webp';
-import Prueba11 from '../assets/images/imagenes-secciones/socios-newholland.webp';
+import Prueba10 from '../assets/images/imagenes-de-fondo/favorita-11.jpg';
+import Prueba11 from '../assets/images/imagenes-secciones/socios-newholland.jpg';
 import { Link } from 'react-router-dom';
 
 const CACFInfo = () => {
