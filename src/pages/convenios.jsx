@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './convenios.module.css';
 import Akron from '../assets/images/convenios/Akron.png';
 import Canavesio from '../assets/images/convenios/Canavesio.png';
-import Claas from '../assets/images/convenios/CLAAS.webp';
+import Claas from '../assets/images/convenios/CLAAS.png';
 import CooperacionSeguros from '../assets/images/convenios/Cooperación Seguros.png';
 import Fliegl from '../assets/images/convenios/Fliegl.png';
 import Genofeed from '../assets/images/convenios/Genofeed.png';
