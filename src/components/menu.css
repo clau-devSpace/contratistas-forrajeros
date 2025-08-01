@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-/* SOLUCIÓN PRINCIPAL: Prevenir desbordamiento horizontal */
 html, body {
     overflow-x: hidden;
     max-width: 100vw;
@@ -13,26 +12,24 @@ body {
     box-sizing: border-box;
 }
 
-/* Aplicar box-sizing a todos los elementos */
 *, *::before, *::after {
     box-sizing: border-box;
 }
 
-/* Navegación principal */
 nav {
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
     width: 100%;
-    max-width: 100vw; /* CORREGIDO: Evitar que exceda el viewport */
+    max-width: 100vw; 
     height: 55px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #0c51a6;
     transition: all 0.3s ease;
-    overflow: hidden; /* AÑADIDO: Prevenir desbordamiento */
+    overflow: hidden; 
 }
 
 nav .menu-toggle {
@@ -44,28 +41,27 @@ nav .menu-toggle {
     width: calc(100% - 130px);
     max-width: 1600px;
     margin: 0 auto;
-    padding: 0 min(150px, 5vw); /* CORREGIDO: Padding responsivo */
+    padding: 0 min(150px, 5vw); 
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-sizing: border-box; /* AÑADIDO */
+    box-sizing: border-box; 
 }
 
 .logo-menu {
     width: 125px;
     height: auto;
     transition: all 0.3s ease;
-    flex-shrink: 0; /* AÑADIDO: Evitar que se comprima */
+    flex-shrink: 0; 
 }
 
 .nav-items {
     display: flex;
     align-items: center;
     gap: 1.5rem;
-    flex-shrink: 0; /* AÑADIDO: Evitar que se comprima */
+    flex-shrink: 0; /
 }
 
-/* Botón Asóciate */
 .btn-asociate {
     background: none;
     display: flex;
@@ -85,7 +81,7 @@ nav .menu-toggle {
     overflow: hidden;
     transition: all 0.3s ease;
     text-decoration: none;
-    flex-shrink: 0; /* AÑADIDO: Evitar que se comprima */
+    flex-shrink: 0; 
 }
 
 .btn-asociate::before,
@@ -128,7 +124,7 @@ nav .menu-toggle {
     cursor: pointer;
     padding: 0;
     margin: 0;
-    flex-shrink: 0; /* AÑADIDO: Evitar que se comprima */
+    flex-shrink: 0; 
 }
 
 .menu-icon-close {
@@ -143,13 +139,12 @@ nav .menu-toggle {
     transform: scale(1.1);
 }
 
-/* Contenedor del menú */
 .menu-container {
     position: fixed;
     top: 55px;
     left: 0;
-    width: 100vw; /* CORREGIDO: Usar viewport width */
-    max-width: 100vw; /* AÑADIDO: Limitar ancho máximo */
+    width: 100vw; 
+    max-width: 100vw; 
     height: calc(100vh - 55px);
     background: linear-gradient(135deg, rgba(12, 81, 166, 0.90), rgba(19, 85, 176, 0.90));
     backdrop-filter: blur(10px);
@@ -160,17 +155,16 @@ nav .menu-toggle {
     transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
     z-index: 999;
     padding: 20px;
-    padding-left: min(120px, 5vw); /* CORREGIDO: Padding responsivo */
-    overflow-x: hidden; /* AÑADIDO: Prevenir desbordamiento horizontal */
+    padding-left: min(120px, 5vw); 
+    overflow-x: hidden; 
     overflow-y: auto;
-    box-sizing: border-box; /* AÑADIDO */
+    box-sizing: border-box; 
 }
 
 .menu-container.active {
     transform: translateX(0);
 }
 
-/* Contenedor principal */
 .menu-content {
     display: flex;
     align-items: stretch;
@@ -178,14 +172,13 @@ nav .menu-toggle {
     max-width: 1200px;
     width: 100%;
     max-height: 100%;
-    box-sizing: border-box; /* AÑADIDO */
+    box-sizing: border-box; 
 }
 
-/* Lista principal */
 .main-menu {
     padding: 30px;
     min-width: 300px;
-    box-sizing: border-box; /* AÑADIDO */
+    box-sizing: border-box;
 }
 
 .menu-items {
@@ -194,7 +187,6 @@ nav .menu-toggle {
     margin: 0;
 }
 
-/* ELEMENTOS SIEMPRE VISIBLES - SIN ANIMACIONES */
 .menu-items li {
     margin-bottom: 10px;
     opacity: 1;
@@ -207,7 +199,7 @@ nav .menu-toggle {
 .menu-items li a span {
     color: white;
     text-decoration: none;
-    font-size: clamp(1.5rem, 4vw, 2rem); /* CORREGIDO: Tamaño responsivo */
+    font-size: clamp(1.5rem, 4vw, 2rem); 
     font-weight: 300;
     display: flex;
     align-items: center;
@@ -217,11 +209,11 @@ nav .menu-toggle {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 100%; /* AÑADIDO: Limitar ancho máximo */
+    max-width: 100%; 
 }
 
 .menu-items li a:hover {
-    font-size: clamp(1.6rem, 4.2vw, 2.1rem); /* CORREGIDO: Hover responsivo */
+    font-size: clamp(1.6rem, 4.2vw, 2.1rem); 
     color: #ffffff;
     transform: translateX(10px);
     white-space: nowrap;
@@ -239,7 +231,7 @@ nav .menu-toggle {
     margin-right: 0.8rem;
     color: rgba(255, 255, 255, 0.8);
     transition: all 0.3s ease;
-    flex-shrink: 0; /* AÑADIDO: Evitar que se comprima */
+    flex-shrink: 0; 
 }
 
 .menu-items li a:hover .arrow-icon {
@@ -249,8 +241,8 @@ nav .menu-toggle {
 
 .menu-items li a span {
     font-weight: 200;
-    overflow: hidden; /* AÑADIDO */
-    text-overflow: ellipsis; /* AÑADIDO */
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .menu-items li a.active span {
@@ -261,7 +253,6 @@ nav .menu-toggle {
     font-weight: 600;
 }
 
-/* Contenedor de imagen - MEJORADO PARA DESKTOP */
 .menu-image-container {
     display: flex;
     align-items: flex-start;
@@ -271,7 +262,7 @@ nav .menu-toggle {
     flex: 1;
     max-width: 250px;
     min-width: 250px;
-    box-sizing: border-box; /* AÑADIDO */
+    box-sizing: border-box; 
 }
 
 .menu-image {
@@ -289,7 +280,6 @@ nav .menu-toggle {
     opacity: 1;
 }
 
-/* Separador vertical */
 .vertical-separator {
     width: 2px;
     background: linear-gradient(to bottom, 
@@ -307,11 +297,10 @@ nav .menu-toggle {
     flex-shrink: 0;
 }
 
-/* Submenús */
 .submenu-container {
     padding: 30px;
     min-width: 250px;
-    box-sizing: border-box; /* AÑADIDO */
+    box-sizing: border-box;
 }
 
 .submenu {
@@ -334,24 +323,24 @@ nav .menu-toggle {
 .submenu li a {
     color: white;
     text-decoration: none;
-    font-size: clamp(1.1rem, 3vw, 1.4rem); /* CORREGIDO: Tamaño responsivo */
+    font-size: clamp(1.1rem, 3vw, 1.4rem); 
     font-weight: 200;
     transition: all 0.3s ease;
     display: block;
     padding: 0.5rem 0;
-    overflow: hidden; /* AÑADIDO */
-    text-overflow: ellipsis; /* AÑADIDO */
-    white-space: nowrap; /* AÑADIDO */
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
 }
 
 .submenu li a:hover {
     color: #ffffff;
-    font-size: clamp(1.2rem, 3.1vw, 1.3rem); /* CORREGIDO: Hover responsivo */
+    font-size: clamp(1.2rem, 3.1vw, 1.3rem); 
     transform: translateX(8px);
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
-/* Submenús móviles */
+
 .mobile-submenu {
     display: none;
     list-style: none;
@@ -362,7 +351,7 @@ nav .menu-toggle {
     overflow: hidden;
     transition: max-height 0.4s ease, padding 0.4s ease;
     flex-direction: column;
-    box-sizing: border-box; /* AÑADIDO */
+    box-sizing: border-box; 
 }
 
 .mobile-submenu.active {
@@ -393,9 +382,9 @@ nav .menu-toggle {
     border-left: 2px solid transparent;
     padding-left: 0.5rem;
     box-sizing: border-box;
-    overflow: hidden; /* AÑADIDO */
-    text-overflow: ellipsis; /* AÑADIDO */
-    white-space: nowrap; /* AÑADIDO */
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
 }
 
 .mobile-submenu li a:hover {
@@ -404,19 +393,17 @@ nav .menu-toggle {
     transform: translateX(5px);
 }
 
-/* Indicador de expansión */
 .expand-indicator {
     transition: transform 0.3s ease;
     margin-left: auto;
     font-size: 1.2rem;
-    flex-shrink: 0; /* AÑADIDO: Evitar que se comprima */
+    flex-shrink: 0; 
 }
 
 .expand-indicator.expanded {
     transform: rotate(90deg);
 }
 
-/* Efectos de desenfoque */
 .blur-background {
     transition: filter 0.4s ease;
 }
@@ -425,46 +412,42 @@ nav .menu-toggle {
     filter: blur(3px);
 }
 
-/* Media Queries Responsive - CORREGIDAS */
-
-/* Tablets grandes y escritorio pequeño */
 @media (max-width: 1024px) {
     .nav-wrapper {
-        padding: 0 min(80px, 4vw); /* CORREGIDO: Padding responsivo */
+        padding: 0 min(80px, 4vw); 
     }
     
     .logo-menu {
-        width: min(110px, 15vw); /* CORREGIDO: Tamaño responsivo */
+        width: min(110px, 15vw); 
     }
     
     .btn-asociate {
-        min-width: min(110px, 20vw); /* CORREGIDO: Ancho responsivo */
+        min-width: min(110px, 20vw); 
         min-height: 38px;
-        font-size: clamp(0.8rem, 2vw, 0.95rem); /* CORREGIDO */
+        font-size: clamp(0.8rem, 2vw, 0.95rem); 
     }
     
     .menu-container {
-        padding-left: min(80px, 4vw); /* CORREGIDO */
+        padding-left: min(80px, 4vw); 
     }
     
     .menu-content {
         gap: 20px;
-        max-width: min(800px, 90vw); /* CORREGIDO */
+        max-width: min(800px, 90vw); 
     }
     
     .main-menu,
     .submenu-container {
-        min-width: min(250px, 40vw); /* CORREGIDO */
+        min-width: min(250px, 40vw); 
         padding: 25px;
     }
     
     .menu-image-container {
-        max-width: min(350px, 30vw); /* CORREGIDO */
-        min-width: min(250px, 25vw); /* CORREGIDO */
+        max-width: min(350px, 30vw); 
+        min-width: min(250px, 25vw); 
     }
 }
 
-/* Tablets */
 @media (min-width: 769px) and (max-width: 1024px) {
     .menu-image-container {
         display: none !important;
@@ -475,43 +458,42 @@ nav .menu-toggle {
     }
     
     .menu-content {
-        max-width: min(600px, 85vw); /* CORREGIDO */
+        max-width: min(600px, 85vw); 
     }
 }
 
-/* RESPONSIVE MÓVIL CORREGIDO */
 @media (max-width: 768px) {
     nav {
         height: 55px;
         padding: 0 1rem;
-        max-width: 100vw; /* AÑADIDO */
-        overflow: hidden; /* AÑADIDO */
+        max-width: 100vw; 
+        overflow: hidden; 
     }
     
     .nav-wrapper {
         padding: 0 1rem;
         max-width: 100%;
-        width: 100%; /* AÑADIDO */
+        width: 100%; 
     }
 
     .menu-container {
         top: 55px;
         height: calc(100vh - 55px);
         padding: 20px;
-        padding-left: min(40px, 5vw); /* CORREGIDO */
-        width: 100vw; /* AÑADIDO */
-        max-width: 100vw; /* AÑADIDO */
+        padding-left: min(40px, 5vw); 
+        width: 100vw; 
+        max-width: 100vw; 
     }
 
     .logo-menu {
-        width: min(90px, 20vw); /* CORREGIDO */
+        width: min(90px, 20vw); 
         height: auto;
     }
 
     .btn-asociate {
-        min-width: min(85px, 18vw); /* CORREGIDO */
+        min-width: min(85px, 18vw); 
         min-height: 32px;
-        font-size: clamp(0.7rem, 2vw, 0.8rem); /* CORREGIDO */
+        font-size: clamp(0.7rem, 2vw, 0.8rem); 
         padding: 0 0.6rem;
     }
 
@@ -524,15 +506,15 @@ nav .menu-toggle {
         flex-direction: column;
         gap: 0;
         align-items: stretch;
-        width: 100%; /* AÑADIDO */
-        max-width: 100%; /* AÑADIDO */
+        width: 100%; 
+        max-width: 100%; 
     }
 
     .main-menu,
     .submenu-container {
         max-width: 100%;
         min-width: unset;
-        width: 100%; /* AÑADIDO */
+        width: 100%; 
     }
 
     .vertical-separator,
@@ -546,10 +528,10 @@ nav .menu-toggle {
     }
 
     .menu-items li a {
-        font-size: clamp(1.2rem, 4vw, 1.6rem); /* CORREGIDO */
+        font-size: clamp(1.2rem, 4vw, 1.3rem); 
         justify-content: space-between;
-        width: 100%; /* AÑADIDO */
-        max-width: 100%; /* AÑADIDO */
+        width: 100%; 
+        max-width: 100%; 
     }
 
     .menu-items li a .expand-indicator {
@@ -557,11 +539,10 @@ nav .menu-toggle {
     }
 
     .mobile-submenu li a {
-        font-size: clamp(0.9rem, 3vw, 1.1rem); /* CORREGIDO */
+        font-size: clamp(0.9rem, 3vw, 1.1rem); 
     }
 }
 
-/* Móviles medianos */
 @media (min-width: 479px) and (max-width: 600px) {
     nav {
         padding: 0 0.8rem;
@@ -572,13 +553,13 @@ nav .menu-toggle {
     }
 
     .logo-menu {
-        width: min(80px, 18vw); /* CORREGIDO */
+        width: min(80px, 18vw); 
     }
 
     .btn-asociate {
-        min-width: min(75px, 16vw); /* CORREGIDO */
+        min-width: min(75px, 16vw); 
         min-height: 30px;
-        font-size: clamp(0.65rem, 1.8vw, 0.75rem); /* CORREGIDO */
+        font-size: clamp(0.65rem, 1.8vw, 0.75rem); 
         padding: 0 0.5rem;
     }
 
@@ -588,7 +569,6 @@ nav .menu-toggle {
     }
 }
 
-/* Móviles pequeños */
 @media (min-width: 361px) and (max-width: 480px){
     nav {
         padding: 0 0.6rem;
@@ -599,13 +579,13 @@ nav .menu-toggle {
     }
 
     .logo-menu {
-        width: min(115px, 25vw); /* CORREGIDO */
+        width: min(115px, 25vw); 
     }
 
     .btn-asociate {
-        min-width: min(70px, 15vw); /* CORREGIDO */
+        min-width: min(70px, 15vw); 
         min-height: 28px;
-        font-size: clamp(0.6rem, 1.5vw, 0.7rem); /* CORREGIDO */
+        font-size: clamp(0.6rem, 1.5vw, 0.7rem); 
         padding: 0 0.4rem;
     }
 
@@ -631,7 +611,7 @@ nav .menu-toggle {
     }
 
     .menu-items li a {
-        font-size: clamp(0.9rem, 3.5vw, 1rem); /* CORREGIDO */
+        font-size: clamp(0.9rem, 3.5vw, 1rem);
         justify-content: space-between;
     }
 
@@ -640,7 +620,7 @@ nav .menu-toggle {
     }
 
     .arrow-icon {
-        font-size: clamp(0.9rem, 2.5vw, 1.1rem); /* CORREGIDO */
+        font-size: clamp(0.9rem, 2.5vw, 1.1rem); 
         margin-right: 0.5rem;
     }
 
@@ -650,7 +630,6 @@ nav .menu-toggle {
     }
 }
 
-/* Móviles muy pequeños */
 @media (max-width: 360px) {
     nav {
         padding: 0 0.5rem;
@@ -661,13 +640,13 @@ nav .menu-toggle {
     }
 
     .logo-menu {
-        width: min(60px, 20vw); /* CORREGIDO */
+        width: min(60px, 20vw); 
     }
 
     .btn-asociate {
-        min-width: min(60px, 12vw); /* CORREGIDO */
+        min-width: min(60px, 12vw); 
         min-height: 26px;
-        font-size: clamp(0.5rem, 1.2vw, 0.65rem); /* CORREGIDO */
+        font-size: clamp(0.5rem, 1.2vw, 0.65rem); 
         padding: 0 0.3rem;
     }
 
@@ -681,47 +660,46 @@ nav .menu-toggle {
     }
 
     .menu-items li a {
-        font-size: clamp(0.7rem, 3vw, 0.8rem); /* CORREGIDO */
+        font-size: clamp(0.7rem, 3vw, 0.8rem); 
         justify-content: space-between;
     }
     
     .arrow-icon {
-        font-size: clamp(0.8rem, 2vw, 1rem); /* CORREGIDO */
+        font-size: clamp(0.8rem, 2vw, 1rem); 
         margin-right: 0.4rem;
     }
 }
 
-/* Landscape móviles - CORREGIDO */
 @media (max-height: 500px) and (orientation: landscape) {
     .menu-container {
         align-items: flex-start;
         padding-top: 20px;
-        overflow-x: hidden; /* AÑADIDO */
-        overflow-y: auto; /* AÑADIDO */
+        overflow-x: hidden; 
+        overflow-y: auto; 
     }
     
     .menu-content {
         flex-direction: row;
         overflow-y: auto;
-        max-width: 95vw; /* CORREGIDO */
+        max-width: 95vw; 
         align-items: flex-start;
-        width: 100%; /* AÑADIDO */
+        width: 100%; 
     }
 
     .main-menu {
         max-width: 40%;
-        min-width: min(200px, 35vw); /* CORREGIDO */
+        min-width: min(200px, 35vw); 
     }
 
     .submenu-container {
         max-width: 35%;
-        min-width: min(180px, 30vw); /* CORREGIDO */
+        min-width: min(180px, 30vw); 
         display: block !important;
     }
 
     .menu-image-container {
         display: flex !important;
-        max-width: min(150px, 20vw); /* CORREGIDO */
+        max-width: min(150px, 20vw); 
     }
 
     .menu-items li {
@@ -729,25 +707,24 @@ nav .menu-toggle {
     }
 
     .menu-items li a {
-        font-size: clamp(0.9rem, 2.5vw, 1.1rem); /* CORREGIDO */
+        font-size: clamp(0.9rem, 2.5vw, 1.1rem); 
         padding: 0.3rem 0;
     }
 
     .submenu li a {
-        font-size: clamp(0.8rem, 2vw, 0.9rem); /* CORREGIDO */
+        font-size: clamp(0.8rem, 2vw, 0.9rem); 
         padding: 0.3rem 0;
     }
 }
 
-/* Contenido de prueba para demostrar el blur */
 .demo-content {
     margin-top: 68px;
     padding: 2rem;
     min-height: 100vh;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    max-width: 100vw; /* AÑADIDO: Prevenir desbordamiento */
-    overflow-x: hidden; /* AÑADIDO */
-    box-sizing: border-box; /* AÑADIDO */
+    max-width: 100vw; 
+    overflow-x: hidden; 
+    box-sizing: border-box; 
 }
 
 .demo-card {
@@ -756,8 +733,8 @@ nav .menu-toggle {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 2rem;
-    max-width: 100%; /* AÑADIDO */
-    box-sizing: border-box; /* AÑADIDO */
+    max-width: 100%; 
+    box-sizing: border-box; 
 }
 
 @media (max-width: 768px) {

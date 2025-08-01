@@ -109,6 +109,23 @@
   animation: fadeInUp 0.8s ease-out;
 }
 
+.oficinas{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagenOficinas{
+  max-width: 400px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+  border-radius: 8px;
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;

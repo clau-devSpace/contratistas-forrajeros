@@ -2,6 +2,7 @@ import React, { useEffect, useCallback, useState } from 'react';
 import { X, Phone, Mail, Globe, MapPin } from 'lucide-react';
 import './modal.css';
 import apiService from '../services/apiService';
+import whatsappService from '../services/openWhatsapp';
 
 const SociosModal = ({ socioId, isOpen = false, onClose }) => {
   const [socioData, setSocioData] = useState(null);
@@ -161,12 +162,13 @@ const SociosModal = ({ socioId, isOpen = false, onClose }) => {
                     {socioData?.datosBase.telefono_movil && (
                       <div className="contact-item">
                         <span className="contact-label">Teléfono:</span>
-                        <a 
-                          href={`tel:${socioData.datosBase.telefono_movil}`}
-                          className="contact-phone"
-                        >
-                          {socioData.datosBase.telefono_movil}
-                        </a>
+                       <button 
+  onClick={() => whatsappService.openWhatsApp(socioData.datosBase.telefono_movil)}
+  className="contact-phone whatsapp-link"
+  style={{ background: 'none', border: 'none', color: 'inherit', textDecoration: 'underline', cursor: 'pointer' }}
+>
+  {socioData.datosBase.telefono_movil}
+</button>
                       </div>
                     )}
                     

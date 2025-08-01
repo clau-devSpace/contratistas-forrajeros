@@ -5,7 +5,12 @@ export default function StaffCard({
   title, 
   phone, 
   email, 
-  imageUrl = "/api/placeholder/80/80" 
+  imageUrl = "/api/placeholder/80/80",
+  onWhatsAppClick,
+  onEmailClick,
+  showWhatsApp,
+  showEmail,
+  imageSize = "normal" // "normal" o "large"
 }) {
   const cardStyle = {
     display: 'flex',
@@ -23,8 +28,8 @@ export default function StaffCard({
   };
 
   const imageStyle = {
-    width: '120px',
-    height: '120px',
+    width: imageSize === "large" ? '150px' : '120px',
+    height: imageSize === "large" ? '150px' : '120px',
     borderRadius: '50%',
     objectFit: 'cover',
     flexShrink: 0
@@ -60,13 +65,24 @@ export default function StaffCard({
     gap: '8px',
     fontSize: '13px',
     color: '#25D366',
-    margin: '2px 0'
+    margin: '2px 0',
+    cursor: 'pointer',
+    padding: '4px 8px',
+    borderRadius: '4px',
+    transition: 'background-color 0.2s'
   };
 
   const emailStyle = {
     fontSize: '13px',
     color: '#666666',
-    margin: '2px 0'
+    margin: '2px 0',
+    cursor: 'pointer',
+    padding: '4px 8px',
+    borderRadius: '4px',
+    transition: 'background-color 0.2s',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '8px'
   };
 
   const IconStyle = {
@@ -84,7 +100,20 @@ export default function StaffCard({
     width: '130px',
     marginTop: '10px',
     marginBottom: '10px'
-  }
+  };
+
+  // Handlers para los clicks
+  const handleWhatsAppClick = () => {
+    if (onWhatsAppClick && phone) {
+      onWhatsAppClick(phone, name, title);
+    }
+  };
+
+  const handleEmailClick = () => {
+    if (onEmailClick && email) {
+      onEmailClick(email, name, title);
+    }
+  };
 
   return (
     <div style={cardStyle}>
@@ -98,21 +127,33 @@ export default function StaffCard({
         <span style={lineStyle}></span>
         <p style={titleStyle}>{title}</p>
         
-        {phone && (
-          <div style={contactStyle}>
+        {/* Mostrar WhatsApp solo si showWhatsApp es true y hay teléfono */}
+        {showWhatsApp && phone && (
+          <div 
+            style={contactStyle}
+            onClick={handleWhatsAppClick}
+            onMouseEnter={(e) => e.target.style.backgroundColor = '#f0f0f0'}
+            onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
+          >
             <div style={IconStyle}>
-               <i class="bi bi-whatsapp"></i>
+               <i className="bi bi-whatsapp"></i>
             </div>
             <span>{phone}</span>
           </div>
         )}
         
-        {email && (
-          <div style={emailStyle}>
+        {/* Mostrar Email solo si showEmail es true y hay email */}
+        {showEmail && email && (
+          <div 
+            style={emailStyle}
+            onClick={handleEmailClick}
+            onMouseEnter={(e) => e.target.style.backgroundColor = '#f0f0f0'}
+            onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
+          >
             <div style={IconStyle}>
-              <i class="bi bi-envelope-at"></i>
+              <i className="bi bi-envelope-at"></i>
             </div>
-            {email}
+            <span>{email}</span>
           </div>
         )}
       </div>

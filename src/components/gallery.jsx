@@ -1,15 +1,15 @@
 import React, {useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import carrusel from '../assets/images/imagenes-secciones/edicion-1.webp';
-import carrusel2 from '../assets/images/imagenes-secciones/edicion-3.webp';
-import carrusel3 from '../assets/images/imagenes-secciones/edicion-6.webp';
-import carrusel4 from '../assets/images/imagenes-secciones/edicion-4.webp';
-import carrusel5 from '../assets/images/imagenes-secciones/carrusel5.webp';
-import carrusel6 from '../assets/images/imagenes-secciones/carrusel6.webp';
-import carrusel7 from '../assets/images/imagenes-secciones/carrusel7.webp';
-import carrusel8 from '../assets/images/imagenes-secciones/edicion-5.webp';
-import carrusel10 from '../assets/images/imagenes-secciones/carrusel10.webp';
-import carrusel11 from '../assets/images/imagenes-secciones/carrusel11.webp';
+import carrusel from '../assets/images/imagenes-secciones/carrusel.jpg';
+import carrusel2 from '../assets/images/imagenes-secciones/edicion-3.jpg';
+import carrusel3 from '../assets/images/imagenes-secciones/edicion-6.jpg';
+import carrusel4 from '../assets/images/imagenes-secciones/edicion-4.jpg';
+import carrusel5 from '../assets/images/imagenes-secciones/carrusel5.jpg';
+import carrusel6 from '../assets/images/imagenes-secciones/carrusel6.jpg';
+import carrusel7 from '../assets/images/imagenes-secciones/carrusel7.JPG';
+import carrusel8 from '../assets/images/imagenes-secciones/edicion-5.jpg';
+import carrusel10 from '../assets/images/imagenes-secciones/carrusel10.jpg';
+import carrusel11 from '../assets/images/imagenes-secciones/carrusel11.jpg';
 import carrusel12 from '../assets/images/imagenes-secciones/banner-carro-2019.gif';
 import carrusel13 from '../assets/images/imagenes-secciones/GreenPac_Banner_192x100.gif';
 

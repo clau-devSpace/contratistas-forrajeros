@@ -347,9 +347,7 @@
     max-width: 500px;
     border-radius: 8px;
 }
-/* MEDIA QUERIES RESPONSIVE */
 
-/* Contenido centrado hasta 1100px */
 @media (max-width: 1100px) {
     .sectionHeader {
         text-align: center;
@@ -368,7 +366,6 @@
         justify-content: center;
     }
 
-    /* Layout especial de beneficios centrado */
     .sociosBeneficios .sectionContent {
         grid-template-columns: 1fr;
         gap: 30px;
@@ -389,13 +386,13 @@
     }
 }
 
-/* Cards de 2 en 2 hasta 1000px */
 @media (max-width: 1000px) {
     .cardsGrid {
         grid-template-columns: repeat(2, 1fr);
         gap: 25px;
         max-width: 700px;
         margin: 0 auto;
+        justify-items: center; 
     }
     
     .cardsGrid .propositionCard:nth-child(1) { grid-column: 1; grid-row: 1; }
@@ -407,10 +404,10 @@
         grid-row: 3;
         max-width: 350px;
         margin: 0 auto;
+        justify-self: center; 
     }
 }
 
-/* Tablets grandes y laptops pequeñas (hasta 768px) */
 @media (max-width: 768px) {
     .cacfHeader {
         height: 100vh;
@@ -429,23 +426,35 @@
 
     .sectionTitle, .introText {
         font-size: 38px;
+        text-align: center; 
     }
 
     .introTextContainer {
         margin-bottom: 40px;
+        text-align: center; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 
     .sectionContent {
         padding-bottom: 40px;
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 
-    /* Cards en columna única */
     .cardsGrid {
         grid-template-columns: 1fr;
         gap: 20px;
         max-width: 500px;
         margin: 0 auto;
+        justify-items: center; 
+        align-items: center; 
+        width: 100%;
     }
     
     .cardsGrid .propositionCard:nth-child(1),
@@ -455,25 +464,35 @@
     .cardsGrid .propositionCard:nth-child(5) {
         grid-column: 1;
         grid-row: auto;
-        max-width: none;
+        max-width: 100%;
         margin: 0;
+        width: 100%;
+        justify-self: center; 
     }
     
     .propositionCard {
         padding: 22px;
+        width: 100%;
+        max-width: 500px;
+        text-align: center; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
     
     .cardIcon {
         width: 48px;
         height: 48px;
+        margin: 0 auto 15px auto; 
     }
     
     .cardText {
         font-size: 15px;
+        text-align: center; 
     }
 }
 
-/* Móviles grandes (hasta 580px) */
 @media (max-width: 580px) {
     .cacfHeader {
         height: 100vh;
@@ -483,11 +502,12 @@
     .cacfTitle {
         font-size: 32px;
         letter-spacing: 1px;
+        text-align: center;
     }
 
     .contentWrapper {
         width: calc(100% - 30px);
-        margin: 0 25px;
+        margin: 0 15px; 
         padding: 25px 0;
     }
 
@@ -498,34 +518,60 @@
 
     .introTextContainer {
         margin-bottom: 35px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
     }
 
     .sectionContent {
         padding-bottom: 35px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
     }
 
-    /* Layout especial de beneficios en móvil */
     .sociosBeneficios .sectionContent {
         gap: 25px;
     }
 
-    /* Cards más compactas */
     .cardsGrid {
         gap: 18px;
-        max-width: 450px;
+        max-width: 400px;
+        margin: 0 auto;
+        justify-items: center;
+        align-items: center;
+        width: 100%;
+        padding: 0 10px; 
     }
     
     .propositionCard {
         padding: 20px;
+        width: 100%;
+        max-width: 380px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto; 
     }
     
     .cardIcon {
         width: 45px;
         height: 45px;
+        margin: 0 auto 15px auto;
     }
     
     .cardText {
         font-size: 14px;
+        text-align: center;
+        width: 100%;
     }
 
     .benefitText.benefitTextEnhanced, .benefitText2 {
@@ -538,7 +584,6 @@
     }
 }
 
-/* Móviles pequeños (hasta 400px) */
 @media (max-width: 400px) {
     .cacfHeader {
         height: 100vh;
@@ -548,11 +593,12 @@
     .cacfTitle {
         font-size: 28px;
         letter-spacing: 1px;
+        text-align: center;
     }
 
     .contentWrapper {
         width: calc(100% - 20px);
-        margin: 0 25px;
+        margin: 0 10px; 
         padding: 20px 0;
     }
 
@@ -563,35 +609,61 @@
 
     .introTextContainer {
         margin-bottom: 30px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
     }
 
     .sectionContent {
         padding-bottom: 30px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
     }
 
-    /* Layout especial de beneficios */
     .sociosBeneficios .sectionContent {
         gap: 20px;
     }
 
-    /* Cards más pequeñas */
     .cardsGrid {
-        gap: 20px;
-        max-width: 300px;
+        gap: 15px;
+        max-width: 320px;
+        margin: 0 auto;
+        justify-items: center;
+        align-items: center;
+        width: 100%;
+        padding: 0 5px;
     }
     
     .propositionCard {
         padding: 18px;
+        width: 100%;
+        max-width: 310px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
     }
     
     .cardIcon {
         width: 42px;
         height: 42px;
+        margin: 0 auto 15px auto;
     }
     
     .cardText {
         font-size: 13px;
         line-height: 1.5;
+        text-align: center;
+        width: 100%;
     }
 
     .benefitText.benefitTextEnhanced, .benefitText2 {
@@ -605,5 +677,34 @@
     .imageSocios{
         max-width: 300px;
         margin-top: 20px;
+    }
+}
+
+@media (max-width: 350px) {
+    .contentWrapper {
+        width: calc(100% - 10px);
+        margin: 0 5px;
+    }
+    
+    .cardsGrid {
+        max-width: 280px;
+        padding: 0;
+    }
+    
+    .propositionCard {
+        max-width: 280px;
+        padding: 15px;
+    }
+    
+    .cardText {
+        font-size: 12px;
+    }
+    
+    .cacfTitle {
+        font-size: 24px;
+    }
+    
+    .sectionTitle, .introText {
+        font-size: 24px;
     }
 }

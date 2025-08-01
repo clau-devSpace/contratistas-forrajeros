@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './socios.css';
 import apiService from '../services/apiService';
 import SociosModal from '../components/modal'; 
-import Fondo from '../assets/images/imagenes-de-fondo/favorita-11.webp';
+import Fondo from '../assets/images/imagenes-de-fondo/favorita-11.jpg';
 
 const EmpresasTable = () => {
   
