@@ -59,7 +59,7 @@ nav .menu-toggle {
     display: flex;
     align-items: center;
     gap: 1.5rem;
-    flex-shrink: 0; /
+    flex-shrink: 0; 
 }
 
 .btn-asociate {
@@ -199,7 +199,7 @@ nav .menu-toggle {
 .menu-items li a span {
     color: white;
     text-decoration: none;
-    font-size: clamp(1.5rem, 4vw, 2rem); 
+    font-size: clamp(1.2rem, 4vw, 2rem); 
     font-weight: 300;
     display: flex;
     align-items: center;
@@ -208,7 +208,7 @@ nav .menu-toggle {
     opacity: 1;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
+    /*text-overflow: ellipsis;*/
     max-width: 100%; 
 }
 
@@ -456,10 +456,27 @@ nav .menu-toggle {
     .vertical-separator {
         display: block !important;
     }
+
+    .menu-container {
+    justify-content: center;
+    align-items: center;
+}
     
     .menu-content {
         max-width: min(600px, 85vw); 
     }
+
+    .menu-items li a, .menu-items li, .menu-items li a span{
+        white-space: normal;
+        font-size: clamp(1.4rem, 4vw, 1.6rem);
+        text-overflow: clip;
+    }
+
+    .submenu li a {
+    font-size: clamp(1.1rem, 3vw, 1.4rem);
+    text-overflow: clip; 
+    white-space: normal; 
+}
 }
 
 @media (max-width: 768px) {
@@ -479,6 +496,8 @@ nav .menu-toggle {
     .menu-container {
         top: 55px;
         height: calc(100vh - 55px);
+        align-items: center;
+        justify-content: center;
         padding: 20px;
         padding-left: min(40px, 5vw); 
         width: 100vw; 
@@ -528,7 +547,7 @@ nav .menu-toggle {
     }
 
     .menu-items li a {
-        font-size: clamp(1.2rem, 4vw, 1.3rem); 
+        font-size: clamp(1rem, 4vw, 1.1rem); 
         justify-content: space-between;
         width: 100%; 
         max-width: 100%; 
@@ -541,6 +560,16 @@ nav .menu-toggle {
     .mobile-submenu li a {
         font-size: clamp(0.9rem, 3vw, 1.1rem); 
     }
+
+    .menu-items li a, .menu-items li{
+        white-space: normal;
+    }
+
+     .submenu li a {
+    font-size: clamp(1.1rem, 3vw, 1.4rem);
+    text-overflow: clip; 
+    white-space: normal; 
+}
 }
 
 @media (min-width: 479px) and (max-width: 600px) {

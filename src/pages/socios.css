@@ -9,14 +9,26 @@
 .socios-header {
   display: flex;
   flex-direction: column;
-  height: 300px;
+  height: 60vh;
   justify-content: center;
   align-items: center;
   text-align: center;
   flex-wrap: wrap;
   gap: 1rem;
   background-position: center;
+  background-size: cover;
   padding: 2rem 1rem; /* Agregado padding para mejor espaciado */
+  position: relative;
+}
+
+.socios-header::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right:0;
+  bottom: 0;
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7));
 }
 
 .titulo-socios{
@@ -28,6 +40,7 @@
   width: 100%;
   gap: 1rem; /* Espacio entre título y buscador */
   margin-top: 35px;
+  z-index: 2;
 }
 
 .socios-title {
@@ -42,6 +55,7 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   width: 100%; /* Asegurar que ocupe el ancho completo */
   max-width: 800px; /* Límite máximo para pantallas grandes */
+  z-index: 2;
 }
 
 .search-container {

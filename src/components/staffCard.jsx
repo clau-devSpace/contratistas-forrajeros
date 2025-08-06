@@ -16,12 +16,12 @@ export default function StaffCard({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    gap: '15px',
-    padding: '20px',
+    gap: '8px',
+    padding: '15px',
     backgroundColor: '#ffffff',
     borderTop: ' 4px solid #0c51a6',
     borderRadius: '10px',
-    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.3)',
     margin: '10px 0',
     minWidth: '300px',
     maxWidth: '400px'
@@ -55,16 +55,17 @@ export default function StaffCard({
   const titleStyle = {
     fontSize: '14px',
     color: '#666666',
-    margin: '0 0 8px 0',
+    margin: '0 0 5px 0',
     fontWeight: 'bold'
   };
 
   const contactStyle = {
     display: 'flex',
     alignItems: 'center',
-    gap: '8px',
+    gap: '5px',
     fontSize: '13px',
-    color: '#25D366',
+    color: '#27a127',
+    fontWeight: '500',
     margin: '2px 0',
     cursor: 'pointer',
     padding: '4px 8px',
@@ -91,15 +92,15 @@ export default function StaffCard({
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
-    fontSize: '10px',
+    fontSize: '15px',
   };
 
   const lineStyle = {
     height: '2px',
     backgroundColor: '#666666',
     width: '130px',
-    marginTop: '10px',
-    marginBottom: '10px'
+    marginTop: '5px',
+    marginBottom: '5px'
   };
 
   // Handlers para los clicks

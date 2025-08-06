@@ -4,6 +4,7 @@ import { Users, Target, Shield, TrendingUp, Scale } from 'lucide-react';
 import styles from './mision-vision-valores.module.css';
 import Prueba10 from '../assets/images/imagenes-de-fondo/favorita-11.jpg';
 import Prueba11 from '../assets/images/imagenes-secciones/socios-newholland.jpg';
+import Prueba12 from '../assets/images/imagenes-secciones/edicion-2.JPG';
 import { Link } from 'react-router-dom';
 
 const CACFInfo = () => {
@@ -18,7 +19,7 @@ const CACFInfo = () => {
 
       {/* Header con background */}
       <div className={styles.cacfHeader} style={{
-        backgroundImage: `url(${Prueba10})`
+        backgroundImage: `url(${Prueba12})`
       }}>
         <div className={styles.tituloCacf}>
           <h1 className={styles.cacfTitle}> ¿Qué es la Cámara Argentina de Contratistas Forrajeros (CACF)?</h1>

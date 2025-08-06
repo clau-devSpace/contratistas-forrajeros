@@ -10,6 +10,9 @@ import tractoresFondo from '../assets/images/imagenes-de-fondo/edicion2.jpg';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Gallery from '../components/gallery';
 import Banner from '../assets/images/imagenes-secciones/banner_BLADE_791x80.gif';
+import carrusel12 from '../assets/images/imagenes-secciones/banner-carro-2019.gif';
+import carrusel13 from '../assets/images/imagenes-secciones/GreenPac_Banner_192x100.gif';
+
 
 const Home = () => {
   useEffect(() => {
@@ -47,7 +50,7 @@ const Home = () => {
 
       <main id="main">
         <section className={`${styles.primerSeccion} animate-item fade-in-left`} data-animation="animate__fadeInUp">
-          <p className={`${styles.somos} ${styles.margenes2}`}>
+          <p className={styles.somos}>
             <span className={styles.negrita}>Fundada el 14 de noviembre de 2003, la Cámara Argentina de Contratistas Forrajeros (CACF) es una asociación civil sin fines de lucro.<br /></span> Somos una red activa con una <span className={styles.negrita}>trayectoria de más de 20 años</span>, que se dedica a investigar y <span className={styles.negrita}>promover la actividad forrajera argentina</span>. Impulsamos prácticas forrajeras eficientes y sostenibles, garantizando la constante capacitación de nuestros socios en las últimas tecnologías.
           </p>
 
@@ -102,7 +105,7 @@ const Home = () => {
         </section>
 
         <section className={styles.agrinirContainer}>
-          <div className={`${styles.margenes} ${styles.agrinirItems}`}>
+          <div className={`${styles.margenes2} ${styles.agrinirItems}`}>
             <div className={styles.agrinir1}>
               <h3 className={`${styles.agrinir} animate-item`} data-animation="animate__fadeInDown">Análisis de Forrajes</h3>
 
@@ -130,6 +133,11 @@ const Home = () => {
 
             <div className={`${styles.agrinir2} animate-item`} data-animation="animate__fadeIn">
               <img className={styles.analisisForraje} src={forraje}  alt="Análisis de forrajes" />
+            </div>
+
+            <div className={styles.banners}>
+              <img src={carrusel12} className={styles.imagenBanner} alt='Banner publicitario'/>
+              <img src={carrusel13} className={styles.imagenBanner} alt='Banner publicitario'/>
             </div>
           </div>
         </section>

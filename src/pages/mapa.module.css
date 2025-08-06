@@ -10,7 +10,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    height: 60vh;
+    height: 70vh;
     background-size: cover;
     background-position: center;
     position: relative;
@@ -30,11 +30,12 @@
     font-family: "Roboto Condensed", sans-serif;
     font-optical-sizing: auto;
     text-transform: uppercase;
-     font-size: clamp(1.8rem, 5vw, 2.8rem);
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
     padding-top: 55px;
     letter-spacing: 2px;
     color: #ffffff;
-    font-weight: 600;
+    font-weight: 700;
     max-width: 800px;
     z-index: 2;
     position: relative;
@@ -48,9 +49,6 @@
 
 /* Media Queries para responsive */
 @media (max-width: 768px) {
-    .headerMapa {
-        height: 40vh;
-    }
     
     .title {
         font-size: 32px;
@@ -65,9 +63,6 @@
 }
 
 @media (max-width: 480px) {
-    .headerMapa {
-        height: 35vh;
-    }
     
     .title {
         font-size: 28px;

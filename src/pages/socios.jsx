@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './socios.css';
 import apiService from '../services/apiService';
 import SociosModal from '../components/modal'; 
-import Fondo from '../assets/images/imagenes-de-fondo/favorita-11.jpg';
+import Fondo from '../assets/images/imagenes-secciones/carrusel2.jpg';
 
 const EmpresasTable = () => {
   
@@ -127,7 +127,7 @@ const EmpresasTable = () => {
                     <th>Empresa</th>
                     <th>Contacto</th>
                     <th>Servicio</th>
-                    <th>Teléfono Móvil</th>
+                    <th>Tel. Móvil</th>
                     <th>Detalle</th>
                   </tr>
                 </thead>
