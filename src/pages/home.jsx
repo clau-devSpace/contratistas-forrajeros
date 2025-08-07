@@ -102,6 +102,8 @@ const Home = () => {
 
         <section className= {styles.bannerSection}>
           <img src={Banner} className={styles.bannerBlade} alt='Banner publicitario Blade' />
+          <img src={carrusel12} className={styles.imagenBanner} alt='Banner publicitario'/>
+          <img src={carrusel13} className={styles.imagenBanner} alt='Banner publicitario'/>
         </section>
 
         <section className={styles.agrinirContainer}>
@@ -133,11 +135,6 @@ const Home = () => {
 
             <div className={`${styles.agrinir2} animate-item`} data-animation="animate__fadeIn">
               <img className={styles.analisisForraje} src={forraje}  alt="Análisis de forrajes" />
-            </div>
-
-            <div className={styles.banners}>
-              <img src={carrusel12} className={styles.imagenBanner} alt='Banner publicitario'/>
-              <img src={carrusel13} className={styles.imagenBanner} alt='Banner publicitario'/>
             </div>
           </div>
         </section>

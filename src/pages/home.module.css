@@ -59,7 +59,7 @@ body {
     font-weight: 700;
     font-style: normal;
     text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
-    font-size: clamp(1.8rem, 5vw, 3.2rem);
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
     color: white;
     line-height: 1.2;
     margin: 0;
@@ -128,7 +128,7 @@ body {
 .primerSeccion {
     text-align: center; 
     display: flex; 
-    flex-direction: column; 
+    flex-direction: column;
     align-items: center; 
     justify-content: center;
     clip-path: none;
@@ -304,9 +304,12 @@ body {
 
 .bannerSection{
   display: flex;
-  width: 100%;
+  width: 80%;
+  gap: 15px;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
+  padding-top: 20px;
 }
 
 .bannerBlade{
@@ -369,7 +372,7 @@ body {
 }
 
 .analisisForraje {
-    box-shadow: 3px 3px 10px rgba(255, 255, 255, 0.3);
+    /*box-shadow: 3px 3px 10px rgba(255, 255, 255, 0.3);*/
     max-width: 400px;
     height: 400px;
     border-radius: 10px;
@@ -419,7 +422,7 @@ body {
     margin-top: 80px;
 }
 
-.promoItems {
+/*.promoItems {
     display: flex;
     text-align: left;
     align-items: center;
@@ -429,6 +432,17 @@ body {
     gap: 30px;
     position: relative;
     z-index: 0;
+}*/
+
+.promoItems{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  gap: 30px;
+  position: relative;
+  z-index: 0;
 }
 
 .promoTexto {
@@ -481,6 +495,7 @@ body {
 
 .promoVideoContainer {
     max-width: 500px;
+    min-width: 400px;
     flex-shrink: 0;
 }
 
@@ -566,12 +581,12 @@ body {
     padding-top: 20px;
 }
 
-.promoItems {
+/*.promoItems {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 35px;
-}
+}*/
 
 .promoTexto {
     display: flex; 
@@ -786,8 +801,8 @@ body {
 
   .masInfo {
     width: 140px;
-    height: 40px;
-    font-size: 13px;
+    height: 35px;
+    font-size: 14px;
   }
 
   .promoContainer {
@@ -797,14 +812,15 @@ body {
   }
 
   .promoItems {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-    padding: 30px 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 15px;
+    padding: 10px 0;
     margin: 0 auto;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+    margin-bottom: 0px
   }
 
   .promoTexto {
@@ -829,7 +845,8 @@ body {
 
   .promoVideoContainer {
     width: 100%;
-    max-width: 100%;
+    min-width: 250px;
+    max-width: 280px;
   }
 
   .promoBotonContainer {
@@ -841,8 +858,16 @@ body {
 
   .promoBoton {
     width: 140px;
-    height: 40px;
-    font-size: 13px;
+    height: 35px;
+    font-size: 14px;
+  }
+
+  .bannerSection{
+    flex-direction: column;
+  }
+
+  .imagenBanner{
+    max-width: 170px;
   }
 
   .agrinirContainer {
@@ -1031,8 +1056,8 @@ body {
 
   .masInfo {
     width: 140px;
-    height: 40px;
-    font-size: 13px;
+    height: 35px;
+    font-size: 14px;
   }
 
   .promoContainer {
@@ -1042,10 +1067,11 @@ body {
   }
 
   .promoItems {
-    flex-direction: column;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
     align-items: flex-start;
     gap: 20px;
-    padding: 30px 0;
+    padding: 20px 0;
     margin: 0 auto;
     width: 100%;
     max-width: 100%;
@@ -1074,7 +1100,8 @@ body {
 
   .promoVideoContainer {
     width: 100%;
-    max-width: 100%;
+    min-width: 300px;
+    max-width: 400px;
   }
 
   .promoBotonContainer {
@@ -1223,9 +1250,13 @@ body {
   /*.banners{
   flex-direction: row;
 }*/
+
+ .bannerSection{
+  flex-direction: column;
+ }
   
   .imagenBanner{
-  width: 200px;
+  width: 170px;
   height: auto;
 }
 }
@@ -1274,9 +1305,9 @@ body {
   }
 
   .masInfo {
-    width: 160px;
-    height: 45px;
-    font-size: 20px;
+    width: 155px;
+    height: 40px;
+    font-size: 15px;
   }
 
   .promoContainer {
@@ -1315,10 +1346,10 @@ body {
     margin: 12px 0;
   }
 
-  .promoVideoContainer {
+  /*.promoVideoContainer {
     width: 90%;
     max-width: 100%;
-  }
+  }*/
 
   .promoBotonContainer {
     display: flex;
@@ -1327,11 +1358,15 @@ body {
   }
 
   .promoBoton {
-    width: 160px;
-    height: 48px;
-    font-size: 20px;
+    width: 155px;
+    height: 40px;
+    font-size: 15px;
   }
-
+  
+  .promoVideoContainer{
+    min-width: 250px;
+    max-width: 300px;
+  }
   .agrinirContainer {
     padding: 0 25px;
     box-sizing: border-box;
@@ -1349,6 +1384,7 @@ body {
     max-width: 100%;
     margin: 0 auto;
     box-sizing: border-box;
+    overflow: hidden;
   }
 
   .agrinir1,
@@ -1429,12 +1465,12 @@ body {
   }
 
   .informacionUtilH2 {
-    font-size: 30px;
+    font-size: 16px;
     text-align: left;
   }
 
   .informacionUtilP, .beneficiosSocios {
-    font-size: 20px;
+    font-size: 15px;
     text-align: left;
   }
 
@@ -1451,9 +1487,19 @@ body {
     object-fit: cover;
   }
 
-  /*.banners{
-  flex-direction: row;
-}*/
+
+.banners{
+    flex-basis: 100%;
+    align-items: flex-start;
+    flex-direction: row;
+  }
+
+  .imagenBanner{
+    flex-shrink: 0;
+    object-fit: contain;
+    width: 135px;
+    height: auto;
+  }
 }
 
 @media (min-width: 769px) and (max-width: 992px){
@@ -1499,22 +1545,22 @@ body {
   }
 
   .masInfo {
-    width: 170px;
-    height: 50px;
+    width: 150px;
+    height: 40px;
     font-size: 15px;
   }
 
   .promoContainer {
-    padding: 0 40px;
+    padding: 0 25px;
     box-sizing: border-box;
   }
 
   .promoItems {
-    flex-direction: row;
-    align-items: flex-start;
+    flex-direction: row !important;
+    align-items: center;
     justify-content: space-between;
-    gap: 30px;
-    padding: 50px 0;
+    gap: 20px;
+    padding: 30px 0;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
@@ -1542,27 +1588,31 @@ body {
   }
 
   .promoVideoContainer {
-    width: 50%;
+    width: 40%;
     max-width: 100%;
-    padding-top: 45px;
   }
 
   .promoBotonContainer {
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: 20px;
-    margin-bottom: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
   .promoBoton {
-    width: 170px;
-    height: 50px;
+    width: 150px;
+    height: 40px;
     font-size: 15px;
   }
 
+    .promoVideoContainer{
+    min-width: 295px;
+    max-width: 300px;
+  }
+
   .agrinirContainer {
-    padding: 0 40px;
+    padding: 0 70px;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -1570,11 +1620,13 @@ body {
   }
 
   .agrinirItems {
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
     align-items: center;
-    justify-content: space-between;
-    gap: 30px;
-    padding: 50px 0;
+    justify-content: justify;
+    gap: 50px;
+    padding: 25px 0;
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
@@ -1604,10 +1656,10 @@ body {
   }
 
   .analisisForraje {
-    width: 100%;
-    height: 230px;
-    object-fit: cover;
-  }
+    max-width: 250px;
+    height: auto;
+    object-fit: contain;
+}
 
   .informacionUtil {
     padding: 0 40px;
@@ -1631,7 +1683,7 @@ body {
 
   .lineaHorizontal2 {
     width: 100px;
-    margin: 12px 0;
+    margin: 5px 0;
   }
 
   .frames {
@@ -1643,6 +1695,7 @@ body {
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+    margin-block-start: 0;
   }
 
   .frames1 {
@@ -1686,9 +1739,21 @@ body {
   }
 
   .banners{
-    flex-direction: row;
     flex-basis: 100%;
-    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+  }
+
+  /*.margenes2{
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }*/
+
+  .imagenBanner{
+    flex-shrink: 0;
+    object-fit: contain;
+    width: 135px;
+    height: auto;
   }
 }
 
