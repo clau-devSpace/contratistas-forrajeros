@@ -8,6 +8,7 @@ import Contacto from './pages/contacto.jsx';
 import Mapa from './pages/mapa.jsx';
 import JuntaDirectiva from './pages/JuntaDirectiva.jsx';
 import CACFInfo from './pages/mision-vision-valores.jsx';
+import Estadisticas from './pages/estadisticas.jsx';
 
  export default function App() {
   return (
@@ -23,6 +24,7 @@ import CACFInfo from './pages/mision-vision-valores.jsx';
         url="https://ensiladores.com.ar/InfoSocios/Maps/MapaSociosAgrupado.php"/>}
         />
          <Route path="convenios" element={<Convenios />} />
+         <Route path='estadisticas' element={<Estadisticas />} />
          <Route path="contacto" element={<Contacto />} />
          <Route path="JuntaDirectiva" element={<JuntaDirectiva />} />
          <Route path="mision-vision-valores" element={<CACFInfo />} />

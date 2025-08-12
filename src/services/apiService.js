@@ -1,6 +1,5 @@
 class ApiService {
   constructor() {
-    // URLs directas de producción (sin proxy)
     this.baseUrl = 'https://ensiladores.com.ar/InfoSocios/API_Socios.php';
     this.detailUrl = 'https://ensiladores.com.ar/InfoSocios/API_Socios_Detalle.php';
     

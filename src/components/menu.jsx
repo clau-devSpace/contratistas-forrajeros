@@ -94,6 +94,7 @@ const Menu = () => {
       { label: 'Contacto', to: '/contacto' }
     ] },
     { id: 'socios', title: 'Nuestros Socios', hasSubmenu: false, to: '/socios' },
+    { id: 'estadisticas', title: 'Estadisticas', hasSubmenu: false, to: '/estadisticas' },
     { id: 'convenios', title: 'Convenios', hasSubmenu: false, to: '/convenios' },
     { 
       id: 'area-economica', title: 'Área Económica', hasSubmenu: false, to: '/areaEconomica'
