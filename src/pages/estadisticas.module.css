@@ -1,6 +1,69 @@
 .contenedorEstadisticas{
+    display: flex;
     margin-top: 100px;
     overflow-x: scroll;
 }
 
-@media 
+@media(min-width: 769px) and (max-width: 1024px){
+      .contenedorEstadisticas{
+        margin: 90px 0;
+        width: 100%;
+        max-width: 1024px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .contenedorEstadisticas img{
+        width: calc(100% - 20px);
+        max-width: 1024px;
+    }
+}
+
+@media(min-width: 577px) and (max-width: 768px){
+      .contenedorEstadisticas{
+        margin: 70px 0;
+        width: 100%;
+        max-width: 768px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .contenedorEstadisticas img{
+        width: calc(100% - 20px);
+        max-width: 768px;
+    }
+}
+
+@media(min-width: 401px) and (max-width: 576px){
+      .contenedorEstadisticas{
+        margin: 70px 0;
+        width: 100%;
+        max-width: 576px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .contenedorEstadisticas img{
+        width: calc(100% - 20px);
+        max-width: 576px;
+    }
+}
+
+@media(min-width: 290px) and (max-width: 400px){
+    .contenedorEstadisticas{
+        margin: 70px 0;
+        width: 100%;
+        max-width: 400px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .contenedorEstadisticas img{
+        width: calc(100% - 20px);
+        max-width: 400px;
+    }
+}
+
+
+
+
