@@ -242,7 +242,7 @@
   
   /* Tamaño fijo para móviles - Más ancho y menos alto */
   .staffGrid > * {
-    width: 340px !important;
+    width: 300px !important;
     height: 300px !important;
     min-height: 300px !important;
     max-height: 300px !important;
@@ -250,7 +250,7 @@
   
   /* Tamaño específico para Junta Directiva en móviles */
   .directivaSection .staffGrid > * {
-    width: 340px !important;
+    width: 300px !important;
     height: 260px !important;
     min-height: 260px !important;
     max-height: 260px !important;

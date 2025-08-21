@@ -56,7 +56,7 @@ const Home = () => {
 
           <div className={styles.infoButton}>
             <button className={styles.masInfo}>
-              <p>Más información</p>
+              <Link to= '/mision-vision-valores'>Más Información</Link>
             </button>
           </div>
         </section>

@@ -1,5 +1,5 @@
 import React from "react";
-import ImagenEstadisticas from '../assets/images/estadisticas ensilaje/CACF_Estadísticas_2023-2024.jpg';
+import ImagenEstadisticas from '../assets/images/estadisticas ensilaje/estadisticas-ensilaje.jpg';
 import styles from './estadisticas.module.css';
 
 export default function Estadisticas(){

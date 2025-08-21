@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import { handleAnimations } from '../hooks/animations';
 import { Users, Target, Shield, TrendingUp, Scale } from 'lucide-react';
 import styles from './mision-vision-valores.module.css';
-import Prueba10 from '../assets/images/imagenes-de-fondo/favorita-11.jpg';
-import Prueba11 from '../assets/images/imagenes-secciones/socios-newholland.jpg';
+import Prueba13 from '../assets/images/imagenes-secciones/carrusel10.jpg';
 import Prueba12 from '../assets/images/imagenes-secciones/edicion-2.JPG';
 import { Link } from 'react-router-dom';
 
@@ -99,7 +98,7 @@ const CACFInfo = () => {
               Beneficios de  
               Nuestros Socios
             </h2>
-            <img src={Prueba11} className={styles.imageSocios} alt='Socios con la bandera de New Holland, en el Campo' />
+            <img src={Prueba13} className={styles.imageSocios} alt='Socios con la bandera de New Holland, en el Campo' />
           </div>
             <div className={`${styles.benefitsGrid} ${styles.benefitsGrid2}`}>
               <div className={`${styles.benefitItem} ${styles.noBackground}`}>
