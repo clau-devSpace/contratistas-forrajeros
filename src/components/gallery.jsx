@@ -9,7 +9,7 @@ import carrusel6 from '../assets/images/imagenes-secciones/carrusel6.jpg';
 import carrusel7 from '../assets/images/imagenes-secciones/socios-mesa.jpg';
 import carrusel8 from '../assets/images/imagenes-secciones/edicion-5.jpg';
 import carrusel10 from '../assets/images/imagenes-secciones/carrusel10.jpg';
-import carrusel11 from '../assets/images/imagenes-secciones/carrusel11.jpg';
+import carrusel11 from '../assets/images/imagenes-secciones/carrusel11.JPG';
 
 import './gallery.css';
 
