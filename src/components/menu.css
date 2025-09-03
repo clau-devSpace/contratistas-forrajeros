@@ -16,7 +16,7 @@ body {
     box-sizing: border-box;
 }
 
-nav {
+.navbar-principal {
     position: fixed;
     top: 0;
     left: 0;
@@ -480,7 +480,7 @@ nav .menu-toggle {
 }
 
 @media (max-width: 768px) {
-    nav {
+    .navbar-principal {
         height: 55px;
         padding: 0 1rem;
         max-width: 100vw; 
@@ -573,7 +573,7 @@ nav .menu-toggle {
 }
 
 @media (min-width: 479px) and (max-width: 600px) {
-    nav {
+    .navbar-principal {
         padding: 0 0.8rem;
     }
     
@@ -599,7 +599,7 @@ nav .menu-toggle {
 }
 
 @media (min-width: 361px) and (max-width: 480px){
-    nav {
+    .navbar-principal {
         padding: 0 0.6rem;
     }
     
@@ -660,7 +660,7 @@ nav .menu-toggle {
 }
 
 @media (max-width: 360px) {
-    nav {
+    .navbar-principal {
         padding: 0 0.5rem;
     }
     

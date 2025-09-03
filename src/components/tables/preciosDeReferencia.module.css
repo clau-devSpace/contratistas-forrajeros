@@ -1,0 +1,119 @@
+.tablaEnsilado {
+  max-width: 1200px; /* Aumentado de 900px a 1200px para desktop */
+  margin: 0 auto;
+  padding: 20px;
+  padding-bottom: 100px;
+  font-family: Arial, sans-serif;
+  display: grid;
+  gap: 20px;
+  min-height: 100vh;
+  
+  /* Mobile first: 1 columna por defecto */
+  grid-template-columns: 1fr;
+}
+
+/* Tablets: 2 columnas a partir de 768px */
+@media (min-width: 768px) {
+  .tablaEnsilado {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop: mantener 2 columnas a partir de 1024px */
+@media (min-width: 1024px) {
+  .tablaEnsilado {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px; /* Gap más grande para aprovechar el espacio extra */
+  }
+}
+
+.tablaEnsilado h2 {
+  grid-column: 1 / -1; 
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 3px;
+}
+
+.tablaEnsilado p {
+  grid-column: 1 / -1; 
+  text-align: center;
+  font-size: 1.3rem;
+  margin-bottom: 3px;
+  color:#555;
+}
+
+.subtitulo {
+  grid-column: 1 / -1; 
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.subtitulo span {
+  font-style: italic;
+  font-size: 0.85rem;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  background-color: #fff;
+  min-height: 120px;
+}
+
+.cardHeader {
+  background-color: #5ba9e1;
+  color: #000;
+  font-weight: bold;
+  padding: 10px 15px;
+  font-size: 1rem;
+}
+
+.cardBody {
+  padding: 15px;
+}
+
+.fila {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+  /* Mejor manejo de texto largo en móviles */
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.fila:last-child {
+  border-bottom: none;
+}
+
+.valor {
+  font-weight: bold;
+  color: #222;
+  /* Asegurar que el valor no se rompa */
+  white-space: nowrap;
+}
+
+/* Ajustes adicionales para móviles muy pequeños */
+@media (max-width: 480px) {
+  .tablaEnsilado {
+    padding: 15px;
+    gap: 15px;
+  }
+  
+  .cardHeader {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+  
+  .cardBody {
+    padding: 12px;
+  }
+  
+  .fila {
+    font-size: 0.9rem;
+  }
+}

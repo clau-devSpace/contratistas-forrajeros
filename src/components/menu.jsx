@@ -97,7 +97,7 @@ const Menu = () => {
     { id: 'estadisticas', title: 'Estadisticas', hasSubmenu: false, to: '/estadisticas' },
     { id: 'convenios', title: 'Convenios', hasSubmenu: false, to: '/convenios' },
     { 
-      id: 'area-economica', title: 'Área Económica', hasSubmenu: false, to: '/areaEconomica'
+      id: 'area-economica', title: 'Área Económica', hasSubmenu: false, to: '/TablaGeneral'
     },
     { id: 'mapa',
       title: 'Mapa',
@@ -109,7 +109,7 @@ const Menu = () => {
 
   return (
     <>
-      <nav>
+      <nav className='navbar-principal'>
         <div className="nav-wrapper">
           <Link to="/">
             <img src={logo} className="logo-menu" alt="Logo" />

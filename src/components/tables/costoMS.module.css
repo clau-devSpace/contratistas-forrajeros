@@ -1,0 +1,356 @@
+.economicas {
+  max-width: 1400px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  min-height: 100vh;
+  margin-bottom: 100px;
+}
+
+.title {
+  text-align: center;
+  color: #004080;
+  margin-bottom: 0.5rem;
+  font-size: 1.6rem;
+}
+
+.subtitle {
+  text-align: center;
+  color: #555;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  grid-template-columns: 1fr;
+}
+
+/* iPad/Tablet: forzamos 1 columna para que no se superpongan */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .grid {
+    grid-template-columns: 1fr;  /* antes eran 2 */
+    gap: 2rem;
+  }
+  
+  .economicas {
+    max-width: 95%;
+    padding: 0 1rem;
+  }
+  
+  .title {
+    font-size: 1.6rem;
+  }
+  
+  .tableCard {
+    padding: 1rem;
+  }
+  
+  .table {
+    font-size: 0.85rem;
+  }
+  
+  .table th,
+  .table td {
+    padding: 0.6rem;
+    font-size: 0.8rem;
+  }
+  
+  .table th {
+    font-size: 0.75rem;
+  }
+  
+  .tableTitle,
+  .tableTitleOrange {
+    font-size: 1rem;
+  }
+  
+  .notes {
+    font-size: 0.85rem;
+  }
+}
+
+/* Desktop: mantener 2 columnas */
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+  
+  .economicas {
+    max-width: 1200px;
+    padding: 0 2rem;
+  }
+}
+
+/* Desktop grande */
+@media (min-width: 1400px) {
+  .economicas {
+    max-width: 1400px;
+  }
+}
+
+.tableCard {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 2rem;
+  width: 100%;
+  min-width: 0;
+}
+
+.tableTitle {
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: #004080;
+}
+
+.tableTitleOrange {
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: #d97706;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  min-width: 300px;
+}
+
+.table th,
+.table td {
+  padding: 0.5rem 0.7rem;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.table th {
+  background: #004080;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  line-height: 1.2;
+}
+
+.orangeTable th {
+  background: #f97316;
+}
+
+.total {
+  background: #f1f5fa;
+  font-weight: bold;
+}
+
+.table tr:hover {
+  background: #f9fcff;
+}
+
+.notes {
+  font-size: 0.8rem;
+  color: #444;
+  background: #f9fafb;
+  border-left: 4px solid #004080;
+  padding: 1rem;
+  border-radius: 8px;
+  line-height: 1.4;
+  grid-column: 1 / -1;
+}
+
+/* ---- AJUSTES PARA MÓVILES ---- */
+@media (max-width: 767px) {
+  .economicas {
+    padding: 0 0.8rem;   /* un poco más de aire */
+    margin: 1rem auto;
+  }
+  
+  .title {
+    font-size: 1.4rem;
+    line-height: 1.3;
+  }
+  
+  .subtitle {
+    font-size: 0.85rem;
+  }
+  
+  .tableCard {
+    padding: 0.8rem;      /* más padding */
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+  }
+  
+  /* Tablas básicas (silos aéreos y embolsados) */
+  .table {
+    font-size: 0.8rem;   /* un poco más grande */
+    min-width: unset;
+  }
+  
+  .table th,
+  .table td {
+    padding: 0.4rem 0.3rem;   /* más aire */
+    font-size: 0.75rem;
+    line-height: 1.3;
+  }
+  
+  .table th {
+    font-size: 0.7rem;
+    line-height: 1.2;
+    padding: 0.4rem 0.3rem;
+  }
+  
+  /* Ajustar columnas de rendimiento para mobile */
+  .table th:first-child,
+  .table td:first-child {
+    width: 40%;
+    text-align: left;
+    padding-left: 0.5rem;
+  }
+  
+  .table th:not(:first-child),
+  .table td:not(:first-child) {
+    width: auto;
+    padding: 0.4rem 0.2rem;
+  }
+  
+  /* Tabla de variación (más columnas) - Layout especial */
+  .orangeTable {
+    display: block;
+    overflow-x: visible;
+  }
+  
+  .orangeTable thead,
+  .orangeTable tbody,
+  .orangeTable th,
+  .orangeTable td,
+  .orangeTable tr {
+    display: block;
+  }
+  
+  .orangeTable thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  
+  .orangeTable tr {
+    border: 1px solid #ccc;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    background: white;
+    padding: 0.6rem;
+  }
+  
+  .orangeTable td {
+    display: flex;                 
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    padding: 0.5rem;
+    font-size: 0.75rem;
+    width: 100%;
+  }
+  
+  .orangeTable td:before {
+    content: attr(data-label) ": ";
+    color: #d97706;
+    font-weight: bold;
+    font-size: 0.75rem;
+    text-align: left;
+    margin-right: 1rem;
+    flex-shrink: 0;
+  }
+  
+  /* Tabla simple de rendimiento - más compacta pero legible */
+  .tableCard:nth-child(3) .table th:first-child,
+  .tableCard:nth-child(3) .table td:first-child {
+    width: 70%;
+    text-align: left;
+    padding-left: 0.5rem;
+  }
+  
+  .tableCard:nth-child(3) .table th:nth-child(2),
+  .tableCard:nth-child(3) .table td:nth-child(2) {
+    width: 20%;
+  }
+  
+  .tableCard:nth-child(3) .table th:nth-child(3),
+  .tableCard:nth-child(3) .table td:nth-child(3) {
+    width: 10%;
+    font-size: 0.65rem;
+  }
+  
+  .tableTitle,
+  .tableTitleOrange {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-bottom: 0.8rem;
+  }
+  
+  .notes {
+    font-size: 0.75rem;
+    padding: 0.9rem;
+  }
+  
+  .grid {
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 361px) and (max-width: 576px) {
+  /* Solo primeras tablas (silos aéreos y embolsados) */
+  .grid .table {
+    font-size: 0.7rem; /* achicamos un poco */
+  }
+
+  .grid .table th,
+  .grid .table td {
+    font-size: 0.6rem;
+    padding: 0.3rem 0.15rem; /* mantenemos padding vertical cómodo */
+  }
+
+  .grid .table th{
+    font-size: 0.5rem;
+  }
+}
+
+/* ---- AJUSTES PARA MÓVILES MUY PEQUEÑOS ---- */
+@media (max-width: 360px) {
+  .economicas {
+    padding: 0 0.5rem;
+  }
+  
+  .title {
+    font-size: 1.2rem;
+  }
+  
+  .tableCard {
+    padding: 0.5rem;
+  }
+  
+  .table th,
+  .table td {
+    padding: 0.3rem 0.2rem;
+    font-size: 0.65rem;
+  }
+  
+  .table th {
+    font-size: 0.5rem;
+  }
+  
+  .orangeTable td:before {
+    font-size: 0.65rem;
+  }
+
+
+}

@@ -1,0 +1,144 @@
+{
+  "servicios_ensilado": [
+    {
+      "id": "silos_aereos_maiz_sorgo",
+      "titulo": "Silos aéreos (maíz, sorgo)",
+      "tipo": "silo-aereo",
+      "cultivos": ["maíz", "sorgo"],
+      "rendimientos": {
+        "25": {
+          "costo_ton_mv": 31400.0,
+          "costo_ton_ms": 89714.3
+        },
+        "35": {
+          "costo_ton_mv": 26542.9,
+          "costo_ton_ms": 75836.7
+        },
+        "45": {
+          "costo_ton_mv": 23844.4,
+          "costo_ton_ms": 68127.0
+        },
+        "55": {
+          "costo_ton_mv": 22127.3,
+          "costo_ton_ms": 63220.8
+        },
+        "65": {
+          "costo_ton_mv": 20938.5,
+          "costo_ton_ms": 59824.2
+        }
+      }
+    },
+    {
+      "id": "silos_embolsados_maiz_sorgo",
+      "titulo": "Silos embolsados (maíz, sorgo)",
+      "tipo": "silo-embolsado", 
+      "cultivos": ["maíz", "sorgo"],
+      "rendimientos": {
+        "25": {
+          "costo_ton_mv": 34200.0,
+          "costo_ton_ms": 97714.3
+        },
+        "35": {
+          "costo_ton_mv": 29342.9,
+          "costo_ton_ms": 83836.7
+        },
+        "45": {
+          "costo_ton_mv": 26644.4,
+          "costo_ton_ms": 76127.0
+        },
+        "55": {
+          "costo_ton_mv": 24927.3,
+          "costo_ton_ms": 71220.8
+        },
+        "65": {
+          "costo_ton_mv": 23738.5,
+          "costo_ton_ms": 67824.2
+        }
+      }
+    }
+  ],
+  "ejemplo_detallado": {
+    "cultivo": "maíz",
+    "rendimiento_seleccionado": "45",
+    "costos_confeccion": {
+      "silo_aereo": {
+        "valor": 68127,
+        "unidad": "$/kg MS"
+      },
+      "silo_embolsado": {
+        "valor": 76127,
+        "unidad": "$/kg MS"
+      }
+    },
+    "costos_totales": {
+      "silo_aereo": {
+        "valor": 117949,
+        "unidad": "$/kg MS"
+      },
+      "silo_embolsado": {
+        "valor": 125949,
+        "unidad": "$/kg MS"
+      }
+    },
+    "tabla_detalle_aereo": {
+      "rendimientos": {
+        "25": {
+          "rinde_picado_ton_mv": 8.75,
+          "rinde_picado_ton_ms": 3.06,
+          "costo_ensilar_ha": 785000.0,
+          "costo_ensilar_ton_mv": 31400.0,
+          "costo_ensilar_ton_ms": 89714.3,
+          "costo_total_kg_ms": 139.395
+        },
+        "35": {
+          "rinde_picado_ton_mv": 12.25,
+          "rinde_picado_ton_ms": 4.28,
+          "costo_ensilar_ha": 929000.0,
+          "costo_ensilar_ton_mv": 26542.9,
+          "costo_ensilar_ton_ms": 75836.7,
+          "costo_total_kg_ms": 139.894
+        },
+        "45": {
+          "rinde_picado_ton_mv": 15.75,
+          "rinde_picado_ton_ms": 5.51,
+          "costo_ensilar_ha": 1073000.0,
+          "costo_ensilar_ton_mv": 23844.4,
+          "costo_ensilar_ton_ms": 68127.0,
+          "costo_total_kg_ms": 117.949
+        },
+        "55": {
+          "rinde_picado_ton_mv": 19.25,
+          "rinde_picado_ton_ms": 6.73,
+          "costo_ensilar_ha": 1217000.0,
+          "costo_ensilar_ton_mv": 22127.3,
+          "costo_ensilar_ton_ms": 63220.8,
+          "costo_total_kg_ms": 103.985
+        },
+        "65": {
+          "rinde_picado_ton_mv": 22.75,
+          "rinde_picado_ton_ms": 7.96,
+          "costo_ensilar_ha": 1361000.0,
+          "costo_ensilar_ton_mv": 20938.5,
+          "costo_ensilar_ton_ms": 59824.2,
+          "costo_total_kg_ms": 94.417
+        }
+      }
+    }
+  },
+  "metadata": {
+    "moneda": "ARS",
+    "fecha_actualizacion": "2025-09-02",
+    "descripcion": "Costos de ensilado según rendimiento por hectárea",
+    "unidades": {
+      "rendimiento": "Toneladas por hectárea",
+      "costo_ton_mv": "Pesos por tonelada de materia verde",
+      "costo_ton_ms": "Pesos por tonelada de materia seca",
+      "costo_total": "Pesos por kilogramo de materia seca"
+    },
+    "notas": {
+      "mv": "Materia Verde",
+      "ms": "Materia Seca",
+      "variacion_costos": "Los costos varían según el rendimiento por hectárea"
+    }
+  }
+}

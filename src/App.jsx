@@ -9,6 +9,7 @@ import Mapa from './pages/mapa.jsx';
 import JuntaDirectiva from './pages/JuntaDirectiva.jsx';
 import CACFInfo from './pages/mision-vision-valores.jsx';
 import Estadisticas from './pages/estadisticas.jsx';
+import TablaGeneral from './pages/TablaGeneral.jsx';
 
  export default function App() {
   return (
@@ -16,10 +17,8 @@ import Estadisticas from './pages/estadisticas.jsx';
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="socios" element={<Socios />} />
-        <Route path="areaEconomica"  element={<AreaEconomica 
-        url="https://ensiladores.com.ar/InfoSocios/SeccionEcoPrincipal.php"
-        tittle="Área Económica"/>} 
-        />
+        <Route path="TablaGeneral" element={<TablaGeneral />} />
+      
         <Route path='mapa' element={<Mapa 
         url="https://ensiladores.com.ar/InfoSocios/Maps/MapaSociosAgrupado.php"/>}
         />

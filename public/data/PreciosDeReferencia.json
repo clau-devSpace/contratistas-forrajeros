@@ -1,0 +1,53 @@
+{
+  "fecha":"Agosto 2025",
+
+  "servicios": [
+    {
+      "id": "silos_aereos_maiz_sorgo",
+      "titulo": "Silos aéreos (maíz, sorgo)",
+      "tipo": "silo-aereo",
+      "cultivos": ["maíz", "sorgo"],
+      "precios": {
+        "precio_base_ha": 425000,
+        "precio_tn_mv": 14400
+      }
+    },
+    {
+      "id": "silos_embolsados_maiz_sorgo", 
+      "titulo": "Silos embolsados (maíz, sorgo)",
+      "tipo": "silo-embolsado",
+      "cultivos": ["maíz", "sorgo"],
+      "precios": {
+        "precio_base_ha": 425000,
+        "precio_tn_mv": 17200
+      }
+    },
+    {
+      "id": "silos_aereos_alfalfa_verdeos",
+      "titulo": "Silos aéreos o embolsados (alfalfa, verdeos, pasturas)",
+      "tipo": "silo-mixto",
+      "cultivos": ["alfalfa", "verdeos", "pasturas"],
+      "precios": {
+        "precio_base_ha": 360000,
+        "precio_tn_mv": 16600
+      }
+    },
+    {
+      "id": "corte_segado_rastrillado",
+      "titulo": "Corte (segado) y rastrillado", 
+      "tipo": "corte-rastrillado",
+      "cultivos": ["forrajes"],
+      "precios": {
+        "precio_base_ha": 78000
+      }
+    }
+  ],
+  "metadata": {
+    "moneda": "ARS",
+    "fecha_actualizacion": "2025-09-02",
+    "unidades": {
+      "precio_base": "pesos por hectárea",
+      "precio_tn": "pesos por tonelada de materia verde"
+    }
+  }
+}

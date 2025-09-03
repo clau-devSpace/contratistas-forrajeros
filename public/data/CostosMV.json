@@ -1,0 +1,85 @@
+{
+  "servicio_transporte": {
+    "id": "transporte_picado",
+    "titulo": "Costo adicional al servicio de picado sobre los 1000mts de flete incluido en el precio",
+    "descripcion": "Toneladas de materia verde a transportar (sobre 1000mts incluidos)",
+    "tipo": "transporte-adicional",
+    "flete_incluido_metros": 1000,
+    "rendimientos_disponibles": ["25", "35", "45", "55", "65"],
+    "distancias_km": ["1", "2", "3", "4", "5", "6"],
+    "costos_por_distancia": {
+      "1": {
+        "25": 31275.0,
+        "35": 43785.0,
+        "45": 56295.0,
+        "55": 68805.0,
+        "65": 81315.0
+      },
+      "2": {
+        "25": 62550.0,
+        "35": 87570.0,
+        "45": 112590.0,
+        "55": 137610.0,
+        "65": 162630.0
+      },
+      "3": {
+        "25": 93825.0,
+        "35": 131355.0,
+        "45": 168885.0,
+        "55": 206415.0,
+        "65": 243945.0
+      },
+      "4": {
+        "25": 125100.0,
+        "35": 175140.0,
+        "45": 225180.0,
+        "55": 275220.0,
+        "65": 325260.0
+      },
+      "5": {
+        "25": 156375.0,
+        "35": 218925.0,
+        "45": 281475.0,
+        "55": 344025.0,
+        "65": 406575.0
+      },
+      "6": {
+        "25": 187650.0,
+        "35": 262710.0,
+        "45": 337770.0,
+        "55": 412830.0,
+        "65": 487890.0
+      }
+    },
+    "precio_gasoil": {
+      "valor": 1251000,
+      "unidad": "ARS",
+      "descripcion": "Precio de referencia del gasoil"
+    }
+  },
+  "calculadora_transporte": {
+    "formula": "costo = (rendimiento_tn_ha * km_adicionales * factor_base)",
+    "factor_base_por_tn_km": 1251.0,
+    "ejemplo_calculo": {
+      "rendimiento": "45 Tn/ha",
+      "distancia_adicional": "3 km",
+      "calculo": "45 Tn/ha × 3 km × 1251 = $168,885",
+      "resultado": 168885.0
+    }
+  },
+  "metadata": {
+    "moneda": "ARS",
+    "fecha_actualizacion": "2025-09-02",
+    "descripcion": "Costos adicionales de transporte para servicios de ensilado",
+    "unidades": {
+      "distancia": "kilómetros adicionales sobre los 1000m incluidos",
+      "rendimiento": "toneladas por hectárea",
+      "costo": "pesos argentinos"
+    },
+    "notas": {
+      "flete_incluido": "Los primeros 1000 metros están incluidos en el precio base",
+      "materia_verde": "Los costos se calculan sobre toneladas de materia verde",
+      "variable_gasoil": "Los costos están indexados al precio del gasoil"
+    }
+  }
+}
