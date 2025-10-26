@@ -6,14 +6,20 @@ import whatsappService from '../services/openWhatsapp';
 
 const SociosModal = ({ socioId, isOpen = false, onClose }) => {
   const [socioData, setSocioData] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const loadSocioData = async () => {
+      setLoading(true);
+      try {
         const response = await apiService.fetchSocioDetail(socioId);
         
         if (response.success && response.data) {
           setSocioData(response.data);
         }
+      } finally {
+        setLoading(false);
+      }
     };
 
     if (isOpen && socioId) {
@@ -53,7 +59,7 @@ const SociosModal = ({ socioId, isOpen = false, onClose }) => {
       // Restaurar scroll del body
       document.body.style.overflow = 'unset';
     };
-  }, [handleCloseModal, isOpen, socioData]);
+  }, [handleCloseModal, isOpen]);
 
   // Componente para mostrar equipamiento
   const EquipmentCard = ({ title, data, type }) => {
@@ -99,6 +105,14 @@ const SociosModal = ({ socioId, isOpen = false, onClose }) => {
     );
   };
 
+  // Componente del Spinner
+  const LoadingSpinner = () => (
+    <div className="spinner-container">
+      <div className="spinner"></div>
+      <p className="spinner-text">Cargando información...</p>
+    </div>
+  );
+
   // No renderizar nada si no está abierto
   if (!isOpen) {
     return null;
@@ -128,7 +142,9 @@ const SociosModal = ({ socioId, isOpen = false, onClose }) => {
         </div>
 
         <div className="modal-content">
-          {socioData && (
+          {loading ? (
+            <LoadingSpinner />
+          ) : socioData ? (
             <div className="modal-layout">
               {/* Información de Contacto - Ocupa toda la línea */}
               <div className="contact-section">
@@ -162,13 +178,13 @@ const SociosModal = ({ socioId, isOpen = false, onClose }) => {
                     {socioData?.datosBase.telefono_movil && (
                       <div className="contact-item">
                         <span className="contact-label">Teléfono:</span>
-                       <button 
-  onClick={() => whatsappService.openWhatsApp(socioData.datosBase.telefono_movil)}
-  className="contact-phone whatsapp-link"
-  style={{ background: 'none', border: 'none', color: 'inherit', textDecoration: 'underline', cursor: 'pointer' }}
->
-  {socioData.datosBase.telefono_movil}
-</button>
+                        <button 
+                          onClick={() => whatsappService.openWhatsApp(socioData.datosBase.telefono_movil)}
+                          className="contact-phone whatsapp-link"
+                          style={{ background: 'none', border: 'none', color: 'inherit', textDecoration: 'underline', cursor: 'pointer' }}
+                        >
+                          {socioData.datosBase.telefono_movil}
+                        </button>
                       </div>
                     )}
                     
@@ -254,7 +270,7 @@ const SociosModal = ({ socioId, isOpen = false, onClose }) => {
                 </div>
               )}
             </div>
-          )}
+          ) : null}
         </div>
       </div>
     </div>

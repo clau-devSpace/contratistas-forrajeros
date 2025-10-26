@@ -1,5 +1,5 @@
 import React from "react";
-import ImagenEstadisticas from '../assets/images/estadisticas ensilaje/estadisticas-ensilaje.jpg';
+import ImagenEstadisticas from '../assets/images/estadisticas ensilaje/CACF Estadísticas 24-25 Tablero de control.jpg';
 import styles from './estadisticas.module.css';
 
 export default function Estadisticas(){

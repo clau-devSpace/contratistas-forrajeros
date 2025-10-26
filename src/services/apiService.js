@@ -2,6 +2,9 @@ class ApiService {
   constructor() {
     this.baseUrl = 'https://ensiladores.com.ar/InfoSocios/API_Socios.php';
     this.detailUrl = 'https://ensiladores.com.ar/InfoSocios/API_Socios_Detalle.php';
+
+    //this.baseUrl = '/api/socios';
+    //this.detailUrl = '/api/socios-detalle';
     
     this.defaultHeaders = {
       'Content-Type': 'application/json',
@@ -38,6 +41,45 @@ class ApiService {
     }
   }
 
+  // NUEVO: Método optimizado para cargar todas las empresas una sola vez
+  async fetchAllEmpresas() {
+    this.log('fetchAllEmpresas called - loading all data once');
+    
+    try {
+      const response = await this.makeRequest(this.baseUrl);
+      console.log('📦 Raw API response:', response);
+
+      const empresas = Array.isArray(response) ? response : (response.empresas || response.data || []);
+      
+      this.log('✅ All empresas loaded:', empresas.length);
+      
+      return {
+        data: empresas,
+        total: empresas.length
+      };
+    } catch (error) {
+      this.log('Error fetching all empresas:', error);
+      throw error;
+    }
+  }
+
+  // NUEVO: Método auxiliar para filtrar empresas localmente
+  filterEmpresas(empresas, searchTerm) {
+    if (!searchTerm || !searchTerm.trim()) {
+      return empresas;
+    }
+    
+    const search = searchTerm.toLowerCase().trim();
+    return empresas.filter(empresa =>
+      (empresa.empresa && empresa.empresa.toLowerCase().includes(search)) ||
+      (empresa.contacto && empresa.contacto.toLowerCase().includes(search)) ||
+      (empresa.ciudad && empresa.ciudad.toLowerCase().includes(search)) ||
+      (empresa.provincia && empresa.provincia.toLowerCase().includes(search)) ||
+      (empresa.servicio && empresa.servicio.toLowerCase().includes(search))
+    );
+  }
+
+  // MANTENER: Por compatibilidad (pero ya no se usará en socios.jsx)
   async fetchEmpresas(params = {}) {
     this.log(`fetchEmpresas called with params:`, params);
 
@@ -45,7 +87,7 @@ class ApiService {
 
     try {
       const response = await this.makeRequest(this.baseUrl);
-      console.log('🔍 Raw API response:', response);
+      console.log('📦 Raw API response:', response);
 
       const empresas = Array.isArray(response) ? response : (response.empresas || response.data || []);
 
@@ -126,7 +168,7 @@ class ApiService {
         const cantKey = keys.find(k => k.startsWith('cant'));
         
         console.log(`🎯 Keys seleccionadas:`, { marcaKey, modeloKey, cantKey });
-        console.log(`🔍 Valores extraídos:`, { 
+        console.log(`📝 Valores extraídos:`, { 
           marca: item[marcaKey], 
           modelo: item[modeloKey], 
           cantidad: item[cantKey] 

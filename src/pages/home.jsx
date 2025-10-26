@@ -12,6 +12,7 @@ import Gallery from '../components/gallery';
 import Banner from '../assets/images/imagenes-secciones/banner_BLADE_791x80.gif';
 import carrusel12 from '../assets/images/imagenes-secciones/banner-carro-2019.gif';
 import carrusel13 from '../assets/images/imagenes-secciones/GreenPac_Banner_192x100.gif';
+import BannerPerotti from '../assets/images/imagenes-secciones/perotti2025.gif';
 
 
 const Home = () => {
@@ -104,6 +105,7 @@ const Home = () => {
           <img src={Banner} className={styles.bannerBlade} alt='Banner publicitario Blade' />
           <img src={carrusel12} className={styles.imagenBanner} alt='Banner publicitario'/>
           <img src={carrusel13} className={styles.imagenBanner} alt='Banner publicitario'/>
+          <img src={BannerPerotti} className={styles.imagenBanner} alt='Banner publicitario'/>
         </section>
 
         <section className={styles.agrinirContainer}>

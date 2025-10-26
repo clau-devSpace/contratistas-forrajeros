@@ -20,6 +20,8 @@ import Blade from '../assets/images/convenios/Blade.png';
 import Greenpac from '../assets/images/convenios/Greenpac.png';
 import Taraborelli from '../assets/images/convenios/Taraborelli.png';
 import Bernardin from '../assets/images/convenios/Bernardin.png';
+import NeumaticosDebona from '../assets/images/convenios/neumaticos-debona.jpeg';
+import Perotti from '../assets/images/convenios/Perotti.png';
 import Fondo from '../assets/images/imagenes-secciones/carrusel7.JPG';
 
 export default function Convenios() {
@@ -38,10 +40,11 @@ export default function Convenios() {
                 <img src={Canavesio} className={styles.imgConvenios}  alt="Convenio Canavesio" />
                 <img src={Claas} className={styles.imgConvenios} alt="Convenio CLAAS" />
                 <img src={CooperacionSeguros}  className={styles.imgConvenios} alt="Convenio Cooperación Seguros" />
+                <img src={NeumaticosDebona} className={styles.imgConvenios} alt='Convenio Neumaticos Debona'/>
                 <img src={Fliegl}  className={styles.imgConvenios} alt="Convenio Fliegl" />
                 <img src={Genofeed} className={styles.imgConvenios} alt="Convenio Genofeed" />
                 <img src={JohnDeere} className={styles.imgConvenios} alt="Convenio John Deere" />
-                <img src={Kuhn} className={styles.imgConvenios} alt="Convenio Kuhn" />
+                <img src={Perotti} className={styles.imgConvenios} alt="Convenio Perotti" />
                 <img src={NCH} className={styles.imgConvenios} alt="Convenio NCH" />
                 <img src={NewHolland} className={styles.imgConvenios}  alt="Convenio New Holland" />
                 <img src={Richiger} className={styles.imgConvenios}  alt="Convenio Richiger" />

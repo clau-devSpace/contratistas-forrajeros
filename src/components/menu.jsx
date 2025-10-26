@@ -89,7 +89,7 @@ const Menu = () => {
   const menuItems = [
     { id: 'nosotros', title: 'Nosotros', hasSubmenu: true, submenuItems: [
       { label: 'Misión, Visión y Valores', to: '/mision-vision-valores' },
-      { label: 'Junta Directiva', to: '/JuntaDirectiva' },
+      { label: 'Comisión Directiva', to: '/ComisionDirectiva' },
       { label: 'Quiero Asociarme', isMailto: true }, // Agregamos la propiedad isMailto
       { label: 'Contacto', to: '/contacto' }
     ] },
@@ -104,7 +104,7 @@ const Menu = () => {
       hasSubmenu: false, 
       to: '/mapa',
      },
-    { id: 'exclusivo', title: 'Exclusivo Socios', hasSubmenu: false, externalUrl: 'https://ensiladores.sistemacacf.com.ar/login.php' }
+    { id: 'exclusivo', title: 'Exclusivo Socios', hasSubmenu: false, externalUrl: 'https://ensiladores.com.ar/login.php' }
   ];
 
   return (
