@@ -66,10 +66,6 @@
 .serviciosContainer {
   border: 3px solid #2c4a6b;
   border-top: none;
-  background: white;
-}
-
-/* Cada servicio */
 .servicioCard {
   border-bottom: 3px solid #2c4a6b;
 }
@@ -234,4 +230,4 @@
   .precioValor {
     font-size: 0.9rem;
   }
-}
+}}
