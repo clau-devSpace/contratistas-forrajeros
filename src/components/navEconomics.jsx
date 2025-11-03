@@ -6,7 +6,9 @@ export default function NavEconomics({activeTab, setActiveTab}) {
   return (
     <div className={styles.container}>
       <nav className={styles.nav}>
-        <button
+         <h1>Área Económica</h1>
+         <div className={styles.containerButtons}>
+           <button
           className={`${styles.tab} ${activeTab === "reference" ? styles.active : ""}`}
           onClick={() => setActiveTab("reference")}
         >
@@ -30,8 +32,8 @@ export default function NavEconomics({activeTab, setActiveTab}) {
         >
           Costos Transporte MV
         </button>
+         </div>
       </nav>
-
     </div>
   );
 };
