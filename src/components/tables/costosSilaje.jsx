@@ -26,6 +26,7 @@ export default function CostosSilaje() {
   };
 
   const formatearPrecio = (precio) => {
+    if (precio === null || precio === undefined) return 'N/A';
     return `$${precio.toLocaleString('es-AR')}`;
   };
 
@@ -61,125 +62,123 @@ export default function CostosSilaje() {
 
   return (
     <>
-
-        <h2>Precios de Confección de Silos</h2>
-    <div className={styles.tabContent}>
-      {datosCompletos.confeccion_silos.map((cultivo) => {
-        const tiposSiloDisponibles = Object.keys(cultivo.tipos_silo);
-        
-        return (
-          <div key={cultivo.id} className={styles.tableCard}>
-            <div className={styles.tableTitle}>{cultivo.cultivo}</div>
-            <table>
-              <thead>
-                <tr>
-                  <th>Confección de Silo</th>
-                  {tiposSiloDisponibles.map(tipo => (
-                    <th key={tipo}>{tipo.charAt(0).toUpperCase() + tipo.slice(1)}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Precio básico</td>
-                  {tiposSiloDisponibles.map(tipo => (
-                    <td key={tipo}>
-                      {formatearPrecio(cultivo.tipos_silo[tipo].precio_basico)}
+      <h2>Precios de Confección de Silos</h2>
+      <div className={styles.tabContent}>
+        {datosCompletos.confeccion_silos.map((cultivo) => {
+          const tiposSiloDisponibles = Object.keys(cultivo.tipos_silo);
+          
+          return (
+            <div key={cultivo.id} className={styles.tableCard}>
+              <div className={styles.tableTitle}>{cultivo.cultivo}</div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Confección de Silo</th>
+                    {tiposSiloDisponibles.map(tipo => (
+                      <th key={tipo}>{tipo.charAt(0).toUpperCase() + tipo.slice(1)}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Precio básico</td>
+                    {tiposSiloDisponibles.map(tipo => (
+                      <td key={tipo}>
+                        {formatearPrecio(cultivo.tipos_silo[tipo]?.precio_basico)}
+                      </td>
+                    ))}
+                  </tr>
+                  <tr>
+                    <td>Precio por Ton.</td>
+                    {tiposSiloDisponibles.map(tipo => (
+                      <td key={tipo}>
+                        {formatearPrecio(cultivo.tipos_silo[tipo]?.precio_por_ton)}
+                      </td>
+                    ))}
+                  </tr>
+                  <tr className={styles.highlight}>
+                    <td>Precio por Ha.</td>
+                    {tiposSiloDisponibles.map(tipo => (
+                      <td key={tipo}>
+                        {formatearPrecio(cultivo.precio_por_ha?.[tipo])}
+                      </td>
+                    ))}
+                  </tr>
+                  <tr>
+                    <td colSpan={tiposSiloDisponibles.length + 1}>
+                      <strong>
+                        Costo $/ha de {cultivo.cultivo} 35%MS (Rinde estimado {cultivo.costo_ha?.rinde_estimado || 'N/A'})
+                      </strong>
                     </td>
-                  ))}
-                </tr>
-                <tr>
-                  <td>Precio por Ton.</td>
-                  {tiposSiloDisponibles.map(tipo => (
-                    <td key={tipo}>
-                      {formatearPrecio(cultivo.tipos_silo[tipo].precio_por_ton)}
+                  </tr>
+                  <tr>
+                    <td>Semilla</td>
+                    <td colSpan={tiposSiloDisponibles.length}>
+                      {formatearPrecio(cultivo.costos_cultivo?.semilla)}
                     </td>
-                  ))}
-                </tr>
-                <tr className={styles.highlight}>
-                  <td>Precio por Ha.</td>
-                  {tiposSiloDisponibles.map(tipo => (
-                    <td key={tipo}>
-                      {formatearPrecio(cultivo.precio_por_ha[tipo])}
+                  </tr>
+                  <tr>
+                    <td>Labranza + Fumigadas</td>
+                    <td colSpan={tiposSiloDisponibles.length}>
+                      {formatearPrecio(cultivo.costos_cultivo?.labranza_fumigadas)}
                     </td>
-                  ))}
-                </tr>
-                <tr>
-                  <td colSpan={tiposSiloDisponibles.length + 1}>
-                    <strong>
-                      Costo $/ha de {cultivo.cultivo} 35%MS (Rinde estimado {cultivo.costo_ha.rinde_estimado})
-                    </strong>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Semilla</td>
-                  <td colSpan={tiposSiloDisponibles.length}>
-                    {formatearPrecio(cultivo.costos_cultivo.semilla)}
-                  </td>
-                </tr>
-                <tr>
-                  <td>Labranza + Fumigadas</td>
-                  <td colSpan={tiposSiloDisponibles.length}>
-                    {formatearPrecio(cultivo.costos_cultivo.labranza_fumigadas)}
-                  </td>
-                </tr>
-                <tr>
-                  <td>Agroquímicos + Fertilizantes</td>
-                  <td colSpan={tiposSiloDisponibles.length}>
-                    {formatearPrecio(cultivo.costos_cultivo.agroquimicos_fertilizantes)}
-                  </td>
-                </tr>
-                <tr>
-                  <td>Alquiler de la tierra*</td>
-                  <td colSpan={tiposSiloDisponibles.length}>
-                    {formatearPrecio(cultivo.costos_cultivo.alquiler_tierra)}
-                  </td>
-                </tr>
-                <tr className={styles.total}>
-                  <td>Total Costo del Cultivo</td>
-                  <td colSpan={tiposSiloDisponibles.length}>
-                    {formatearPrecio(cultivo.costos_cultivo.total)}
-                  </td>
-                </tr>
-                <tr>
-                  <td>Costo de ensilaje x Tn MV</td>
-                  {tiposSiloDisponibles.map(tipo => (
-                    <td key={tipo}>
-                      {formatearPrecio(cultivo.costos_ensilaje.tn_mv[tipo])}
+                  </tr>
+                  <tr>
+                    <td>Agroquímicos + Fertilizantes</td>
+                    <td colSpan={tiposSiloDisponibles.length}>
+                      {formatearPrecio(cultivo.costos_cultivo?.agroquimicos_fertilizantes)}
                     </td>
-                  ))}
-                </tr>
-                <tr>
-                  <td>Costo de ensilaje x Tn MS</td>
-                  {tiposSiloDisponibles.map(tipo => (
-                    <td key={tipo}>
-                      {formatearPrecio(cultivo.costos_ensilaje.tn_ms[tipo])}
+                  </tr>
+                  <tr>
+                    <td>Alquiler de la tierra*</td>
+                    <td colSpan={tiposSiloDisponibles.length}>
+                      {formatearPrecio(cultivo.costos_cultivo?.alquiler_tierra)}
                     </td>
-                  ))}
-                </tr>
-                <tr>
-                  <td>Costo Total del silo x Tn MV</td>
-                  {tiposSiloDisponibles.map(tipo => (
-                    <td key={tipo}>
-                      {formatearPrecio(cultivo.costos_ensilaje.total_silo_tn_mv[tipo])}
+                  </tr>
+                  <tr className={styles.total}>
+                    <td>Total Costo del Cultivo</td>
+                    <td colSpan={tiposSiloDisponibles.length}>
+                      {formatearPrecio(cultivo.costos_cultivo?.total)}
                     </td>
-                  ))}
-                </tr>
-                <tr className={styles.total}>
-                  <td>Costo Total del silo x Tn MS</td>
-                  {tiposSiloDisponibles.map(tipo => (
-                    <td key={tipo}>
-                      {formatearPrecio(cultivo.costos_ensilaje.total_silo_tn_ms[tipo])}
-                    </td>
-                  ))}
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        );
-      })}
-    </div>
+                  </tr>
+                  <tr>
+                    <td>Costo de ensilaje x Tn MV</td>
+                    {tiposSiloDisponibles.map(tipo => (
+                      <td key={tipo}>
+                        {formatearPrecio(cultivo.costos_ensilaje?.tn_mv?.[tipo])}
+                      </td>
+                    ))}
+                  </tr>
+                  <tr>
+                    <td>Costo de ensilaje x Tn MS</td>
+                    {tiposSiloDisponibles.map(tipo => (
+                      <td key={tipo}>
+                        {formatearPrecio(cultivo.costos_ensilaje?.tn_ms?.[tipo])}
+                      </td>
+                    ))}
+                  </tr>
+                  <tr>
+                    <td>Costo Total del silo x Tn MV</td>
+                    {tiposSiloDisponibles.map(tipo => (
+                      <td key={tipo}>
+                        {formatearPrecio(cultivo.costos_ensilaje?.total_silo_tn_mv?.[tipo])}
+                      </td>
+                    ))}
+                  </tr>
+                  <tr className={styles.total}>
+                    <td>Costo Total del silo x Tn MS</td>
+                    {tiposSiloDisponibles.map(tipo => (
+                      <td key={tipo}>
+                        {formatearPrecio(cultivo.costos_ensilaje?.total_silo_tn_ms?.[tipo])}
+                      </td>
+                    ))}
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          );
+        })}
+      </div>
     </>
-
   );
 }

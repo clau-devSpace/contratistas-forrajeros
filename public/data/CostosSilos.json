@@ -71,11 +71,11 @@
         "embolsado": 1027000
       },
       "costos_cultivo": {
-        "semilla": 89424,
-        "labranza_fumigadas": 89424,
-        "agroquimicos_fertilizantes": 154560,
-        "alquiler_tierra": 194400,
-        "total": 493548
+        "semilla": 174432,
+        "labranza_fumigadas": 82800,
+        "agroquimicos_fertilizantes": 268272,
+        "alquiler_tierra": 259200,
+        "total": 784704
       },
       "costos_ensilaje": {
         "tn_mv": {
@@ -87,12 +87,12 @@
           "embolsado": 83837
         },
         "total_silo_tn_mv": {
-          "aereo": 40645,
-          "embolsado": 43445
+          "aereo": 48963,
+          "embolsado": 51763
         },
         "total_silo_tn_ms": {
-          "aereo": 116179,
-          "embolsado": 124129
+          "aereo": 139894,
+          "embolsado": 147894
         }
       }
     },
@@ -150,36 +150,36 @@
       "color": "#F44336",
       "costo_ha": {
         "rinde_estimado": "20Tn",
-        "valor": 692000
+        "valor": 1027000
       },
       "tipos_silo": {
         "embolsado": {
-          "precio_basico": 360000,
-          "precio_por_ton": 16600
+          "precio_basico": 425000,
+          "precio_por_ton": 17200
         }
       },
       "precio_por_ha": {
-        "embolsado": 692000
+        "embolsado": 1027000
       },
       "costos_cultivo": {
-        "semilla": 68448,
-        "labranza_fumigadas": 89424,
-        "agroquimicos_fertilizantes": 209760,
-        "alquiler_tierra": 194400,
-        "total": 562032
+        "semilla": 174432,
+        "labranza_fumigadas": 82800,
+        "agroquimicos_fertilizantes": 268272,
+        "alquiler_tierra": 259200,
+        "total": 784704
       },
       "costos_ensilaje": {
         "tn_mv": {
-          "embolsado": 34600
+          "embolsado": 29343
         },
         "tn_ms": {
-          "embolsado": 98857
+          "embolsado": 83837
         },
         "total_silo_tn_mv": {
-          "embolsado": 62702
+          "embolsado": 51763
         },
         "total_silo_tn_ms": {
-          "embolsado": 179147
+          "embolsado": 147894
         }
       }
     },
@@ -189,36 +189,36 @@
       "color": "#3F51B5",
       "costo_ha": {
         "rinde_estimado": "15Tn", 
-        "valor": 609000
+        "valor": 1027000
       },
       "tipos_silo": {
         "embolsado": {
-          "precio_basico": 360000,
-          "precio_por_ton": 16600
+          "precio_basico": 425000,
+          "precio_por_ton": 17200
         }
       },
       "precio_por_ha": {
-        "embolsado": 609000
+        "embolsado": 1027000
       },
       "costos_cultivo": {
-        "semilla": 66792,
-        "labranza_fumigadas": 124200,
-        "agroquimicos_fertilizantes": 11371,
-        "alquiler_tierra": 194400,
-        "total": 396763
+        "semilla": 174432,
+        "labranza_fumigadas": 82800,
+        "agroquimicos_fertilizantes": 268272,
+        "alquiler_tierra": 259200,
+        "total": 784704
       },
       "costos_ensilaje": {
         "tn_mv": {
-          "embolsado": 40600
+          "embolsado": 29343
         },
         "tn_ms": {
-          "embolsado": 116000
+          "embolsado": 83837
         },
         "total_silo_tn_mv": {
-          "embolsado": 67051
+          "embolsado": 51763
         },
         "total_silo_tn_ms": {
-          "embolsado": 191574
+          "embolsado": 147894
         }
       }
     },
@@ -228,43 +228,43 @@
       "color": "#795548",
       "costo_ha": {
         "rinde_estimado": "10Tn",
-        "valor": 526000
+        "valor": 1027000
       },
       "tipos_silo": {
         "embolsado": {
-          "precio_basico": 360000,
-          "precio_por_ton": 16600
+          "precio_basico": 425000,
+          "precio_por_ton": 17200
         }
       },
       "precio_por_ha": {
-        "embolsado": 526000
+        "embolsado": 1027000
       },
       "costos_cultivo": {
-        "semilla": 102672,
-        "labranza_fumigadas": 166593,
-        "agroquimicos_fertilizantes": 110620,
-        "alquiler_tierra": 194400,
-        "total": 148571
+        "semilla": 174432,
+        "labranza_fumigadas": 82800,
+        "agroquimicos_fertilizantes": 268272,
+        "alquiler_tierra": 259200,
+        "total": 784704
       },
       "costos_ensilaje": {
         "tn_mv": {
-          "embolsado": 52600
+          "embolsado": 29343
         },
         "tn_ms": {
-          "embolsado": 150286
+          "embolsado": 83837
         },
         "total_silo_tn_mv": {
-          "embolsado": 66957
+          "embolsado": 51763
         },
         "total_silo_tn_ms": {
-          "embolsado": 191306
+          "embolsado": 147894
         }
       }
     }
   ],
   "metadata": {
     "moneda": "ARS",
-    "fecha_actualizacion": "2025-09-02",
+    "fecha_actualizacion": "2025-11-03",
     "descripcion": "Costos de confección de silos para diferentes cultivos",
     "notas": {
       "precio_base": "Costo fijo por hectárea",

@@ -4,7 +4,7 @@
   padding: 0 1rem;
   min-height: 100vh;
   margin-bottom: 100px;
-  padding-top: 300px;
+  padding-top: 250px;
 }
 
 .title {
@@ -24,7 +24,6 @@
 .grid {
   display: grid;
   gap: 2rem;
-  margin-bottom: 2rem;
   grid-template-columns: 1fr;
 }
 
@@ -304,12 +303,16 @@
   }
   
   .grid {
-    gap: 1.5rem;
+    gap: 1rem;
   }
 }
 
 @media (min-width: 361px) and (max-width: 576px) {
   /* Solo primeras tablas (silos aéreos y embolsados) */
+
+  .grid {
+    gap: 0.8rem;
+  }
   .grid .table {
     font-size: 0.7rem; /* achicamos un poco */
   }
@@ -322,6 +325,10 @@
 
   .grid .table th{
     font-size: 0.5rem;
+  }
+
+  .tableCard {
+    padding: 0.3rem;
   }
 }
 
@@ -336,7 +343,7 @@
   }
   
   .tableCard {
-    padding: 0.5rem;
+    padding: 0.3rem;
   }
   
   .table th,

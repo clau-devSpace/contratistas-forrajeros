@@ -8,7 +8,7 @@
   margin-left: auto;
   margin-right: auto;
   min-height: 100vh;
-  padding-top: 300px;
+ 
 }
 
 .title {
@@ -30,6 +30,7 @@
 .tableWrapper {
   width: 100%;
   /* Removemos overflow-x: auto para eliminar el scroll horizontal */
+   padding-top: 200px;
 }
 
 .table {

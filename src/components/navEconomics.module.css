@@ -4,7 +4,7 @@
 .container {
   width: 100%;
   margin: 0 auto;
-  padding-top: 100px;
+  padding-top: 80px;
   display: flex;
   justify-content: center;
   background-color: #f1f1f1;
@@ -24,7 +24,9 @@
  display: flex;
  flex-wrap: wrap;
  gap: 0.75rem;
- padding-bottom: 50px;
+ padding-bottom: 30px;
+ align-items: center;
+ justify-content: center;
 }
 
 h1{
@@ -32,6 +34,7 @@ font-family: "Roboto Condensed", sans-serif;
 font-weight: 700;
 font-size: 43px;
 color: #212529;
+padding-bottom: 15px;
 }
 
 .tab {
@@ -48,8 +51,6 @@ color: #212529;
 }
 
 .tab:hover {
-  background: #f0f6ff; /* azul muy suave */
-  border-color: #cce0ff;
   transform: translateY(-2px);
 }
 
@@ -70,4 +71,34 @@ color: #212529;
   .tab {
     flex-shrink: 0;
   }
+}
+
+@media (max-width: 575px) {
+  .nav {
+    justify-content: center;
+    padding-bottom: 0.5rem;
+  }
+
+  .tab {
+    flex-shrink: 0;
+  }
+
+  h1 {
+    font-weight: 700;
+    font-size: 33px;
+  }
+
+
+.containerButtons{
+ gap: 0.5rem;
+ padding: 10px;
+}
+
+.tab {
+  padding: 0.3rem 0.9rem;
+}
+
+h1{
+padding-bottom: 8px;
+}
 }
