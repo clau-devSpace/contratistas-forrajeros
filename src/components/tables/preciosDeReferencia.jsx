@@ -42,7 +42,10 @@ export default function TablaPreciosServicio() {
     }).format(precio);
   };
 
-  if (loading) return <div>Cargando...</div>;
+  if (loading) return <div className="spinner-container">
+      <div className="spinner"></div>
+      <p className="spinner-text">Cargando información...</p>
+    </div>;
 
   return (
     <section className={styles.container}>
@@ -58,8 +61,8 @@ export default function TablaPreciosServicio() {
 
       {/* Título principal */}
       <div className={styles.tituloPrincipal}>
-        <h1>PRECIOS DE REFERENCIA DEL SERVICIO DE ENSILADO</h1>
-        <h3>
+        <p className={styles.tituloh1}>PRECIOS DE REFERENCIA DEL SERVICIO DE ENSILADO</p>
+        <h3 className={styles.dateh3}>
           {new Date()
             .toLocaleDateString("es-AR", {
               month: "long",

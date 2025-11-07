@@ -38,11 +38,10 @@ export default function CostosSilaje() {
 
   if (loading) {
     return (
-      <div className={styles.tabContent}>
-        <div className={styles.tableCard}>
-          <div>Cargando datos...</div>
-        </div>
-      </div>
+      <div className="spinner-container">
+      <div className="spinner"></div>
+      <p className="spinner-text">Cargando información...</p>
+    </div>
     );
   }
 

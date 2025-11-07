@@ -71,7 +71,7 @@ const Home = () => {
         <section className={styles.promoContainer}>
           <div className={`${styles.promoItems} ${styles.margenes}`}>
             <div className={styles.promoTexto}>
-              <h2 className={styles.congresoTitulo}>Primer Congreso Argentino de Forrajes</h2>
+              <p className={styles.congresoTitulo}>Primer Congreso Argentino de Forrajes</p>
               <p className={`${styles.promoDescripcion} ${styles.promoDescripcion1} animate-item`} data-animation="animate__fadeInDown">
                 2025 - Agosto 13, 14 y 15 - Córdoba
               </p>
@@ -150,7 +150,7 @@ const Home = () => {
             <div className={styles.frames}>
               <div className={styles.frames1}>
                 <img className={styles.imagenSocios} src={socios} alt="Socios CACF" />
-                <h2 className={styles.informacionUtilH2}>Beneficios de los Socios CACF</h2>
+                <p className={styles.informacionUtilH2}>Beneficios de los Socios CACF</p>
                 <p className={styles.informacionUtilP}>
                   Ser socio de la Cámara Argentina de Contratistas Forrajeros te brinda acceso exclusivo a herramientas, información y ventajas económicas; clave para potenciar tu crecimiento.
                 </p>
@@ -159,11 +159,11 @@ const Home = () => {
 
               <div className={styles.frames1}>
                 <Link className={styles.link} to= '/mapa'><img className={styles.mapa} src={mapa} alt="Mapa de socios" /></Link>
-                <h2 className={styles.informacionUtilH2}>
+                <p className={styles.informacionUtilH2}>
                   <Link className={styles.link} to='/mapa'>
                     Localizá a nuestros socios
                   </Link>
-                </h2>
+                </p>
                 <p className={`${styles.informacionUtilP} ${styles.verMapa}`}>
                   <Link className={styles.link} to='/mapa'> Ver mapa en pantalla completa</Link>
                 </p>

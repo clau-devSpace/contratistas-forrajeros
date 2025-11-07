@@ -22,6 +22,7 @@ import Taraborelli from '../assets/images/convenios/Taraborelli.png';
 import Bernardin from '../assets/images/convenios/Bernardin.png';
 import NeumaticosDebona from '../assets/images/convenios/neumaticos-debona.jpeg';
 import Perotti from '../assets/images/convenios/Perotti.png';
+import Oblan from '../assets/images/convenios/Oblan.png';
 import Fondo from '../assets/images/imagenes-secciones/carrusel7.JPG';
 
 export default function Convenios() {
@@ -29,9 +30,9 @@ export default function Convenios() {
         <>
          <header className={styles.headerConvenios} style={{backgroundImage: `url(${Fondo})`}}>
             <h1 className={styles.conveniossCACF}>Convenios CACF</h1>
-             <h2 className={styles.conveniosSubtitle}>
+             <p className={styles.conveniosSubtitle}>
                 Conocé todas las empresas con las que tenemos convenios especiales para nuestros socios
-              </h2>
+              </p>
         </header>
         <div className={styles.conveniosContainer}>
             
@@ -40,6 +41,7 @@ export default function Convenios() {
                 <img src={Canavesio} className={styles.imgConvenios}  alt="Convenio Canavesio" />
                 <img src={Claas} className={styles.imgConvenios} alt="Convenio CLAAS" />
                 <img src={CooperacionSeguros}  className={styles.imgConvenios} alt="Convenio Cooperación Seguros" />
+                <img src={Oblan}  className={styles.imgConvenios} alt="Convenio Oblan" />
                 <img src={NeumaticosDebona} className={styles.imgConvenios} alt='Convenio Neumaticos Debona'/>
                 <img src={Fliegl}  className={styles.imgConvenios} alt="Convenio Fliegl" />
                 <img src={Genofeed} className={styles.imgConvenios} alt="Convenio Genofeed" />

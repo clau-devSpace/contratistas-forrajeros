@@ -188,7 +188,7 @@ const ComisionDirectiva = () => {
         <div className={styles.staffHeroSection}>
           <div className={styles.sectionContent}>
             <div className={styles.staffSection}>
-              <h2 className={styles.sectionTitle}>Nuestro Staff</h2>
+              <p className={styles.sectionTitle}>Nuestro Staff</p>
               <div className={styles.staffGrid}>
                 {staff.map((member) => (
                   <StaffCard
@@ -221,9 +221,9 @@ const ComisionDirectiva = () => {
 
         <div className={styles.directivaSection}>
           <div className={styles.sectionContent}>
-            <h2 className={`${styles.sectionTitle} ${styles.extraPadding}`}>
+            <p className={`${styles.sectionTitle} ${styles.extraPadding}`}>
               Comisión Directiva
-            </h2>
+            </p>
             <div className={styles.staffGrid}>
               {directiva.map((member, index) => (
                 <StaffCard

@@ -94,10 +94,10 @@ const CACFInfo = () => {
           <div className={styles.sectionContent}>
             <div className={styles.sectionHeader}>
             {/*<p className={styles.slogan}>Beneficios CACF</p> */} 
-            <h2 className={`${styles.sectionTitle} ${styles.sectionTitleBeneficios}`}>
+            <p className={`${styles.sectionTitle} ${styles.sectionTitleBeneficios}`}>
               Beneficios de  
               Nuestros Socios
-            </h2>
+            </p>
             <img src={Prueba13} className={styles.imageSocios} alt='Socios con la bandera de New Holland, en el Campo' />
           </div>
             <div className={`${styles.benefitsGrid} ${styles.benefitsGrid2}`}>
