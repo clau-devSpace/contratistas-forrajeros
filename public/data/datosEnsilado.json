@@ -1,0 +1,74 @@
+{
+    "Silos aéreos (maíz, sorgo)": {
+      "referencia": ["25 Tn/ha", "35 Tn/ha", "45 Tn/ha", "55 Tn/ha", "65 Tn/ha"],
+      "costo_ton_mv": ["$ 34.400,","$ 29.085,7","$ 26.133,3","$ 24.254,5","$ 22.953,8"],
+      "costo_ton_ms": ["$ 98.285,7","$ 83.102,0","$ 74.666,7","$ 69.298,7","$ 65.582,4"]
+    },
+    "Silos embolsados (maíz, sorgo)": {
+      "referencia": ["25 Tn/ha", "35 Tn/ha", "45 Tn/ha", "55 Tn/ha", "65 Tn/ha"],
+      "costo_ton_mv": ["$ 37.450,0","$ 32.135,7","$ 29.183,3","$ 27.304,5","$ 26.003,8"],
+      "costo_ton_ms": ["$ 107.000,0","$ 91.816,3","$ 83.381,0","$ 78.013,0","$ 74.296,7"]
+    },
+    "Para un rendimiento de 45Tn (Maíz)": {
+      "costo_confeccion_silaje_aereo": {
+        "valor": "$ 74,667",
+        "unidad": "$ /kg MS"
+      },
+      "costo_confeccion_silaje_embolsado": {
+        "valor": "$ 83,381",
+        "unidad": "$ /kg MS"
+      },
+      "costo_total_silaje_aereo": {
+        "valor": "$ 154,989",
+        "unidad": "$ /kg MS"
+      },
+      "costo_total_silaje_embolsado": {
+        "valor": "$ 163,704",
+        "unidad": "$ /kg MS"
+      }
+    },
+    "variacion_costos_silo_aereo": {
+      "datos": [
+        {
+          "rinde_picado_ton_mv_ha": 25,
+          "rinde_picado_ton_ms_ha": 8.75,
+          "costo_ensilar_ha": "$ 860.000,0",
+          "costo_ensilar_ton_mv": "$ 34.400,0",
+          "costo_ensilar_ton_ms": "$ 98.285,7",
+          "costo_total_kg_ms": "$ 242,867"
+        },
+        {
+          "rinde_picado_ton_mv_ha": 35,
+          "rinde_picado_ton_ms_ha": 12.25,
+          "costo_ensilar_ha": "$ 1.018.000,0",
+          "costo_ensilar_ton_mv": "$ 29.085,7",
+          "costo_ensilar_ton_ms": "$ 83.102,0",
+          "costo_total_kg_ms": "$ 186,374"
+        },
+        {
+          "rinde_picado_ton_mv_ha": 45,
+          "rinde_picado_ton_ms_ha": 15.75,
+          "costo_ensilar_ha": "$ 1.176.000,0",
+          "costo_ensilar_ton_mv": "$ 26.133,3",
+          "costo_ensilar_ton_ms": "$ 74.666,7",
+          "costo_total_kg_ms": "$ 154,989"
+        },
+        {
+          "rinde_picado_ton_mv_ha": 55,
+          "rinde_picado_ton_ms_ha": 19.25,
+          "costo_ensilar_ha": "$ 1.334.000,0",
+          "costo_ensilar_ton_mv": "$ 24.254,5",
+          "costo_ensilar_ton_ms": "$ 69.298,7",
+          "costo_total_kg_ms": "$ 135,017"
+        },
+        {
+          "rinde_picado_ton_mv_ha": 65,
+          "rinde_picado_ton_ms_ha": 22.75,
+          "costo_ensilar_ha": "$ 1.492.000,0",
+          "costo_ensilar_ton_mv": "$ 22.953,8",
+          "costo_ensilar_ton_ms": "$ 65.582,4",
+          "costo_total_kg_ms": "$ 121,191"
+        }
+      ]
+    }
+  }

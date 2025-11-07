@@ -25,10 +25,6 @@ export default function CostosTransporte() {
     }
   };
 
-  const formatearPrecio = (precio) => {
-    return `$ ${precio.toLocaleString('es-AR')}`;
-  };
-
   if (loading) {
     return (
       <div className={styles.card}>
@@ -45,7 +41,7 @@ export default function CostosTransporte() {
     );
   }
 
-  if (!datosTransporte || !datosTransporte.servicio_transporte) {
+  if (!datosTransporte || !datosTransporte.costo_adicional_flete) {
     return (
       <div className={styles.card}>
         <div>No hay datos disponibles</div>
@@ -53,14 +49,14 @@ export default function CostosTransporte() {
     );
   }
 
-  const { servicio_transporte } = datosTransporte;
+  const { costo_adicional_flete } = datosTransporte;
 
   return (
     <div className={styles.card}>
       <h3 className={styles.title}>
-        {servicio_transporte.titulo.split(' sobre los')[0]}
+        Costo adicional de flete
         <span className={styles.subtitle}>
-          {' '}sobre los {servicio_transporte.flete_incluido_metros}mts de flete incluido en el precio
+          {' '}sobre los 1000mts de flete incluido en el precio
         </span>
       </h3>
 
@@ -69,18 +65,18 @@ export default function CostosTransporte() {
           <thead>
             <tr>
               <th>km</th>
-              {servicio_transporte.rendimientos_disponibles.map(rendimiento => (
-                <th key={rendimiento}>{rendimiento} Tn</th>
+              {costo_adicional_flete.toneladas_materia_verde.map(tonelada => (
+                <th key={tonelada}>{tonelada} Tn</th>
               ))}
             </tr>
           </thead>
           <tbody>
-            {servicio_transporte.distancias_km.map(distancia => (
-              <tr key={distancia}>
-                <td data-label="Distancia (km)">{distancia}</td>
-                {servicio_transporte.rendimientos_disponibles.map(rendimiento => (
-                  <td key={rendimiento} data-label={`${rendimiento} Tn`}>
-                    {formatearPrecio(servicio_transporte.costos_por_distancia[distancia][rendimiento])}
+            {costo_adicional_flete.costos_adicionales.map((fila, idx) => (
+              <tr key={fila.km}>
+                <td data-label="Distancia (km)">{fila.km}</td>
+                {fila.costos.map((costo, costoIdx) => (
+                  <td key={costoIdx} data-label={`${costo_adicional_flete.toneladas_materia_verde[costoIdx]} Tn`}>
+                    {costo}
                   </td>
                 ))}
               </tr>
@@ -91,7 +87,7 @@ export default function CostosTransporte() {
 
       <div className={styles.footer}>
         <span className={styles.highlight}>
-          Precio del Gasoil: <strong>{formatearPrecio(servicio_transporte.precio_gasoil.valor)}</strong>
+          Precio del Gasoil: <strong>{costo_adicional_flete.precio_gasoil}</strong>
         </span>
       </div>
     </div>

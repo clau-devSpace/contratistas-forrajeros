@@ -9,7 +9,6 @@ export default defineConfig({
         target: 'https://ensiladores.com.ar/InfoSocios',
         changeOrigin: true,
         rewrite: (path) => {
-          // Transformar /api/socios-detalle/57 → /API_Socios_Detalle.php/57
           const newPath = path.replace(/^\/api\/socios-detalle/, '/API_Socios_Detalle.php');
           console.log('🔄 Proxy detalle - Transformando:', path, '→', newPath);
           return newPath;
@@ -19,6 +18,24 @@ export default defineConfig({
         target: 'https://ensiladores.com.ar/InfoSocios/API_Socios.php/',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api\/socios/, ''),
+      },
+      '/api/eco-pf': {
+        target: 'https://ensiladores.com.ar/InfoSocios',
+        changeOrigin: true,
+        rewrite: (path) => {
+          const newPath = path.replace(/^\/api\/eco-pf/, '/API_EcoPF.php');
+          console.log('🔄 Proxy Eco PF - Transformando:', path, '→', newPath);
+          return newPath;
+        },
+      },
+      '/api/eco-cs': {
+        target: 'https://ensiladores.com.ar/InfoSocios',
+        changeOrigin: true,
+        rewrite: (path) => {
+          const newPath = path.replace(/^\/api\/eco-cs/, '/API_EcoCS.php');
+          console.log('🔄 Proxy Eco CS - Transformando:', path, '→', newPath);
+          return newPath;
+        },
       },
     },
   },

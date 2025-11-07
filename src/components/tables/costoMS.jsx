@@ -1,7 +1,59 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
+import { apiServiceEconomics } from '../../services/apiServiceEconomics';
 import styles from "./costoMS.module.css";
 
 export default function CostoMS() {
+  const [datosEnsilado, setDatosEnsilado] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    cargarDatos();
+  }, []);
+
+  const cargarDatos = async () => {
+    try {
+      setLoading(true);
+      const datos = await apiServiceEconomics.obtenerDatos('datosEnsilado');
+      setDatosEnsilado(datos);
+      setError(null);
+    } catch (err) {
+      console.error('Error al cargar datos:', err);
+      setError('Error al cargar los datos de ensilado');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (loading) {
+    return (
+      <section className={styles.economicas}>
+        <div>Cargando datos...</div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className={styles.economicas}>
+        <div>{error}</div>
+      </section>
+    );
+  }
+
+  if (!datosEnsilado) {
+    return (
+      <section className={styles.economicas}>
+        <div>No hay datos disponibles</div>
+      </section>
+    );
+  }
+
+  const silosAereos = datosEnsilado["Silos aéreos (maíz, sorgo)"];
+  const silosEmbolsados = datosEnsilado["Silos embolsados (maíz, sorgo)"];
+  const rendimiento45 = datosEnsilado["Para un rendimiento de 45Tn (Maíz)"];
+  const variacionCostos = datosEnsilado["variacion_costos_silo_aereo"].datos;
+
   return (
     <section className={styles.economicas}>
       <h2 className={styles.title}>
@@ -19,29 +71,23 @@ export default function CostoMS() {
             <thead>
               <tr>
                 <th>Referencia</th>
-                <th>25 Tn/ha</th>
-                <th>35 Tn/ha</th>
-                <th>45 Tn/ha</th>
-                <th>55 Tn/ha</th>
-                <th>65 Tn/ha</th>
+                {silosAereos.referencia.map((ref, idx) => (
+                  <th key={idx}>{ref}</th>
+                ))}
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>Costo Ton/MV</td>
-                <td>$31.400,0</td>
-                <td>$26.542,9</td>
-                <td>$23.844,4</td>
-                <td>$22.127,3</td>
-                <td>$20.938,5</td>
+                {silosAereos.costo_ton_mv.map((costo, idx) => (
+                  <td key={idx}>{costo}</td>
+                ))}
               </tr>
               <tr>
                 <td>Costo Ton MS</td>
-                <td>$89.714,3</td>
-                <td>$75.836,7</td>
-                <td>$68.127,0</td>
-                <td>$63.220,8</td>
-                <td>$59.824,2</td>
+                {silosAereos.costo_ton_ms.map((costo, idx) => (
+                  <td key={idx}>{costo}</td>
+                ))}
               </tr>
             </tbody>
           </table>
@@ -54,29 +100,23 @@ export default function CostoMS() {
             <thead>
               <tr>
                 <th>Referencia</th>
-                <th>25 Tn/ha</th>
-                <th>35 Tn/ha</th>
-                <th>45 Tn/ha</th>
-                <th>55 Tn/ha</th>
-                <th>65 Tn/ha</th>
+                {silosEmbolsados.referencia.map((ref, idx) => (
+                  <th key={idx}>{ref}</th>
+                ))}
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>Costo Ton/MV</td>
-                <td>$34.200,0</td>
-                <td>$29.342,9</td>
-                <td>$26.644,4</td>
-                <td>$24.927,3</td>
-                <td>$23.738,5</td>
+                {silosEmbolsados.costo_ton_mv.map((costo, idx) => (
+                  <td key={idx}>{costo}</td>
+                ))}
               </tr>
               <tr>
                 <td>Costo Ton MS</td>
-                <td>$97.714,3</td>
-                <td>$83.836,7</td>
-                <td>$76.127,0</td>
-                <td>$71.220,8</td>
-                <td>$67.824,2</td>
+                {silosEmbolsados.costo_ton_ms.map((costo, idx) => (
+                  <td key={idx}>{costo}</td>
+                ))}
               </tr>
             </tbody>
           </table>
@@ -90,23 +130,23 @@ export default function CostoMS() {
           <tbody>
             <tr>
               <td>Costo de confección del silaje aéreo:</td>
-              <td>$68,127</td>
-              <td>$/kg MS</td>
+              <td>{rendimiento45.costo_confeccion_silaje_aereo.valor}</td>
+              <td>{rendimiento45.costo_confeccion_silaje_aereo.unidad}</td>
             </tr>
             <tr>
               <td>Costo de confección del silaje embolsado:</td>
-              <td>$76,127</td>
-              <td>$/kg MS</td>
+              <td>{rendimiento45.costo_confeccion_silaje_embolsado.valor}</td>
+              <td>{rendimiento45.costo_confeccion_silaje_embolsado.unidad}</td>
             </tr>
             <tr className={styles.total}>
               <td>Costo total del silaje aéreo:</td>
-              <td>$117,949</td>
-              <td>$/kg MS</td>
+              <td>{rendimiento45.costo_total_silaje_aereo.valor}</td>
+              <td>{rendimiento45.costo_total_silaje_aereo.unidad}</td>
             </tr>
             <tr className={styles.total}>
               <td>Costo total del silaje embolsado:</td>
-              <td>$125,949</td>
-              <td>$/kg MS</td>
+              <td>{rendimiento45.costo_total_silaje_embolsado.valor}</td>
+              <td>{rendimiento45.costo_total_silaje_embolsado.unidad}</td>
             </tr>
           </tbody>
         </table>
@@ -129,46 +169,16 @@ export default function CostoMS() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td data-label="Rinde MV/ha">25</td>
-              <td data-label="Rinde MS/ha">8,75</td>
-              <td data-label="Costo $/ha">$785.000,0</td>
-              <td data-label="Costo $/ton MV">$31.400,0</td>
-              <td data-label="Costo $/ton MS">$89.714,3</td>
-              <td data-label="Costo total $/kg MS">$179,395</td>
-            </tr>
-            <tr>
-              <td data-label="Rinde MV/ha">35</td>
-              <td data-label="Rinde MS/ha">12,25</td>
-              <td data-label="Costo $/ha">$929.000,0</td>
-              <td data-label="Costo $/ton MV">$26.542,9</td>
-              <td data-label="Costo $/ton MS">$75.836,7</td>
-              <td data-label="Costo total $/kg MS">$139,894</td>
-            </tr>
-            <tr>
-              <td data-label="Rinde MV/ha">45</td>
-              <td data-label="Rinde MS/ha">15,75</td>
-              <td data-label="Costo $/ha">$1.073.000,0</td>
-              <td data-label="Costo $/ton MV">$23.844,4</td>
-              <td data-label="Costo $/ton MS">$68.127,0</td>
-              <td data-label="Costo total $/kg MS">$117,949</td>
-            </tr>
-            <tr>
-              <td data-label="Rinde MV/ha">55</td>
-              <td data-label="Rinde MS/ha">19,25</td>
-              <td data-label="Costo $/ha">$1.217.000,0</td>
-              <td data-label="Costo $/ton MV">$22.127,3</td>
-              <td data-label="Costo $/ton MS">$63.220,8</td>
-              <td data-label="Costo total $/kg MS">$103,985</td>
-            </tr>
-            <tr>
-              <td data-label="Rinde MV/ha">65</td>
-              <td data-label="Rinde MS/ha">22,75</td>
-              <td data-label="Costo $/ha">$1.361.000,0</td>
-              <td data-label="Costo $/ton MV">$20.938,5</td>
-              <td data-label="Costo $/ton MS">$59.824,2</td>
-              <td data-label="Costo total $/kg MS">$94,317</td>
-            </tr>
+            {variacionCostos.map((dato, idx) => (
+              <tr key={idx}>
+                <td data-label="Rinde MV/ha">{dato.rinde_picado_ton_mv_ha}</td>
+                <td data-label="Rinde MS/ha">{dato.rinde_picado_ton_ms_ha.toString().replace('.', ',')}</td>
+                <td data-label="Costo $/ha">{dato.costo_ensilar_ha}</td>
+                <td data-label="Costo $/ton MV">{dato.costo_ensilar_ton_mv}</td>
+                <td data-label="Costo $/ton MS">{dato.costo_ensilar_ton_ms}</td>
+                <td data-label="Costo total $/kg MS">{dato.costo_total_kg_ms}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
@@ -195,4 +205,4 @@ export default function CostoMS() {
       </div>
     </section>
   );
-};
+}
