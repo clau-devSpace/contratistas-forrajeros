@@ -13,6 +13,7 @@ import Banner from '../assets/images/imagenes-secciones/banner_BLADE_791x80.gif'
 import carrusel12 from '../assets/images/imagenes-secciones/banner-carro-2019.gif';
 import carrusel13 from '../assets/images/imagenes-secciones/GreenPac_Banner_192x100.gif';
 import BannerPerotti from '../assets/images/imagenes-secciones/perotti2025.gif';
+import MiniaturaConvenios from '../assets/images/imagenes-secciones/miniatura-convenios-2.png'
 
 
 const Home = () => {
@@ -101,13 +102,6 @@ const Home = () => {
           </div>
         </section>
 
-        <section className= {styles.bannerSection}>
-          <img src={Banner} className={styles.bannerBlade} alt='Banner publicitario Blade' />
-          <img src={carrusel12} className={styles.imagenBanner} alt='Banner publicitario'/>
-          <img src={carrusel13} className={styles.imagenBanner} alt='Banner publicitario'/>
-          <img src={BannerPerotti} className={styles.imagenBanner} alt='Banner publicitario'/>
-        </section>
-
         <section className={styles.agrinirContainer}>
           <div className={`${styles.margenes2} ${styles.agrinirItems}`}>
             <div className={styles.agrinir1}>
@@ -149,7 +143,7 @@ const Home = () => {
             </div>
             <div className={styles.frames}>
               <div className={styles.frames1}>
-                <img className={styles.imagenSocios} src={socios} alt="Socios CACF" />
+                <Link className={styles.link} to= '/convenios'><img className={styles.imagenSocios} src={MiniaturaConvenios} alt="Socios CACF" /></Link>
                 <p className={styles.informacionUtilH2}>Beneficios de los Socios CACF</p>
                 <p className={styles.informacionUtilP}>
                   Ser socio de la Cámara Argentina de Contratistas Forrajeros te brinda acceso exclusivo a herramientas, información y ventajas económicas; clave para potenciar tu crecimiento.

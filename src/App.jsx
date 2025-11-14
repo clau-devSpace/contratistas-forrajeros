@@ -10,6 +10,7 @@ import ComisionDirectiva from './pages/ComisionDirectiva.jsx';
 import CACFInfo from './pages/mision-vision-valores.jsx';
 import Estadisticas from './pages/estadisticas.jsx';
 import TablaGeneral from './pages/TablaGeneral.jsx';
+import Login from './pages/login.jsx';
 
  export default function App() {
   return (
@@ -26,6 +27,7 @@ import TablaGeneral from './pages/TablaGeneral.jsx';
          <Route path="contacto" element={<Contacto />} />
          <Route path="ComisionDirectiva" element={<ComisionDirectiva />} />
          <Route path="mision-vision-valores" element={<CACFInfo />} />
+         <Route path="login" element={<Login url="https://ensiladores.com.ar/login.php" />} />
       </Route>
     </Routes>
   );

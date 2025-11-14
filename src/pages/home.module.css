@@ -258,6 +258,7 @@ body {
     border-radius: 12px;
 }
 
+
 .lineaHorizontal3 {
     width: 550px;
     height: 1px;
@@ -292,7 +293,7 @@ body {
     width: 100%;
     box-sizing: border-box;
     background-color: #5a8a68;
-    margin-top: 30px;
+    /*margin-top: 30px;*/
 }
 
 .agrinir {
@@ -719,15 +720,19 @@ body {
 .mapa,
 .imagenSocios {
     width: 100%;
-    max-width: 550px;
+    width: 500px;
     height: 270px;
     object-fit: cover;
     box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1);
 }
 
+.imagenSocios{
+  object-fit: fill;
+}
+
 .link{
   text-decoration: none;
-  color: #0c51a6;
+  color: #212529;
 }
 
 .lineaHorizontal3 {

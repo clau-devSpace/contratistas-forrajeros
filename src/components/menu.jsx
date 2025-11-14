@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './menu.css';
 import logo from '../assets/images/logos/Group 5.svg';
-import imagen_menu from '../assets/images/imagenes-secciones/nueva-menu.png';
+import PicadoraLogo from '../assets/images/imagenes-secciones/picadora-logo-3.png';
 
 const Menu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -104,7 +104,11 @@ const Menu = () => {
       hasSubmenu: false, 
       to: '/mapa',
      },
-    { id: 'exclusivo', title: 'Exclusivo Socios', hasSubmenu: false, externalUrl: 'https://ensiladores.com.ar/login.php' }
+     { id: 'exclusivo',
+      title: 'Exclusivo Socios',
+      hasSubmenu: false, 
+      to: '/login',
+     }
   ];
 
   return (
@@ -288,7 +292,7 @@ const Menu = () => {
               ))}
           </div>
           <div className="menu-image-container">
-            <img className="menu-image" src={imagen_menu} alt="Menu Image" />
+            <img className="menu-image" src={PicadoraLogo} alt="Menu Image" />
           </div>
         </div>
       </div>
